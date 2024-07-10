@@ -1,0 +1,47 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>TYPE.cs</DefaultName>
+    <Name>VNC_IT_MVVM_Presentation_RESTAPI GET</Name>
+    <Description>VNC MVVM Presentation - TYPE and Main View and ViewModel for RESTApi GET Call</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$.cs"
+        ReplaceParameters="true">TYPE.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="$fileinputname$Main.xaml"
+        ReplaceParameters="true">TYPEMain.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Main.xaml.cs"
+        ReplaceParameters="true">TYPEMain.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$MainViewModel.cs"
+        ReplaceParameters="true">TYPEMainViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Module.cs"
+        ReplaceParameters="true">TYPEModule.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$ ReadMe.txt"
+        ReplaceParameters="true">TYPE ReadMe.txt</ProjectItem>
+
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

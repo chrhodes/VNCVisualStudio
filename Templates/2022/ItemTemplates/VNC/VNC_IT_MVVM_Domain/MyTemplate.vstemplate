@@ -1,0 +1,19 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>TYPE.cs</DefaultName>
+    <Name>VNC_IT_MVVM_Domain</Name>
+    <Description>Domain.TYPE Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">TYPE.cs</ProjectItem>
+  </TemplateContent>
+  
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

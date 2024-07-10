@@ -1,0 +1,18 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>XXX.xaml</DefaultName>
+    <Name>VNC_SupportTools_Visio_View</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>	
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Designer" TargetFileName="$fileinputname$.xaml" ReplaceParameters="true">XXX.xaml</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.xaml.cs" ReplaceParameters="true">XXX.xaml.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

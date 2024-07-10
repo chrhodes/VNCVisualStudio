@@ -1,0 +1,52 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_APPLICATION.Domain</Name>
+    <Description>Clean Architecture Domain Objects</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION.Domain.TYPE</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <ProjectTypeTag>VNCPT</ProjectTypeTag>
+  </TemplateData>
+
+  <TemplateContent>
+
+    <Project TargetFileName="APPLICATION.Domain.csproj" File="APPLICATION.Domain.TYPE.csproj" ReplaceParameters="true">
+
+      <Folder Name="Diagrams" TargetFolderName="Diagrams">
+        <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATION.Domain.cd">APPLICATION.Domain.cd</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+      </Folder>
+
+        <Folder Name="Lookups" TargetFolderName="Lookups">
+            <ProjectItem ReplaceParameters="true" TargetFileName="LookupTYPE.cs">LookupTYPE.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        </Folder>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPE.cs">TYPE.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEEmailAddress.cs">TYPEEmailAddress.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEPhoneNumber.cs">TYPEPhoneNumber.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="ITEM.cs">ITEM.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+
+    </Project>
+
+  </TemplateContent>
+
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

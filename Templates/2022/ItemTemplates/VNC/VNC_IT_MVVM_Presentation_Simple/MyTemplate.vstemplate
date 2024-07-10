@@ -1,0 +1,87 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>TYPE.cs</DefaultName>
+    <Name>VNC_IT_MVVM_Presentation_Simple</Name>
+    <Description>VNC MVVM Presentation - Main Views and ViewModels</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="I$fileinputname$DataService.cs"
+        ReplaceParameters="true">ITYPEDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="I$fileinputname$Main.cs"
+        ReplaceParameters="true">ITYPEMain.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="I$fileinputname$MainViewModel.cs"
+        ReplaceParameters="true">ITYPEMainViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$.cs"
+        ReplaceParameters="true">TYPE.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$DataService.cs"
+        ReplaceParameters="true">TYPEDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$DataServiceMock.cs"
+        ReplaceParameters="true">TYPEDataServiceMock.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$LookupDataService.cs"
+        ReplaceParameters="true">TYPELookupDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="$fileinputname$Main.xaml"
+        ReplaceParameters="true">TYPEMain.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Main.xaml.cs"
+        ReplaceParameters="true">TYPEMain.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$MainViewModel.cs"
+        ReplaceParameters="true">TYPEMainViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Module.cs"
+        ReplaceParameters="true">TYPEModule.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$ ReadMe.txt"
+        ReplaceParameters="true">TYPE ReadMe.txt</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$ServicesModule.cs"
+        ReplaceParameters="true">TYPEServicesModule.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Wrapper.cs"
+        ReplaceParameters="true">TYPEWrapper.cs</ProjectItem>
+
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

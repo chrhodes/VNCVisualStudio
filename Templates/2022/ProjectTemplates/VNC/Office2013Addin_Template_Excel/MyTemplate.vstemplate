@@ -1,0 +1,165 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Office2013Addin_Template_Excel</Name>
+    <Description>Office 2013 Addin Template Starter Kit for Excel</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Office2013Addin_Template_Excel</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="SupportTools_Excel.csproj" File="SupportTools_Excel.csproj" ReplaceParameters="true">
+      <Folder Name="Actions" TargetFolderName="Actions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Excel_FolderMaps.cs">Excel_FolderMaps.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Excel_PageFormatting.cs">Excel_PageFormatting.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Excel_TableOfContents.cs">Excel_TableOfContents.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
+      <Folder Name="Data" TargetFolderName="Data">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationDS.xsd">ApplicationDS.xsd</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationDS.cs">ApplicationDS.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationDS.Designer.cs">ApplicationDS.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ApplicationDS.xsc">ApplicationDS.xsc</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ApplicationDS.xss">ApplicationDS.xss</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Config.cs">Config.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DbInstanceList.xml">DbInstanceList.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ExcelMtreatyConfig.xml">ExcelMtreatyConfig.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MTreatyFileTypeList.xml">MTreatyFileTypeList.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SPSiteProvision.xml">SPSiteProvision.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="SupportTools_Config.xml">SupportTools_Config.xml</ProjectItem>
+      </Folder>
+      <Folder Name="Events" TargetFolderName="Events">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ExcelAppEvents.cs">ExcelAppEvents.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="licenses.licx">licenses.licx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <ProjectItem ReplaceParameters="false" TargetFileName="add footer.bmp">add footer.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="add header.bmp">add header.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="add header.bmp">vstg0001.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Auto-Debug-System_icon.gif">Auto-Debug-System_icon.gif</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Chart.bmp">Chart.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="folder map.bmp">folder map.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="format landscape.bmp">format landscape.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="format portrait.bmp">format portrait.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="group down all.bmp">group down all.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="group down all.bmp">vstg0002.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="group down.bmp">group down.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="protect sheets.bmp">protect sheets.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="search down.bmp">search down.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="search left.bmp">search left.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="search right.bmp">search right.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="search up.bmp">search up.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="table of contents.bmp">table of contents.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="ungroup selection.bmp">ungroup selection.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="unprotect sheets.bmp">unprotect sheets.bmp</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="WatchWindow.bmp">WatchWindow.bmp</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="SupportTools_Excel_1_TemporaryKey.pfx">SupportTools_Excel_1_TemporaryKey.pfx</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="SupportTools_Excel_TemporaryKey.pfx">SupportTools_Excel_TemporaryKey.pfx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.cs">ThisAddIn.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.Designer.xml">ThisAddIn.Designer.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.Designer.cs">ThisAddIn.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UDF.cs">UDF.cs</ProjectItem>
+      <Folder Name="User Interface" TargetFolderName="User Interface">
+        <Folder Name="Forms" TargetFolderName="Forms">
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmExcel_FolderMaps.cs">frmExcel_FolderMaps.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmExcel_FolderMaps.Designer.cs">frmExcel_FolderMaps.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmExcel_FolderMaps.resx">frmExcel_FolderMaps.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmITRDetail.cs">frmITRDetail.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmITRDetail.Designer.cs">frmITRDetail.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="frmITRDetail.resx">frmITRDetail.resx</ProjectItem>
+        </Folder>
+        <Folder Name="Ribbon" TargetFolderName="Ribbon">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.cs">Ribbon.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.designer.cs">Ribbon.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.resx">Ribbon.resx</ProjectItem>
+        </Folder>
+        <Folder Name="Task Panes" TargetFolderName="Task Panes">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ActiveDirectory.cs">TaskPane_ActiveDirectory.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ActiveDirectory.designer.cs">TaskPane_ActiveDirectory.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ActiveDirectory.resx">TaskPane_ActiveDirectory.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_AppUtil.cs">TaskPane_AppUtil.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_AppUtil.designer.cs">TaskPane_AppUtil.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_AppUtil.resx">TaskPane_AppUtil.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Config.cs">TaskPane_Config.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Config.Designer.cs">TaskPane_Config.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Config.resx">TaskPane_Config.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExaVault.cs">TaskPane_ExaVault.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExaVault.designer.cs">TaskPane_ExaVault.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExaVault.resx">TaskPane_ExaVault.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExcelUtil.cs">TaskPane_ExcelUtil.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExcelUtil.Designer.cs">TaskPane_ExcelUtil.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExcelUtil.resx">TaskPane_ExcelUtil.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Help.cs">TaskPane_Help.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Help.Designer.cs">TaskPane_Help.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Help.resx">TaskPane_Help.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LogParser.cs">TaskPane_LogParser.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LogParser.Designer.cs">TaskPane_LogParser.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LogParser.resx">TaskPane_LogParser.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LTC.cs">TaskPane_LTC.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LTC.designer.cs">TaskPane_LTC.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_LTC.resx">TaskPane_LTC.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_MTreaty.cs">TaskPane_MTreaty.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_MTreaty.designer.cs">TaskPane_MTreaty.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_MTreaty.resx">TaskPane_MTreaty.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_NetworkTrace.cs">TaskPane_NetworkTrace.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_NetworkTrace.Designer.cs">TaskPane_NetworkTrace.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_NetworkTrace.resx">TaskPane_NetworkTrace.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Rally.cs">TaskPane_Rally.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Rally.designer.cs">TaskPane_Rally.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Rally.resx">TaskPane_Rally.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Salesforce.cs">TaskPane_Salesforce.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Salesforce.designer.cs">TaskPane_Salesforce.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Salesforce.resx">TaskPane_Salesforce.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SharePoint.cs">TaskPane_SharePoint.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SharePoint.designer.cs">TaskPane_SharePoint.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SharePoint.resx">TaskPane_SharePoint.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SQLSMO.cs">TaskPane_SQLSMO.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SQLSMO.designer.cs">TaskPane_SQLSMO.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SQLSMO.resx">TaskPane_SQLSMO.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_TFS.cs">TaskPane_TFS.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_TFS.designer.cs">TaskPane_TFS.designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_TFS.resx">TaskPane_TFS.resx</ProjectItem>
+        </Folder>
+        <Folder Name="User Controls" TargetFolderName="User Controls">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExaVault_WPF.xaml">TaskPane_ExaVault_WPF.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_ExaVault_WPF.xaml.cs">TaskPane_ExaVault_WPF.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Rally_WPF.xaml">TaskPane_Rally_WPF.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Rally_WPF.xaml.cs">TaskPane_Rally_WPF.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Salesforce_WPF.xaml">TaskPane_Salesforce_WPF.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_Salesforce_WPF.xaml.cs">TaskPane_Salesforce_WPF.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SharePoint_WPF.xaml">TaskPane_SharePoint_WPF.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_SharePoint_WPF.xaml.cs">TaskPane_SharePoint_WPF.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_TFS_WPF.xaml">TaskPane_TFS_WPF.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TaskPane_TFS_WPF.xaml.cs">TaskPane_TFS_WPF.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucDBInstanceList.cs">ucDBInstanceList.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucDBInstanceList.Designer.cs">ucDBInstanceList.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucDBInstanceList.resx">ucDBInstanceList.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucEnvironmentList.cs">ucEnvironmentList.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucEnvironmentList.Designer.cs">ucEnvironmentList.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucEnvironmentList.resx">ucEnvironmentList.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucFileTypeList.cs">ucFileTypeList.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucFileTypeList.Designer.cs">ucFileTypeList.Designer.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ucFileTypeList.resx">ucFileTypeList.resx</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="UserControl1.xaml">UserControl1.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="UserControl1.xaml.cs">UserControl1.xaml.cs</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

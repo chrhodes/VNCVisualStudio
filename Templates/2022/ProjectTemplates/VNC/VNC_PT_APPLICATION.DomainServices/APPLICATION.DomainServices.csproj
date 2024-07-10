@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0-windows</TargetFrameworks>
+        <OutputType>WinExe</OutputType>
+        <UseWPF>true</UseWPF>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>indevelopment-1</VersionSuffix>
+        <FileVersion>YYYY.MM.DDA</FileVersion>
+        <Company>VNC</Company>
+        <Description>describe application</Description>        
+    </PropertyGroup>
+  
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Wpf.Core" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.Core.Extensions" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.Docking" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.Grid" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.LayoutControl" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.NavBar" Version="22.1.3" />
+        <PackageReference Include="DevExpress.Wpf.Ribbon" Version="22.1.3" />
+        <PackageReference Include="EntityFramework" Version="6.5.1" />
+        <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\$xxxAPPLICATIONxxx$.Core\$xxxAPPLICATIONxxx$.Core.csproj" />  
+        <ProjectReference Include="..\$xxxAPPLICATIONxxx$.Domain.$xxxTYPExxx$\$xxxAPPLICATIONxxx$.Domain.$xxxTYPExxx$.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
+        <Reference Include="System.Web" />
+    </ItemGroup>
+    
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>    
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
+      <!-- Uncoment next line to switch to ProjectReference(s) -->
+      <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.WPF.Presentation.Dx\VNC.WPF.Presentation.Dx.csproj" />
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.WPF.Presentation\VNC.WPF.Presentation.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="2.1.6" />
+                <PackageReference Include="VNC.WPF.Presentation" Version="2.1.1" />
+                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="2.1.1" />
+            </ItemGroup>
+        </When>
+    </Choose>    
+
+</Project>

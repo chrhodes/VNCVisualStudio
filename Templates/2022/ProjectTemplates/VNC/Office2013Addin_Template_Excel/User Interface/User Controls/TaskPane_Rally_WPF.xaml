@@ -1,0 +1,85 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:vncSPuiuc="clr-namespace:VNC.SP.User_Interface.User_Controls;assembly=VNC.SPHelper"
+    xmlns:vncTFSuiuc="clr-namespace:VNC.TFS.User_Interface.User_Controls;assembly=VNC.TFSHelper" 
+    x:Class="$safeprojectname$.User_Interface.User_Controls.TaskPane_Rally_WPF"
+    mc:Ignorable="d" Loaded="UserControl_Loaded" >
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="White">
+        <dxlc:LayoutItem 
+            Label="Select TFS Server" 
+            LabelPosition="Top">
+            <vncTFSuiuc:wucTFSProvider_Picker x:Name="wucTFSProvider_Picker" />
+        </dxlc:LayoutItem>
+        
+        <dxlc:LayoutItem 
+            Label="Select Team Project Collection" 
+            LabelPosition="Top">
+            <dxe:ComboBoxEdit x:Name="cbeTeamProjectCollections"
+                SelectedIndexChanged="cbeTeamProjectCollections_SelectedIndexChanged">
+                <dxe:ComboBoxEdit.StyleSettings>
+                    <dxe:CheckedComboBoxStyleSettings />
+                </dxe:ComboBoxEdit.StyleSettings>
+            </dxe:ComboBoxEdit>            
+        </dxlc:LayoutItem>
+        
+        <dxlc:LayoutGroup 
+            Header="Some Actions"
+            View="GroupBox"
+            Orientation="Vertical" VerticalAlignment="Top"
+            IsCollapsible="True"  IsCollapsed="False">
+        
+            <dxlc:LayoutItem>
+                <Button x:Name="btnDo_Something" 
+				    Content="Do Something" Click="btnDo_Something_Click" 
+                    ToolTip="Do Something ToolTip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LabelFor">
+                <dxe:TextEdit x:Name="teLabelFor" 
+                              ToolTip="LabelFor Tooltip."
+                              MouseDoubleClick="teLabelFor_MouseDoubleClick"/>
+            </dxlc:LayoutItem>            
+
+            <dxlc:LayoutItem Label="Select Something" 
+                             LabelPosition="Top">
+                <dxe:ComboBoxEdit x:Name="cbeSomethings">
+                    <dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:CheckedComboBoxStyleSettings />
+                    </dxe:ComboBoxEdit.StyleSettings>
+                </dxe:ComboBoxEdit>
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            Header="Other Actions"
+            View="GroupBox"
+            Orientation="Vertical" VerticalAlignment="Top"
+            IsCollapsible="True"  IsCollapsed="False">
+                
+            <dxlc:LayoutItem>
+                <vncTFSuiuc:wucTFSQuery_Picker />
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            Header="Misc Stuff"
+            View="GroupBox"
+            Orientation="Vertical" VerticalAlignment="Top"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem>
+                <dxe:CheckEdit x:Name="cbOrientOutputVertically"
+                    Content="Orient Output Vertically" 
+                    IsChecked="True"/>
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+</UserControl>

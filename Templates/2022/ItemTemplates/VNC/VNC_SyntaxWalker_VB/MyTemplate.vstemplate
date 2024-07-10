@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>VNC_VB_SyntaxWalker.cs</DefaultName>
+    <Name>VNC_VB_SyntaxWalker</Name>
+    <Description>VNC VB SyntaxWalker template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">AssignmentStatement.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

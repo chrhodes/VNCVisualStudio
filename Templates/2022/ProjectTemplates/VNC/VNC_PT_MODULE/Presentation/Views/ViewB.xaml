@@ -1,0 +1,76 @@
+﻿<vnccore:ViewBase
+    x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.ViewB"
+    x:Name="thisControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
+    xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
+
+    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation" 
+
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Background="{StaticResource ViewBBackground}"
+
+    d:DesignWidth="200" d:DesignHeight="125"
+    d:DesignStyle="{StaticResource vncDesignStyleUC}"
+>
+    <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
+    <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="UserControl"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+
+    <!-- d:DesignWidth="400" d:DesignHeight="400" -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="ViewB - AutoWireViewModel=False" />
+            <TextBlock Text="No DataContext set in View" />
+            <TextBlock Text="{Binding Message}" />
+            <TextBlock Text="{Binding MessageB}" />
+            <TextBlock Text="{Binding ViewMessage}" />
+            <TextBlock x:Name="tbViewMessage"  Text="{Binding ViewMessage}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"  Orientation="Horizontal"
+                Visibility="{Binding DeveloperUIMode, 
+                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+            <!-- Use Visibility="{Binding DeveloperModeUI} to use View property -->
+
+            <!-- This is useful for debugging V VM constructor issues -->
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="V:" />
+                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="VP:" />
+                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="VM:" />
+                <Label Content="{Binding InstanceCountVM}" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+
+</vnccore:ViewBase>

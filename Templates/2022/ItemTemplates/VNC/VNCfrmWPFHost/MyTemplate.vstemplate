@@ -1,0 +1,18 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>VNCfrmWPFHost.cs</DefaultName>
+    <Name>VNCfrmWPFHost</Name>
+    <Description>Windows Form Host for WPF User Control.  Use  with VNCwucXXXOfficeAddin</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>	
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Form" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">frmRenamePages.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.Designer.cs" ReplaceParameters="true">frmRenamePages.Designer.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0-windows</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>indevelopment-1</VersionSuffix>
+        <FileVersion>YYYY.MM.DDA</FileVersion>
+        <Company>VNC</Company>
+        <Description>describe assembly</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Prism.Core" Version="8.1.97" />
+    </ItemGroup>
+    
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
+      <!-- Uncoment next line to switch to ProjectReference(s) -->
+      <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="2.1.7" />
+            </ItemGroup>
+        </When>
+    </Choose>      
+    
+</Project>

@@ -1,0 +1,43 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>VNC_ST_APPLICATION_PrismDxWPF_EFX</Name>
+    <Description>Clean Architecture WPF Application using Prism, DevExpress, and Entity Framework.  Produces Application, Core, and Domain Projects.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <ProjectTypeTag>VNCST</ProjectTypeTag>
+  </TemplateData>
+
+  <TemplateContent>
+
+    <ProjectCollection>
+    
+        <ProjectTemplateLink ProjectName="APPLICATION.Core" >
+            VNC_PT_APPLICATION.Core_EF\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+
+        <ProjectTemplateLink ProjectName="APPLICATION.Domain" >
+            VNC_PT_APPLICATION.Domain\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+
+        <ProjectTemplateLink ProjectName="APPLICATION" >
+            VNC_PT_APPLICATION_PrismDxWPF_EF\MyTemplate.vstemplate
+        </ProjectTemplateLink>
+      
+    </ProjectCollection>
+
+  </TemplateContent>
+
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

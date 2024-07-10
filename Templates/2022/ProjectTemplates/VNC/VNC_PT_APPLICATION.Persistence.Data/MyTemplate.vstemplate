@@ -1,0 +1,40 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_APPLICATION.Persistence.Data</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION.Persistence.Data</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>	
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="APPLICATION.Persistence.Data.csproj" File="APPLICATION.Persistence.Data.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseService.cs">DatabaseService.cs</ProjectItem>
+      <Folder Name="Interfaces" TargetFolderName="Interfaces">
+        <ProjectItem ReplaceParameters="true" TargetFileName="IAPPLICATIONDbContext.cs">IAPPLICATIONDbContext.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Migrations" TargetFolderName="Migrations">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContext.cs">APPLICATIONDbContext.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContextDatabaseInitializer.cs">APPLICATIONDbContextDatabaseInitializer.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

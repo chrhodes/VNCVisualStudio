@@ -1,0 +1,18 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>VNCwucVisioAction.xaml</DefaultName>
+    <Name>VNCwucVisioAction</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+	<LanguageTag>CSharp</LanguageTag>
+	<PlatformTag>Windows</PlatformTag>
+	<ProjectTypeTag>VNC</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Designer" CustomTool="MSBuild:Compile" ReplaceParameters="true">EditText.xaml</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">EditText.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

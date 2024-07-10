@@ -1,0 +1,149 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>TYPE.cs</DefaultName>
+    <Name>VNC_IT_MVVM_All</Name>
+    <Description>VNC MVVM Item Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem
+        SubType=""
+        TargetFileName="After$fileinputname$SavedEvent.cs"
+        ReplaceParameters="true">AfterTYPESavedEvent.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="After$fileinputname$SavedEventArgs.cs"
+        ReplaceParameters="true">AfterTYPESavedEventArgs.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEM.cs"
+        ReplaceParameters="true">ITEM.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDataService.cs"
+        ReplaceParameters="true">ITEMDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDataServiceMock.cs"
+        ReplaceParameters="true">ITEMDataServiceMock.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="ITEMDetail.xaml"
+        ReplaceParameters="true">ITEMDetail.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDetail.xaml.cs"
+        ReplaceParameters="true">ITEMDetail.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMDetailViewModel.cs"
+        ReplaceParameters="true">ITEMDetailViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="ITEMLookupDataService.cs"
+        ReplaceParameters="true">ITEMLookupDataService.cs</ProjectItem>
+        
+    <ProjectItem
+        SubType=""
+        TargetFileName="Open$fileinputname$DetailViewEvent.cs"
+        ReplaceParameters="true">OpenTYPEDetailViewEvent.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$.cs"
+        ReplaceParameters="true">TYPE.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$DataService.cs"
+        ReplaceParameters="true">TYPEDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$DataServiceMock.cs"
+        ReplaceParameters="true">TYPEDataServiceMock.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="$fileinputname$Detail.xaml"
+        ReplaceParameters="true">TYPEDetail.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Detail.xaml.cs"
+        ReplaceParameters="true">TYPEDetail.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$DetailViewModel.cs"
+        ReplaceParameters="true">TYPEDetailViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$LookupDataService.cs"
+        ReplaceParameters="true">TYPELookupDataService.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="$fileinputname$Main.xaml"
+        ReplaceParameters="true">TYPEMain.xaml</ProjectItem>
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Main.xaml.cs"
+        ReplaceParameters="true">TYPEMain.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$MainViewModel.cs"
+        ReplaceParameters="true">TYPEMainViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Module.cs"
+        ReplaceParameters="true">TYPEModule.cs</ProjectItem>
+
+    <ProjectItem
+        SubType="Designer"
+        TargetFileName="$fileinputname$Navigation.xaml"
+        ReplaceParameters="true">TYPENavigation.xaml</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Navigation.xaml.cs"
+        ReplaceParameters="true">TYPENavigation.xaml.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$NavigationViewModel.cs"
+        ReplaceParameters="true">TYPENavigationViewModel.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$ ReadMe.txt"
+        ReplaceParameters="true">TYPE ReadMe.txt</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$ServicesModule.cs"
+        ReplaceParameters="true">TYPEServicesModule.cs</ProjectItem>
+
+    <ProjectItem
+        SubType=""
+        TargetFileName="$fileinputname$Wrapper.cs"
+        ReplaceParameters="true">TYPEWrapper.cs</ProjectItem>
+
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

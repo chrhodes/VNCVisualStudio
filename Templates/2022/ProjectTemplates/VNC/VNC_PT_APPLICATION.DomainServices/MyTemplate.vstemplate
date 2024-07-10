@@ -1,0 +1,53 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_APPLICATION.DomainServices</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>APPLICATION.DomainServices</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <ProjectTypeTag>VNCPT</ProjectTypeTag>
+  </TemplateData>
+
+  <TemplateContent>
+
+    <Project TargetFileName="APPLICATION.DomainServices.csproj" File="APPLICATION.DomainServices.csproj" ReplaceParameters="true">
+
+        <Folder Name="Diagrams" TargetFolderName="Diagrams">
+            <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATION.DomainServices.cd">APPLICATION.DomainServices.cd</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        </Folder>
+
+        <Folder Name="ServicesMock" TargetFolderName="ServicesMock">
+            <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataServiceMock.cs">TYPEDataServiceMock.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        </Folder>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataService.cs">TYPEDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TYPELookupDataService.cs">TYPELookupDataService.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDataService.cs">ITEMDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ITEMLookupDataService.cs">ITEMLookupDataService.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONServicesModule.cs">APPLICATIONServicesModule.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+      
+    </Project>
+
+  </TemplateContent>
+
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

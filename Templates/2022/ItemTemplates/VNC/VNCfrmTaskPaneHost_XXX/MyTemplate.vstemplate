@@ -1,0 +1,16 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>VNCfrmTaskPaneHost_XXX.cs</DefaultName>
+    <Name>VNCfrmTaskPaneHost_XXX</Name>
+    <Description>Simple form to host a WPF User Control</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Form" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">frmTFSHost.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.Designer.cs" ReplaceParameters="true">frmTFSHost.Designer.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.resx" ReplaceParameters="true">frmTFSHost.resx</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
