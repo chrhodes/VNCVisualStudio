@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VNC")]
 [assembly: AssemblyProduct("VNCVSProjectWizard")]
-[assembly: AssemblyCopyright("VNC © 2020-2023")]
+[assembly: AssemblyCopyright("VNC © 2020-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -60,4 +60,4 @@ using System.Runtime.InteropServices;
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2023.06.29A")]
+[assembly: AssemblyInformationalVersion("2024.07.13A")]
