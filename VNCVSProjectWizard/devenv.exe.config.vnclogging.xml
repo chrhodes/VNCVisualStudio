@@ -1,11 +1,10 @@
 
     <configSections>
-	  <section
-		  name="loggingConfiguration"
-		  type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings,
+      <section
+          name="loggingConfiguration"
+          type="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings,
                 Microsoft.Practices.EnterpriseLibrary.Logging, 
-				Version=6.0.0.0, Culture=neutral, 
-				PublicKeyToken=d702d1a3426498a0" />
+                Version=6.0.0.0, Culture=neutral, PublicKeyToken=d702d1a3426498a0" />
 
   <loggingConfiguration
       name="Logging Application Block"
