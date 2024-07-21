@@ -16,7 +16,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 
         [StringLength(50), Required]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
 
         #region IModificationHistory

@@ -1,6 +1,6 @@
 ﻿using VNC.Core.DomainServices;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain.Lookups
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain.Lookups
 {
     public class Lookup$xxxTYPExxx$ : ILookupItem<int>
     {

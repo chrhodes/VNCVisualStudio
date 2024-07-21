@@ -1,6 +1,7 @@
 using System;
-using System.Data.Entity;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;
@@ -19,9 +20,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         public $xxxITEMxxx$DataService($xxxAPPLICATIONxxx$DbContext context)
             : base(context)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -50,12 +52,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         public async Task<bool> IsReferencedBy$xxxTYPExxx$Async(int id)
         {
-            Int64 startTicks = Log.DOMAINSERVICES("($xxxITEMxxx$DataService) Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.DomainServices) startTicks = Log.DOMAINSERVICES("($xxxITEMxxx$DataService) Enter", Common.LOG_CATEGORY);
 
             var result = await Context.$xxxTYPExxx$sSet.AsNoTracking()
                 .AnyAsync(f => f.Favorite$xxxITEMxxx$Id == id);
 
-            Log.DOMAINSERVICES("($xxxITEMxxx$DataService) Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.DomainServices)Log.DOMAINSERVICES("($xxxITEMxxx$DataService) Exit", Common.LOG_CATEGORY, startTicks);
 
             return result;
         }

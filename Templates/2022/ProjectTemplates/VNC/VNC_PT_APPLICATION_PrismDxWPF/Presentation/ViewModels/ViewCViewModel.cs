@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class ViewCViewModel : EventViewModelBase, IViewCViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public ViewCViewModel(
@@ -30,6 +29,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -40,10 +41,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             Message = "ViewCViewModel says hello";
             MessageC = "ViewCViewModel says hello C";
@@ -64,7 +64,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Fields and Properties
-        
+
         private string _messageC;
 
         public string MessageC
@@ -77,8 +77,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 _messageC = value;
                 OnPropertyChanged();
             }
-        }        
-        
+        }
+
         #endregion
 
         #region Event Handlers (none)
@@ -87,10 +87,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Commands (none)
-        
-        
+
+
         #endregion
-        
+
         #region Public Methods (none)
 
 

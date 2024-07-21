@@ -16,7 +16,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class UILaunchApproachesViewModel : EventViewModelBase, IUILaunchApproachesViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public UILaunchApproachesViewModel(
@@ -29,6 +28,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -39,10 +40,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             SayHelloCommand = new DelegateCommand(SayHello, SayHelloCanExecute);
 

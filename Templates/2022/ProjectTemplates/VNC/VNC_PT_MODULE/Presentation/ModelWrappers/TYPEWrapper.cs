@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using VNC.Core.Mvvm;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Presentation.ModelWrappers
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ModelWrappers
 {
     public class $xxxTYPExxx$Wrapper : ModelWrapper<Domain.$xxxTYPExxx$>
     {

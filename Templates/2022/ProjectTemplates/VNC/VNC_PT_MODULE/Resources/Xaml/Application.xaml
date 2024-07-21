@@ -22,7 +22,8 @@
 		<!--<ResourceDictionary Source="/Resources/Xaml/ToolBoxResources.xaml" />-->
 		<!--<ResourceDictionary Source="/Resources/Xaml/MenuButton_Styles.xaml" />-->
 		<!--<ResourceDictionary Source="/Resources/Xaml/Button_Styles.xaml" />-->
-		<!--<ResourceDictionary Source="/Resources/Xaml/Layout_Styles.xaml" />-->		
+
+        <ResourceDictionary Source="Layout_Styles.xaml" />
 
         <!-- TODO(crhodes)
          This works to pull in xaml from a referenced project.

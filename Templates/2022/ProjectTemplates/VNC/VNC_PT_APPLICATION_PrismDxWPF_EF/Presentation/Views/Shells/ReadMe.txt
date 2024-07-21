@@ -1,3 +1,3 @@
-﻿$xxxAPPLICATIONxxx$\Presentation\Views\Shells
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Modules\
 
 Notes for using this template

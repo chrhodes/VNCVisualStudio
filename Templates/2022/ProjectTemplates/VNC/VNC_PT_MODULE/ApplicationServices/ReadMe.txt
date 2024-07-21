@@ -1,3 +1,3 @@
-﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
+﻿$xxxAPPLICATIONxx$$xxxNAMESPACExxx$\ApplicationServices
 
 Notes for using this template

@@ -1,6 +1,7 @@
 using System;
-using System.Data.Entity;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;

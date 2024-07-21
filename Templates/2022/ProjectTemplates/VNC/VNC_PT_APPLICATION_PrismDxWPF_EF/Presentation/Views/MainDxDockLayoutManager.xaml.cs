@@ -1,6 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Linq;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels;
 
@@ -11,16 +10,49 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 {
     public partial class MainDxDockLayoutManager : ViewBase, IMain, IInstanceCountV
     {
-        public MainDxDockLayoutManagerViewModel _viewModel;
+        #region Constructors, Initialization, and Load
 
+        public MainDxDockLayoutManager()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            InstanceCountV++;
+            
+            InitializeComponent();
+            
+            // Wire up ViewModel if needed
+
+            // If View First with ViewModel in Xaml
+
+            // ViewModel = (MainDxDockLayoutManagerViewModel)DataContext;
+
+            // Can create directly
+
+            // ViewModel = new MainDxDockLayoutManagerViewModel();
+
+            // Can use ourselves for everything
+
+            //DataContext = this;
+            
+            InitializeView();
+
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+        
         public MainDxDockLayoutManager(MainDxDockLayoutManagerViewModel viewModel)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()})", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
+            
             InitializeComponent();
-            _viewModel = viewModel;
+
+            ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
+            
+            // For the rare case where the ViewModel needs to know about the View            
+            // ViewModel.View = this;
             
             InitializeView();
 
@@ -31,18 +63,58 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
-
-            // Establish DataContext(s)
             
-            DataContext = _viewModel;
-            vncLoggingConfig.DataContext = this;
-            vncCoreLogginConfig.DataContext = this;            
-
             // NOTE(crhodes)
             // Put things here that initialize the View
+            // Hook eventhandlers, etc.
+            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            
+            // Establish and additional DataContext(s), e.g. to things held in this View          
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
+        
+        #endregion
+        
+        #region Enums (none)
+
+
+        #endregion
+
+        #region Structures (none)
+
+
+        #endregion
+
+        #region Fields and Properties (none)
+
+
+        #endregion
+
+        #region Event Handlers (none)
+
+
+        #endregion
+
+        #region Commands (none)
+
+        #endregion
+
+        #region Public Methods (none)
+
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+        #endregion
+
+        #region Private Methods (none)
+
+
+        #endregion        
 
         #region IInstanceCount
 

@@ -80,8 +80,11 @@
 
         <Folder Name="Views" TargetFolderName="Views">
 
+            <ProjectItem ReplaceParameters="true" TargetFileName="IAbout.cs">IAbout.cs</ProjectItem>
+            
             <ProjectItem ReplaceParameters="true" TargetFileName="IMain.cs">IMain.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IRibbon.cs">IRibbon.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBar.cs">IStatusBar.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewA.cs">IViewA.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewB.cs">IViewB.cs</ProjectItem>

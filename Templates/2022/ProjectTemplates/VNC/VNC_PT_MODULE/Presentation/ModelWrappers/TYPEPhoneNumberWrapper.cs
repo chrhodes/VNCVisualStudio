@@ -1,8 +1,8 @@
-using $xxxMODULExxx$$xxxNAMESPACExxx$.Domain;
+using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain;
 
 using VNC.Core.Mvvm;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Presentation.ModelWrappers
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ModelWrappers
 {
     public class $xxxTYPExxx$PhoneNumberWrapper : ModelWrapper<$xxxTYPExxx$PhoneNumber>
     {

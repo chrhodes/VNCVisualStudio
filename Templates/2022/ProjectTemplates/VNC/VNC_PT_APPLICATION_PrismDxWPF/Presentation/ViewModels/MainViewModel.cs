@@ -7,13 +7,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class MainViewModel : ViewModelBase, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public MainViewModel()
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            // TODO(crhodes)
+            // Save constructor parameters here
+
+            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -25,11 +29,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         #endregion
 
         #region Enums (none)
@@ -66,9 +72,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Commands (none)
-        
-        
-        #endregion        
+
+
+        #endregion
 
         #region Public Methods (none)
 

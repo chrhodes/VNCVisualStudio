@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.ViewABCD"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,9 +10,10 @@
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation" 
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
@@ -33,50 +34,66 @@
 
     <!-- d:DesignWidth="400" d:DesignHeight="400" -->
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <UserControl.Resources>
 
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="ViewABC AutoWireViewModel=False" />
-            <TextBlock Text="{Binding Message}" />
-            <TextBlock Text="{Binding MessageA}" />
-            <TextBlock Text="{Binding MessageB}" />
-            <TextBlock Text="{Binding MessageC}" />
-            <TextBlock Text="{Binding MessageD}" />
-            <TextBlock Text="{Binding ViewMessage}" />
-            <views:ViewA />
-            <views:ViewB />
-            <views:ViewC />
-            <views:ViewD />
-            </StackPanel>
+    </UserControl.Resources>
 
-        <StackPanel Grid.Row="1"  Orientation="Horizontal"
-                Visibility="{Binding DeveloperUIMode, 
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
-            <!-- Use Visibility="{Binding DeveloperModeUI} to use View property -->
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+            <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
 
             <!-- This is useful for debugging V VM constructor issues -->
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="V:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VP:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VM:" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
                 <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
 
         </StackPanel>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="ViewABC AutoWireViewModel=False" />
+                <TextBlock Text="{Binding Message}" />
+                <TextBlock Text="{Binding MessageA}" />
+                <TextBlock Text="{Binding MessageB}" />
+                <TextBlock Text="{Binding MessageC}" />
+                <TextBlock Text="{Binding MessageD}" />
+                <TextBlock Text="{Binding ViewMessage}" />
+                <views:ViewA />
+                <views:ViewB />
+                <views:ViewC />
+                <views:ViewD />
+            </StackPanel>
 
-</vnccore:ViewBase>
+        </Grid>
+    
+    </DockPanel>
+
+</vncmvvm:ViewBase>

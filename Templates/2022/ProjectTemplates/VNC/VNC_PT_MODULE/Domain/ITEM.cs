@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 {
     public class $xxxITEMxxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {

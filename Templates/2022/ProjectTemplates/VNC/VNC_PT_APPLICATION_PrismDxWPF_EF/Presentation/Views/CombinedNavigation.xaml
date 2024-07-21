@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.CombinedNavigation"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,9 +10,10 @@
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation" 
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
@@ -68,62 +69,74 @@
 
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <DockPanel>
 
-        <GroupBox Header="$xxxTYPExxx$s"
-            Grid.Row="0">
-            <ScrollViewer
-                VerticalScrollBarVisibility="Auto"
-                HorizontalScrollBarVisibility="Auto" Background="Black">
-                <ItemsControl
-                    ItemsSource="{Binding $xxxTYPExxx$s}"
-                    ItemContainerStyle="{StaticResource NavigationItemContainerStyle}"
-                    ItemTemplate="{StaticResource NavigationItemTemplate}" />
-            </ScrollViewer>
-        </GroupBox>
-
-        <!-- Add Additional Navigation groups here -->
-        <!-- <GroupBox Header="Cats" -->
-            <!-- Grid.Row="1"> -->
-            <!-- <ScrollViewer -->
-                <!-- VerticalScrollBarVisibility="Auto" -->
-                <!-- HorizontalScrollBarVisibility="Auto" Background="Black"> -->
-                <!-- <ItemsControl -->
-                    <!-- ItemsSource="{Binding Cats}" -->
-                    <!-- ItemContainerStyle="{StaticResource NavigationItemContainerStyle}" -->
-                    <!-- ItemTemplate="{StaticResource NavigationItemTemplate}" /> -->
-            <!-- </ScrollViewer> -->
-        <!-- </GroupBox> -->
-
-        <StackPanel Grid.Row="2"  Orientation="Horizontal"
-                Visibility="{Binding DeveloperUIMode, 
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
             <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
 
             <!-- This is useful for debugging V VM constructor issues -->
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="V:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VP:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VM:" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
                 <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
 
         </StackPanel>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <GroupBox Header="$xxxTYPExxx$s"
+                Grid.Row="0">
+                <ScrollViewer
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalScrollBarVisibility="Auto" Background="Black">
+                    <ItemsControl
+                        ItemsSource="{Binding $xxxTYPExxx$s}"
+                        ItemContainerStyle="{StaticResource NavigationItemContainerStyle}"
+                        ItemTemplate="{StaticResource NavigationItemTemplate}" />
+                </ScrollViewer>
+            </GroupBox>
 
-</vnccore:ViewBase>
+            <!-- Add Additional Navigation groups here -->
+            <!-- <GroupBox Header="Cats" -->
+                <!-- Grid.Row="1"> -->
+                <!-- <ScrollViewer -->
+                    <!-- VerticalScrollBarVisibility="Auto" -->
+                    <!-- HorizontalScrollBarVisibility="Auto" Background="Black"> -->
+                    <!-- <ItemsControl -->
+                        <!-- ItemsSource="{Binding Cats}" -->
+                        <!-- ItemContainerStyle="{StaticResource NavigationItemContainerStyle}" -->
+                        <!-- ItemTemplate="{StaticResource NavigationItemTemplate}" /> -->
+                <!-- </ScrollViewer> -->
+            <!-- </GroupBox> -->
+
+        </Grid>
+    
+    </DockPanel>
+
+</vncmvvm:ViewBase>

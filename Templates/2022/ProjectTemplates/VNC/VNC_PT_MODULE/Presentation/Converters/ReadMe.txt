@@ -1,3 +1,3 @@
-﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Presentation\Converters\
 
 Notes for using this template

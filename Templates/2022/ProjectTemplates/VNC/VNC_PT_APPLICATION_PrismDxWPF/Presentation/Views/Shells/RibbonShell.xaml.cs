@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
@@ -12,6 +13,8 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
     public partial class RibbonShell : Window, IInstanceCountV, INotifyPropertyChanged
     {
+        #region Constructors, Intialization, and Load
+
         public RibbonShellViewModel _viewModel;
 
         public RibbonShell()
@@ -20,26 +23,24 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
+
             InitializeComponent();
-            InitializeView();
 
             // Wire up ViewModel if needed
 
             // If View First with ViewModel in Xaml
 
-            // ViewModel = (IViewABCViewModel)DataContext;
+            // ViewModel = (I$xxxTYPExxx$ViewModel)DataContext;
 
             // Can create directly
 
-            // ViewModel = IViewABC$ViewModel();
+            // ViewModel = $xxxTYPExxx$ViewModel();
 
             // Can use ourselves for everything
 
             //DataContext = this;
 
-            // Or just a specific thing
-
-            //tbViewMessage.DataContext = this;
+            InitializeView();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR(String.Format("Exit"), Common.LOG_CATEGORY, startTicks);
         }
@@ -50,12 +51,16 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()})", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
-            InitializeComponent();
-            InitializeView();
 
-            _viewModel = viewModel;
-            DataContext = _viewModel;
-            Common.CurrentRibbonShell = this;
+            InitializeComponent();
+
+            ViewModel = viewModel;      // AppVersionInfo needs this.
+            DataContext = viewModel;
+
+            // // For the rare case where the ViewModel needs to know about the View
+            // // ViewModel.View = this;
+
+            InitializeView();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR(String.Format("Exit"), Common.LOG_CATEGORY, startTicks);
         }
@@ -65,15 +70,57 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.View) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
+            // NOTE(crhodes)
+            // Put things here that initialize the View
+            // Hook eventhandlers, etc.
+            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            ViewModelType = ViewModel.GetType().ToString().Split('.').Last();            
+
             Common.CurrentRibbonShell = this;
             DeveloperUIMode = Common.DeveloperUIMode;
 
-            // NOTE(crhodes)
-            // Put things here that initialize the View
-
             if (Common.VNCLogging.View) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
+        #endregion
+
+        #region Fields and Properties
+
+        private string _viewType;
+
+        public string ViewType
+        {
+            get => _viewType;
+            set
+            {
+                if (_viewType == value)
+                {
+                    return;
+                }
+
+                _viewType = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _viewModelType;
+
+        public string ViewModelType
+        {
+            get => _viewModelType;
+            set
+            {
+                if (_viewModelType == value)
+                {
+                    return;
+                }
+
+                _viewModelType = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Visibility _developerUIMode = Visibility.Collapsed;
         public Visibility DeveloperUIMode
         {
@@ -86,13 +133,20 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
                 OnPropertyChanged();
             }
         }
-        
-        private void thisControl_SizeChanged(object sender, SizeChangedEventArgs e)
+
+        #endregion
+
+
+        #region EventHandlers
+
+         private void thisControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             var newSize = e.NewSize;
             var previousSize = e.PreviousSize;
-            _viewModel.WindowSize = newSize;
+            ViewModel.WindowSize = newSize;
         }
+
+        #endregion
 
         #region INotifyPropertyChanged
 
@@ -118,6 +172,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
         }
 
         #endregion
+
         #region IInstanceCount
 
         private static int _instanceCountV;
@@ -135,7 +190,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             get => _instanceCountVP;
             set => _instanceCountVP = value;
         }
-        
+
         #endregion
     }
 }

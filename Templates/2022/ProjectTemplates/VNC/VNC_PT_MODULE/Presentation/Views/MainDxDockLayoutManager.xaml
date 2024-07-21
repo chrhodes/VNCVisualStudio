@@ -169,26 +169,39 @@
 
         </dxlc:LayoutGroup>
 
-        <dxlc:LayoutGroup 
-            Name="lg_Footer" Orientation="Vertical"  VerticalAlignment="Bottom">
-            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusBarRegion}" />
-            <Label Content="lg_Footer Stuff Goes Here" />
+        <dxlc:LayoutGroup Name="lg_Footer" Orientation="Vertical" VerticalAlignment="Bottom">
+
+            <Label Content="Footer Stuff Goes Here" />
+            
         </dxlc:LayoutGroup>
 
         <dxlc:LayoutGroup
             View="Group" Orientation="Vertical" VerticalAlignment="Bottom" >
-            
-            <StackPanel Orientation="Horizontal" >
+
+            <StackPanel Orientation="Horizontal"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+                <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+
+                <!-- This is useful for debugging V VM constructor issues -->
+
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Label Content="V:" />
-                    <Label Content="{Binding ElementName=thisMainDxDockLayoutManager, Path=InstanceCountV}" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
                 </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <Label Content="VM:" />
                     <Label Content="{Binding InstanceCountVM}" />
                 </StackPanel>
+
             </StackPanel>
-            
+
         </dxlc:LayoutGroup>
 
     </dxlc:LayoutControl>

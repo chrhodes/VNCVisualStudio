@@ -43,7 +43,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 
         [StringLength(50)]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public ICollection<$xxxTYPExxx$PhoneNumber> PhoneNumbers { get; set; }
 

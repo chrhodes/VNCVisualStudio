@@ -17,7 +17,7 @@
 	<ProjectTypeTag>VNC</ProjectTypeTag>	
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="VNC_Console_Explore_Threading.csproj" File="VNC_Console_Explore_Threading.csproj" ReplaceParameters="true">
+    <Project TargetFileName="VNC_Console_Explore.csproj" File="VNC_Console_Explore.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MenuLoader.cs">MenuLoader.cs</ProjectItem>
       <Folder Name="MenuPages" TargetFolderName="MenuPages">

@@ -37,10 +37,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             Int64 startTicks = 0;
             if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
-            containerRegistry.Register<I$xxxTYPExxx$MainViewModel, $xxxTYPExxx$MainViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$MainViewModel, $xxxTYPExxx$MainViewModel>();
             containerRegistry.RegisterSingleton<I$xxxTYPExxx$Main, $xxxTYPExxx$Main>();
 
-            containerRegistry.Register<I$xxxTYPExxx$NavigationViewModel, $xxxTYPExxx$NavigationViewModel>();
+            containerRegistry.RegisterSingleton<I$xxxTYPExxx$NavigationViewModel, $xxxTYPExxx$NavigationViewModel>();
             containerRegistry.RegisterSingleton<I$xxxTYPExxx$Navigation, $xxxTYPExxx$Navigation>();
 
             containerRegistry.Register<I$xxxTYPExxx$DetailViewModel, $xxxTYPExxx$DetailViewModel>();

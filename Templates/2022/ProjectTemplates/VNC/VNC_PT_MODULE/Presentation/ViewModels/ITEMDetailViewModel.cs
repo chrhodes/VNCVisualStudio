@@ -32,7 +32,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             _$xxxITEMxxx$DataService = $xxxITEMxxx$DataService;
+
+            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -44,7 +49,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             Title = "$xxxITEMxxx$s";
             $xxxITEMxxx$s = new ObservableCollection<$xxxITEMxxx$Wrapper>();
@@ -100,6 +107,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Log.EVENT("($xxxITEMxxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         // }
+
+        #endregion
+
+        #region Commands (none)
+
 
         #endregion
 
@@ -187,7 +199,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 // {
                     // ex = ex.InnerException;
                 // }
-                   
+
                 var message = "Error while saving the $xxxITEMxxx$s, the data will be reloaded.  Details: " + ex;
 
                 var dialogParameters = new DialogParameters();
@@ -197,7 +209,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 DialogService.Show("NotificationDialog", dialogParameters, r =>
                 {
                 });
-                
+
                 await LoadAsync(Id);
             }
 
@@ -233,7 +245,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 await _$xxxITEMxxx$DataService.IsReferencedBy$xxxTYPExxx$Async(Selected$xxxITEMxxx$.Id);
 
             if (isReferenced)
-            {                   
+            {
                 var message = $"The $xxxTYPExxx$ ({Selected$xxxITEMxxx$.Name})" +
                     " can't be removed;  It is referenced by at least one $xxxTYPExxx$";
 
@@ -241,7 +253,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 {
 
                 });
-                
+
                 return;
             }
 

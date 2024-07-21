@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.MainDxLayoutControl"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -20,6 +20,7 @@
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
     xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
 
@@ -42,122 +43,104 @@
 
     <!-- d:DesignWidth="400" d:DesignHeight="400" -->
 
-    <dxlc:LayoutControl Name="lc_Root"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Orientation="Vertical">
+    <DockPanel>
 
-        <dxlc:LayoutGroup VerticalAlignment="Top" Name="lg_Header">
-            <Label Content="lg_Header Stuff Goes Here" />
-            <!-- <TextBlock Text="{Binding Message}" /> -->
-            <!-- Second form uses CommandParameter -->
-            <dxlc:LayoutItem VerticalAlignment="Center" HorizontalAlignment="Right">
-                <!--<Button
-                    Command="{Binding DeveloperModeCommand }"
-                    Content="{Binding DeveloperModeContent, FallbackValue='DeveloperMode' }"
-                    ToolTip="{Binding DeveloperModeToolTip, FallbackValue='DeveloperMode ToolTip' }" >
-                </Button>-->
-                <Button
-                    Command="{Binding DeveloperModeCommand }"
-                    ToolTip="{Binding DeveloperModeToolTip, FallbackValue='DeveloperMode ToolTip' }" >
-                    <Image Source="/PA4plus;component/Resources/Images/VNCDeveloperMotivation48.png" Height="12"/>
-                    <!--<Image Source="..\..\Resources\Images\VNCDeveloperMotivation.jpg" />-->
-                </Button>
-            </dxlc:LayoutItem>
-            <!-- <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding DeveloperMode}"
-                    CommandParameter="{Binding DeveloperModeCommandParameter}"
-                    Content="{Binding DeveloperModeContent, FallbackValue='DeveloperMode' }"
-                    ToolTip="{Binding DeveloperModeToolTip, FallbackValue='DeveloperMode ToolTip' }" />
-            </dxlc:LayoutItem> -->
-
-        </dxlc:LayoutGroup>
-
-        <dxlc:LayoutGroup
-            Name="groupContainer"
-            Orientation="Vertical"
-            View="Tabs">
-            <dxlc:LayoutGroup.GroupBoxStyle>
-                <Style TargetType="dxlc:GroupBox">
-                    <Setter Property="Background" Value="Transparent" />
-                    <Setter Property="BorderBrush" Value="Transparent" />
-                    <Setter Property="BorderThickness" Value="0" />
-                    <Setter Property="Padding" Value="0" />
-                    <Setter Property="TitleVisibility" Value="Collapsed" />
-                </Style>
-            </dxlc:LayoutGroup.GroupBoxStyle>
-
-            <!-- Individual LayoutGroups go here (if you use tabs or groups)-->
-
-            <dxlc:LayoutGroup Header="ViewA">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewARegion}" />
-            </dxlc:LayoutGroup>
-
-            <dxlc:LayoutGroup Header="ViewB">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewBRegion}" />
-            </dxlc:LayoutGroup>
-
-            <dxlc:LayoutGroup Header="ViewC">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewCRegion}" />
-            </dxlc:LayoutGroup>
-
-            <dxlc:LayoutGroup Header="ViewD">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDRegion}" />
-            </dxlc:LayoutGroup>
-
-            <dxlc:LayoutGroup Header="ViewABCD">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewABCDRegion}" />
-            </dxlc:LayoutGroup>
-
-            <dxlc:LayoutGroup Header="UILaunchApproaches">
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
-            </dxlc:LayoutGroup>
-
-        </dxlc:LayoutGroup>
-
-        <dxlc:LayoutGroup Name="lg_Footer" Orientation="Vertical" VerticalAlignment="Bottom">
-            <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusBarRegion}" />
-            <Label Content="lg_Footer Stuff Goes Here" />
-        </dxlc:LayoutGroup>
-
-        <dxlc:LayoutGroup Name="lg_DeveloperMode" Orientation="Horizontal" VerticalAlignment="Bottom"
-                          View="GroupBox" Header="Developer Mode Information" IsCollapsible="True" IsCollapsed="True"
-                          Visibility="{Binding DeveloperUIMode,
-                                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
-            <ContentControl x:Name="vncLoggingConfig"
-                            prism:RegionManager.RegionName="{x:Static core:RegionNames.VNCLoggingConfigRegion}" />
-            <ContentControl x:Name="vncCoreLogginConfig"
-                            prism:RegionManager.RegionName="{x:Static core:RegionNames.VNCCoreLoggingConfigRegion}" />
-        </dxlc:LayoutGroup>
-
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"
-                Visibility="{Binding DeveloperUIMode,
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
             <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+
             <!-- This is useful for debugging V VM constructor issues -->
 
-            <StackPanel Orientation="Horizontal" >
-                <StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
                     <Label Content="V:" />
                     <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
                     <Label Content="VP:" />
                     <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="VM:" />
-                    <Label Content="{Binding InstanceCountVM}" />
-                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
+                <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
 
         </StackPanel>
+        
+        <dxlc:LayoutControl Name="lc_Root"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            Orientation="Vertical">
 
-    </dxlc:LayoutControl>
+            <dxlc:LayoutGroup VerticalAlignment="Top" Name="lg_Header">
 
-</vnccore:ViewBase>
+                <Label Content="Header Stuff Goes Here" />
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup
+                Name="groupContainer"
+                Orientation="Vertical"
+                View="Tabs">
+                <dxlc:LayoutGroup.GroupBoxStyle>
+                    <Style TargetType="dxlc:GroupBox">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="TitleVisibility" Value="Collapsed" />
+                    </Style>
+                </dxlc:LayoutGroup.GroupBoxStyle>
+
+                <!-- Individual LayoutGroups go here (if you use tabs or groups)-->
+
+                <dxlc:LayoutGroup Header="ViewA">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewARegion}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="ViewB">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewBRegion}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="ViewC">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewCRegion}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="ViewD">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDRegion}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="ViewABCD">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewABCDRegion}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="UILaunchApproaches">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Name="lg_Footer" Orientation="Vertical" VerticalAlignment="Bottom">
+
+                <Label Content="Footer Stuff Goes Here" />
+                
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutControl>
+    
+    </DockPanel>
+
+</vncmvvm:ViewBase>
 

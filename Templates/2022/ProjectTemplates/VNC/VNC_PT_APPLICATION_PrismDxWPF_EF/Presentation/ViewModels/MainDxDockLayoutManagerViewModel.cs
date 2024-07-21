@@ -24,6 +24,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -34,7 +36,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             DeveloperModeCommand = new DelegateCommand(DeveloperMode, DeveloperModeCanExecute);
 
@@ -44,7 +48,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         #endregion
 
         #region Enums (none)
@@ -73,10 +77,24 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             }
         }
 
+        private string _message;
+
+        public string Message
+        {
+            get => _message;
+            set
+            {
+                if (_message == value)
+                    return;
+                _message = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DelegateCommand DeveloperModeCommand { get; set; }
         // If using CommandParameter, figure out TYPE here and above
         // and remove above declaration
-        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }        
+        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }
 
         #endregion
 
@@ -84,7 +102,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
 
         #endregion
-        
+
       #region Commands
 
 
@@ -100,19 +118,18 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
       // Put these in Resource File
       //    <system:String x:Key="ViewName_DeveloperModeContent">DeveloperMode</system:String>
-      //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>  
+      //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>
 
       // If using CommandParameter, figure out TYPE and fix above
       //public void DeveloperMode(TYPE value)
       public void DeveloperMode()
       {
-          Int64 startTicks = 0;
-          if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
+          Int64 startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
           // TODO(crhodes)
           // Do something amazing.
           Message = "Cool, you called DeveloperMode";
-          
-          PublishStatusMessage(Message);
+
+          EventAggregator.GetEvent<StatusMessageEvent>().Publish(Message);
 
           if (Common.DeveloperMode)
           {
@@ -124,7 +141,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
               if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
               if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
           }
-
           Common.DeveloperMode = !Common.DeveloperMode;
 
           // Uncomment this if you are telling someone else to handle this
@@ -152,7 +168,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
           // End Cut Five
 
-          if (Common.VNCLogging.EventHandler) Log.EVENT("Exit", Common.LOG_CATEGORY, startTicks);
+          Log.EVENT("Exit", Common.LOG_CATEGORY, startTicks);
       }
 
       // If using CommandParameter, figure out TYPE and fix above
@@ -166,7 +182,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
       #endregion
 
-      #endregion   
+      #endregion
 
         #region Public Methods (none)
 

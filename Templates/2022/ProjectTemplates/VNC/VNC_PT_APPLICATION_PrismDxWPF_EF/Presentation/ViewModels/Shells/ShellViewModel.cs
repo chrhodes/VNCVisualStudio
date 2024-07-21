@@ -15,6 +15,8 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            InstanceCountVM++;
+            
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -25,12 +27,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
+            
             DeveloperUIMode = Common.DeveloperUIMode;
-
-            // TODO(crhodes)
-            //
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -62,7 +63,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private System.Windows.Size _windowSize;
         public System.Windows.Size WindowSize
         {
@@ -74,7 +75,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
                 _windowSize = value;
                 OnPropertyChanged();
             }
-        }             
+        }
 
         private Visibility _developerUIMode = Visibility.Visible;
         public Visibility DeveloperUIMode
@@ -87,7 +88,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
                 _developerUIMode = value;
                 OnPropertyChanged();
             }
-        }        
+        }
 
         #endregion
 
@@ -97,9 +98,9 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #endregion
 
         #region Commands (none)
-        
-        
-        #endregion        
+
+
+        #endregion
 
         #region Public Methods (none)
 

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 {
     public class $xxxTYPExxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {
@@ -43,7 +43,7 @@ namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
 
         [StringLength(50)]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         public ICollection<$xxxTYPExxx$PhoneNumber> PhoneNumbers { get; set; }
 

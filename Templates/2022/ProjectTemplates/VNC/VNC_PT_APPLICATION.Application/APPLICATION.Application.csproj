@@ -1,73 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{$guid1$}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>$safeprojectname$</RootNamespace>
-    <AssemblyName>$safeprojectname$</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TYPEs\Queries\GetTYPEList\TYPEModel.cs" />
-    <Compile Include="TYPEs\Queries\GetTYPEList\GetTYPEsListQuery.cs" />
-    <Compile Include="TYPEs\Queries\GetTYPEList\IGetTYPEsListQuery.cs" />
-    <Compile Include="Interfaces\IDatabaseService.cs" />
-    <Compile Include="Interfaces\ILookupService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TYPEs\Commands\" />
-    <Folder Include="Lookups\Commands\" />
-    <Folder Include="Lookups\Queries\" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- <ProjectReference Include="..\Common.Domain\Common.Domain.csproj"> -->
-      <!-- <Project>{556279EE-21FF-45F4-95D1-BD791FB93464}</Project> -->
-      <!-- <Name>Common.Domain</Name> -->
-    <!-- </ProjectReference> -->
-    <!-- <ProjectReference Include="..\CustomPoolAndSpa.Domain\CustomPoolAndSpa.Domain.csproj"> -->
-      <!-- <Project>{9A4798EF-CF4A-4DDF-8B9D-B54E2866BC12}</Project> -->
-      <!-- <Name>CustomPoolAndSpa.Domain</Name> -->
-    <!-- </ProjectReference> -->
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="EntityFramework">
-      <Version>6.2.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0-windows</TargetFrameworks>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>development</VersionSuffix>
+        <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+        <FileVersion>YYYY.MM.DDA</FileVersion>
+        <Description>describe assembly</Description>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+    </PropertyGroup>
+
+    <!-- This is for NuGet Packages -->
+    <!-- <PropertyGroup> -->
+        <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
+        <!-- <PackageVersion>1.0.0</PackageVersion> -->
+        <!-- <PackageLicenseFile>LICENSE</PackageLicenseFile> -->
+        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+        <!-- <PackageProjectUrl>https://github.com/chrhodes/xxx</PackageProjectUrl> -->
+        <!-- <RepositoryUrl>https://github.com/chrhodes/xxx</RepositoryUrl> -->
+        <!-- <RepositoryType>Git</RepositoryType> -->
+        <!-- <PackageTags></PackageTags> -->
+        <!-- <PackageIcon>VNC.png</PackageIcon> -->
+        <!-- <Authors>Christopher Rhodes</Authors> -->
+        <!-- <Company>VNC</Company> -->
+        <!-- <Copyright>Copyright © VNC 2024</Copyright> -->
+        <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
+        <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
+    <!-- </PropertyGroup> -->
+
+    <ItemGroup>
+        <ProjectReference Include="..\$xxxAPPLICATIONxxx$.Core\$xxxAPPLICATIONxxx$.Core.csproj" />
+        <ProjectReference Include="..\$xxxAPPLICATIONxxx$.Domain.$xxxTYPExxx$\$xxxAPPLICATIONxxx$.Domain.$xxxTYPExxx$.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DefineConstants>LOGGING</DefineConstants>
+        <!-- <DefineConstants>TRACE;LOGGING;VNCTYPES;VNCEF</DefineConstants> -->
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DefineConstants>LOGGING</DefineConstants>
+        <!-- <DefineConstants>TRACE;LOGGING;VNCTYPES;VNCEF</DefineConstants> -->
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|AnyCPU'">
+       <!-- Uncoment next line to switch to ProjectReference(s) -->
+       <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>  -->
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="3.0.0" />
+            </ItemGroup>
+        </When>
+    </Choose>
+
 </Project>

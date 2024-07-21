@@ -1,3 +1,3 @@
-﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Resources\Xaml\
 
 Notes for using this template

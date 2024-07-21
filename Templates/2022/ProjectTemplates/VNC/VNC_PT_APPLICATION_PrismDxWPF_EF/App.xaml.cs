@@ -22,7 +22,11 @@ namespace $xxxAPPLICATIONxxx$
 
         public App()
         {
+#if DEBUG
+            Common.InitializeLogging(debugConfig: true);
+#else
             Common.InitializeLogging();
+#endif
             
             // HACK(crhodes)
             // If don't delay a bit here, the SignalR logging infrastructure does not initialize quickly enough

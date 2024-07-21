@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
     public class $xxxTYPExxx$ViewModel : EventViewModelBase, I$xxxTYPExxx$ViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public $xxxTYPExxx$ViewModel(
@@ -30,6 +29,8 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -40,10 +41,9 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             SayHelloCommand = new DelegateCommand(
                 SayHello, SayHelloCanExecute);
@@ -77,6 +77,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #endregion
 
         #region Public Methods (none)
+
+
+        #endregion
+
+        #region Commands (none)
 
 
         #endregion

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 {
     public class $xxxTYPExxx$PhoneNumber : IEntity<int>, IModificationHistory, IOptimistic
     {

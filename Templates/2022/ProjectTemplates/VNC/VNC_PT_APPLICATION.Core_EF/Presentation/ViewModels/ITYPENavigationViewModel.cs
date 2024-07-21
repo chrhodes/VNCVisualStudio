@@ -6,6 +6,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public interface I$xxxTYPExxx$NavigationViewModel : IViewModel
     {
+        // TODO(crhodes)
+        // Add items here that the I$xxxTYPExxx$NavigationViewModel must support
+        // to enable all the binding demands of the View
+        
         Task LoadAsync();
     }
 }

@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class $xxxTYPExxx$NavigationViewModel : EventViewModelBase, I$xxxTYPExxx$NavigationViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public $xxxTYPExxx$NavigationViewModel(
@@ -28,7 +27,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             _$xxxTYPExxx$LookupDataService = $xxxTYPExxx$LookupDataService;
+
+            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -40,7 +44,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             $xxxTYPExxx$s = new ObservableCollection<NavigationItemViewModel>();
 
@@ -112,6 +118,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #region Commands (none)
+
 
         #endregion
 

@@ -1,3 +1,3 @@
-﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Presentation\ModelWrappers\
 
 Notes for using this template

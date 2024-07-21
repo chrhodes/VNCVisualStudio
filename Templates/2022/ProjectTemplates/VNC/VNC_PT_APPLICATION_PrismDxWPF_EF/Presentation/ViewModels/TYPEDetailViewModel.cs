@@ -35,8 +35,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             _$xxxTYPExxx$DataService = $xxxTYPExxx$DataService;
             _$xxxITEMxxx$LookupDataService = $xxxITEMxxx$LookupDataService;
+
+            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -48,7 +53,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             EventAggregator.GetEvent<AfterCollectionSavedEvent>()
                 .Subscribe(AfterCollectionSaved);
@@ -138,6 +145,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #region Commands (none)
+
 
         #endregion
 

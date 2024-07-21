@@ -1,6 +1,7 @@
 using System;
-using System.Data.Entity;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;
@@ -19,9 +20,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         public $xxxTYPExxx$DataService($xxxAPPLICATIONxxx$DbContext context)
             : base(context)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -50,24 +52,26 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         public override async Task<$xxxTYPExxx$> FindByIdAsync(int id)
         {
-            Int64 startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.DomainServices) startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Enter", Common.LOG_CATEGORY);
 
             var result = await Context.$xxxTYPExxx$sSet
                 .Include(f => f.PhoneNumbers)
                 .SingleAsync(f => f.Id == id);
 
-            Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.DomainServices) Log.DOMAINSERVICES("($xxxTYPExxx$DataService) Exit", Common.LOG_CATEGORY, startTicks);
 
             return result;
         }
 
         public void RemovePhoneNumber($xxxTYPExxx$PhoneNumber model)
         {
-            Int64 startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.DomainServices) startTicks = Log.DOMAINSERVICES("Enter", Common.LOG_CATEGORY);
 
             Context.$xxxTYPExxx$PhoneNumbersSet.Remove(model);
 
-            Log.DOMAINSERVICES("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.DomainServices) Log.DOMAINSERVICES("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
 

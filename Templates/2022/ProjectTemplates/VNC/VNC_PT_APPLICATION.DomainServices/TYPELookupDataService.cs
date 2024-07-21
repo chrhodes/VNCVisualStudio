@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;
 
@@ -19,21 +20,22 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         public $xxxTYPExxx$LookupDataService(Func<$xxxAPPLICATIONxxx$DbContext> context)
         {
-            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             _contextCreator = context;
 
-            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
 
-        #region Enums
+        #region Enums (none)
 
 
         #endregion
 
-        #region Structures
+        #region Structures (none)
 
 
         #endregion
@@ -44,7 +46,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Event Handlers
+        #region Event Handlers (none)
 
 
         #endregion
@@ -53,7 +55,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         public async Task<IEnumerable<LookupItem>> Get$xxxTYPExxx$LookupAsync()
         {
-            Int64 startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.DomainServices) startTicks = Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Enter", Common.LOG_CATEGORY);
 
             IEnumerable<LookupItem> result;
 
@@ -69,7 +72,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
                   .ToListAsync();
             }
 
-            Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.DomainServices)Log.DOMAINSERVICES("($xxxTYPExxx$LookupDataService) Exit", Common.LOG_CATEGORY, startTicks);
 
             return result;
         }

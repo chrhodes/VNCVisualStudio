@@ -1,12 +1,12 @@
 using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Data.Entity.Validation;
+using System.Configuration;
 using System.Data.SqlTypes;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain;
 
@@ -24,88 +24,215 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
         public DbSet<$xxxTYPExxx$PhoneNumber> $xxxTYPExxx$PhoneNumbersSet { get; set; }
 
         public DbSet<$xxxITEMxxx$> $xxxITEMxxx$sSet { get; set; }
+        
+        //public virtual DbSet<MigrationHistory> MigrationHistories { get; set; }
 
-        // Name of connection string in Config
-
-        public $xxxAPPLICATIONxxx$DbContext() : base("$xxxAPPLICATIONxxx$_DB")
+        // NOTE(crhodes)
+        // I think all this goes away in favor of migrations from PWC
+        public PAEF1CoreDbContext()
         {
-            Int64 startTicks = 0;
-            if (Common.VNCCoreLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            // NOTE(crhodes)
+            // Package Manager Console does not like logging.  All attempts to work around have failed.
+            // Explore using net tools.  For now, remove logging.
+            // Int64 startTicks = 0;
+            // if (Common.VNCCoreLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
             
-            // System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<$xxxAPPLICATIONxxx$DbContext, Configuration>());
+            // NOTE(crhodes)
+            // This is good for demos.  Just create on the fly
+
+            //Database.EnsureCreated();
+            //Database.EnsureDeleted();
+
+            // TODO(crhodes)
+            // Need to determine how EF Core handles this.  We used to do #2
+            // System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<PAEF1CoreDbContext, Configuration>());
 
             // There are four database initialization strategies
 
             // 1. CreateDatabaseIfNotExists (default)
 
-            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new CreateDatabaseIfNotExists<$xxxAPPLICATIONxxx$DbContext>());
+            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new CreateDatabaseIfNotExists<PAEF1CoreDbContext>());
 
             // 2. DropCreateDatabaseIfModelChanges
 
-            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
+            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new DropCreateDatabaseIfModelChanges<PAEF1CoreDbContext>());
 
-            System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(
-                new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
+            //System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(
+            //    new DropCreateDatabaseIfModelChanges<PAEF1CoreDbContext>());
 
             // 3. DropCreateDatabaseAlways
 
-            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseAlways<$xxxAPPLICATIONxxx$DbContext>());
+            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new DropCreateDatabaseAlways<PAEF1CoreDbContext>());
 
             // 4. Custom DB Initializer
 
-            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new $xxxAPPLICATIONxxx$DbContextDatabaseInitializer());
+            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new PAEF1CoreDbContextDatabaseInitializer());
 
             // Release builds and Dependency Injection use lambda's.  Use special handling.
             
-            if (Common.VNCCoreLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            // if (Common.VNCCoreLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            Int64 startTicks = 0;
-            if (Common.VNCCoreLogging.Persistence) startTicks = Log.PERSISTENCE("Enter", Common.LOG_CATEGORY);
+            // NOTE(crhodes)
+            // Package Manager Console does not like logging.  All attempts to work around have failed.
+            // Explore using net tools.  For now, remove logging.
+            // Int64 startTicks = 0;
+            // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
+            
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["PAEF1Core_DB"].ConnectionString);
+            //optionsBuilder.UseSqlServer("Data Source=.\\SQL2019; Initial Catalog=PAEF1Core; Integrated Security=True ; Encrypt=false");
+            
+            // if (Common.VNCCoreLogging.PersistenceLow) Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);            
+        }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // NOTE(crhodes)
+            // Package Manager Console does not like logging.  All attempts to work around have failed.
+            // Explore using net tools.  For now, remove logging.
+            // Int64 startTicks = 0;
+            // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
+            
+            // NOTE(crhodes)
+            // Used to be able to do this in EF6
+            
+            // modelBuilder.Types().Configure(c => c.Ignore("IsDirty"));
+            
+            // NOTE(crhodes)
+            // Can use [NotMapped] on Domain Class Property
+            //[NotMapped]
+            //public Boolean? IsDirty { get; set; }
+            
+            // or do individual Types here 
 
-            try
-            {
-                // TODO(crhodes)
-                // This gives us too many types including the embedded ServiceType and PoolConditionReport
-                // Need some way of filtering them out, otherwise have to put pointless IsDirty field in them.
+            modelBuilder.Entity<Cat>().Ignore(c => c.IsDirty);
+            modelBuilder.Entity<Mouse>().Ignore(c => c.IsDirty);
+            modelBuilder.Entity<CatEmailAddress>().Ignore(c => c.IsDirty);
+            modelBuilder.Entity<CatPhoneNumber>().Ignore(c => c.IsDirty);
+            
+            // HACK(crhodes)
+            // Still looking for ways
 
-                modelBuilder.Types()
-                    .Configure(c => c.Ignore("IsDirty"));
+            //var entityTypes = modelBuilder.Model.GetEntityTypes().Select(t => t.ClrType).ToList();
 
-            }
-            catch (InvalidOperationException ex)
-            {
-                Log.Error(ex, Common.LOG_CATEGORY);
-                // Ignore
-            }
+            //var entityTypes2 = modelBuilder.Model.GetEntityTypes();
+            //var foo = modelBuilder.Entity<Cat>();
 
-            base.OnModelCreating(modelBuilder);
+            //foreach (var eType in entityTypes)
+            //{
 
-            // Do not pluralize table names
+            //    //modelBuilder.Entity<eType>().Ignore(c => c.IsDirty);
+            //}
 
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //modelBuilder.HasDefaultSchema("Domain");
+            //foreach (var eType in entityTypes2)
+            //{
+            //     //modelBuilder.Entity<eType>().Ignore(c => c.IsDirty);
+            //}
 
-            // Ignore any IsDirty property on any types pulled into model.
+            // NOTE(crhodes)
+            // Maybe this should be in <migrationname>.cs
 
-            // Fluent API approach to constraints
-            // Alternative is to apply attributes to Model Class
-
-            //modelBuilder.Entity<Friend>()
-            //    .Property(f => f.FirstName)
-            //    .IsRequired()
-            //    .HasMaxLength(50);
-
-            // Could also have a general purpose approach. See class infra.
-
-            //modelBuilder.Configurations.Add(new FriendConfiguration());
-
-            // Alternatively can use DataAnnotations on model class.
-            if (Common.VNCCoreLogging.Persistence)Log.PERSISTENCE("Exit", Common.LOG_CATEGORY, startTicks);
+            //SeedDatabase(modelBuilder);
+            
+            // if (Common.VNCCoreLogging.PersistenceLow)Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            // NOTE(crhodes)
+            // Package Manager Console does not like logging.  All attempts to work around have failed.
+            // Explore using net tools.  For now, remove logging.
+            // Int64 startTicks = 0;
+            // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
+            
+            // NOTE(crhodes)
+            // Add Convention
+            //configurationBuilder.Conventions.Add(_ => new MyCustomConvention());
+
+            // Remove Convention
+
+            //configurationBuilder.Conventions.Remove(typeof(MyCustomConvention));
+            // NOTE(crhodes)
+            // Bulk conversions require a class
+
+            //configurationBuilder.Properties<Color>().HaveConversion(typeof(ColorToString));
+
+            //public class ColorToStringConverter : ValueConverter<Color, string>
+            //{
+            //    public ColorToStringConverter() : base(ColorString, ColorStruct) { }
+
+            //    private static Expression<Func<Color, string>> ColorString = v => new String(v.Name);
+            //    private static Expression<Func<string, Color>> ColorStruct = v => Color.FromName(v);
+
+            //}
+            
+            // if (Common.VNCCoreLogging.PersistenceLow)Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);            
+        }
+        
+        // NOTE(crhodes)
+        // This does not keep it out of Migration :(
+        // public class MyCustomConvention : IModelFinalizingConvention
+        // {
+            // public void ProcessModelFinalizing(IConventionModelBuilder modelBuilder, IConventionContext<IConventionModelBuilder> context)
+            // {
+                // foreach (var property in modelBuilder.Metadata.GetEntityTypes()
+                             // .SelectMany(
+                                 // entityType => entityType.GetDeclaredProperties()
+                                     // .Where(
+                                         // property => property.Name == "IsDirty")))
+                // {
+                    // property.SetIsStored(false);
+                // }
+            // }
+        // }
+        
+        private void SeedDatabase(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cat>().HasData(new Cat { Id = 1, FieldString = "Archer" });
+
+            var catList = new Cat[]
+            {
+                new Cat { Id=2, FieldString="Molly"},
+                new Cat { Id=3, FieldString="Rafa"},
+                new Cat { Id=4, FieldString="Rodger"}
+            };
+
+            modelBuilder.Entity<Mouse>().HasData(catList);
+
+            //            new Domain.Cat
+            //            {
+            //                Id = 1,
+            //                FieldString = "Cat1",
+            //                FieldInt = 1,
+            //                FieldSingle = 1.1f,
+            //                FieldDouble = 11.11,
+            //                FieldDate = new DateTime(2001, 1, 1),
+            //                DateCreated = DateTime.Now
+            //            },
+            //            new Domain.Cat
+            //            {
+            //                Id = 2,
+            //                FieldString = "Cat2",
+            //                FieldInt = 2,
+            //                FieldSingle = 2.2f,
+            //                FieldDouble = 22.22,
+            //                FieldDate = new DateTime(2002, 2, 2),
+            //                DateCreated = DateTime.Now
+            //            },
+            //            new Domain.Cat
+            //            {
+            //                Id = 3,
+            //                FieldString = "Cat3",
+            //                FieldInt = 3,
+            //                FieldSingle = 3.3f,
+            //                FieldDouble = 33.33,
+            //                FieldDate = new DateTime(2003, 3, 3),
+            //                DateCreated = DateTime.Now
+            //            }
+        }
+        
         public override int SaveChanges()
         {
             Int64 startTicks = 0;
@@ -124,9 +251,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                 // }
 
                 foreach (var history in this.ChangeTracker.Entries()
-                  .Where(e => e.Entity is IModificationHistory
-                    && (e.State == EntityState.Added || e.State == EntityState.Modified))
-                   .Select(e => e.Entity as IModificationHistory)
+                          .Where(e => e.Entity is IModificationHistory
+                            && (e.State == EntityState.Added || e.State == EntityState.Modified))
+                           .Select(e => e.Entity as IModificationHistory)
                   )
                 {
                     history.DateModified = DateTime.Now;
@@ -155,8 +282,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                 // Reset the IsDirty flag on any entities implementing INotificationHistory
 
                 foreach (var history in this.ChangeTracker.Entries()
-                                              .Where(e => e.Entity is IModificationHistory)
-                                              .Select(e => e.Entity as IModificationHistory))
+                          .Where(e => e.Entity is IModificationHistory)
+                          .Select(e => e.Entity as IModificationHistory))
                 {
                     history.IsDirty = false;
                 }
@@ -164,29 +291,31 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                 if (Common.VNCCoreLogging.Persistence) Log.PERSISTENCE($"($xxxAPPLICATIONxxx$DbContext) Exit ({result})", Common.LOG_CATEGORY, startTicks);
 
                 return result;
-
             }
-            catch (DbEntityValidationException ex)
-            {
-                // Display some details on errors
+            // NOTE(crhodes)
+            // This does not exist but can roll your own. See
+            // 
+            //catch (DbEntityValidationException ex)
+            //{
+            //    // Display some details on errors
 
-                var sb = new StringBuilder();
+            //    var sb = new StringBuilder();
 
-                foreach (var failure in ex.EntityValidationErrors)
-                {
-                    sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-                    foreach (var error in failure.ValidationErrors)
-                    {
-                        sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-                        sb.AppendLine();
-                    }
-                }
+            //    foreach (var failure in ex.EntityValidationErrors)
+            //    {
+            //        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
+            //        foreach (var error in failure.ValidationErrors)
+            //        {
+            //            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+            //            sb.AppendLine();
+            //        }
+            //    }
 
-                throw new DbEntityValidationException(
-                    "Entity Validation Failed - errors follow:\n" +
-                    sb.ToString(), ex
-                    ); // Add the original exception as the innerException
-            }
+            //    throw new DbEntityValidationException(
+            //        "Entity Validation Failed - errors follow:\n" +
+            //        sb.ToString(), ex
+            //        ); // Add the original exception as the innerException
+            //}
             catch (DbUpdateConcurrencyException ex)
             {
                 var databaseValues = ex.Entries.Single().GetDatabaseValues();
@@ -219,6 +348,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                 //}
                 throw ex;
             }
+            catch (DbUpdateException ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+                throw (ex);
+            }
             catch (Exception ex)
             {
                 Log.Error(ex, Common.LOG_CATEGORY);
@@ -227,7 +361,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
 
         }
 
-        public override async Task<int> SaveChangesAsync()
+        //public override async Task<int> SaveChangesAsync()
+        //public override async Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken = default)
+        //public override async Task<int> SaveChangesAsync(Boolean acceptAllChancesOnSuccess, System.Threading.CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             Int64 startTicks = 0;
             if (Common.VNCCoreLogging.Persistence) startTicks = Log.PERSISTENCE("($xxxAPPLICATIONxxx$DbContext) Enter", Common.LOG_CATEGORY);
@@ -288,27 +425,30 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
 
                 return result;
             }
-            catch (DbEntityValidationException ex)
-            {
-                // Display some details on errors
+            // NOTE(crhodes)
+            // This does not exist but can roll your own. See
+            // 
+            //catch (DbEntityValidationException ex)
+            //{
+            //    // Display some details on errors
 
-                var sb = new StringBuilder();
+            //    var sb = new StringBuilder();
 
-                foreach (var failure in ex.EntityValidationErrors)
-                {
-                    sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-                    foreach (var error in failure.ValidationErrors)
-                    {
-                        sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-                        sb.AppendLine();
-                    }
-                }
+            //    foreach (var failure in ex.EntityValidationErrors)
+            //    {
+            //        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
+            //        foreach (var error in failure.ValidationErrors)
+            //        {
+            //            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+            //            sb.AppendLine();
+            //        }
+            //    }
 
-                throw new DbEntityValidationException(
-                    "Entity Validation Failed - errors follow:\n" +
-                    sb.ToString(), ex
-                    ); // Add the original exception as the innerException
-            }
+            //    throw new DbEntityValidationException(
+            //        "Entity Validation Failed - errors follow:\n" +
+            //        sb.ToString(), ex
+            //        ); // Add the original exception as the innerException
+            //}
             catch (DbUpdateConcurrencyException ex)
             {
                 //TODO(crhodes) Maybe this should be in ViewModelBase
@@ -344,12 +484,21 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
 
                 throw (ex);
             }
+            catch (DbUpdateException ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+                throw (ex);
+            }
+            catch (OperationCanceledException ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+                throw (ex);
+            }
             catch (Exception ex)
             {
                 Log.Error(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
-
         }
     }
 }

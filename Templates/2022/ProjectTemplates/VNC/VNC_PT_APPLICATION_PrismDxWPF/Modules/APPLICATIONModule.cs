@@ -9,6 +9,7 @@ using $xxxAPPLICATIONxxx$.Core;
 #if VNCEF
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices;
 #endif
+
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels;
 
@@ -46,8 +47,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
             // If you are using the Ribbon Shell and the RibbonRegion
 
-            containerRegistry.RegisterSingleton<IRibbonViewModel, RibbonViewModel>();
-            containerRegistry.RegisterSingleton<IRibbon, Ribbon>();
+            //containerRegistry.RegisterSingleton<IRibbonViewModel, RibbonViewModel>();
+            //containerRegistry.RegisterSingleton<IRibbon, Ribbon>();
+
+            // If you are using the Shell and the RibbonRegion
+
+            containerRegistry.RegisterSingleton<IRibbonViewModel, ShellRibbonViewModel>();
+            containerRegistry.RegisterSingleton<IRibbon, ShellRibbon>();
 
             // Pick one of these for the MainRegion
 
@@ -55,22 +61,25 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             containerRegistry.Register<IMain, MainDxLayoutControl>();
             //containerRegistry.Register<IMain, MainDxDockLayoutManager>();
 
-            containerRegistry.Register<StatusBar>();
+            containerRegistry.RegisterSingleton<IStatusBarViewModel, StatusBarViewModel>();
+            containerRegistry.RegisterSingleton<StatusBar, StatusBar>();
 
 #if VNCEF
-            containerRegistry.Register<ICombinedMainViewModel, CombinedMainViewModel>();
+            containerRegistry.RegisterSingleton<ICombinedMainViewModel, CombinedMainViewModel>();
             containerRegistry.RegisterSingleton<ICombinedMain, CombinedMain>();
 
-            containerRegistry.Register<ICombinedNavigationViewModel, CombinedNavigationViewModel>();
+            containerRegistry.RegisterSingleton<ICombinedNavigationViewModel, CombinedNavigationViewModel>();
             containerRegistry.RegisterSingleton<ICombinedNavigation, CombinedNavigation>();
+
+            // NOTE(crhodes)
+            // Seems like these belong in CatModule
 
             containerRegistry.Register<I$xxxITEMxxx$DetailViewModel, $xxxITEMxxx$DetailViewModel>();
             containerRegistry.RegisterSingleton<I$xxxITEMxxx$Detail, $xxxITEMxxx$Detail>();
 
             containerRegistry.RegisterSingleton<I$xxxITEMxxx$DataService, $xxxITEMxxx$DataService>();
             containerRegistry.RegisterSingleton<I$xxxITEMxxx$LookupDataService, $xxxITEMxxx$LookupDataService>();
-            
-#endif            
+#endif
 
             // This shows the AutoWire ViewModel in action.
 
@@ -103,10 +112,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             Int64 startTicks = 0;
             if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
+            // NOTE(crhodes)
+            // using typeof(TYPE) calls constructor
+            // using typeof(ITYPE) resolves type (see RegisterTypes)
+
             _regionManager.RegisterViewWithRegion(RegionNames.RibbonRegion, typeof(IRibbon));
             _regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(IMain));
             _regionManager.RegisterViewWithRegion(RegionNames.StatusBarRegion, typeof(StatusBar));
-            
+
             _regionManager.RegisterViewWithRegion(RegionNames.VNCLoggingConfigRegion, typeof(VNC.WPF.Presentation.Dx.Views.VNCLoggingConfig));
             _regionManager.RegisterViewWithRegion(RegionNames.VNCCoreLoggingConfigRegion, typeof(VNC.WPF.Presentation.Dx.Views.VNCCoreLoggingConfig));
 
@@ -117,7 +130,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             _regionManager.RegisterViewWithRegion(RegionNames.CombinedMainRegion, typeof(ICombinedMain));
 
             _regionManager.RegisterViewWithRegion(RegionNames.CombinedNavigationRegion, typeof(ICombinedNavigation));
-            
+
 #endif
 
             // This is for Main
@@ -131,8 +144,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             _regionManager.RegisterViewWithRegion(RegionNames.ViewBRegion, typeof(ViewB));
             _regionManager.RegisterViewWithRegion(RegionNames.ViewCRegion, typeof(ViewC));
             _regionManager.RegisterViewWithRegion(RegionNames.ViewDRegion, typeof(ViewD));
-            
-            _regionManager.RegisterViewWithRegion(RegionNames.UILaunchApproaches, typeof(UILaunchApproaches));            
+
+            _regionManager.RegisterViewWithRegion(RegionNames.UILaunchApproaches, typeof(UILaunchApproaches));
 
             if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }

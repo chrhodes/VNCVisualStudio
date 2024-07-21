@@ -1,4 +1,4 @@
-﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\DomainServices\
-$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\DomainServices\ServicesMock\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
+$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
 Notes for using this template

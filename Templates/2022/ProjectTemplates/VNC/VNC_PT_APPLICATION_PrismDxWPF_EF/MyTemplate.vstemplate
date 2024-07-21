@@ -36,7 +36,6 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
 
-
       <Folder Name="Diagrams" TargetFolderName="Diagrams">
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
@@ -62,7 +61,7 @@
 <!-- Think through if ok to have these here for simple apps -->
 
       <Folder Name="DomainServices" TargetFolderName="DomainServices">
-      
+
         <Folder Name="ServicesMock" TargetFolderName="ServicesMock">
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataServiceMock.cs">TYPEDataServiceMock.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
@@ -70,7 +69,7 @@
 
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataService.cs">TYPEDataService.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="TYPELookupDataService.cs">TYPELookupDataService.cs</ProjectItem>
-        
+
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDataService.cs">ITEMDataService.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="ITEMLookupDataService.cs">ITEMLookupDataService.cs</ProjectItem>
 
@@ -93,12 +92,13 @@
         <Folder Name="Database" TargetFolderName="Database">
 
           <Folder Name="Migrations" TargetFolderName="Migrations">
-            <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
+            <!-- <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem> -->
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
           </Folder>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContext.cs">APPLICATIONDbContext.cs</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContextDatabaseInitializer.cs">APPLICATIONDbContextDatabaseInitializer.cs</ProjectItem>
+          <!-- <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContextDatabaseInitializer.cs">APPLICATIONDbContextDatabaseInitializer.cs</ProjectItem> -->
+
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
 
@@ -130,36 +130,35 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
           </Folder>
 
+          <ProjectItem ReplaceParameters="true" TargetFileName="AboutViewModel.cs">AboutViewModel.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMainViewModel.cs">CombinedMainViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigationViewModel.cs">CombinedNavigationViewModel.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetailViewModel.cs">ITEMDetailViewModel.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEViewModel.cs">TYPEViewModel.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainViewModel.cs">TYPEMainViewModel.cs</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationViewModel.cs">TYPENavigationViewModel.cs</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailViewModel.cs">TYPEDetailViewModel.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="RibbonViewModel.cs">RibbonViewModel.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="MainViewModel.cs">MainViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxLayoutControlViewModel.cs">MainDxLayoutControlViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManagerViewModel.cs">MainDxDockLayoutManagerViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MainViewModel.cs">MainViewModel.cs</ProjectItem>
 
+          <ProjectItem ReplaceParameters="true" TargetFileName="RibbonViewModel.cs">RibbonViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbonViewModel.cs">ShellRibbonViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="StatusBarViewModel.cs">StatusBarViewModel.cs</ProjectItem>
-          
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailViewModel.cs">TYPEDetailViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainViewModel.cs">TYPEMainViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationViewModel.cs">TYPENavigationViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEViewModel.cs">TYPEViewModel.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproachesViewModel.cs">UILaunchApproachesViewModel.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewABCDViewModel.cs">ViewABCDViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewAViewModel.cs">ViewAViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewBViewModel.cs">ViewBViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewCViewModel.cs">ViewCViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewDViewModel.cs">ViewDViewModel.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="ViewABCDViewModel.cs">ViewABCDViewModel.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproachesViewModel.cs">UILaunchApproachesViewModel.cs</ProjectItem>
-
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-
         </Folder>
 
         <Folder Name="Views" TargetFolderName="Views">
@@ -174,11 +173,17 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
           </Folder>
 
+          <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml">About.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml.cs">About.xaml.cs</ProjectItem>
+          
           <ProjectItem ReplaceParameters="true" TargetFileName="AppVersionInfo.xaml">AppVersionInfo.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="AppVersionInfo.xaml.cs">AppVersionInfo.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml">Ribbon.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml.cs">Ribbon.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml">ShellRibbon.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml.cs">ShellRibbon.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="Main.xaml">Main.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="Main.xaml.cs">Main.xaml.cs</ProjectItem>
@@ -188,10 +193,10 @@
 
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManager.xaml">MainDxDockLayoutManager.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManager.xaml.cs">MainDxDockLayoutManager.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="StatusBar.xaml">StatusBar.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="StatusBar.xaml.cs">StatusBar.xaml.cs</ProjectItem>          
-          
+          <ProjectItem ReplaceParameters="true" TargetFileName="StatusBar.xaml.cs">StatusBar.xaml.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewA.xaml">ViewA.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewA.xaml.cs">ViewA.xaml.cs</ProjectItem>
 
@@ -200,7 +205,7 @@
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewC.xaml">ViewC.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewC.xaml.cs">ViewC.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewD.xaml">ViewD.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewD.xaml.cs">ViewD.xaml.cs</ProjectItem>
 
@@ -208,7 +213,7 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewABCD.xaml.cs">ViewABCD.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml">UILaunchApproaches.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml.cs">UILaunchApproaches.xaml.cs</ProjectItem>          
+          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml.cs">UILaunchApproaches.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml">CombinedMain.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml.cs">CombinedMain.xaml.cs</ProjectItem>
@@ -234,45 +239,55 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
       </Folder>
 
-      <Folder Name="Resources" TargetFolderName="Resources">
-        <Folder Name="Icons" TargetFolderName="Icons">
-            <ProjectItem TargetFileName="ApplicationIcon.ico">ApplicationIcon.ico</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.ico">ApplicationIcon-Left-Blue.ico</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.png">ApplicationIcon-Left-Blue.png</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.psd">ApplicationIcon-Left-Blue.psd</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Right-Red.ico">ApplicationIcon-Right-Red.ico</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Right-Red.png">ApplicationIcon-Right-Red.png</ProjectItem>
-            <ProjectItem TargetFileName="ApplicationIcon-Right-Red.psd">ApplicationIcon-Right-Red.psd</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-        </Folder>
-        <Folder Name="Images" TargetFolderName="Images" >
-            <ProjectItem TargetFileName="VNCDeveloperMotivation.png">VNCDeveloperMotivation.png</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-        </Folder>
-        <Folder Name="Xaml" TargetFolderName="Xaml" >
-            <ProjectItem ReplaceParameters="true" TargetFileName="Application.xaml">Application.xaml</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="Display_StylesAndTemplates.xaml">Display_StylesAndTemplates.xaml</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="Layout_Styles.xaml">Layout_Styles.xaml</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-        </Folder>
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-      </Folder>
+            <Folder Name="Resources" TargetFolderName="Resources">
+
+                <Folder Name="Icons" TargetFolderName="Icons">
+                    <ProjectItem TargetFileName="ApplicationIcon.ico">ApplicationIcon.ico</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.ico">ApplicationIcon-Left-Blue.ico</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.png">ApplicationIcon-Left-Blue.png</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Left-Blue.psd">ApplicationIcon-Left-Blue.psd</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Right-Red.ico">ApplicationIcon-Right-Red.ico</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Right-Red.png">ApplicationIcon-Right-Red.png</ProjectItem>
+                    <ProjectItem TargetFileName="ApplicationIcon-Right-Red.psd">ApplicationIcon-Right-Red.psd</ProjectItem>
+
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                </Folder>
+
+                <Folder Name="Images" TargetFolderName="Images">
+                    <ProjectItem TargetFileName="FilterEditor.png">FilterEditor.png</ProjectItem>
+                    <ProjectItem TargetFileName="ToolBox.png">ToolBox.png</ProjectItem>
+                    <ProjectItem TargetFileName="VNCDeveloperMotivation.png">VNCDeveloperMotivation.png</ProjectItem>
+                    <ProjectItem TargetFileName="WatchWindow.bmp">WatchWindow.bmp</ProjectItem>
+
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                </Folder>
+
+                <Folder Name="Xaml" TargetFolderName="Xaml">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Application.xaml">Application.xaml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Display_StylesAndTemplates.xaml">Display_StylesAndTemplates.xaml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Layout_Styles.xaml">Layout_Styles.xaml</ProjectItem>
+
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                </Folder>
+
+                <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            </Folder>
 
       <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
 
       <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
-      
+
       <ProjectItem ReplaceParameters="true" TargetFileName="vncloggingconfig.json">vncloggingconfig.json</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="vnccoreloggingconfig.json">vnccoreloggingconfig.json</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="vncloggingconfig-Debug.json">vncloggingconfig-Debug.json</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="vnccoreloggingconfig-Debug.json">vnccoreloggingconfig-Debug.json</ProjectItem>
-      
+
       <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-      
+
     </Project>
-    
+
   </TemplateContent>
 
   <WizardExtension>

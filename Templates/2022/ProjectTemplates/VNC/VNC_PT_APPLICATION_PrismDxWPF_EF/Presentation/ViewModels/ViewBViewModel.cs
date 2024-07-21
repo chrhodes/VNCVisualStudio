@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class ViewBViewModel : EventViewModelBase, IViewBViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public ViewBViewModel(
@@ -30,6 +29,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -40,10 +41,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             Message = "ViewBViewModel says hello";
             MessageB = "ViewBViewModel says hello B";
@@ -64,7 +64,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Fields and Properties
-        
+
         private string _messageB;
 
         public string MessageB
@@ -77,19 +77,19 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 _messageB = value;
                 OnPropertyChanged();
             }
-        }        
-        
+        }
+
         #endregion
 
         #region Event Handlers (none)
 
 
         #endregion
-        
+
         #region Commands (none)
-        
-        
-        #endregion        
+
+
+        #endregion
 
         #region Public Methods (none)
 

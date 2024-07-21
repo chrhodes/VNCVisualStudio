@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class CombinedMainViewModel : EventViewModelBase, ICombinedMainViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public CombinedMainViewModel(
@@ -31,10 +30,15 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter navigationViewModel:{navigationViewModel.GetType()}", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             NavigationViewModel = navigationViewModel;
             //_CatDetailViewModelCreator = catDetailViewModelCreator;
             _$xxxTYPExxx$DetailViewModelCreator = $xxxTYPExxx$DetailViewModelCreator;
             _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;
+
+            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -46,7 +50,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             DetailViewModels = new ObservableCollection<IDetailViewModel>();
 
@@ -189,11 +195,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 catch (Exception ex)
                 {
                     var message = $"Cannot load the entity ({ex}) It may have been deleted by another user";
-                    
+
                     DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
                     {
                     });
-                    
+
                     await NavigationViewModel.LoadAsync();
                     return;
                 }
@@ -242,6 +248,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #region Commands (none)
+
 
         #endregion
 

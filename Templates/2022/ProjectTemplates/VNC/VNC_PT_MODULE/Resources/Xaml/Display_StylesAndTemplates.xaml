@@ -24,7 +24,8 @@
 
     <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
 
-    <SolidColorBrush x:Key="AppVersionInfoBackground" Color="#A0A0A0" />
+    <SolidColorBrush x:Key="AboutBackground" Color="#A0A0A0" />
+    <SolidColorBrush x:Key="AppVersionInfoBackground" Color="#D0D0D0" />
 
     <SolidColorBrush x:Key="ShellBackground" Color="#C0C0C0" />
     <SolidColorBrush x:Key="RibbonBackground" Color="#A0A0A0" />

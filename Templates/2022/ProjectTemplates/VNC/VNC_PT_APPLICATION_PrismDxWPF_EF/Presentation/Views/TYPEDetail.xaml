@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.$xxxTYPExxx$Detail"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -17,9 +17,10 @@
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"  
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
@@ -29,165 +30,221 @@
     Background="{StaticResource $xxxTYPExxx$DetailBackground}"
 
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
+    d:DesignWidth="500" d:DesignHeight="500"
 >
     <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
+
+    <!-- Move this to Resources\Xaml\Display_StylesAndTemplates.xaml -->
+    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$DetailBackground" Color="#A0FFA0" /> -->
+
     <!-- <d:DesignerProperties.DesignStyle> -->
         <!-- <Style TargetType="UserControl"> -->
             <!-- <Setter Property="Background" Value="White" /> -->
         <!-- </Style> -->
     <!-- </d:DesignerProperties.DesignStyle> -->
-    
+
     <!-- d:DesignWidth="400" d:DesignHeight="400" -->
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <vncmvvm:ViewBase.Resources>
+        <Style x:Key="xLabel" TargetType="Label">
+            <Setter Property="Margin"  Value="0" />
+        </Style>
+        <Style x:Key="xTextBox" TargetType="TextBox">
+            <Setter Property="Margin"  Value="5 0" />
+        </Style>
+    </vncmvvm:ViewBase.Resources>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="200" />
-        </Grid.ColumnDefinitions>
+    <DockPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-            <Label Content="FieldString"
-                 Margin="10 10 10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldString,
-                   Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldInt" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldInt,
-                   Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldSingle" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldSingle,
-                   Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldDouble" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldDouble,
-                    Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldDate" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldDate,
-                    Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldDate2" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldDate2,
-                    Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                Margin="10 0 10 10" />
-
-            <Label Content="FieldBoolean" Margin="10 0" />
-            <TextBox
-                Text="{Binding $xxxTYPExxx$.FieldBoolean,
-                    Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-                Margin="10 0 10 10" />
-        </StackPanel>
-
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
-            <Label Content="Id"
-                 Margin="10 10 10 0" />
-            <TextBox Grid.Row="1"
-                Text="{Binding $xxxTYPExxx$.Id,
-                   Mode=OneWay}"
-                Margin="10 0 10 10" />
-            <Label Content="DateCreated"
-                 Margin="10 10 10 0" />
-            <TextBox Grid.Row="1"
-                Text="{Binding $xxxTYPExxx$.DateCreated,
-                   Mode=OneWay}"
-                Margin="10 0 10 10" />
-            <Label Content="DateModified"
-                 Margin="10 10 10 0" />
-            <TextBox Grid.Row="1"
-                Text="{Binding $xxxTYPExxx$.DateModified,
-                   Mode=OneWay}"
-                Margin="10 0 10 10" />
-            <Label Content="IsDirty"
-                 Margin="10 10 10 0" />
-            <TextBox Grid.Row="1"
-                Text="{Binding $xxxTYPExxx$.IsDirty,
-                   Mode=OneWay}"
-                Margin="10 0 10 10" />
-            <Label Content="RowVersion"
-                 Margin="10 10 10 0" />
-            <TextBox Grid.Row="1"
-                Text="{Binding $xxxTYPExxx$.RowVersion,
-                   Mode=OneWay}"
-                Margin="10 0 10 10" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Orientation="Vertical" >
-            <Label Grid.Row="6" Content="Favorite $xxxITEMxxx$" Margin="10 0" />
-            <ComboBox Grid.Row="7" Margin="10 0 10 10"
-                  ItemsSource="{Binding $xxxITEMxxx$s}"
-                  DisplayMemberPath="DisplayMember"
-                  SelectedValuePath="Id"
-                  SelectedValue="{Binding $xxxTYPExxx$.Favorite$xxxITEMxxx$Id, Mode=TwoWay}"/>
-
-            <DockPanel Grid.Row="8" Margin="10">
-                <StackPanel DockPanel.Dock="Right">
-                    <Button Content="Add" Width="125"  Margin="10"
-                        Command="{Binding AddPhoneNumberCommand}"/>
-                    <Button Content="Remove" Width="125"  Margin="10"
-                        Command="{Binding RemovePhoneNumberCommand}"/>
-                </StackPanel>
-                <DataGrid ItemsSource="{Binding PhoneNumbers}"
-                    SelectedItem="{Binding SelectedPhoneNumber,Mode=TwoWay}"
-                    AutoGenerateColumns="False" RowHeaderWidth="0">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Phone Numbers" Width="*"
-                         ElementStyle="{StaticResource DataGridColumnStyle}"
-                         EditingElementStyle="{StaticResource DataGridEditingColumnStyle}"
-                         Binding="{Binding Number,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </DockPanel>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom">
-            <Button Content="Save" Width="125" Margin="10"
-                  Command="{Binding SaveCommand}" />
-            <Button Content="Delete" Width="125" Margin="10"
-                  Command="{Binding DeleteCommand}" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="3"  Orientation="Horizontal"
-                Visibility="{Binding DeveloperUIMode, 
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
             <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
 
             <!-- This is useful for debugging V VM constructor issues -->
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="V:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VP:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VM:" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
                 <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
 
         </StackPanel>
         
-    </Grid>
-</vnccore:ViewBase>
+        <ScrollViewer>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                    <Label Content="FieldString" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldString,
+                           Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldInt" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldInt,
+                           Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                       Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldSingle" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldSingle,
+                           Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                       Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldDouble" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldDouble,
+                            Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                        Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldDate" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldDate,
+                            Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                       Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldDate2" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldDate2,
+                            Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                          Style="{StaticResource xTextBox}" />
+
+                    <Label Content="FieldBoolean" Style="{StaticResource xLabel}"/>
+                    <TextBox
+                        Text="{Binding Cat.FieldBoolean,
+                            Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                       Style="{StaticResource xTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                    <Label Content="Id" Style="{StaticResource xLabel}"/>
+                    <TextBox Grid.Row="1"
+                        Text="{Binding Cat.Id,
+                           Mode=OneWay}"
+                       Style="{StaticResource xTextBox}" />
+                    <Label Content="DateCreated" Style="{StaticResource xLabel}"/>
+                    <TextBox Grid.Row="1"
+                        Text="{Binding Cat.DateCreated,
+                           Mode=OneWay}"
+                       Style="{StaticResource xTextBox}" />
+                    <Label Content="DateModified" Style="{StaticResource xLabel}"/>
+                    <TextBox Grid.Row="1"
+                        Text="{Binding Cat.DateModified,
+                           Mode=OneWay}"
+                         Style="{StaticResource xTextBox}" />
+                    <Label Content="IsDirty" Style="{StaticResource xLabel}"/>
+                    <TextBox Grid.Row="1"
+                        Text="{Binding Cat.IsDirty,
+                           Mode=OneWay}"
+                          Style="{StaticResource xTextBox}" />
+                    <Label Content="RowVersion" Style="{StaticResource xLabel}"/>
+                    <TextBox Grid.Row="1"
+                        Text="{Binding Cat.RowVersion,
+                           Mode=OneWay}"
+                       Style="{StaticResource xTextBox}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Vertical" >
+                    <Label Grid.Row="6" Content="Favorite Mouse"  Style="{StaticResource xLabel}"/>
+                    <ComboBox Grid.Row="7" Margin="10 0 10 10"
+                          ItemsSource="{Binding Mouses}"
+                          DisplayMemberPath="DisplayMember"
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding Cat.FavoriteMouseId, Mode=TwoWay}"/>
+
+                    <DockPanel Grid.Row="8" Margin="10">
+                        <StackPanel DockPanel.Dock="Right">
+                            <Button Content="Add" Width="125"  Margin="10"
+                                Command="{Binding AddPhoneNumberCommand}"/>
+                            <Button Content="Remove" Width="125"  Margin="10"
+                                Command="{Binding RemovePhoneNumberCommand}"/>
+                        </StackPanel>
+                        <DataGrid ItemsSource="{Binding PhoneNumbers}"
+                            SelectedItem="{Binding SelectedPhoneNumber,Mode=TwoWay}"
+                            AutoGenerateColumns="False" RowHeaderWidth="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Phone Numbers" Width="*"
+                                 ElementStyle="{StaticResource DataGridColumnStyle}"
+                                 EditingElementStyle="{StaticResource DataGridEditingColumnStyle}"
+                                 Binding="{Binding Number,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                    <Button Content="Save" Width="125"  Height="50" Margin="10"
+                          Command="{Binding SaveCommand}" />
+                    <Button Content="Delete" Width="125" Margin="10"
+                          Command="{Binding DeleteCommand}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center"
+                        Visibility="{Binding DeveloperUIMode,
+                                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+                    <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+
+                    <!-- This is useful for debugging V VM constructor issues -->
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                        <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0" >
+                        <Label Content="V:" />
+                        <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                        <Label Content="VP:" />
+                        <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                        <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                        <Label Content=":" />
+                        <Label Content="{Binding InstanceCountVM}" />
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+
+        </ScrollViewer>
+    
+    </DockPanel>
+
+</vncmvvm:ViewBase>

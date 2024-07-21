@@ -12,7 +12,7 @@
     DispatcherUnhandledException="Application_DispatcherUnhandledException"
 >
     <Application.Resources>
-       
+    
         <ResourceDictionary Source="/Resources/Xaml/Application.xaml" />
 
     </Application.Resources>

@@ -24,6 +24,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -32,9 +34,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private void InitializeViewModel()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             DeveloperModeCommand = new DelegateCommand(DeveloperMode, DeveloperModeCanExecute);
 
@@ -42,9 +46,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // and remove above declaration
             //DeveloperModeCommand = new DelegateCommand<TYPE>(DeveloperMode, DeveloperModeCanExecute);
 
-            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         #endregion
 
         #region Enums (none)
@@ -72,7 +76,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _message;
 
         public string Message
@@ -85,12 +89,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 _message = value;
                 OnPropertyChanged();
             }
-        }        
+        }
 
         public DelegateCommand DeveloperModeCommand { get; set; }
         // If using CommandParameter, figure out TYPE here and above
         // and remove above declaration
-        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }        
+        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }
 
         #endregion
 
@@ -98,7 +102,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
 
         #endregion
-        
+
       #region Commands
 
 
@@ -114,7 +118,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
       // Put these in Resource File
       //    <system:String x:Key="ViewName_DeveloperModeContent">DeveloperMode</system:String>
-      //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>  
+      //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>
 
       // If using CommandParameter, figure out TYPE and fix above
       //public void DeveloperMode(TYPE value)
@@ -124,7 +128,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
           // TODO(crhodes)
           // Do something amazing.
           Message = "Cool, you called DeveloperMode";
-          
+
           EventAggregator.GetEvent<StatusMessageEvent>().Publish(Message);
 
           if (Common.DeveloperMode)
@@ -178,7 +182,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
       #endregion
 
-      #endregion   
+      #endregion
 
         #region Public Methods (none)
 

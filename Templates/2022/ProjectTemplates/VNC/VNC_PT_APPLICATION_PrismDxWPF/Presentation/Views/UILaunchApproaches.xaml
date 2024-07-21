@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.UILaunchApproaches"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -19,9 +19,10 @@
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation" 
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
@@ -42,7 +43,7 @@
         <!-- </Style> -->
     <!-- </d:DesignerProperties.DesignStyle> -->
 
-    <!-- <vnccore:ViewBase.Resources> -->
+    <!-- <vncmvvm:ViewBase.Resources> -->
         <!-- <converters:SelectedItemsToListOfStringConverter x:Key="SelectedItemsToListOfStringConverter" /> -->
         <!-- <converters:SelectedItemsConverter x:Key="SelectedItemsConverter" /> -->
         <!-- <converters:SelectedItemsToWorkItemQueryWrapperConverter x:Key="SelectedItemsToUILaunchApproachesWrapperConverter" /> -->
@@ -66,211 +67,150 @@
 
     <!-- Simple Layout using Grid -->
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <DockPanel>
 
-        <StackPanel>
-            <TextBlock Text="UILaunchApproaches" />
-            <!-- <TextBlock Text="{Binding Message}" /> -->
-            <Button Content="Say Hello"
-                    Command="{Binding SayHelloCommand}" />
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding LaunchCylon1Command }"
-                    Content="{Binding LaunchCylon1Content, FallbackValue='LaunchCylon1' }"
-                    ToolTip="{Binding LaunchCylon1ToolTip, FallbackValue='LaunchCylon1 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding LaunchCylon2Command }"
-                    Content="{Binding LaunchCylon2Content, FallbackValue='LaunchCylon2' }"
-                    ToolTip="{Binding LaunchCylon2ToolTip, FallbackValue='LaunchCylon2 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding ThemedWindowHostModelessCommand }"
-                    Content="{Binding ThemedWindowHostModelessContent, FallbackValue='ThemedWindowHostModeless' }"
-                    ToolTip="{Binding ThemedWindowHostModelessToolTip, FallbackValue='ThemedWindowHostModeless ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                Command="{Binding ThemedWindowHostModalCommand }"
-                Content="{Binding ThemedWindowHostModalContent, FallbackValue='ThemedWindowHostModal' }"
-                ToolTip="{Binding ThemedWindowHostModalToolTip, FallbackValue='ThemedWindowHostModal ToolTip' }" />
-            </dxlc:LayoutItem>
-
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding DXLayoutControlCommand }"
-                    Content="{Binding DXLayoutControlContent, FallbackValue='DXLayoutControl' }"
-                    ToolTip="{Binding DXLayoutControlToolTip, FallbackValue='DXLayoutControl ToolTip' }" />
-            </dxlc:LayoutItem>
-
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding DXDockLayoutControlCommand }"
-                    Content="{Binding DXDockLayoutControlContent, FallbackValue='DXDockLayoutControl' }"
-                    ToolTip="{Binding DXDockLayoutControlToolTip, FallbackValue='DXDockLayoutControl ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding DXDockLayoutManagerCommand }"
-                    Content="{Binding DXDockLayoutManagerContent, FallbackValue='DXDockLayoutManager' }"
-                    ToolTip="{Binding DXDockLayoutManagerToolTip, FallbackValue='DXDockLayoutManager ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM1Command }"
-                    Content="{Binding MVVM1Content, FallbackValue='MVVM1' }"
-                    ToolTip="{Binding MVVM1ToolTip, FallbackValue='MVVM1 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM2Command }"
-                    Content="{Binding MVVM2Content, FallbackValue='MVVM2' }"
-                    ToolTip="{Binding MVVM2ToolTip, FallbackValue='MVVM2 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM3Command }"
-                    Content="{Binding MVVM3Content, FallbackValue='MVVM3' }"
-                    ToolTip="{Binding MVVM3ToolTip, FallbackValue='MVVM3 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM4Command }"
-                    Content="{Binding MVVM4Content, FallbackValue='MVVM4' }"
-                    ToolTip="{Binding MVVM4ToolTip, FallbackValue='MVVM4 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM5Command }"
-                    Content="{Binding MVVM5Content, FallbackValue='MVVM5' }"
-                    ToolTip="{Binding MVVM5ToolTip, FallbackValue='MVVM5 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-            <dxlc:LayoutItem>
-                <Button
-                    Command="{Binding MVVM6Command }"
-                    Content="{Binding MVVM6Content, FallbackValue='MVVM6' }"
-                    ToolTip="{Binding MVVM6ToolTip, FallbackValue='MVVM6 ToolTip' }" />
-            </dxlc:LayoutItem>
-
-        </StackPanel>
-
-        <!-- This is useful for debugging V VM constructor issues -->
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal"
-            Visibility="{Binding DeveloperUIMode, 
-                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
             <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+
             <!-- This is useful for debugging V VM constructor issues -->
-            
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="V:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VP:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VM:" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
                 <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
-            
+
         </StackPanel>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <StackPanel>
+                <TextBlock Text="UILaunchApproaches" />
+                <!-- <TextBlock Text="{Binding Message}" /> -->
+                <Button Content="Say Hello"
+                        Command="{Binding SayHelloCommand}" />
 
-    <!-- Using Prism Regions -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding LaunchCylon1Command }"
+                        Content="{Binding LaunchCylon1Content, FallbackValue='LaunchCylon1' }"
+                        ToolTip="{Binding LaunchCylon1ToolTip, FallbackValue='LaunchCylon1 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.<RegionName>}"/> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding LaunchCylon2Command }"
+                        Content="{Binding LaunchCylon2Content, FallbackValue='LaunchCylon2' }"
+                        ToolTip="{Binding LaunchCylon2ToolTip, FallbackValue='LaunchCylon2 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- Simple Layout using DevExpress LayoutGroup
-        May need to add dxXMLNS -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding ThemedWindowHostModelessCommand }"
+                        Content="{Binding ThemedWindowHostModelessContent, FallbackValue='ThemedWindowHostModeless' }"
+                        ToolTip="{Binding ThemedWindowHostModelessToolTip, FallbackValue='ThemedWindowHostModeless ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- <dxlc:LayoutGroup View="Group" Orientation="Vertical" HorizontalAlignment="Left" > -->
+                <dxlc:LayoutItem>
+                    <Button
+                    Command="{Binding ThemedWindowHostModalCommand }"
+                    Content="{Binding ThemedWindowHostModalContent, FallbackValue='ThemedWindowHostModal' }"
+                    ToolTip="{Binding ThemedWindowHostModalToolTip, FallbackValue='ThemedWindowHostModal ToolTip' }" />
+                </dxlc:LayoutItem>
 
-        <!-- <dxlc:LayoutItem Label="Item X"> -->
 
-        <!-- </dxlc:LayoutItem> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding DXLayoutControlCommand }"
+                        Content="{Binding DXLayoutControlContent, FallbackValue='DXLayoutControl' }"
+                        ToolTip="{Binding DXLayoutControlToolTip, FallbackValue='DXLayoutControl ToolTip' }" />
+                </dxlc:LayoutItem>
 
-        <!-- <dxlc:LayoutGroup View="Group" Orientation="Horizontal" HorizontalAlignment="Left" > -->
 
-            <!-- <StackPanel> -->
-            <!-- <TextBlock Text="HostSelector" /> -->
-            <!-- <TextBlock Text="{Binding Message}" /> -->
-            <!-- <Button Content="Say Hello" -->
-            <!-- Command="{Binding SayHelloCommand}" /> -->
-            <!-- </StackPanel> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding DXDockLayoutControlCommand }"
+                        Content="{Binding DXDockLayoutControlContent, FallbackValue='DXDockLayoutControl' }"
+                        ToolTip="{Binding DXDockLayoutControlToolTip, FallbackValue='DXDockLayoutControl ToolTip' }" />
+                </dxlc:LayoutItem>
 
-        <!-- </dxlc:LayoutGroup> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding DXDockLayoutManagerCommand }"
+                        Content="{Binding DXDockLayoutManagerContent, FallbackValue='DXDockLayoutManager' }"
+                        ToolTip="{Binding DXDockLayoutManagerToolTip, FallbackValue='DXDockLayoutManager ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- </dxlc:LayoutGroup> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM1Command }"
+                        Content="{Binding MVVM1Content, FallbackValue='MVVM1' }"
+                        ToolTip="{Binding MVVM1ToolTip, FallbackValue='MVVM1 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- Simple Layout using DevExpress LayoutControl
-         May need to add dxXMLNS -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM2Command }"
+                        Content="{Binding MVVM2Content, FallbackValue='MVVM2' }"
+                        ToolTip="{Binding MVVM2ToolTip, FallbackValue='MVVM2 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-    <!-- <DockPanel Margin="5"> -->
-        <!-- <TextBlock Text="InterfaceKit" DockPanel.Dock="Top" /> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM3Command }"
+                        Content="{Binding MVVM3Content, FallbackValue='MVVM3' }"
+                        ToolTip="{Binding MVVM3ToolTip, FallbackValue='MVVM3 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-        <!-- This is useful for debugging V VM constructor issues -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM4Command }"
+                        Content="{Binding MVVM4Content, FallbackValue='MVVM4' }"
+                        ToolTip="{Binding MVVM4ToolTip, FallbackValue='MVVM4 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-        <!-- <DockPanel DockPanel.Dock="Bottom" > -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM5Command }"
+                        Content="{Binding MVVM5Content, FallbackValue='MVVM5' }"
+                        ToolTip="{Binding MVVM5ToolTip, FallbackValue='MVVM5 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="5"> -->
-                <!-- <Label Content="Message:" /> -->
-                <!-- <Label Content="{Binding Message}" /> -->
-            <!-- </StackPanel> -->
+                <dxlc:LayoutItem>
+                    <Button
+                        Command="{Binding MVVM6Command }"
+                        Content="{Binding MVVM6Content, FallbackValue='MVVM6' }"
+                        ToolTip="{Binding MVVM6ToolTip, FallbackValue='MVVM6 ToolTip' }" />
+                </dxlc:LayoutItem>
 
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="5"> -->
-                <!-- <Label Content="V:" /> -->
-                <!-- <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" /> -->
-            <!-- </StackPanel> -->
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="5"> -->
-                <!-- <Label Content="VM:" /> -->
-                <!-- <Label Content="{Binding InstanceCountVM}" /> -->
-            <!-- </StackPanel> -->
+            </StackPanel>
 
-        <!-- </DockPanel> -->
+        </Grid>
 
-        <!-- <dxlc:LayoutControl Orientation="Vertical"> -->
+    </DockPanel>
 
-            <!-- <dxlc:LayoutItem Label="Item X"> -->
-
-            <!-- </dxlc:LayoutItem> -->
-
-            <!-- <dxlc:LayoutGroup View="Group" Orientation="Horizontal" HorizontalAlignment="Left" > -->
-
-                <!-- <StackPanel> -->
-                    <!-- <TextBlock Text="UILaunchApproaches" /> -->
-                    <!-- <TextBlock Text="{Binding Message}" /> -->
-                    <!-- <Button Content="Say Hello" -->
-                            <!-- Command="{Binding SayHelloCommand}" /> -->
-                <!-- </StackPanel> -->
-
-            <!-- </dxlc:LayoutGroup> -->
-
-        <!-- </dxlc:LayoutControl> -->
-
-    <!-- </DockPanel> -->
-
-</vnccore:ViewBase>
+</vncmvvm:ViewBase>

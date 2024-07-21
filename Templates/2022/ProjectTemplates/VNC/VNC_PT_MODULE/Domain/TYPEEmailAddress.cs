@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 {
     public class $xxxTYPExxx$EmailAddress : IEntity<int>, IModificationHistory, IOptimistic
     {
@@ -16,7 +16,7 @@ namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Domain
 
         [StringLength(50), Required]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
 
         #region IModificationHistory
