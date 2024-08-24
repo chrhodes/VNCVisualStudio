@@ -35,12 +35,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             _$xxxTYPExxx$DataService = $xxxTYPExxx$DataService;
             _$xxxITEMxxx$LookupDataService = $xxxITEMxxx$LookupDataService;
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -48,7 +53,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             EventAggregator.GetEvent<AfterCollectionSavedEvent>()
                 .Subscribe(AfterCollectionSaved);
@@ -141,6 +148,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
+        #region Commands (none)
+
+
+        #endregion
+
         #region Public Methods
 
         public override async Task LoadAsync(int id)
@@ -199,7 +211,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 }
             });
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         protected override bool SaveCanExecute()
@@ -220,7 +232,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         protected override async void SaveExecute()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER($"($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
 
             await _$xxxTYPExxx$DataService.UpdateAsync();
 
@@ -237,7 +249,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishAfterDetailSavedEvent($xxxTYPExxx$.Id, $xxxTYPExxx$.FieldString);
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void AddPhoneNumberExecute()

@@ -32,7 +32,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -101,6 +101,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Event Handlers
 
+
+        #endregion
+
         #region Commands
 
         #region SayHello Command
@@ -152,7 +155,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (cylonHost is null) cylonHost = new WindowHost();
+            if (cylonHost is null) cylonHost = new WindowHost(EventAggregator);
 
             cylonHost.DisplayUserControlInHost(
                 "I am a Cylon loaded by name",
@@ -227,7 +230,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (cylonHost2 is null) cylonHost2 = new WindowHost();
+            if (cylonHost2 is null) cylonHost2 = new WindowHost(EventAggregator);
 
             cylonHost2.DisplayUserControlInHost(
                 "I am a Cylon loaded by type",
@@ -306,7 +309,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (themedWindowHostModeless is null) themedWindowHostModeless = new DxThemedWindowHost();
+            if (themedWindowHostModeless is null) themedWindowHostModeless = new DxThemedWindowHost(EventAggregator);
 
             themedWindowHostModeless.DisplayUserControlInHost(
               "ThemedWindowHost (Modeless)",
@@ -385,7 +388,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (themedWindowHostModal is null) themedWindowHostModal = new DxThemedWindowHost();
+            if (themedWindowHostModal is null) themedWindowHostModal = new DxThemedWindowHost(EventAggregator);
 
             themedWindowHostModal.DisplayUserControlInHost(
                 "ThemedWindowHost (Modal)",
@@ -460,7 +463,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (dxLayoutControlHost is null) dxLayoutControlHost = new DxThemedWindowHost();
+            if (dxLayoutControlHost is null) dxLayoutControlHost = new DxThemedWindowHost(EventAggregator);
 
             dxLayoutControlHost.DisplayUserControlInHost(
                 "DxLayoutControl Test",
@@ -535,7 +538,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (dxDockLayoutControlHost is null) dxDockLayoutControlHost = new DxThemedWindowHost();
+            if (dxDockLayoutControlHost is null) dxDockLayoutControlHost = new DxThemedWindowHost(EventAggregator);
 
             dxDockLayoutControlHost.DisplayUserControlInHost(
                 "DxDockLayoutControl Test",
@@ -610,7 +613,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            if (dxDockLayoutManagerControlHost is null) dxDockLayoutManagerControlHost = new DxThemedWindowHost();
+            if (dxDockLayoutManagerControlHost is null) dxDockLayoutManagerControlHost = new DxThemedWindowHost(EventAggregator);
 
             dxDockLayoutManagerControlHost.DisplayUserControlInHost(
                 "DxDocLayoutManagerControl Test",
@@ -657,6 +660,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
+        #region MVVM Commands
 
         #region MVVM1 Command
 

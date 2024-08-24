@@ -11,7 +11,6 @@ using Prism.Services.Dialogs;
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
-using VNC.Core.Services;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
@@ -40,7 +39,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -156,7 +155,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id}", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id})", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -289,6 +288,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

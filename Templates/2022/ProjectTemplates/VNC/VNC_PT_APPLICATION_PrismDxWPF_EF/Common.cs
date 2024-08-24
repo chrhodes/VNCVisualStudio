@@ -1,24 +1,28 @@
 ﻿using System;
-using System.Reflection;
-using System.Windows;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views;
 
 using Prism.Ioc;
+using Prism.Regions;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 {
     public class Common : VNC.WPF.Presentation.Common
-    {       
+    {
         public const string APPLICATION_NAME = "$xxxAPPLICATIONxxx$";
         public new const string LOG_CATEGORY = "$xxxAPPLICATIONxxx$";
 
         public const string cCONFIG_FILE = @"C:\temp\$xxxAPPLICATIONxxx$_Config.xml";
 
         public static IContainerProvider Container;
-        
+
+        // HACK(crhodes)
+        // Decide if what to keep this.  Put here to try to get in View and ViewModel can ask for in constructor
+
+        public static IRegionManager DefaultRegionManager;
+
         public static Shell? CurrentShell;
-        public static RibbonShell? CurrentRibbonShell;        
+        public static RibbonShell? CurrentRibbonShell;
 
         public static event EventHandler AutoHideGroupSpeedChanged;
 
@@ -39,7 +43,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
                 }
             }
         }
-        
+
         //public static void RaiseAutoHideGroupSpeedChanged()
         //{
         //    EventHandler evt = AutoHideGroupSpeedChanged;
@@ -48,8 +52,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
         //    {
         //        evt(null, EventArgs.Empty); ;
         //    }
-        //}        
-        
+        //}
+
         // This controls the behavior of the overall application.
         // It is initialized from app.config and is updated when the user changes the mode.
         // Changes are reflected in the app.config file.

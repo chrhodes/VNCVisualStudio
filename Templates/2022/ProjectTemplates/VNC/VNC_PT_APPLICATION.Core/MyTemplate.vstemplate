@@ -56,17 +56,20 @@
 
         <Folder Name="ViewModels" TargetFolderName="ViewModels">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbonViewModel.cs">IRibbonViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IAboutViewModel.cs">IAboutViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IAppVersionInfoViewModel.cs">IAppVersionInfoViewModel.cs</ProjectItem>
+
             <ProjectItem ReplaceParameters="true" TargetFileName="IMainViewModel.cs">IMainViewModel.cs</ProjectItem>
-
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewAViewModel.cs">IViewAViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewBViewModel.cs">IViewBViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewCViewModel.cs">IViewCViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDViewModel.cs">IViewDViewModel.cs</ProjectItem>
-
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCDViewModel.cs">IViewABCDViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcessViewModel.cs">IMultiStepProcessViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigationViewModel.cs">IRegionNavigationViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbonViewModel.cs">IRibbonViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBarViewModel.cs">IStatusBarViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepABCDEViewModel.cs">IStepABCDEViewModel.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproachesViewModel.cs">IUILaunchApproachesViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscoveryViewModel.cs">IViewDiscoveryViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjectionViewModel.cs">IViewInjectionViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCDViewModel.cs">IViewABCDViewModel.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
 
@@ -81,19 +84,22 @@
         <Folder Name="Views" TargetFolderName="Views">
 
             <ProjectItem ReplaceParameters="true" TargetFileName="IAbout.cs">IAbout.cs</ProjectItem>
-            
+
             <ProjectItem ReplaceParameters="true" TargetFileName="IMain.cs">IMain.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcess.cs">IMultiStepProcess.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigation.cs">IRegionNavigation.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IRibbon.cs">IRibbon.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBar.cs">IStatusBar.cs</ProjectItem>
-
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewA.cs">IViewA.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewB.cs">IViewB.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewC.cs">IViewC.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewD.cs">IViewD.cs</ProjectItem>
-
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCD.cs">IViewABCD.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepA.cs">IStepA.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepB.cs">IStepB.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepC.cs">IStepC.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepD.cs">IStepD.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IStepE.cs">IStepE.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproaches.cs">IUILaunchApproaches.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCD.cs">IViewABCD.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscovery.cs">IViewDiscovery.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjection.cs">IViewInjection.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
 

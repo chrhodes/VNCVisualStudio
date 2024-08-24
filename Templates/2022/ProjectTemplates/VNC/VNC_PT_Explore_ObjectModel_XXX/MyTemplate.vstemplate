@@ -3,21 +3,20 @@
     <Name>VNC_Explore_ObjecModel_XXX</Name>
     <Description>Console App to Explore Object Model includes Diagrams</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
+    <ProjectSubType></ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>VNC_Explore_ObjectModel_XXX</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-    <Icon>__TemplateIcon.ico</Icon>
+    <Icon>__VNCTemplateIcon.ico</Icon>
 	<LanguageTag>CSharp</LanguageTag>
 	<PlatformTag>Windows</PlatformTag>
 	<ProjectTypeTag>VNC</ProjectTypeTag>	
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="ExploreSystem.ComponentModel.csproj" File="ExploreSystem.ComponentModel.csproj" ReplaceParameters="true">
+    <Project TargetFileName="Explore_ObjectModel.csproj" File="Explore_ObjectModel.csproj" ReplaceParameters="true">
       <Folder Name="Diagrams" TargetFolderName="Diagrams">
         <ProjectItem ReplaceParameters="true" TargetFileName="Attributes Diagram.cd">Attributes Diagram.cd</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="Classes Diagram Expanded.cd">Classes Diagram Expanded.cd</ProjectItem>
@@ -29,9 +28,6 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="Structures Diagram.cd">Structures Diagram.cd</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
-      <Folder Name="Properties" TargetFolderName="Properties">
-        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>

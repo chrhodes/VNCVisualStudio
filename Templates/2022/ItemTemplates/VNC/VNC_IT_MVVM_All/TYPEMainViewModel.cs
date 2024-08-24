@@ -11,13 +11,11 @@ using Prism.Services.Dialogs;
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
-using VNC.Core.Services;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class $xxxTYPExxx$MainViewModel : EventViewModelBase, I$xxxTYPExxx$MainViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public $xxxTYPExxx$MainViewModel(
@@ -30,13 +28,18 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            // TODO(crhodes)
+            // Save constructor parameters here
+
             NavigationViewModel = $xxxTYPExxx$NavigationViewModel;
             _$xxxTYPExxx$DetailViewModelCreator = $xxxTYPExxx$DetailViewModelCreator;
             _$xxxITEMxxx$DetailViewModelCreator = $xxxITEMxxx$DetailViewModelCreator;
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -44,7 +47,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             DetailViewModels = new ObservableCollection<IDetailViewModel>();
 
@@ -150,7 +155,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id}", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id})", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -186,7 +191,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 catch (Exception ex)
                 {
                     var message = $"Cannot load the entity ({ex}) It may have been deleted by another user";
-                    
+
                     DialogService.Show("NotificationDialog", new DialogParameters($"message={message}"), r =>
                     {
                     });
@@ -243,6 +248,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
+        #region Commands (none)
+
+
+        #endregion
+
         #region Public Methods
 
         public async Task LoadAsync()
@@ -278,6 +288,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

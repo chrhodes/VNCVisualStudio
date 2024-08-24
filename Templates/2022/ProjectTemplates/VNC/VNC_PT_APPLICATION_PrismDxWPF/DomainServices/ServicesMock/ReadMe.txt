@@ -1,3 +1,3 @@
-﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\DomainServices\ServicesMock
+﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
 
 Notes for using this template

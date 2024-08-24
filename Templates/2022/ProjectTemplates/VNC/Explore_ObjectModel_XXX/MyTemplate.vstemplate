@@ -1,0 +1,35 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+    <TemplateData>
+        <Name>Explore_ObjectModel_XXX</Name>
+        <Description>App to Explore Object Model includes Diagrams</Description>
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType/>
+        <SortOrder>1000</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>Explore_ObjectModel_XXX</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <CreateInPlace>true</CreateInPlace>
+        <Icon>__VNCTemplateIcon.ico</Icon>
+        <ProjectTypeTag>VNCPT</ProjectTypeTag>
+    </TemplateData>
+    <TemplateContent>
+        <Project TargetFileName="Explore_ObjectModel_XXX.csproj" File="Explore_ObjectModel_XXX.csproj" ReplaceParameters="true">
+            <Folder Name="Diagrams" TargetFolderName="Diagrams">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Attributes Diagram.cd">Attributes Diagram.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Classes Diagram Expanded.cd">Classes Diagram Expanded.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Classes Digram Collapsed.cd">Classes Digram Collapsed.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Delegates Digram.cd">Delegates Digram.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Enums Diagramcd.cd">Enums Diagramcd.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Exceptions Diagram.cd">Exceptions Diagram.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Interfaces Diagram.cd">Interfaces Diagram.cd</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Structures Diagram.cd">Structures Diagram.cd</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
+        </Project>
+    </TemplateContent>
+</VSTemplate>

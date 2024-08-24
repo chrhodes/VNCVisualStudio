@@ -19,7 +19,7 @@
 
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
-    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"

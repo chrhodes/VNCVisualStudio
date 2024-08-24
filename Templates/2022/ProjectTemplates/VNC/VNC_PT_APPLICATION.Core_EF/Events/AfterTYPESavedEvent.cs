@@ -1,6 +1,6 @@
 using Prism.Events;
 
-namespace $xxxAPPLICATIONxxx$.Core.Events
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core.Events
 {
     public class After$xxxTYPExxx$SavedEvent : PubSubEvent<After$xxxTYPExxx$SavedEventArgs>
     {

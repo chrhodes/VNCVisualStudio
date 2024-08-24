@@ -42,7 +42,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -154,7 +154,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$MainViewModel) Enter Id:({args.Id}(", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"(CombinedMainViewModel) Enter Id:({args.Id}(", Common.LOG_CATEGORY);
 
             var detailViewModel = DetailViewModels
                     .SingleOrDefault(vm => vm.Id == args.Id
@@ -209,7 +209,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             SelectedDetailViewModel = detailViewModel;
 
-            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("($xxxTYPExxx$MainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("(CombinedMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void AfterDetailDeleted(AfterDetailDeletedEventArgs args)
@@ -261,11 +261,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         public async Task LoadAsync()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL("CombinedMainViewModel) Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL("(CombinedMainViewModel) Enter", Common.LOG_CATEGORY);
 
             await NavigationViewModel.LoadAsync();
 
-            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("CombinedMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("(CombinedMainViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

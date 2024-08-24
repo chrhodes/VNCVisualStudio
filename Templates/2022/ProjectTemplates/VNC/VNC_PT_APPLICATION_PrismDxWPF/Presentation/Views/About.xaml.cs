@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows;
+using System.Linq;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels;
 
@@ -18,16 +18,24 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
+
             InitializeComponent();
 
-            // Expose ViewModel
+            // Wire up ViewModel if needed
 
             // If View First with ViewModel in Xaml
 
             // ViewModel = (IAboutViewModel)DataContext;
 
             // Can create directly
-            // ViewModel = AboutViewModel();
+
+            // ViewModel = new AboutViewModel();
+
+            // Can use ourselves for everything
+
+            //DataContext = this;
+
+            InitializeView();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -37,10 +45,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
+
             InitializeComponent();
 
-            ViewModel = viewModel;
-            ViewModel.View = this;
+            ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
+
+            // For the rare case where the ViewModel needs to know about the View
+            // ViewModel.View = this;
 
             InitializeView();
 
@@ -54,6 +65,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // NOTE(crhodes)
             // Put things here that initialize the View
+            // Hook eventhandlers, etc.
+
+            ViewType = this.GetType().ToString().Split('.').Last();
+
+            // Establish any additional DataContext(s), e.g. to things held in this View
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }

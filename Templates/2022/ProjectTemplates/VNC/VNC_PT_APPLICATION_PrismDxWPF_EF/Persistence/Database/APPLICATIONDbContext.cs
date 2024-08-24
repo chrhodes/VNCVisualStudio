@@ -24,19 +24,19 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
         public DbSet<$xxxTYPExxx$PhoneNumber> $xxxTYPExxx$PhoneNumbersSet { get; set; }
 
         public DbSet<$xxxITEMxxx$> $xxxITEMxxx$sSet { get; set; }
-        
+
         //public virtual DbSet<MigrationHistory> MigrationHistories { get; set; }
 
         // NOTE(crhodes)
         // I think all this goes away in favor of migrations from PWC
-        public PAEF1CoreDbContext()
+        public $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$DbContext()
         {
             // NOTE(crhodes)
             // Package Manager Console does not like logging.  All attempts to work around have failed.
             // Explore using net tools.  For now, remove logging.
             // Int64 startTicks = 0;
             // if (Common.VNCCoreLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
-            
+
             // NOTE(crhodes)
             // This is good for demos.  Just create on the fly
 
@@ -69,7 +69,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new PAEF1CoreDbContextDatabaseInitializer());
 
             // Release builds and Dependency Injection use lambda's.  Use special handling.
-            
+
             // if (Common.VNCCoreLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -80,13 +80,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // Explore using net tools.  For now, remove logging.
             // Int64 startTicks = 0;
             // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
-            
+
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["PAEF1Core_DB"].ConnectionString);
             //optionsBuilder.UseSqlServer("Data Source=.\\SQL2019; Initial Catalog=PAEF1Core; Integrated Security=True ; Encrypt=false");
-            
-            // if (Common.VNCCoreLogging.PersistenceLow) Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);            
+
+            // if (Common.VNCCoreLogging.PersistenceLow) Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // NOTE(crhodes)
@@ -94,24 +94,24 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // Explore using net tools.  For now, remove logging.
             // Int64 startTicks = 0;
             // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
-            
+
             // NOTE(crhodes)
             // Used to be able to do this in EF6
-            
+
             // modelBuilder.Types().Configure(c => c.Ignore("IsDirty"));
-            
+
             // NOTE(crhodes)
             // Can use [NotMapped] on Domain Class Property
             //[NotMapped]
             //public Boolean? IsDirty { get; set; }
-            
-            // or do individual Types here 
+
+            // or do individual Types here
 
             modelBuilder.Entity<Cat>().Ignore(c => c.IsDirty);
             modelBuilder.Entity<Mouse>().Ignore(c => c.IsDirty);
             modelBuilder.Entity<CatEmailAddress>().Ignore(c => c.IsDirty);
             modelBuilder.Entity<CatPhoneNumber>().Ignore(c => c.IsDirty);
-            
+
             // HACK(crhodes)
             // Still looking for ways
 
@@ -135,7 +135,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // Maybe this should be in <migrationname>.cs
 
             //SeedDatabase(modelBuilder);
-            
+
             // if (Common.VNCCoreLogging.PersistenceLow)Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -146,7 +146,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // Explore using net tools.  For now, remove logging.
             // Int64 startTicks = 0;
             // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
-            
+
             // NOTE(crhodes)
             // Add Convention
             //configurationBuilder.Conventions.Add(_ => new MyCustomConvention());
@@ -167,10 +167,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             //    private static Expression<Func<string, Color>> ColorStruct = v => Color.FromName(v);
 
             //}
-            
-            // if (Common.VNCCoreLogging.PersistenceLow)Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);            
+
+            // if (Common.VNCCoreLogging.PersistenceLow)Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         // NOTE(crhodes)
         // This does not keep it out of Migration :(
         // public class MyCustomConvention : IModelFinalizingConvention
@@ -187,7 +187,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                 // }
             // }
         // }
-        
+
         private void SeedDatabase(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cat>().HasData(new Cat { Id = 1, FieldString = "Archer" });
@@ -232,7 +232,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             //                DateCreated = DateTime.Now
             //            }
         }
-        
+
         public override int SaveChanges()
         {
             Int64 startTicks = 0;
@@ -288,13 +288,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
                     history.IsDirty = false;
                 }
 
-                if (Common.VNCCoreLogging.Persistence) Log.PERSISTENCE($"($xxxAPPLICATIONxxx$DbContext) Exit ({result})", Common.LOG_CATEGORY, startTicks);
+                if (Common.VNCCoreLogging.Persistence) Log.PERSISTENCE($"Exit ({result})", Common.LOG_CATEGORY, startTicks);
 
                 return result;
             }
             // NOTE(crhodes)
             // This does not exist but can roll your own. See
-            // 
+            //
             //catch (DbEntityValidationException ex)
             //{
             //    // Display some details on errors
@@ -427,7 +427,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             }
             // NOTE(crhodes)
             // This does not exist but can roll your own. See
-            // 
+            //
             //catch (DbEntityValidationException ex)
             //{
             //    // Display some details on errors

@@ -36,7 +36,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+           if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -89,12 +89,15 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             switch (args.ViewModelName)
             {
                 case nameof($xxxTYPExxx$DetailViewModel):
-                    AfterDetailSaved($xxxTYPExxx$s, args);
+                    AddNavigationItem($xxxTYPExxx$s, args);
                     break;
 
+                // case nameof(XXXDetailViewModel):
+                // AfterDetailSaved(XXXs, args);
+                // break;
+
                 default:
-                    return;
-                    //throw new System.Exception($"AfterDetailSaved(): ViewModel {args.ViewModelName} not mapped.");
+                    throw new System.Exception($"AfterDetailSaved(): ViewModel {args.ViewModelName} not mapped.");
             }
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
@@ -108,12 +111,15 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             switch (args.ViewModelName)
             {
                 case nameof($xxxTYPExxx$DetailViewModel):
-                    AfterDetailDeleted($xxxTYPExxx$s, args);
+                    DeleteNavigationItem($xxxTYPExxx$s, args);
                     break;
 
+                // case nameof(XXXXDetailViewModel):
+                // AfterDetailDeleted(XXXXs, args);
+                // break;
+
                 default:
-                    return;
-                    //throw new System.Exception($"AfterDetailDeleted(): ViewModel {args.ViewModelName} not mapped.");
+                    throw new System.Exception($"AfterDetailDeleted(): ViewModel {args.ViewModelName} not mapped.");
             }
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
@@ -155,8 +161,51 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Private Methods (none)
+        #region Private Methods
 
+        private void AddNavigationItem(
+            ObservableCollection<NavigationItemViewModel> items,
+            AfterDetailSavedEventArgs args)
+        {
+#if LOGGING
+            Int64 startTicks = 0;
+            if (Common.VNCCoreLogging.ViewModel) startTicks = Log.VIEWMODEL($"Enter Id:({args.Id})", Common.LOG_CATEGORY);
+#endif
+            var lookupItem = items.SingleOrDefault(l => l.Id == args.Id);
+
+            if (lookupItem == null)
+            {
+                items.Add(new NavigationItemViewModel(args.Id, args.DisplayMember,
+                    args.ViewModelName,
+                    EventAggregator, DialogService));
+            }
+            else
+            {
+                lookupItem.DisplayMember = args.DisplayMember;
+            }
+#if LOGGING
+            if (Common.VNCCoreLogging.ViewModel) Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
+#endif
+        }
+
+        private void DeleteNavigationItem(
+            ObservableCollection<NavigationItemViewModel> items,
+            AfterDetailDeletedEventArgs args)
+        {
+#if LOGGING
+            Int64 startTicks = 0;
+            if (Common.VNCCoreLogging.ViewModel) startTicks = Log.VIEWMODEL($"Enter Id:({args.Id})", Common.LOG_CATEGORY);
+#endif
+            var lookupItem = items.SingleOrDefault(f => f.Id == args.Id);
+
+            if (lookupItem != null)
+            {
+                items.Remove(lookupItem);
+            }
+#if LOGGING
+            if (Common.VNCCoreLogging.ViewModel) Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
+#endif
+        }
 
         #endregion
 
@@ -171,6 +220,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

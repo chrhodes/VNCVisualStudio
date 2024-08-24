@@ -19,7 +19,7 @@
 
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
-    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
@@ -50,7 +50,7 @@
             <!-- This is useful for debugging V VM constructor issues -->
 
             <StackPanel Orientation="Horizontal">
-                
+
                 <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
                     <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
                 </StackPanel>
@@ -93,14 +93,13 @@
         </Button>
 
         <Button x:Name="btnDeveloperMode" DockPanel.Dock="Right"
-                Command="{Binding DeveloperModeCommand }"
-                ToolTip="{Binding DeveloperModeToolTip, FallbackValue='DeveloperMode ToolTip' }"
+                Click="btnDeveloperMode_Click"
+                ToolTip="{Binding DeveloperModeToolTip, FallbackValue='DeveloperMode ToolTip'}"
                 Width="48" Height="39">
             <Button.Background>
                 <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  />
             </Button.Background>
         </Button>
-
 
         <Label Content="Message:" Margin="2,0,2,2" VerticalAlignment="Center" />
         <TextBlock Text="{Binding Message}" Background="White" VerticalAlignment="Center" Margin="2" Padding="2,0,2,0" />

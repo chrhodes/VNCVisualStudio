@@ -2,10 +2,14 @@
 
 using VNC.Core.Mvvm;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public interface ICombinedMainViewModel : IViewModel
     {
+        // TODO(crhodes)
+        // Add items here that the ICombinedMainViewModel must support
+        // to enable all the binding demands of the View
+        
         Task LoadAsync();
     }
 }

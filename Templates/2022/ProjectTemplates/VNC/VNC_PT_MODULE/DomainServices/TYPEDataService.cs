@@ -11,7 +11,6 @@ using VNC.Core.DomainServices;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 {
-
     public class $xxxTYPExxx$DataService : GenericEFRepository<$xxxTYPExxx$, $xxxAPPLICATIONxxx$DbContext>, I$xxxTYPExxx$DataService
     {
 
@@ -28,22 +27,22 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Enums
+        #region Enums (none)
 
 
         #endregion
 
-        #region Structures
+        #region Structures (none)
 
 
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
 
         #endregion
 
-        #region Event Handlers
+        #region Event Handlers (none)
 
 
         #endregion
@@ -77,15 +76,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Protected Methods
+        #region Protected Methods (none)
 
 
         #endregion
 
-        #region Private Methods
+        #region Private Methods (none)
 
 
         #endregion
-
     }
 }

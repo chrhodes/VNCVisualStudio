@@ -1,6 +1,6 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$.Presentation.Views
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 {
     public interface I$xxxITEMxxx$Detail : IView
     {

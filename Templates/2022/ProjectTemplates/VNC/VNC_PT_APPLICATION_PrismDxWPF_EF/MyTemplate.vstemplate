@@ -97,7 +97,6 @@
           </Folder>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContext.cs">APPLICATIONDbContext.cs</ProjectItem>
-          <!-- <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONDbContextDatabaseInitializer.cs">APPLICATIONDbContextDatabaseInitializer.cs</ProjectItem> -->
 
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
@@ -140,14 +139,21 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxLayoutControlViewModel.cs">MainDxLayoutControlViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManagerViewModel.cs">MainDxDockLayoutManagerViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainViewModel.cs">MainViewModel.cs</ProjectItem>
-
+          <ProjectItem ReplaceParameters="true" TargetFileName="MultiStepProcessViewModel.cs">MultiStepProcessViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegionNavigationViewModel.cs">RegionNavigationViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="RibbonViewModel.cs">RibbonViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbonViewModel.cs">ShellRibbonViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="StatusBarViewModel.cs">StatusBarViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepABCDEViewModel.cs">StepABCDEViewModel.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailViewModel.cs">TYPEDetailViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainViewModel.cs">TYPEMainViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationViewModel.cs">TYPENavigationViewModel.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVViewModel.cs">TYPEDetailMVViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainMVViewModel.cs">TYPEMainMVViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationMVViewModel.cs">TYPENavigationMVViewModel.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="TYPEViewModel.cs">TYPEViewModel.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproachesViewModel.cs">UILaunchApproachesViewModel.cs</ProjectItem>
@@ -157,6 +163,9 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewBViewModel.cs">ViewBViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewCViewModel.cs">ViewCViewModel.cs</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewDViewModel.cs">ViewDViewModel.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewDiscoveryViewModel.cs">ViewDiscoveryViewModel.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewInjectionViewModel.cs">ViewInjectionViewModel.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>
@@ -175,15 +184,18 @@
 
           <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml">About.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml.cs">About.xaml.cs</ProjectItem>
-          
+
           <ProjectItem ReplaceParameters="true" TargetFileName="AppVersionInfo.xaml">AppVersionInfo.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="AppVersionInfo.xaml.cs">AppVersionInfo.xaml.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml">Ribbon.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml.cs">Ribbon.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml">CombinedMain.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml.cs">CombinedMain.xaml.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml">ShellRibbon.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml.cs">ShellRibbon.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml">CombinedNavigation.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml.cs">CombinedNavigation.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml">ITEMDetail.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml.cs">ITEMDetail.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="Main.xaml">Main.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="Main.xaml.cs">Main.xaml.cs</ProjectItem>
@@ -194,8 +206,71 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManager.xaml">MainDxDockLayoutManager.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="MainDxDockLayoutManager.xaml.cs">MainDxDockLayoutManager.xaml.cs</ProjectItem>
 
+          <ProjectItem ReplaceParameters="true" TargetFileName="MultiStepProcess.xaml">MultiStepProcess.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MultiStepProcess.xaml.cs">MultiStepProcess.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegionNavigation.xaml">RegionNavigation.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegionNavigation.xaml.cs">RegionNavigation.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml">Ribbon.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.xaml.cs">Ribbon.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml">ShellRibbon.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ShellRibbon.xaml.cs">ShellRibbon.xaml.cs</ProjectItem>
+
           <ProjectItem ReplaceParameters="true" TargetFileName="StatusBar.xaml">StatusBar.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="StatusBar.xaml.cs">StatusBar.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepA.xaml">StepA.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepA.xaml.cs">StepA.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepB.xaml">StepB.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepB.xaml.cs">StepB.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepC.xaml">StepC.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepC.xaml.cs">StepC.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepD.xaml">StepD.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepD.xaml.cs">StepD.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepE.xaml">StepE.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="StepE.xaml.cs">StepE.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVA.xaml">TYPEDetailMVA.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVA.xaml.cs">TYPEDetailMVA.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVB.xaml">TYPEDetailMVB.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVB.xaml.cs">TYPEDetailMVB.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVC.xaml">TYPEDetailMVC.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVC.xaml.cs">TYPEDetailMVC.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVD.xaml">TYPEDetailMVD.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVD.xaml.cs">TYPEDetailMVD.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVE.xaml">TYPEDetailMVE.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMVE.xaml.cs">TYPEDetailMVE.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml">TYPEDetail.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml.cs">TYPEDetail.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMain.xaml">TYPEMain.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMain.xaml.cs">TYPEMain.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigation.xaml">TYPENavigation.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigation.xaml.cs">TYPENavigation.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMV.xaml">TYPEDetailMV.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetailMV.xaml.cs">TYPEDetailMV.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainMV.xaml">TYPEMainMV.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMainMV.xaml.cs">TYPEMainMV.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationMV.xaml">TYPENavigationMV.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigationMV.xaml.cs">TYPENavigationMV.xaml.cs</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml">UILaunchApproaches.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml.cs">UILaunchApproaches.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewA.xaml">ViewA.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewA.xaml.cs">ViewA.xaml.cs</ProjectItem>
@@ -212,26 +287,11 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewABCD.xaml">ViewABCD.xaml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="ViewABCD.xaml.cs">ViewABCD.xaml.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml">UILaunchApproaches.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="UILaunchApproaches.xaml.cs">UILaunchApproaches.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewDiscovery.xaml">ViewDiscovery.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewDiscovery.xaml.cs">ViewDiscovery.xaml.cs</ProjectItem>
 
-          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml">CombinedMain.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedMain.xaml.cs">CombinedMain.xaml.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml">CombinedNavigation.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="CombinedNavigation.xaml.cs">CombinedNavigation.xaml.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml">ITEMDetail.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDetail.xaml.cs">ITEMDetail.xaml.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml">TYPEDetail.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDetail.xaml.cs">TYPEDetail.xaml.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMain.xaml">TYPEMain.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPEMain.xaml.cs">TYPEMain.xaml.cs</ProjectItem>
-
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigation.xaml">TYPENavigation.xaml</ProjectItem>
-          <ProjectItem ReplaceParameters="true" TargetFileName="TYPENavigation.xaml.cs">TYPENavigation.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewInjection.xaml">ViewInjection.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ViewInjection.xaml.cs">ViewInjection.xaml.cs</ProjectItem>
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Folder>

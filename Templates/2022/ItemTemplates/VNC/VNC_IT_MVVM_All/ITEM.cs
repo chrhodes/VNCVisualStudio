@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using VNC.Core.DomainServices;
 
-namespace $xxxAPPLICATIONxxx$.Domain
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Domain
 {
     public class $xxxITEMxxx$ : IEntity<int>, IModificationHistory, IOptimistic
     {

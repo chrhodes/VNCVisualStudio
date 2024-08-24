@@ -11,6 +11,8 @@ using Prism.Unity;
 using $xxxAPPLICATIONxxx$.Presentation.Views;
 
 using VNC;
+using VNC.Core.Mvvm;
+using VNC.Core.Mvvm.Prism;
 using VNC.Core.Presentation.ViewModels;
 using VNC.Core.Presentation.Views;
 
@@ -22,42 +24,24 @@ namespace $xxxAPPLICATIONxxx$
 
         public App()
         {
-#if DEBUG
-            Common.InitializeLogging(debugConfig: true);
-#else
-            Common.InitializeLogging();
-#endif
-            
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Initialize SignalR", Common.LOG_CATEGORY);
+
             // HACK(crhodes)
             // If don't delay a bit here, the SignalR logging infrastructure does not initialize quickly enough
             // and the first few log messages are missed.
             // NB.  All are properly recored in the log file.
 
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
-
             Thread.Sleep(150);
 
-            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("App()", Common.LOG_CATEGORY, startTicks);
-            
-            // NOTE(crhodes)
-            // Look at Application_Start event for things that should happen early.
-            //try
-            //{
-            //    VerifyApplicationPrerequisites();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //    MessageBox.Show(ex.InnerException.ToString());
-            //}
-
-            // TODO(crhodes)
-            // Should this go here or in VerifyApplicationPrerequisites
-
-            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START(String.Format("Exit"), Common.LOG_CATEGORY, startTicks);
-        }        
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR(String.Format("Enter"), Common.LOG_CATEGORY, startTicks);
+#if DEBUG
+            Common.InitializeLogging(debugConfig: true);
+#else
+            Common.InitializeLogging();
+#endif
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR(String.Format("Exit"), Common.LOG_CATEGORY, startTicks);
+        }
 
         // 01
 
@@ -104,6 +88,13 @@ namespace $xxxAPPLICATIONxxx$
 
             base.RegisterRequiredTypes(containerRegistry);
 
+            // HACK(crhodes)
+            // These are new
+            // Multiple Shells and Master TabControl
+
+            containerRegistry.RegisterSingleton<IShellService, ShellService>();
+            containerRegistry.RegisterSingleton<IRegionNavigationContentLoader, ScopedRegionNavigationContentLoaderP8>();
+
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -126,12 +117,18 @@ namespace $xxxAPPLICATIONxxx$
 
             //containerRegistry.RegisterSingleton<I$xxxTYPExxx$LookupDataService, $xxxTYPExxx$LookupDataService>();
 
-            // Common Dialogs used my most applications.
+            // Common Dialogs used by most applications.
 
             containerRegistry.RegisterDialog<NotificationDialog, NotificationDialogViewModel>("NotificationDialog");
             containerRegistry.RegisterDialog<OkCancelDialog, OkCancelDialogViewModel>("OkCancelDialog");
 
             // Add the new UI elements
+
+            // NOTE(crhodes)
+            // Most of what would typically appear here is in PAEF1Module
+            //
+            // Maybe the Ribbon, Main, StatusBar should be move back here
+            // and the App Specific stuff left in PAEF1Module
 
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -160,7 +157,7 @@ namespace $xxxAPPLICATIONxxx$
 
             //NOTE(crhodes)
             // Order matters here.  Application depends on types in $xxxTYPExxx$
-#if VNCTYPES            
+#if VNCTYPES
             moduleCatalog.AddModule(typeof($xxxTYPExxx$Module));
 #endif
             moduleCatalog.AddModule(typeof($xxxAPPLICATIONxxx$Module));
@@ -189,6 +186,11 @@ namespace $xxxAPPLICATIONxxx$
 
             base.ConfigureDefaultRegionBehaviors(regionBehaviors);
 
+            // NOTE(crhodes)
+            // Add our new RegionBehavior
+
+            regionBehaviors.AddIfMissing(RegionManagerAwareBehavior.BehaviorKey, typeof(RegionManagerAwareBehavior));
+
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -200,7 +202,7 @@ namespace $xxxAPPLICATIONxxx$
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             base.RegisterFrameworkExceptionTypes();
-            
+
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -213,16 +215,19 @@ namespace $xxxAPPLICATIONxxx$
 
             // TODO(crhodes)
             // Figure out how early we can save Container
+            // Put it in Common so everyone from everywhere can access
 
-            Common.Container = Container;   
-
-            if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            Common.Container = Container;
 
             // TODO(crhodes)
             // Pick the shell to start with.
 
-            return Container.Resolve<Shell>();
-            // return Container.Resolve<RibbonShell>();
+            Shell shell = Container.Resolve<Shell>();
+            //Shell shell = Container.Resolve<RibbonShell>();
+
+            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+
+            return shell;
 
             // NOTE(crhodes)
             // The type of view to load into the shell is handled in $xxxAPPLICATIONxxx$Module.cs
@@ -236,6 +241,9 @@ namespace $xxxAPPLICATIONxxx$
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             base.InitializeShell(shell);
+
+            //var regionManager = RegionManager.GetRegionManager(shell);
+            //RegionManagerAware.SetRegionManagerAware(shell, regionManager);
 
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -274,13 +282,20 @@ namespace $xxxAPPLICATIONxxx$
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.EventHandler) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Enter", Common.LOG_CATEGORY, startTicks);
 
             try
             {
                 GetAndSetInformation();
                 VerifyApplicationPrerequisites();
                 InitializeApplication();
+
+                // NOTE(crhodes)
+                // This ensures any windows that are open, e.g. About
+                // get closed and allow the Application to Exit
+
+                ShutdownMode = ShutdownMode.OnMainWindowClose;
             }
             catch (Exception ex)
             {
@@ -288,6 +303,7 @@ namespace $xxxAPPLICATIONxxx$
                 MessageBox.Show(ex.InnerException.ToString());
             }
 
+            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Exit", Common.LOG_CATEGORY, startTicks);
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -295,7 +311,7 @@ namespace $xxxAPPLICATIONxxx$
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-            
+
             // Get Information about VNC.Core
 
             Common.SetVersionInfoVNCCore();
@@ -305,15 +321,15 @@ namespace $xxxAPPLICATIONxxx$
             // Get Information about ourselves
 
             Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
-            
-            if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);            
+
+            if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void VerifyApplicationPrerequisites()
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-            
+
             //TODO(crhodes)
             // Add any necessary checks for config files, etc
             // That are required by application
@@ -325,7 +341,7 @@ namespace $xxxAPPLICATIONxxx$
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-            
+
             //TODO(crhodes)
             // Perform any required Initialization.
 
@@ -364,8 +380,10 @@ namespace $xxxAPPLICATIONxxx$
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter", Common.LOG_CATEGORY, startTicks);
 
 
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Exit", Common.LOG_CATEGORY, startTicks);
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

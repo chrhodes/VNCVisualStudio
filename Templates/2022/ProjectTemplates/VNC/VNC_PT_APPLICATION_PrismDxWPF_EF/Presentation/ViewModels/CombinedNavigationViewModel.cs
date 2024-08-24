@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
+
+using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices;
 
 using Prism.Events;
 using Prism.Services.Dialogs;
 
-using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices;
-
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
-using VNC.Core.Services;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
@@ -35,7 +35,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -88,11 +88,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             switch (args.ViewModelName)
             {
                 case nameof($xxxTYPExxx$DetailViewModel):
-                    AfterDetailSaved($xxxTYPExxx$s, args);
+                    AddNavigationItem($xxxTYPExxx$s, args);
                     break;
 
-                // case nameof($xxxTYPExxx$2DetailViewModel):
-                    // AfterDetailSaved($xxxTYPExxx$2s, args);
+                // case nameof(xxxxDetailViewModel):
+                    // AddNavigationItem(XXXXXs, args);
                     // break;
 
                 default:
@@ -110,11 +110,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             switch (args.ViewModelName)
             {
                 case nameof($xxxTYPExxx$DetailViewModel):
-                    AfterDetailDeleted($xxxTYPExxx$s, args);
+                    DeleteNavigationItem($xxxTYPExxx$s, args);
                     break;
 
-                // case nameof($xxxTYPExxx$2DetailViewModel):
-                    // AfterDetailDeleted($xxxTYPExxx$2s, args);
+                // case nameof(xxxxDetailViewModel):
+                    // DeleteNavigationItem(XXXXs, args);
                     // break;
 
                 default:
@@ -149,19 +149,19 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                     EventAggregator, DialogService));
             }
 
-            // var lookup$xxxTYPExxx$2s = await _$xxxTYPExxx$2LookupDataService.Get$xxxTYPExxx$2LookupAsync();
-            // $xxxTYPExxx$2s.Clear();
-
-            // foreach (var item in lookup$xxxTYPExxx$2s)
-            // {
-                // $xxxTYPExxx$2s.Add(
-                    // new NavigationItemViewModel(item.Id, item.DisplayMember,
-                    // nameof($xxxTYPExxx$2DetailViewModel),
-                    // EventAggregator, DialogService));
-            // }
-
             //TODO(crhodes)
             // Load more TYPEs as needed here
+
+            // var lookupXXXs = await _XXXLookupDataService.GetXXXLookupAsync();
+            // XXXs.Clear();
+
+            // foreach (var item in lookupXXXs)
+            // {
+            // XXXs.Add(
+            // new NavigationItemViewModel(item.Id, item.DisplayMember,
+            // nameof(XXXDetailViewModel),
+            // EventAggregator, DialogService));
+            // }
 
             if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("(CombinedNavigationViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -173,8 +173,49 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Private Methods (none)
+        #region Private Methods
 
+        private void AddNavigationItem(ObservableCollection<NavigationItemViewModel> items,
+            AfterDetailSavedEventArgs args)
+        {
+#if LOGGING
+            Int64 startTicks = 0;
+            if (Common.VNCCoreLogging.ViewModel) startTicks = Log.VIEWMODEL($"Enter Id:({args.Id})", Common.LOG_CATEGORY);
+#endif
+            var lookupItem = items.SingleOrDefault(l => l.Id == args.Id);
+
+            if (lookupItem == null)
+            {
+                items.Add(new NavigationItemViewModel(args.Id, args.DisplayMember,
+                    args.ViewModelName,
+                    EventAggregator, DialogService));
+            }
+            else
+            {
+                lookupItem.DisplayMember = args.DisplayMember;
+            }
+#if LOGGING
+            if (Common.VNCCoreLogging.ViewModel) Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
+#endif
+        }
+
+        private void DeleteNavigationItem(ObservableCollection<NavigationItemViewModel> items,
+            AfterDetailDeletedEventArgs args)
+        {
+#if LOGGING
+            Int64 startTicks = 0;
+            if (Common.VNCCoreLogging.ViewModel) startTicks = Log.VIEWMODEL($"Enter Id:({args.Id})", Common.LOG_CATEGORY);
+#endif
+            var lookupItem = items.SingleOrDefault(f => f.Id == args.Id);
+
+            if (lookupItem != null)
+            {
+                items.Remove(lookupItem);
+            }
+#if LOGGING
+            if (Common.VNCCoreLogging.ViewModel) Log.VIEWMODEL("Exit", Common.LOG_CATEGORY, startTicks);
+#endif
+        }
 
         #endregion
 
@@ -189,6 +230,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

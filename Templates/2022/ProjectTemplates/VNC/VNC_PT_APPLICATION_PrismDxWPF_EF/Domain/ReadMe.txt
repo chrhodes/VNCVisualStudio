@@ -1,4 +1,3 @@
-﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Domain\
-$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Domain\Lookups\
+﻿$xxxMODULExxx$$xxxNAMESPACExxx$\Modules\
 
 Notes for using this template

@@ -15,7 +15,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
     {
         #region Constructors, Intialization, and Load
 
-        public RibbonShellViewModel _viewModel;
+        public RibbonShellViewModel ViewModel;
 
         public RibbonShell()
         {
@@ -68,19 +68,19 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
         private void InitializeView()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.View) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
-            ViewModelType = ViewModel.GetType().ToString().Split('.').Last();            
+            ViewModelType = ViewModel.GetType().ToString().Split('.').Last();
 
             Common.CurrentRibbonShell = this;
             DeveloperUIMode = Common.DeveloperUIMode;
 
-            if (Common.VNCLogging.View) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -135,7 +135,6 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
         }
 
         #endregion
-
 
         #region EventHandlers
 

@@ -79,15 +79,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Protected Methods
+        #region Protected Methods (none)
 
 
         #endregion
 
-        #region Private Methods
+        #region Private Methods (none)
 
 
         #endregion
-
     }
 }

@@ -53,7 +53,7 @@
             <!-- This is useful for debugging V VM constructor issues -->
 
             <StackPanel Orientation="Horizontal">
-                
+
                 <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
                     <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
                 </StackPanel>
@@ -77,7 +77,7 @@
             </StackPanel>
 
         </StackPanel>
-        
+
         <dxlc:LayoutControl Name="lc_Root"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
@@ -130,16 +130,32 @@
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
                 </dxlc:LayoutGroup>
 
+                <dxlc:LayoutGroup Header="View Discovery">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscovery}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="View Injection">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjection}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="Region Navigation">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RegionNavigation}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="MultiStep Process">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MultiStepProcess}" />
+                </dxlc:LayoutGroup>
+
             </dxlc:LayoutGroup>
 
             <dxlc:LayoutGroup Name="lg_Footer" Orientation="Vertical" VerticalAlignment="Bottom">
 
                 <Label Content="Footer Stuff Goes Here" />
-                
+
             </dxlc:LayoutGroup>
 
         </dxlc:LayoutControl>
-    
+
     </DockPanel>
 
 </vncmvvm:ViewBase>

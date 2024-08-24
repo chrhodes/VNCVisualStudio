@@ -30,7 +30,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -47,9 +47,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // If using CommandParameter, figure out TYPE here and below
             // and remove above declaration
             //About = new DelegateCommand<TYPE>(About, AboutCanExecute);
-
-            // TODO(crhodes)
-            //
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -80,8 +77,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Commands (none)
-
+        #region Commands
 
         #region About Command
 
@@ -111,8 +107,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             Message = "Cool, you called About";
 
-            if (_aboutHost is null) _aboutHost = new WindowHost();
-
+            if (_aboutHost is null) _aboutHost = new WindowHost(EventAggregator);
+            
             // NOTE(crhodes)
             // About has About() and About(ViewModel) constructors.
             // If No DI Registrations - About() is called - does not wire View to ViewModel
@@ -120,16 +116,21 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // If AboutViewModel DI Registrations - About(viewModel) is called - does wire View to ViewModel
             // NB.  AutoWireViewModel=false
 
+            // NB. If AutoWireViewModel=true, the About() is called but then magically it is wired to ViewModel!
+
             UserControl userControl = (Views.About)Common.Container.Resolve(typeof(Views.About));
 
             _aboutHost.DisplayUserControlInHost(
                 "PAEF1 About",
-                    //Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-                    (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
-                    (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+                    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                    //(Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+                    //(Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
                 ShowWindowMode.Modeless_Show,
                 userControl
             );
+
+            // TODO(crhodes)
+            // See what we can learn about rendered/actual size of control so we can resize window once loaded.
 
             //var userControl = new About();
 

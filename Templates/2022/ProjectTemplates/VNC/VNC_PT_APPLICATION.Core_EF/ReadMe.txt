@@ -1,4 +1,4 @@
-﻿$xxxAPPLICATIONxxx$\Core\
-$xxxAPPLICATIONxxx$\Core\Events\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
+$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
 Notes for using this template

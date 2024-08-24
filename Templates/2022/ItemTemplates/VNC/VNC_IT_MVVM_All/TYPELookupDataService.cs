@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;
 
@@ -78,15 +79,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Protected Methods
+        #region Protected Methods (none)
 
 
         #endregion
 
-        #region Private Methods
+        #region Private Methods (none)
 
 
         #endregion
-
     }
 }

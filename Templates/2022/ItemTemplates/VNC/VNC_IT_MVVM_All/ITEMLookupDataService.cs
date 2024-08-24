@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database;
 
@@ -14,7 +15,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 {
     public class $xxxITEMxxx$LookupDataService : I$xxxITEMxxx$LookupDataService
     {
-
         #region Constructors, Initialization, and Load
 
         public $xxxITEMxxx$LookupDataService(Func<$xxxAPPLICATIONxxx$DbContext> context)
@@ -29,12 +29,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Enums
+        #region Enums (none)
 
 
         #endregion
 
-        #region Structures
+        #region Structures (none)
 
 
         #endregion
@@ -45,7 +45,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Event Handlers
+        #region Event Handlers (none)
 
 
         #endregion
@@ -78,15 +78,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
 
         #endregion
 
-        #region Protected Methods
+        #region Protected Methods (none)
 
 
         #endregion
 
-        #region Private Methods
+        #region Private Methods (none)
 
 
         #endregion
-
     }
 }

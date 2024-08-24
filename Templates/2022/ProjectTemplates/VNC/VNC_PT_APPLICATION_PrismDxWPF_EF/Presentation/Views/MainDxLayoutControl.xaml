@@ -21,7 +21,7 @@
 
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
-    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
@@ -63,7 +63,7 @@
             <!-- This is useful for debugging V VM constructor issues -->
 
             <StackPanel Orientation="Horizontal">
-                
+
                 <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
                     <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
                 </StackPanel>
@@ -87,7 +87,7 @@
             </StackPanel>
 
         </StackPanel>
-        
+
         <dxlc:LayoutControl Name="lc_Root"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
@@ -124,6 +124,10 @@
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.$xxxTYPExxx$MainRegion}" />
                 </dxlc:LayoutGroup>
 
+                <dxlc:LayoutGroup Header="$xxxTYPExxx$ - MultiView" >
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.$xxxTYPExxx$MainRegionMV}" />
+                </dxlc:LayoutGroup>
+
                 <!-- Add more groups here for each different TYPE in the navigation -->
 
                 <!-- <dxlc:LayoutGroup Header="$xxxTYPExxx$" > -->
@@ -154,6 +158,22 @@
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
                 </dxlc:LayoutGroup>
 
+                <dxlc:LayoutGroup Header="View Discovery">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscovery}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="View Injection">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjection}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="Region Navigation">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RegionNavigation}" />
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="MultiStep Process">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MultiStepProcess}" />
+                </dxlc:LayoutGroup>
+
             </dxlc:LayoutGroup>
 
             <dxlc:LayoutGroup Name="lg_Footer" Orientation="Vertical" VerticalAlignment="Bottom">
@@ -163,7 +183,7 @@
             </dxlc:LayoutGroup>
 
         </dxlc:LayoutControl>
-    
+
     </DockPanel>
 
 </vncmvvm:ViewBase>

@@ -24,9 +24,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -34,10 +36,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -64,7 +65,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Commands
+        #region Commands (none)
 
 
         #endregion

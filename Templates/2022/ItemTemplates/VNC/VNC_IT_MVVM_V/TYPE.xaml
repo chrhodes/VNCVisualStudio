@@ -1,4 +1,4 @@
-﻿<vnccore:ViewBase
+﻿<vncmvvm:ViewBase
     x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.$xxxTYPExxx$"
     x:Name="thisControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,9 +10,10 @@
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
-    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation" 
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
@@ -25,13 +26,17 @@
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
 >
     <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
+
+    <!-- Move this to Resources\Xaml\Display_StylesAndTemplates.xaml -->
+    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$Background" Color="#00FF00" /> -->
+
     <!-- <d:DesignerProperties.DesignStyle> -->
         <!-- <Style TargetType="UserControl"> -->
             <!-- <Setter Property="Background" Value="White" /> -->
         <!-- </Style> -->
     <!-- </d:DesignerProperties.DesignStyle> -->
 
-    <!-- <vnccore:ViewBase.Resources> -->
+    <!-- <vncmvvm:ViewBase.Resources> -->
         <!-- <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsToListOfStringConverter" /> -->
         <!-- <localc:SelectedItemsConverter x:Key="SelectedItemsConverter" /> -->
         <!-- <localc:SelectedItemsToWorkItemQueryWrapperConverter x:Key="SelectedItemsTo$xxxTYPExxx$WrapperConverter" /> -->
@@ -55,116 +60,55 @@
 
     <!-- Simple Layout using Grid -->
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <DockPanel>
 
-        <StackPanel>
-            <TextBlock Text="$xxxTYPExxx$" />
-            <TextBlock Text="{Binding Message}" />
-            <Button Content="Say Hello"
-                    Command="{Binding SayHelloCommand}" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="1"  Orientation="Horizontal"
-                Visibility="{Binding DeveloperUIMode, 
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
             <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
 
             <!-- This is useful for debugging V VM constructor issues -->
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="V:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VP:" />
-                <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="VM:" />
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
                 <Label Content="{Binding InstanceCountVM}" />
             </StackPanel>
 
         </StackPanel>
-
-    </Grid>
-    
-    <!-- Using Prism Regions -->
-    
-    <!-- <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.<RegionName>}"/> -->
-    
-    <!-- Simple Layout using DevExpress LayoutGroup
-        May need to add dxXMLNS -->
-
-    <!-- <dxlc:LayoutGroup View="Group" Orientation="Vertical" HorizontalAlignment="Left" > -->
-
-        <!-- <dxlc:LayoutItem Label="Item X"> -->
-
-        <!-- </dxlc:LayoutItem> -->
-
-        <!-- <dxlc:LayoutGroup View="Group" Orientation="Horizontal" HorizontalAlignment="Left" > -->
-
-            <!-- <StackPanel> -->
-            <!-- <TextBlock Text="HostSelector" /> -->
-            <!-- <TextBlock Text="{Binding Message}" /> -->
-            <!-- <Button Content="Say Hello" -->
-            <!-- Command="{Binding SayHelloCommand}" /> -->
-            <!-- </StackPanel> -->
-
-        <!-- </dxlc:LayoutGroup> -->
         
-    <!-- </dxlc:LayoutGroup> -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="$xxxTYPExxx$" />
+                <TextBlock Text="{Binding Message}" />
+                <Button Content="Say Hello"
+                        Command="{Binding SayHelloCommand}" />
+            </StackPanel>
+
+        </Grid>
     
-    <!-- Simple Layout using DevExpress LayoutControl
-         May need to add dxXMLNS -->
-    
-    <!-- <DockPanel Margin="5"> -->
-        <!-- <TextBlock Text="InterfaceKit" DockPanel.Dock="Top" /> -->
+    </DockPanel>
 
-        <!-- This is useful for debugging V VM constructor issues -->
-
-        <!-- <DockPanel DockPanel.Dock="Bottom" > -->
-
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="5"> -->
-                <!-- <Label Content="Message:" /> -->
-                <!-- <Label Content="{Binding Message}" /> -->
-            <!-- </StackPanel> -->
-
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="5"> -->
-                <!-- <Label Content="V:" /> -->
-                <!-- <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" /> -->
-            <!-- </StackPanel> -->
-            <!-- <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="5"> -->
-                <!-- <Label Content="VM:" /> -->
-                <!-- <Label Content="{Binding InstanceCountVM}" /> -->
-            <!-- </StackPanel> -->
-
-        <!-- </DockPanel> -->
-
-        <!-- <dxlc:LayoutControl Orientation="Vertical"> -->
-
-            <!-- <dxlc:LayoutItem Label="Item X"> -->
-
-            <!-- </dxlc:LayoutItem> -->
-
-            <!-- <dxlc:LayoutGroup View="Group" Orientation="Horizontal" HorizontalAlignment="Left" > -->
-
-                <!-- <StackPanel> -->
-                    <!-- <TextBlock Text="$xxxTYPExxx$" /> -->
-                    <!-- <TextBlock Text="{Binding Message}" /> -->
-                    <!-- <Button Content="Say Hello" -->
-                            <!-- Command="{Binding SayHelloCommand}" /> -->
-                <!-- </StackPanel> -->
-                
-            <!-- </dxlc:LayoutGroup> -->
-
-        <!-- </dxlc:LayoutControl> -->
-
-    <!-- </DockPanel> -->
-
-</vnccore:ViewBase>
+</vncmvvm:ViewBase>

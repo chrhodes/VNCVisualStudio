@@ -28,7 +28,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -77,19 +77,19 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             }
         }
 
-        private string _message;
+        // private string _message;
 
-        public string Message
-        {
-            get => _message;
-            set
-            {
-                if (_message == value)
-                    return;
-                _message = value;
-                OnPropertyChanged();
-            }
-        }
+        // public string Message
+        // {
+            // get => _message;
+            // set
+            // {
+                // if (_message == value)
+                    // return;
+                // _message = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
         public DelegateCommand DeveloperModeCommand { get; set; }
         // If using CommandParameter, figure out TYPE here and above
@@ -104,7 +104,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
       #region Commands
-
 
       #region DeveloperMode Command
 
@@ -129,7 +128,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
           // Do something amazing.
           Message = "Cool, you called DeveloperMode";
 
-          EventAggregator.GetEvent<StatusMessageEvent>().Publish(Message);
+          PublishStatusMessage(Message);
 
           if (Common.DeveloperMode)
           {
@@ -141,7 +140,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
               if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
               if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
           }
+
           Common.DeveloperMode = !Common.DeveloperMode;
+
+          PublishDeveloperMode(Common.DeveloperMode);
 
           // Uncomment this if you are telling someone else to handle this
 
@@ -210,6 +212,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

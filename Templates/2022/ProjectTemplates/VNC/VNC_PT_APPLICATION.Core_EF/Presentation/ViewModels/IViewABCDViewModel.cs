@@ -7,7 +7,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         // TODO(crhodes)
         // Add items here that the IViewABCDViewModel must support
         // to enable all the binding demands of the View
-        //
-        // This view is intended to show multiple views sharing a ViewModel
     }
 }

@@ -2,6 +2,7 @@
 using System.Windows;
 
 using VNC;
+using VNC.Core;
 using VNC.Core.Mvvm;
 
 namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
@@ -16,7 +17,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountVM++;
-            
+
             InitializeViewModel();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -30,8 +31,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // NOTE(crhodes)
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
-            
+
             DeveloperUIMode = Common.DeveloperUIMode;
+
+            InformationApplication = Common.InformationApplication;
+            InformationVNCCore = Common.InformationVNCCore;
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -90,6 +94,9 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             }
         }
 
+        public Information InformationApplication { get; set; }
+        public Information InformationVNCCore { get; set; }
+
         #endregion
 
         #region Event Handlers (none)
@@ -128,6 +135,5 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         }
 
         #endregion
-
     }
 }

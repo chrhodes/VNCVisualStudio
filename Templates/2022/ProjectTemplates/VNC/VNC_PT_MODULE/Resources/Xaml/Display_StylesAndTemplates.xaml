@@ -42,24 +42,36 @@
     <SolidColorBrush x:Key="ViewDBackground" Color="#D0D0FF" />
 
     <SolidColorBrush x:Key="ViewABCDBackground" Color="#C0C0C0" />
-    
+
     <SolidColorBrush x:Key="UILaunchApproachesBackground" Color="#C0C0C0" />
-    
+
+    <SolidColorBrush x:Key="ViewDiscoveryBackground" Color="#40B0F0" />
+    <SolidColorBrush x:Key="ViewInjectionBackground" Color="#40B0F0" />
+    <SolidColorBrush x:Key="RegionNavigationBackground" Color="#40B0F0" />
+
+    <SolidColorBrush x:Key="MultiStepProcessBackground" Color="#00FF00" />
+
+    <SolidColorBrush x:Key="StepABackground" Color="#D0E0D0" />
+    <SolidColorBrush x:Key="StepBBackground" Color="#D0E0D0" />
+    <SolidColorBrush x:Key="StepCBackground" Color="#D0E0D0" />
+    <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
+    <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
+
     <!-- <!-- These are used by PAEF --> -->
-    
+
     <!-- <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> -->
     <!-- <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" />     -->
-    
+
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$Background" Color="#00FF00" />     -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MainBackground" Color="#10FF10" /> -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$NavigationBackground" Color="#90FF90" /> -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$DetailBackground" Color="#A0FFA0" /> -->
-    
+
     <!-- <SolidColorBrush x:Key="$xxxITEMxxx$Background" Color="#F0E040" /> -->
     <!-- <SolidColorBrush x:Key="$xxxITEMxxx$DetailBackground" Color="#F0E040" /> -->
 
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MeetingDetailBackground" Color="#F0C040" /> -->
-    
+
     <Style x:Key="uiLoggingFilterCheckEdit" TargetType="dxe:CheckEdit">
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="FontSize" Value="10" />

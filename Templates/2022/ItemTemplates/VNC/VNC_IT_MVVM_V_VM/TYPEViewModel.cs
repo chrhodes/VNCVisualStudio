@@ -17,7 +17,6 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 {
     public class $xxxTYPExxx$ViewModel : EventViewModelBase, I$xxxTYPExxx$ViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public $xxxTYPExxx$ViewModel(
@@ -30,9 +29,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // TODO(crhodes)
             // Save constructor parameters here
 
+            InstanceCountVM++;
+
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -40,10 +41,9 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountVM++;
-
-            // TODO(crhodes)
-            //
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             SayHelloCommand = new DelegateCommand(
                 SayHello, SayHelloCanExecute);
@@ -81,17 +81,9 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Protected Methods (none)
+        #region Commands
 
-
-        #endregion
-
-        #region Private Methods
-
-        private bool SayHelloCanExecute()
-        {
-            return true;
-        }
+        #region SayHello Command
 
         private void SayHello()
         {
@@ -102,6 +94,23 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+        
+        private bool SayHelloCanExecute()
+        {
+            return true;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+        #endregion
+
+        #region Private Methods (none)
+
 
         #endregion
 

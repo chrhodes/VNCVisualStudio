@@ -57,8 +57,8 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             ViewModel = viewModel;      // AppVersionInfo needs this.
             DataContext = viewModel;
 
-            // // For the rare case where the ViewModel needs to know about the View
-            // // ViewModel.View = this;
+            // For the rare case where the ViewModel needs to know about the View
+            // ViewModel.View = this;
 
             InitializeView();
 
@@ -68,7 +68,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
         private void InitializeView()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.View) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
             // Put things here that initialize the View
@@ -80,7 +80,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             Common.CurrentShell = this;
             DeveloperUIMode = Common.DeveloperUIMode;
 
-            if (Common.VNCLogging.View) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

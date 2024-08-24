@@ -1,0 +1,147 @@
+﻿<vncmvvm:ViewBase
+    x:Class="$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views.$xxxTYPExxx$MainMV"
+    x:Name="thisControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
+    xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
+
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
+
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Background="{StaticResource $xxxTYPExxx$MainBackground}"
+
+    d:DesignWidth="800" d:DesignHeight="450"
+    d:DesignStyle="{StaticResource vncDesignStyleUC}"
+>
+    <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
+
+    <!-- Move this to Resources\Xaml\Display_StylesAndTemplates.xaml -->
+    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MainBackground" Color="#10FF10" /> -->
+
+    <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="UserControl"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+
+    <!-- d:DesignWidth="400" d:DesignHeight="400" -->
+
+    <UserControl.Resources>
+
+        <!--These are implicit DataTemplates-->
+
+        <DataTemplate DataType="{x:Type viewModels:$xxxTYPExxx$DetailMVViewModel}">
+            <views:$xxxTYPExxx$DetailMV />
+            <!--<views:StepA />-->
+        </DataTemplate>
+
+        <!-- <DataTemplate DataType="{x:Type viewModels:MeetingDetailViewModel}"> -->
+            <!-- <views:MeetingDetail /> -->
+        <!-- </DataTemplate> -->
+
+        <DataTemplate DataType="{x:Type viewModels:MouseDetailViewModel}">
+            <views:MouseDetail />
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
+                    Visibility="{Binding DeveloperUIMode,
+                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
+            <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+
+            <!-- This is useful for debugging V VM constructor issues -->
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0" >
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
+                    <Label Content="VP:" />
+                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
+                <Label Content=" VM:" />
+                <Label Content="{Binding InstanceCountVM}" />
+            </StackPanel>
+
+        </StackPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Menu Grid.ColumnSpan="2" FontSize="16">
+                <MenuItem Header="Create">
+                    <MenuItem Header="Add $xxxTYPExxx$" Command="{Binding CreateNewDetailViewCommand}"
+                              CommandParameter="{x:Type viewModels:$xxxTYPExxx$DetailMVViewModel}" />
+                    <!--<MenuItem Header="Add Meeting" Command="{Binding CreateNewDetailCommand}"
+                              CommandParameter="{x:Type viewModels:MeetingDetailViewModel}" />-->
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Mouse"
+                                Command="{Binding OpenSingleDetailViewCommand}"
+                                CommandParameter="{x:Type viewModels:MouseDetailViewModel}" />
+                </MenuItem>
+            </Menu>
+
+            <ContentControl Grid.Row="1" Grid.Column="0"
+                            prism:RegionManager.RegionName="{x:Static core:RegionNames.$xxxTYPExxx$NavigationRegionMV}"
+                            DataContext="{Binding NavigationViewModel}" />
+
+            <TabControl Grid.Row="1" Grid.Column="1"
+                        ItemsSource="{Binding DetailViewModels}"
+                        SelectedItem="{Binding SelectedDetailViewModel, Mode=TwoWay}">
+                <TabControl.ItemTemplate>
+
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Title}" />
+                            <TextBlock Text="*" Visibility="{Binding HasChanges,
+                                Converter={StaticResource booleanToVisibilityConverter}}" />
+                            <Button Command="{Binding CloseDetailViewCommand}"
+                                    Content="x" Style="{StaticResource CloseTabButtonStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+
+                </TabControl.ItemTemplate>
+
+            </TabControl>
+
+        </Grid>
+
+    </DockPanel>
+
+</vncmvvm:ViewBase>

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Resources;
-
-using PAEF1Core.Presentation.Views;
 
 using Prism.Commands;
 using Prism.Events;
@@ -36,7 +31,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -48,16 +43,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
 
-            DeveloperModeCommand = new DelegateCommand(DeveloperMode, DeveloperModeCanExecute);
             LoggingConfigurationCommand = new DelegateCommand(LoggingConfiguration, LoggingConfigurationCanExecute);
 
             EventAggregator.GetEvent<StatusMessageEvent>().Subscribe(UpdateStatusMessage);
-
-#if DEBUG
-            DeveloperModeToolTip = "Turn off Developer Mode";
-#else
-            DeveloperModeToolTip = "Turn on Developer Mode";
-#endif
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -76,7 +64,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        public DelegateCommand DeveloperModeCommand { get; set; }
         public DelegateCommand LoggingConfigurationCommand { get; set; }
 
         #endregion
@@ -96,134 +83,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Commands
-
-        #region DeveloperMode Command
-
-        //public TYPE DeveloperModeCommandParameter;
-        public string DeveloperModeContent { get; set; } = "DeveloperMode";
-        private string? _developerModeToolTip = "DeveloperMode ToolTip";
-        public string? DeveloperModeToolTip
-        {
-            get => _developerModeToolTip;
-            set
-            {
-                if (_developerModeToolTip == value) { return; }
-
-                _developerModeToolTip = value;
-                OnPropertyChanged();
-            }
-        }
-
-        // Can get fancy and use Resources
-        //public string DeveloperModeContent { get; set; } = "ViewName_DeveloperModeContent";
-        //public string DeveloperModeToolTip { get; set; } = "ViewName_DeveloperModeContentToolTip";
-
-        // Put these in Resource File
-        //    <system:String x:Key="ViewName_DeveloperModeContent">DeveloperMode</system:String>
-        //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>
-
-        // If using CommandParameter, figure out TYPE and fix above
-        //public void DeveloperMode(TYPE value)
-        public void DeveloperMode()
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
-            if (Common.DeveloperMode)
-            {
-                Message = "Cool, you turned off DeveloperMode";
-                DeveloperModeToolTip = "Turn on Developer Mode";
-
-                if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
-                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
-
-                // NOTE(crhodes)
-                // Use this if Build Action - Content - Copy
-                //ImageBrush brush = new ImageBrush();
-                //brush.ImageSource = new BitmapImage(new Uri(".\\Resources\\Images\\ToolBox.png", UriKind.Relative));
-                //((StatusBar)View).btnDeveloperMode.Background = brush;
-
-                // NOTE(crhodes)
-                // Use this if Build Action - Resource
-                Uri resourceUri = new Uri(".\\Resources\\Images\\ToolBox.png", UriKind.Relative);
-                StreamResourceInfo streamInfo = App.GetResourceStream(resourceUri);
-                BitmapFrame bitmapFrame = BitmapFrame.Create(streamInfo.Stream);
-
-                ImageBrush brush = new ImageBrush();
-                brush.ImageSource = bitmapFrame;
-                ((StatusBar)View).btnDeveloperMode.Background = brush;
-
-                ((StatusBar)View).btnDeveloperMode.Width = 24;
-                ((StatusBar)View).btnDeveloperMode.Height = 20;
-            }
-            else
-            {
-                Message = "Cool, you turned on DeveloperMode";
-                DeveloperModeToolTip = "Turn off Developer Mode";
-
-                if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
-                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
-
-                // NOTE(crhodes)
-                //// Use this if Build Action - Content - Copy
-                //ImageBrush brush = new ImageBrush();
-                //brush.ImageSource = new BitmapImage(new Uri(".\\Resources\\Images\\VNCDeveloperMotivation.png", UriKind.Relative));
-                //((StatusBar)View).btnDeveloperMode.Background = brush;
-
-                // NOTE(crhodes)
-                // Use this if Build Action - Resource
-                Uri resourceUri = new Uri(".\\Resources\\Images\\VNCDeveloperMotivation.png", UriKind.Relative);
-                StreamResourceInfo streamInfo = App.GetResourceStream(resourceUri);
-                BitmapFrame bitmapFrame = BitmapFrame.Create(streamInfo.Stream);
-
-                ImageBrush brush = new ImageBrush();
-                brush.ImageSource = bitmapFrame;
-                ((StatusBar)View).btnDeveloperMode.Background = brush;
-
-                ((StatusBar)View).btnDeveloperMode.Width = 48;
-                ((StatusBar)View).btnDeveloperMode.Height = 39;
-            }
-
-            Common.DeveloperMode = !Common.DeveloperMode;
-
-            // Uncomment this if you are telling someone else to handle this
-
-            // Common.EventAggregator.GetEvent<DeveloperModeEvent>().Publish();
-
-            // May want EventArgs
-
-            //  EventAggregator.GetEvent<DeveloperModeEvent>().Publish(
-            //      new DeveloperModeEventArgs()
-            //      {
-            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
-            //            Process = _contextMainViewModel.Context.SelectedProcess
-            //      });
-
-            // Start Cut Four - Put this in PrismEvents
-
-            // public class DeveloperModeEvent : PubSubEvent { }
-
-            // End Cut Four
-
-            // Start Cut Five - Put this in places that listen for event
-
-            //Common.EventAggregator.GetEvent<DeveloperModeEvent>().Subscribe(DeveloperMode);
-
-            // End Cut Five
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        // If using CommandParameter, figure out TYPE and fix above
-        //public bool DeveloperModeCanExecute(TYPE value)
-        public bool DeveloperModeCanExecute()
-        {
-            // TODO(crhodes)
-            // Add any before button is enabled logic.
-            return true;
-        }
-
-        #endregion
 
         #region LoggingConfiguration Command
 
@@ -250,7 +109,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             Message = "Cool, you called LoggingConfiguration";
 
-            if (_loggingConfigurationHost is null) _loggingConfigurationHost = new WindowHost();
+            if (_loggingConfigurationHost is null) _loggingConfigurationHost = new WindowHost(EventAggregator);
 
             var userControl = new VNCLoggingConfigMain();
 
