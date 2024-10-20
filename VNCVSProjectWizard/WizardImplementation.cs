@@ -229,7 +229,14 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem: >{projectItem.Name}<", cAPPNAME);
 
-            ReplaceTagsinFileName(projectItem);
+            try
+            {
+                ReplaceTagsinFileName(projectItem);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
+            }            
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
@@ -249,36 +256,44 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItems.Count: >{projectItems.Count}<", cAPPNAME);
 
-            foreach (ProjectItem projectItem in projectItems)
+            try
             {
-                Log.Trace($"projectItem: ({projectItem.Name})", cAPPNAME);
-
-                // Recursively descend if the current item contains projectItems
-                if (projectItem.ProjectItems.Count > 0) RenameProjectItems(projectItem.ProjectItems);
-
-                var kind = projectItem.Kind;
-                var name = projectItem.Name;
-
-                switch (projectItem.Kind)
+                foreach (ProjectItem projectItem in projectItems)
                 {
-                    case "{6BB5F8EE-4483-11D3-8BCF-00C04F8EC28C}":
-                        // Assembly.cs
-                        ReplaceTagsinFileName(projectItem);
-                        break;
+                    Log.Trace($"projectItem: ({projectItem.Name})", cAPPNAME);
 
-                    case "{6BB5F8EF-4483-11D3-8BCF-00C04F8EC28C}":
-                        // Properties
-                        ReplaceTagsinFolderName(projectItem);
-                        break;
+                    // Recursively descend if the current item contains projectItems
+                    if (projectItem.ProjectItems.Count > 0) RenameProjectItems(projectItem.ProjectItems);
 
-                    default:
+                    var kind = projectItem.Kind;
+                    var name = projectItem.Name;
 
-                        break;
+                    switch (projectItem.Kind)
+                    {
+                        case "{6BB5F8EE-4483-11D3-8BCF-00C04F8EC28C}":
+                            // Assembly.cs
+                            ReplaceTagsinFileName(projectItem);
+                            break;
+
+                        case "{6BB5F8EF-4483-11D3-8BCF-00C04F8EC28C}":
+                            // Properties
+                            ReplaceTagsinFolderName(projectItem);
+                            break;
+
+                        default:
+
+                            break;
+                    }
+
+                    if (!IsValidReplacementFileExtension(projectItem.Name)) continue;
+
+                    ReplaceTagsInProjectItem(projectItem);
                 }
 
-                if (!IsValidReplacementFileExtension(projectItem.Name)) continue;
-
-                ReplaceTagsInProjectItem(projectItem);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
             }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
@@ -288,35 +303,43 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter project.Name >{project.Name}<", cAPPNAME);
 
-            var originalName = project.Name;
-            var originalFullName = project.FullName;
-            var originalFileName = project.FileName;
-            var originalParentProjectItem = project.ParentProjectItem;
-            var originalProjectFolder = Path.GetDirectoryName(originalFileName);
-
-            if (originalName.Contains("APPLICATION")
-                || originalName.Contains("MODULE")
-                || originalName.Contains("NAMESPACE")
-                || originalName.Contains("TYPE")
-                || originalName.Contains("ITEM")
-                || originalName.Contains("ACTION")
-                )
+            try
             {
-                string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx)
-                    .Replace("MODULE", xxxMODULExxx)
-                    .Replace("NAMESPACE", xxxNAMESPACExxx)
-                    .Replace("TYPE", xxxTYPExxx)
-                    .Replace("ITEM", xxxITEMxxx)
-                    .Replace("ACTION", xxxACTIONxxx);
+                var originalName = project.Name;
+                var originalFullName = project.FullName;
+                var originalFileName = project.FileName;
+                var originalParentProjectItem = project.ParentProjectItem;
+                var originalProjectFolder = Path.GetDirectoryName(originalFileName);
 
-                project.Name = newProjectName;
-                project.Save();
+                if (originalName.Contains("APPLICATION")
+                    || originalName.Contains("MODULE")
+                    || originalName.Contains("NAMESPACE")
+                    || originalName.Contains("TYPE")
+                    || originalName.Contains("ITEM")
+                    || originalName.Contains("ACTION")
+                    )
+                {
+                    string newProjectName = originalName.Replace("APPLICATION", xxxAPPLICATIONxxx)
+                        .Replace("MODULE", xxxMODULExxx)
+                        .Replace("NAMESPACE", xxxNAMESPACExxx)
+                        .Replace("TYPE", xxxTYPExxx)
+                        .Replace("ITEM", xxxITEMxxx)
+                        .Replace("ACTION", xxxACTIONxxx);
+
+                    project.Name = newProjectName;
+                    project.Save();
+                }
+
+                if (originalFileName.Contains("APPLICATION")
+                    || originalFileName.Contains("MODULE"))
+                {
+                    project.SaveAs($"{originalProjectFolder}\\{project.Name}");
+                }
+
             }
-
-            if (originalFileName.Contains("APPLICATION")
-                || originalFileName.Contains("MODULE"))
+            catch (Exception ex)
             {
-                project.SaveAs($"{originalProjectFolder}\\{project.Name}");
+                Log.Error(ex, cAPPNAME);
             }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
@@ -368,9 +391,16 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
-            if (!IsValidReplacementFileExtension(projectItem.Name)) return;
+            try
+            {
+                 if (!IsValidReplacementFileExtension(projectItem.Name)) return;
 
-            ReplaceTagsInProjectItem(projectItem);
+                ReplaceTagsInProjectItem(projectItem);               
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
+            }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
@@ -379,21 +409,28 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
-            UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
-            UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
+            try
+            {
+                UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
+                UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
 
-            // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
-            // Add a period in front of Namespace
+                // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
+                // Add a period in front of Namespace
 
-            UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
+                UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
 
-            UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
-            UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
+                UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
+                UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
 
-            UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
+                UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
 
-            // TODO(crhodes)
-            // I don't see any reason to use CUSTOM{1,2,3,4,5} in Folder or File Names
+                // TODO(crhodes)
+                // I don't see any reason to use CUSTOM{1,2,3,4,5} in Folder or File Names               
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
+            }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
@@ -402,24 +439,31 @@ namespace VNCVSProjectWizard
         {
             long startTicks = Log.Trace($"Enter projectItem.Name: >{projectItem.Name}<", cAPPNAME);
 
-            UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
-            UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
+            try
+            {
+                UpdateProjectItemName(projectItem, "APPLICATION", xxxAPPLICATIONxxx);
+                UpdateProjectItemName(projectItem, "MODULE", xxxMODULExxx);
 
-            // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
-            // Add a period in front of Namespace
+                // Special handling for APPLICATION.NAMESPACE and MODULE.NAMESPACE
+                // Add a period in front of Namespace
 
-            UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
+                UpdateProjectItemName(projectItem, "NAMESPACE", $".{xxxNAMESPACExxx}");
 
-            UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
-            UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
+                UpdateProjectItemName(projectItem, "TYPE", xxxTYPExxx);
+                UpdateProjectItemName(projectItem, "ITEM", xxxITEMxxx);
 
-            UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
+                UpdateProjectItemName(projectItem, "ACTION", xxxACTIONxxx);
 
-            UpdateProjectItemName(projectItem, "CUSTOM1", xxxCUSTOM1xxx);
-            UpdateProjectItemName(projectItem, "CUSTOM2", xxxCUSTOM2xxx);
-            UpdateProjectItemName(projectItem, "CUSTOM3", xxxCUSTOM3xxx);
-            UpdateProjectItemName(projectItem, "CUSTOM4", xxxCUSTOM4xxx);
-            UpdateProjectItemName(projectItem, "CUSTOM5", xxxCUSTOM5xxx);
+                UpdateProjectItemName(projectItem, "CUSTOM1", xxxCUSTOM1xxx);
+                UpdateProjectItemName(projectItem, "CUSTOM2", xxxCUSTOM2xxx);
+                UpdateProjectItemName(projectItem, "CUSTOM3", xxxCUSTOM3xxx);
+                UpdateProjectItemName(projectItem, "CUSTOM4", xxxCUSTOM4xxx);
+                UpdateProjectItemName(projectItem, "CUSTOM5", xxxCUSTOM5xxx);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
+            }
 
             Log.Trace("Exit", cAPPNAME, startTicks);
         }
@@ -428,48 +472,55 @@ namespace VNCVSProjectWizard
         {
             //long startTicks = Log.Trace5($"Enter projectItem: >{projectItem.Name}< PARAMETER:({PARAMETER}) xxxPARAMETERxxx:({xxxPARAMETERxxx})", cAPPNAME);
 
-            if (projectItem.Name.Contains(PARAMETER))
+            try
             {
-                Log.Trace5($"  {projectItem.Name} contains {PARAMETER}, replacing with {xxxPARAMETERxxx}", cAPPNAME);
-
-                // Can just rename folders
-
-                if (projectItem.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") 
+                if (projectItem.Name.Contains(PARAMETER))
                 {
-                    projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
-                }
-                else // Have to open and save files
-                {
-                    // NOTE(crhodes)
-                    // This used to work with out any special handling for .xaml and .xaml.cs files
-                    // Now it has gotten weird
+                    Log.Trace5($"  {projectItem.Name} contains {PARAMETER}, replacing with {xxxPARAMETERxxx}", cAPPNAME);
 
-                    // HACK(crhodes)
-                    // This seemed to work in the IDE but the .xaml.cs file was not renamed in file system
+                    // Can just rename folders
 
-                    // VisualStudio renames .xaml and ,xaml.cs when renaming .Xaml file.
-                    // Skip .xaml.cs
-
-                    //if (! projectItem.Name.Contains(".xaml.cs"))
-                    //{
-                    try
+                    if (projectItem.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}") 
                     {
-                        Window wnd = projectItem.Open();
                         projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
-                        //projectItem.Save();
-                        wnd.Close(vsSaveChanges.vsSaveChangesYes);
                     }
-                    catch (Exception ex)
+                    else // Have to open and save files
                     {
-                        // HACK(crhodes)
-                        // Not sure why exceptions are thrown on the .xaml.cs files
-                        // But catching and ignoring seems to yield what is needed.
-                        // The Visual Studio Project looks ok and the file system looks ok
+                        // NOTE(crhodes)
+                        // This used to work with out any special handling for .xaml and .xaml.cs files
+                        // Now it has gotten weird
 
-                        Log.Error(ex, cAPPNAME);
+                        // HACK(crhodes)
+                        // This seemed to work in the IDE but the .xaml.cs file was not renamed in file system
+
+                        // VisualStudio renames .xaml and ,xaml.cs when renaming .Xaml file.
+                        // Skip .xaml.cs
+
+                        //if (! projectItem.Name.Contains(".xaml.cs"))
+                        //{
+                        try
+                        {
+                            Window wnd = projectItem.Open();
+                            projectItem.Name = projectItem.Name.Replace(PARAMETER, xxxPARAMETERxxx);
+                            //projectItem.Save();
+                            wnd.Close(vsSaveChanges.vsSaveChangesYes);
+                        }
+                        catch (Exception ex)
+                        {
+                            // HACK(crhodes)
+                            // Not sure why exceptions are thrown on the .xaml.cs files
+                            // But catching and ignoring seems to yield what is needed.
+                            // The Visual Studio Project looks ok and the file system looks ok
+
+                            Log.Error(ex, cAPPNAME);
+                        }
+                        //}
                     }
-                    //}
                 }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, cAPPNAME);
             }
 
             //Log.Trace5($"Exit", cAPPNAME, startTicks);
