@@ -1,0 +1,49 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VisioAddInTemplate</Name>
+    <Description>Used to create a new Visio VSTO AddIn.  Use with VisioAddInApplicationTemplate</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VisioAddIn/DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="VisioAddInTemplate.csproj" File="VisioAddInTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <Folder Name="Icons" TargetFolderName="Icons">
+          <ProjectItem ReplaceParameters="false" TargetFileName="VisioAddin.ico">VisioAddin.ico</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="VNCDeveloperMotivation.ico">VNCDeveloperMotivation.ico</ProjectItem>
+        </Folder>
+        <Folder Name="Images" TargetFolderName="Images">
+          <ProjectItem ReplaceParameters="false" TargetFileName="DebugWindow.gif">DebugWindow.gif</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="WatchWindow.gif">WatchWindow.gif</ProjectItem>
+        </Folder>
+        <Folder Name="Xaml" TargetFolderName="Xaml" />
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.cs">Ribbon.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.Designer.cs">Ribbon.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Ribbon.resx">Ribbon.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.cs">ThisAddIn.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.Designer.xml">ThisAddIn.Designer.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ThisAddIn.Designer.cs">ThisAddIn.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="VisioAddInTemplate_TemporaryKey.pfx">VisioAddInTemplate_TemporaryKey.pfx</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="VNC-Visio-VSTO-AddIn.ico">VNC-Visio-VSTO-AddIn.ico</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="VNC Visio VSTO AddIn.png">VNC Visio VSTO AddIn.png</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,49 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VisioAddInApplicationTemplate</Name>
+    <Description>Used to create a new VisioAppplication VSTO AddIn.   Use with VisioAddInTemplate</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VisioAddInApplication</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safefilename$Application.csproj" File="$safefilename$Application.csproj" ReplaceParameters="true">
+      <Folder Name="Actions" TargetFolderName="Actions">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Visio_Document.cs">Visio_Document.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Visio_Page.cs">Visio_Page.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Visio_Shape.cs">Visio_Shape.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Events" TargetFolderName="Events">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AddInApplicationEvents.cs">AddInApplicationEvents.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="VisioAppEvents.cs">VisioAppEvents.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Presentation" TargetFolderName="Presentation">
+        <Folder Name="Forms" TargetFolderName="Forms" />
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmDebugWindow.cs">frmDebugWindow.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmDebugWindow.Designer.cs">frmDebugWindow.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmDebugWindow.resx">frmDebugWindow.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmWatchWindow.cs">frmWatchWindow.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmWatchWindow.Designer.cs">frmWatchWindow.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="frmWatchWindow.resx">frmWatchWindow.resx</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <Folder Name="Icons" TargetFolderName="Icons" />
+        <Folder Name="Images" TargetFolderName="Images" />
+        <Folder Name="Xaml" TargetFolderName="Xaml" />
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="AddInInfo.cs">AddInInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="VNC Visio VSTO AddIn.png">VNC Visio VSTO AddIn.png</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="VNC-Visio-VSTO-AddIn.ico">VNC-Visio-VSTO-AddIn.ico</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
