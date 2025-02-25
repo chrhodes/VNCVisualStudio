@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-using PAEF1.Core;
+using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;
 
 using Prism.Commands;
 using Prism.Events;
@@ -65,24 +65,23 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
 
 
+
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public DelegateCommand<string> NavigateUIOneCommand { get; set; }
-        public DelegateCommand<string> NavigateUITwoCommand { get; set; }
-        public DelegateCommand<string> NavigateUIThreeCommand { get; set; }
-        public DelegateCommand<string> NavigateUIFourCommand { get; set; }
-        public DelegateCommand<string> NavigateUIFiveCommand { get; set; }
+
 
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -90,12 +89,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Commands
 
-
         #region NavigateUIOne Command
+
+        public DelegateCommand<string> NavigateUIOneCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _NavigateUIOneHost = null;
@@ -215,6 +216,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region NavigateUITwo Command
 
+        public DelegateCommand<string> NavigateUITwoCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _NavigateUITwoHost = null;
 
@@ -319,6 +322,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region NavigateUIThree Command
 
+        public DelegateCommand<string> NavigateUIThreeCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _NavigateUIThreeHost = null;
 
@@ -421,8 +426,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-
         #region NavigateUIFour Command
+
+        public DelegateCommand<string> NavigateUIFourCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _NavigateUIFourHost = null;
@@ -528,6 +534,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region NavigateUIFive Command
 
+        public DelegateCommand<string> NavigateUIFiveCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _NavigateUIFiveHost = null;
 
@@ -630,30 +638,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-
         #endregion
 
         #region Protected Methods (none)
 
 
+
         #endregion
 
-        #region Private Methods
+        #region Private Methods (none)
 
-        private bool SayHelloCanExecute()
-        {
-            return true;
-        }
 
-        private void SayHello()
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
-            Message = "Hello";
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
 
         #endregion
 

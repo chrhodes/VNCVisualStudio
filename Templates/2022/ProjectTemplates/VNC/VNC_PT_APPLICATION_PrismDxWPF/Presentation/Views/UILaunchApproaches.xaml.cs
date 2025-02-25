@@ -18,9 +18,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
-            
+
             InitializeComponent();
-            
+
             // Wire up ViewModel if needed
 
             // If View First with ViewModel in Xaml
@@ -34,7 +34,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // Can use ourselves for everything
 
             //DataContext = this;
-            
+
             InitializeView();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
@@ -46,12 +46,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()})", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
-            
+
             InitializeComponent();
 
             ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
-            
-            // For the rare case where the ViewModel needs to know about the View            
+
+            // For the rare case where the ViewModel needs to know about the View
             // ViewModel.View = this;
 
             InitializeView();
@@ -67,17 +67,20 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // NOTE(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
-            
+
             // Establish any additional DataContext(s), e.g. to things held in this View
+
+            spDeveloperInfo.DataContext = this;
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
-        
+
         #region Enums (none)
+
 
 
         #endregion
@@ -85,9 +88,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Structures (none)
 
 
+
         #endregion
 
         #region Fields and Properties (none)
+
 
 
         #endregion
@@ -95,13 +100,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands (none)
 
+
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -109,12 +118,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
 
 
-        #endregion        
+
+        #endregion
 
         #region IInstanceCount
 
@@ -135,6 +146,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
-
     }
 }

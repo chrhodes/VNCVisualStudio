@@ -66,9 +66,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Enums (none)
 
+
+
         #endregion
 
         #region Structures (none)
+
+
 
         #endregion
 
@@ -111,6 +115,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Commands (none)
+
 
 
         #endregion

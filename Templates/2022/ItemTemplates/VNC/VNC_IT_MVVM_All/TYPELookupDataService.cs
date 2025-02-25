@@ -82,9 +82,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

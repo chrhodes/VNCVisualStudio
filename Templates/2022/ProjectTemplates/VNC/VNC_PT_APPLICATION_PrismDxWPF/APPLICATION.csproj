@@ -10,7 +10,7 @@
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
         <FileVersion>YYYY.MM.DDA</FileVersion>
         <Description>describe application</Description>
-        <Nullable>enable</Nullable
+        <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
 

@@ -79,27 +79,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Fields and Properties
-
-        public ICommand SayHelloCommand { get; private set; }
-        public DelegateCommand LaunchCylon1Command { get; set; }
-        public DelegateCommand LaunchCylon2Command { get; set; }
-        public DelegateCommand ThemedWindowHostModelessCommand { get; set; }
-        public DelegateCommand ThemedWindowHostModalCommand { get; set; }
-        public DelegateCommand DXLayoutControlCommand { get; set; }
-        public DelegateCommand DXDockLayoutControlCommand { get; set; }
-        public DelegateCommand DXDockLayoutManagerCommand { get; set; }
-
-        public DelegateCommand MVVM1Command { get; set; }
-        public DelegateCommand MVVM2Command { get; set; }
-        public DelegateCommand MVVM3Command { get; set; }
-        public DelegateCommand MVVM4Command { get; set; }
-        public DelegateCommand MVVM5Command { get; set; }
-        public DelegateCommand MVVM6Command { get; set; }
+        #region Fields and Properties (none)
 
         #endregion
 
-        #region Event Handlers
+        #region Event Handlers (none)
+
 
 
         #endregion
@@ -107,6 +92,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands
 
         #region SayHello Command
+
+        public ICommand SayHelloCommand { get; private set; }
 
         private void SayHello()
         {
@@ -128,6 +115,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region LaunchCylon1 Command
+
+        public DelegateCommand LaunchCylon1Command { get; set; }
 
         public string LaunchCylon1Content { get; set; } = "LaunchCylon1";
         public string LaunchCylon1ToolTip { get; set; } = "LaunchCylon1 ToolTip";
@@ -204,6 +193,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region LaunchCylon2 Command
 
+        public DelegateCommand LaunchCylon2Command { get; set; }
+
         public string LaunchCylon2Content { get; set; } = "LaunchCylon2";
         public string LaunchCylon2ToolTip { get; set; } = "LaunchCylon2 ToolTip";
 
@@ -278,6 +269,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region ThemedWindowHostModeless Command
+
+        public DelegateCommand ThemedWindowHostModelessCommand { get; set; }
 
         // If using CommandParameter, figure out TYPE here and above
         // and remove above declaration
@@ -358,6 +351,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region ThemedWindowHostModal Command
 
+        public DelegateCommand ThemedWindowHostModalCommand { get; set; }
+
         // If using CommandParameter, figure out TYPE here and above
         // and remove above declaration
         //public DelegateCommand<TYPE> ThemedWindowHostModalCommand { get; set; }
@@ -437,6 +432,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region DXLayoutControl Command
 
+        public DelegateCommand DXLayoutControlCommand { get; set; }
+
         public string DXLayoutControlContent { get; set; } = "DXLayoutControl";
         public string DXLayoutControlToolTip { get; set; } = "DXLayoutControl ToolTip";
 
@@ -511,6 +508,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region DXDockLayoutControl Command
+
+        public DelegateCommand DXDockLayoutControlCommand { get; set; }
 
         public string DXDockLayoutControlContent { get; set; } = "DXDockLayoutControl";
         public string DXDockLayoutControlToolTip { get; set; } = "DXDockLayoutControl ToolTip";
@@ -587,8 +586,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region DXDockLayoutManager Command
 
-        public string DXDockLayoutManagerContent { get; set; } = "DXDockLayoutManager";
-        public string DXDockLayoutManagerToolTip { get; set; } = "DXDockLayoutManager ToolTip";
+        public DelegateCommand DXDockLayoutManagerCommand { get; set; }
 
         // Can get fancy and use Resources
         //public string DXDockLayoutManagerContent { get; set; } = "ViewName_DXDockLayoutManagerContent";
@@ -663,6 +661,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region MVVM Commands
 
         #region MVVM1 Command
+
+        public DelegateCommand MVVM1Command { get; set; }
+
+        public string DXDockLayoutManagerContent { get; set; } = "DXDockLayoutManager";
+        public string DXDockLayoutManagerToolTip { get; set; } = "DXDockLayoutManager ToolTip";
 
         public string MVVM1Content { get; set; } = "MVVM VA VM1st";
         public string MVVM1ToolTip { get; set; } = "MVVM1 ToolTip";
@@ -744,6 +747,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region MVVM2 Command
 
+        public DelegateCommand MVVM2Command { get; set; }
+
         public string MVVM2Content { get; set; } = "MVVM2";
         public string MVVM2ToolTip { get; set; } = "MVVM2 ToolTip";
 
@@ -807,6 +812,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region MVVM3 Command
+
+        public DelegateCommand MVVM3Command { get; set; }
 
         public string MVVM3Content { get; set; } = "MVVM3";
         public string MVVM3ToolTip { get; set; } = "MVVM3 ToolTip";
@@ -872,6 +879,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region MVVM4 Command
 
+        public DelegateCommand MVVM4Command { get; set; }
+
         public string MVVM4Content { get; set; } = "MVVM4";
         public string MVVM4ToolTip { get; set; } = "MVVM4 ToolTip";
 
@@ -936,6 +945,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region MVVM5 Command
 
+        public DelegateCommand MVVM5Command { get; set; }
+
         public string MVVM5Content { get; set; } = "MVVM5";
         public string MVVM5ToolTip { get; set; } = "MVVM5 ToolTip";
 
@@ -999,6 +1010,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region MVVM6 Command
+
+        public DelegateCommand MVVM6Command { get; set; }
 
         public string MVVM6Content { get; set; } = "MVVM6";
         public string MVVM6ToolTip { get; set; } = "MVVM6 ToolTip";

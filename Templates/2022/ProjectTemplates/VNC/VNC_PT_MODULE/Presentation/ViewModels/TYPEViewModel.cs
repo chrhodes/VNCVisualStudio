@@ -58,20 +58,23 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
 
 
+
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public ICommand SayHelloCommand { get; private set; }
+
 
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -79,11 +82,14 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Commands
 
         #region SayHello Command
+
+        public ICommand SayHelloCommand { get; private set; }
 
         private void SayHello()
         {
@@ -94,7 +100,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
-        
+
         private bool SayHelloCanExecute()
         {
             return true;
@@ -107,9 +113,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

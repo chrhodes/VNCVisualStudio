@@ -65,10 +65,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // NOTE(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
 
             // Establish any additional DataContext(s), e.g. to things held in this View
+
+            spDeveloperInfo.DataContext = this;
 
             //tbViewMessage.DataContext = this;
 
@@ -79,13 +81,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-        #region Fields and Properties
-
-        public string ViewMessage { get; set; }
-
-        #endregion
 
         #region Enums (none)
+
 
 
         #endregion
@@ -93,23 +91,30 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Structures (none)
 
 
-        #endregion
-
-        #region Fields and Properties (none)
-
 
         #endregion
+
+        #region Fields and Properties
+
+        public string ViewMessage { get; set; }
+
+        #endregion
+
 
         #region Event Handlers (none)
+
 
 
         #endregion
 
         #region Commands (none)
 
+
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -117,9 +122,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion
@@ -143,6 +150,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
-
     }
 }

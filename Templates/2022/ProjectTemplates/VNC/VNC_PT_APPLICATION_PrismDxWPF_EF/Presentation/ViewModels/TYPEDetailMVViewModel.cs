@@ -135,10 +135,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private I$xxxTYPExxx$DataService _$xxxTYPExxx$DataService;
         private IMouseLookupDataService _MouseLookupDataService;
 
-        public ICommand AddPhoneNumberCommand { get; private set; }
-        public ICommand RemovePhoneNumberCommand { get; private set; }
-
-        public DelegateCommand Load$xxxTYPExxx$DetailMVACommand { get; set; }
         // If using CommandParameter, figure out TYPE here and above
         // and remove above declaration
         //public DelegateCommand<TYPE> Load$xxxTYPExxx$DetailMVACommand { get; set; }
@@ -171,11 +167,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                 ((DelegateCommand)RemovePhoneNumberCommand).RaiseCanExecuteChanged();
             }
         }
-
-        public DelegateCommand<string> BackCommand { get; set; }
-        public DelegateCommand<string> NextCommand { get; set; }
-
-        public DelegateCommand FirstName_DoubleClick_Command { get; set; }
 
         private bool _stepAComplete;
         public bool StepAComplete
@@ -287,7 +278,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Commands
 
-       #region Load$xxxTYPExxx$DetailMVA Command
+        #region Load$xxxTYPExxx$DetailMVA Command
+
+        public DelegateCommand Load$xxxTYPExxx$DetailMVACommand { get; set; }
+
+
 
        // If using CommandParameter, figure out TYPE here
        //public TYPE Load$xxxTYPExxx$DetailMVACommandParameter;
@@ -375,6 +370,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Command FirstName DoubleClick
 
+        public DelegateCommand FirstName_DoubleClick_Command { get; set; }
+
         public void FirstName_DoubleClick()
         {
             Message = "FirstName_DoubleClick";
@@ -383,6 +380,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Back Command
+
+        public DelegateCommand<string> BackCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _BackHost = null;
@@ -483,6 +482,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Next Command
 
+        public DelegateCommand<string> NextCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _NextHost = null;
 
@@ -526,7 +527,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             //    //{
             //    //    case "uicatdetaila":
             //    //        if (catDetailMVA is null)
-            //    //        { 
+            //    //        {
             //    //            catDetailMVA = new CatDetailMVA();
             //    //            targetRegion.Add(catDetailMVA);
             //    //            targetRegion.Activate(catDetailMVA);
@@ -585,7 +586,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             //    //        break;
             //    //}
 
-                
+
             //    //_regionManager.RequestNavigate("MultiStepProcessViewMV", viewNavigationName);
             //}
             //_regionManager.RequestNavigate("MultiStepProcessViewMV", viewNavigationName);
@@ -644,6 +645,109 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         #endregion
+
+        #region Delete Command
+
+        protected override async void DeleteExecute()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER($"($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
+
+            var message = "Do you really want to delete the $xxxTYPExxx$? ?";
+
+            var dialogParameters = new DialogParameters();
+            dialogParameters.Add("message", message);
+            dialogParameters.Add("title", "Approve Deletion");
+            dialogParameters.Add("okcontent", "Yes");
+            dialogParameters.Add("cancelcontent", "No");
+
+            DialogService.Show("OkCancelDialog", dialogParameters, async r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    _$xxxTYPExxx$DataService.Remove($xxxTYPExxx$.Model);
+
+                    await _$xxxTYPExxx$DataService.UpdateAsync();
+
+                    PublishAfterDetailDeletedEvent($xxxTYPExxx$.Id);
+                }
+            });
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        protected override bool DeleteCanExecute()
+        {
+            // TODO(crhodes)
+            // Why do we need this?
+            return true;
+        }
+
+        #endregion
+
+        #region Save Command
+
+        protected override async void SaveExecute()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER($"(SaveExecute) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
+
+            await _$xxxTYPExxx$DataService.UpdateAsync();
+
+            //await SaveWithOptimisticConcurrencyAsync(_$xxxTYPExxx$DataService.UpdateAsync,
+            //  () =>
+            //  {
+            //      HasChanges = _$xxxTYPExxx$DataService.HasChanges();
+            //      Id = $xxxTYPExxx$.Id;
+            //      RaiseDetailSavedEvent($xxxTYPExxx$.Id, $"{$xxxTYPExxx$.FieldString}");
+            //  });
+
+            HasChanges = false;
+            Id = $xxxTYPExxx$.Id;
+
+            PublishAfterDetailSavedEvent($xxxTYPExxx$.Id, $xxxTYPExxx$.FieldString);
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("(SaveExecute) Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        protected override bool SaveCanExecute()
+        {
+            // TODO(crhodes)
+            // Check if $xxxTYPExxx$ is valid or has changes
+            // This enables and disables the button
+
+            var result = $xxxTYPExxx$ != null
+                && !$xxxTYPExxx$.HasErrors
+                && HasChanges;
+
+            return result;
+
+            //return true;
+        }
+
+        #endregion
+
+        #region AddPhoneNumber Command
+
+        public ICommand AddPhoneNumberCommand { get; private set; }
+
+        private void AddPhoneNumberExecute()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            var newNumber = new $xxxTYPExxx$PhoneNumberWrapper(new $xxxTYPExxx$PhoneNumber());
+            newNumber.PropertyChanged += $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
+            PhoneNumbers.Add(newNumber);
+            $xxxTYPExxx$.Model.PhoneNumbers.Add(newNumber.Model);
+            newNumber.Number = ""; // Trigger validation :-)
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region RemovePhoneNumber Command
 
         #endregion
 
@@ -717,92 +821,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Protected Methods
 
-        protected override bool DeleteCanExecute()
-        {
-            // TODO(crhodes)
-            // Why do we need this?
-            return true;
-        }
 
-        protected override async void DeleteExecute()
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER($"($xxxTYPExxx$DetailViewModel) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
 
-            var message = "Do you really want to delete the $xxxTYPExxx$? ?";
 
-            var dialogParameters = new DialogParameters();
-            dialogParameters.Add("message", message);
-            dialogParameters.Add("title", "Approve Deletion");
-            dialogParameters.Add("okcontent", "Yes");
-            dialogParameters.Add("cancelcontent", "No");
-
-            DialogService.Show("OkCancelDialog", dialogParameters, async r =>
-            {
-                if (r.Result == ButtonResult.OK)
-                {
-                    _$xxxTYPExxx$DataService.Remove($xxxTYPExxx$.Model);
-
-                    await _$xxxTYPExxx$DataService.UpdateAsync();
-
-                    PublishAfterDetailDeletedEvent($xxxTYPExxx$.Id);
-                }
-            });
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        protected override bool SaveCanExecute()
-        {
-            // TODO(crhodes)
-            // Check if $xxxTYPExxx$ is valid or has changes
-            // This enables and disables the button
-
-            var result = $xxxTYPExxx$ != null
-                && !$xxxTYPExxx$.HasErrors
-                && HasChanges;
-
-            return result;
-
-            //return true;
-        }
-
-        protected override async void SaveExecute()
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER($"(SaveExecute) Enter Id:({$xxxTYPExxx$.Id})", Common.LOG_CATEGORY);
-
-            await _$xxxTYPExxx$DataService.UpdateAsync();
-
-            //await SaveWithOptimisticConcurrencyAsync(_$xxxTYPExxx$DataService.UpdateAsync,
-            //  () =>
-            //  {
-            //      HasChanges = _$xxxTYPExxx$DataService.HasChanges();
-            //      Id = $xxxTYPExxx$.Id;
-            //      RaiseDetailSavedEvent($xxxTYPExxx$.Id, $"{$xxxTYPExxx$.FieldString}");
-            //  });
-
-            HasChanges = false;
-            Id = $xxxTYPExxx$.Id;
-
-            PublishAfterDetailSavedEvent($xxxTYPExxx$.Id, $xxxTYPExxx$.FieldString);
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("(SaveExecute) Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        private void AddPhoneNumberExecute()
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
-            var newNumber = new $xxxTYPExxx$PhoneNumberWrapper(new $xxxTYPExxx$PhoneNumber());
-            newNumber.PropertyChanged += $xxxTYPExxx$PhoneNumberWrapper_PropertyChanged;
-            PhoneNumbers.Add(newNumber);
-            $xxxTYPExxx$.Model.PhoneNumbers.Add(newNumber.Model);
-            newNumber.Number = ""; // Trigger validation :-)
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
+        public ICommand RemovePhoneNumberCommand { get; private set; }
 
         private void RemovePhoneNumberExecute()
         {
@@ -823,6 +845,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         {
             return SelectedPhoneNumber != null;
         }
+
+        #endregion
 
         #endregion
 

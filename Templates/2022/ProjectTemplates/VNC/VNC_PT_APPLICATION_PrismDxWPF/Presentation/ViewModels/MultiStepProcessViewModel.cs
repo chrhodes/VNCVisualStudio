@@ -70,25 +70,23 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
 
 
+
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public ICommand SayHelloCommand { get; private set; }
 
-          public DelegateCommand NavigateStepACommand { get; set; }
-        // If using CommandParameter, figure out TYPE here and above
-        // and remove above declaration
-        //public DelegateCommand<TYPE> NavigateStepACommand { get; set; }
 
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -101,6 +99,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands
 
         #region NavigateStepA Command
+
+        public DelegateCommand NavigateStepACommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE> NavigateStepACommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _NavigateStepAHost = null;
@@ -189,14 +192,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #endregion
+        #region SayHello Command
 
-        #region Protected Methods (none)
-
-
-        #endregion
-
-        #region Private Methods
+        public ICommand SayHelloCommand { get; private set; }
 
         private bool SayHelloCanExecute()
         {
@@ -214,6 +212,18 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+        #endregion
+
+        #region Protected Methods (none)
+
+
+        #endregion
+
+        #region Private Methods
+
+
 
         #region INavigationAware
 

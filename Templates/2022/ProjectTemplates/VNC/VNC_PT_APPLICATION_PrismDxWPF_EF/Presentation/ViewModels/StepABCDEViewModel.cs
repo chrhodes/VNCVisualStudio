@@ -73,13 +73,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        public ICommand SayHelloCommand { get; private set; }
-
-        public DelegateCommand<string> BackCommand { get; set; }
-        public DelegateCommand<string> NextCommand { get; set; }
-
-        public DelegateCommand FirstName_DoubleClick_Command { get; set; }
-
         private bool _stepAComplete;
         public bool StepAComplete
         {
@@ -164,9 +157,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands
+
+        public ICommand SayHelloCommand { get; private set; }
+
 
         #region SayHello Command
 
@@ -190,6 +187,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Command FirstName DoubleClick
 
+        public DelegateCommand FirstName_DoubleClick_Command { get; set; }
+
         public void FirstName_DoubleClick()
         {
             Message = "FirstName_DoubleClick";
@@ -198,6 +197,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Back Command
+
+        public DelegateCommand<string> BackCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _BackHost = null;
@@ -285,6 +286,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Next Command
+
+        public DelegateCommand<string> NextCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _NextHost = null;

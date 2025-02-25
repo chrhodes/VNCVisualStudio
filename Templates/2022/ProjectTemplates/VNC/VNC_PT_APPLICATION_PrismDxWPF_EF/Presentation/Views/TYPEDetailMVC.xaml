@@ -15,6 +15,12 @@
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
+
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
+    xmlns:controls="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Controls"
+
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
@@ -32,6 +38,8 @@
 
     d:DesignWidth="800" d:DesignHeight="450"
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
+
+    SizeChanged="thisControl_SizeChanged"
 >
     <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
 
@@ -70,38 +78,7 @@
 
     <DockPanel>
 
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
-                    Visibility="{Binding DeveloperUIMode,
-                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
-            <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
-
-            <!-- This is useful for debugging V VM constructor issues -->
-
-            <StackPanel Orientation="Horizontal">
-
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0" >
-                    <Label Content="V:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
-                    <Label Content="VP:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
-                <Label Content=" VM:" />
-                <Label Content="{Binding InstanceCountVM}" />
-            </StackPanel>
-
-        </StackPanel>
+        <controls:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
         <!-- Second form uses CommandParameter -->
         <!--<dxlc:LayoutItem DockPanel.Dock="Left" VerticalAlignment="Center">

@@ -46,9 +46,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -56,9 +58,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Fields and Properties (none)
 
 
+
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -66,9 +70,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands (none)
 
 
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -79,6 +85,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

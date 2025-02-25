@@ -9,13 +9,12 @@
 
 #region Variables and Configuration
 
-# Set to A for ProjectTemplatesA and ItemTemplatesA, 
+# Set to A for ProjectTemplatesA and ItemTemplatesA,
 # Set to B for ...
 
-$AB = "A"  
+$AB = "A"
 
-# $templateFolder = "V:\Dropbox\Visual Studio\2022\Templates"
-$templateFolder = "B:\Visual Studio\2022\Templates"
+$templateFolder = "V:\Dropbox\Visual Studio\2022\Templates"
 
 $templateMaster = "VNC_PT_APPLICATION_PrismDxWPF_EF"
 
@@ -31,7 +30,7 @@ $VerbosePreference = 'Ignore'
 
 # set to $false to have the magic just happen, $true to prompt before changes
 
-$confirmUpdate = $false 
+$confirmUpdate = $false
 
 # $ErrorActionPreference = 'Break'
 
@@ -44,9 +43,9 @@ $targetCoreTemplateFolders = @(
 
 $targetProjectTemplateFolders = @(
     "VNC_PT_APPLICATION_PrismDxWPF"
-    , "VNC_PT_APPLICATION.Domain"  
-    , "VNC_PT_APPLICATION.DomainServices"  
-    , "VNC_PT_MODULE"   
+    , "VNC_PT_APPLICATION.Domain"
+    , "VNC_PT_APPLICATION.DomainServices"
+    , "VNC_PT_MODULE"
     # Big problem with all MODULE files $xxxMODULExxx$ vs $xxxAPPLICATIONxxx$
     # Think through how to handle.  Maybe duplicate lines
     # or does it really matter.  Do we need a MODULE parameter?
@@ -57,11 +56,12 @@ $targetItemTemplateFolders = @(
     , "VNC_IT_MVVM_V"
     , "VNC_IT_MVVM_V_VM"
     , "VNC_IT_MODULE_MVVM_V_VM" # How is this different. Do we really need
+    , "VNC_IT_EmbeddedWPFControl"
 )
 
 $manualProcesingRequired = @(
     #Files
-    "App.Config"     
+    "App.Config"
     , "APPLICATION.csproj"
     , "Common.cs" # VNC_PT_MODULE different
     # Presentation\Views
@@ -75,96 +75,100 @@ $masterCoreFileUpdated = $false
 
 $commonProjectFiles = @(
     # Files
-    # "App.Config.cs" 
-    , "App.Xaml" 
+    # "App.Config.cs"
+    , "App.Xaml"
     , "App.Xaml.cs"
     # , "APPLICATION.csproj"
     # , "Common.cs"
     , "vncloggingconfig.json"
     , "vncloggingconfig-debug.json"
     , "vnccoreloggingconfig.json"
-    , "vnccoreloggingconfig-debug.json"        
-    , "ReadMe.txt" 
+    , "vnccoreloggingconfig-debug.json"
+    , "ReadMe.txt"
     # Application
     , "Application\ReadMe.txt"
     # ApplicationServices
     , "ApplicationServices\ReadMe.txt"
-    # Domain   
+    # Domain
     , "Domain\ReadMe.txt"
     # Domain\Lookups
-    , "Domain\Lookups\ReadMe.txt"      
+    , "Domain\Lookups\ReadMe.txt"
     # DomainServices
     , "DomainServices\ReadMe.txt"
     # DomainServices\ServicesMock
-   , "DomainServices\ServicesMock\ReadMe.txt"      
+   , "DomainServices\ServicesMock\ReadMe.txt"
     # Infrastructure
-    , "Infrastructure\ReadMe.txt"    
+    , "Infrastructure\ReadMe.txt"
     # Modules
-    , "Modules\APPLICATIONModule.cs" 
-    , "Modules\APPLICATIONServicesModule.cs" 
+    , "Modules\APPLICATIONModule.cs"
+    , "Modules\APPLICATIONServicesModule.cs"
     , "Modules\ReadMe.txt"
     # Persistence
-    , "Persistence\ReadMe.txt"      
+    , "Persistence\ReadMe.txt"
     # Persistence\Database
-    , "Persistence\Database\APPLICATIONDbContext.cs"   
-    , "Persistence\Database\ReadMe.txt"     
+    , "Persistence\Database\APPLICATIONDbContext.cs"
+    , "Persistence\Database\ReadMe.txt"
     # Persistence\Database\Migrations
     , "Persistence\Database\Migrations\ReadMe.txt"
     # Presentation
     , "Presentation\ReadMe.txt"
+    # Presentation\Controls
+    , "Presentation\Controls\DeveloperUIInfo.xaml"
+    , "Presentation\Controls\DeveloperUIInfo.xaml.cs"
+    , "Presentation\Controls\ReadMe.txt"
     # Presentation\Converters
-    , "Presentation\Converters\ReadMe.txt"      
+    , "Presentation\Converters\ReadMe.txt"
     # Presentation\ModelWrappers
-    , "Presentation\ModelWrappers\ReadMe.txt" 
+    , "Presentation\ModelWrappers\ReadMe.txt"
     # Presentation\ViewModels
     , "Presentation\ViewModels\AboutViewModel.cs"
     , "Presentation\ViewModels\CombinedMainViewModel.cs"
-    , "Presentation\ViewModels\CombinedNavigationViewModel.cs"        
+    , "Presentation\ViewModels\CombinedNavigationViewModel.cs"
     , "Presentation\ViewModels\MainDxDockLayoutManagerViewModel.cs"
     , "Presentation\ViewModels\MainDxLayoutControlViewModel.cs"
     , "Presentation\ViewModels\MainViewModel.cs"
     , "Presentation\ViewModels\MultiStepProcessViewModel.cs"
     , "Presentation\ViewModels\RegionNavigationViewModel.cs"
     , "Presentation\ViewModels\RibbonViewModel.cs"
-    , "Presentation\ViewModels\ShellRibbonViewModel.cs"    
+    , "Presentation\ViewModels\ShellRibbonViewModel.cs"
     , "Presentation\ViewModels\StatusBarViewModel.cs"
-    , "Presentation\ViewModels\StepABCDEViewModel.cs"    
-    , "Presentation\ViewModels\UILaunchApproachesViewModel.cs"            
-    , "Presentation\ViewModels\ViewABCDViewModel.cs" 
+    , "Presentation\ViewModels\StepABCDEViewModel.cs"
+    , "Presentation\ViewModels\UILaunchApproachesViewModel.cs"
+    , "Presentation\ViewModels\ViewABCDViewModel.cs"
     , "Presentation\ViewModels\ViewAViewModel.cs"
-    , "Presentation\ViewModels\ViewBViewModel.cs" 
-    , "Presentation\ViewModels\ViewCViewModel.cs" 
+    , "Presentation\ViewModels\ViewBViewModel.cs"
+    , "Presentation\ViewModels\ViewCViewModel.cs"
     , "Presentation\ViewModels\ViewDViewModel.cs"
     , "Presentation\ViewModels\ViewDiscoveryViewModel.cs"
-    , "Presentation\ViewModels\ViewInjectionViewModel.cs"  
-    , "Presentation\ViewModels\ReadMe.txt"   
+    , "Presentation\ViewModels\ViewInjectionViewModel.cs"
+    , "Presentation\ViewModels\ReadMe.txt"
     # Presentation\ViewModels\Shells
     , "Presentation\ViewModels\Shells\RibbonShellViewModel.cs"
     , "Presentation\ViewModels\Shells\ShellViewModel.cs"
-    , "Presentation\ViewModels\Shells\ReadMe.txt"       
+    , "Presentation\ViewModels\Shells\ReadMe.txt"
     # Presentation\Views
     , "Presentation\Views\About.xaml"
-    , "Presentation\Views\About.xaml.cs"    
+    , "Presentation\Views\About.xaml.cs"
     , "Presentation\Views\AppVersionInfo.xaml"
     , "Presentation\Views\AppVersionInfo.xaml.cs"
     , "Presentation\Views\CombinedMain.xaml"
-    , "Presentation\Views\CombinedMain.xaml.cs"  
+    , "Presentation\Views\CombinedMain.xaml.cs"
     , "Presentation\Views\CombinedNavigation.xaml"
     , "Presentation\Views\CombinedNavigation.xaml.cs"
     , "Presentation\Views\Main.xaml"
-    , "Presentation\Views\Main.xaml.cs"    
+    , "Presentation\Views\Main.xaml.cs"
     # , "Presentation\Views\MainDxDockLayoutManager.xaml"
     , "Presentation\Views\MainDxDockLayoutManager.xaml.cs"
     # , "Presentation\Views\MainDxLayoutControl.xaml"
-    , "Presentation\Views\MainDxLayoutControl.xaml.cs" 
+    , "Presentation\Views\MainDxLayoutControl.xaml.cs"
     , "Presentation\Views\MultiStepProcess.xaml"
-    , "Presentation\Views\MultiStepProcess.xaml.cs"   
+    , "Presentation\Views\MultiStepProcess.xaml.cs"
     , "Presentation\Views\RegionNavigation.xaml"
-    , "Presentation\Views\RegionNavigation.xaml.cs"             
+    , "Presentation\Views\RegionNavigation.xaml.cs"
     , "Presentation\Views\Ribbon.xaml"
     , "Presentation\Views\Ribbon.xaml.cs"
     , "Presentation\Views\ShellRibbon.xaml"
-    , "Presentation\Views\ShellRibbon.xaml.cs"      
+    , "Presentation\Views\ShellRibbon.xaml.cs"
     , "Presentation\Views\StatusBar.xaml"
     , "Presentation\Views\StatusBar.xaml.cs"
     , "Presentation\Views\StepA.xaml"
@@ -176,9 +180,9 @@ $commonProjectFiles = @(
     , "Presentation\Views\StepD.xaml"
     , "Presentation\Views\StepD.xaml.cs"
     , "Presentation\Views\StepE.xaml"
-    , "Presentation\Views\StepE.xaml.cs"                
+    , "Presentation\Views\StepE.xaml.cs"
     , "Presentation\Views\UILaunchApproaches.xaml"
-    , "Presentation\Views\UILaunchApproaches.xaml.cs"       
+    , "Presentation\Views\UILaunchApproaches.xaml.cs"
     , "Presentation\Views\ViewA.xaml"
     , "Presentation\Views\ViewA.xaml.cs"
     , "Presentation\Views\ViewB.xaml"
@@ -192,16 +196,16 @@ $commonProjectFiles = @(
     , "Presentation\Views\ViewDiscovery.xaml"
     , "Presentation\Views\ViewDiscovery.xaml.cs"
     , "Presentation\Views\ViewInjection.xaml"
-    , "Presentation\Views\ViewInjection.xaml.cs"          
-    , "Presentation\Views\ReadMe.txt"   
+    , "Presentation\Views\ViewInjection.xaml.cs"
+    , "Presentation\Views\ReadMe.txt"
     # Presentation\Views\Shells
     , "Presentation\Views\Shells\RibbonShell.xaml"
     , "Presentation\Views\Shells\RibbonShell.xaml.cs"
     , "Presentation\Views\Shells\Shell.xaml"
     , "Presentation\Views\Shells\Shell.xaml.cs"
-    , "Presentation\Views\Shells\ReadMe.txt"   
+    , "Presentation\Views\Shells\ReadMe.txt"
     # Resources
-    , "Resources\ReadMe.txt"    
+    , "Resources\ReadMe.txt"
     # Resources\Icons
     , "Resources\Icons\ApplicationIcon.ico"
     , "Resources\Icons\ApplicationIcon-Left-Blue.ico"
@@ -210,19 +214,19 @@ $commonProjectFiles = @(
     , "Resources\Icons\ApplicationIcon-Right-Red.ico"
     , "Resources\Icons\ApplicationIcon-Right-Red.png"
     , "Resources\Icons\ApplicationIcon-Right-Red.psd"
-    , "Resources\Icons\ReadMe.txt"     
+    , "Resources\Icons\ReadMe.txt"
     # Resources\Images
     , "Resources\Images\FilterEditor.png"
     , "Resources\Images\ToolBox.png"
     , "Resources\Images\VNCDeveloperMotivation.png"
-    , "Resources\Images\WatchWindow.bmp"            
-    , "Resources\Images\ReadMe.txt"     
+    , "Resources\Images\WatchWindow.bmp"
+    , "Resources\Images\ReadMe.txt"
     # Resources\Xmal
     , "Resources\Xaml\Application.xaml"
-    , "Resources\Xaml\Display_StylesAndTemplates.xaml"   
-    , "Resources\Xaml\Layout_Styles.xaml"  
-    , "Resources\Xaml\ReadMe.txt"                       
-            
+    , "Resources\Xaml\Display_StylesAndTemplates.xaml"
+    , "Resources\Xaml\Layout_Styles.xaml"
+    , "Resources\Xaml\ReadMe.txt"
+
 )
 
 # NOTE(crhodes)
@@ -231,28 +235,31 @@ $commonProjectFiles = @(
 # appropriate ReadMe.txt files in folders
 
 $commonItemFiles = @(
-    # Domain 
+    # Domain
       "Domain\ITEM.cs"
-    , "Domain\TYPE.cs"    
-    , "Domain\TYPEEmailAddress.cs"    
-    , "Domain\TYPEPhoneNumber.cs"     
+    , "Domain\TYPE.cs"
+    , "Domain\TYPEEmailAddress.cs"
+    , "Domain\TYPEPhoneNumber.cs"
     # Domain\Lookups
     , "Domain\Lookups\LookupTYPE.cs"
     # DomainServices
-    , "DomainServices\ITEMDataService.cs"   
-    , "DomainServices\ITEMLookupDataService.cs"   
-    , "DomainServices\TYPEDataService.cs"     
+    , "DomainServices\ITEMDataService.cs"
+    , "DomainServices\ITEMLookupDataService.cs"
+    , "DomainServices\TYPEDataService.cs"
     , "DomainServices\TYPELookupDataService.cs"
     # DomainServices\ServicesMock
-    , "DomainServices\ServicesMock\TYPEDataServiceMock.cs"     
+    , "DomainServices\ServicesMock\TYPEDataServiceMock.cs"
     # Modules
     , "Modules\TYPEModule.cs"
+    # Presentation\Controls
+    , "Presentation\Controls\TYPE.xaml"
+    , "Presentation\Controls\TYPE.xaml.cs"
     # Presentation\Converters
 
     # Presentation\ModelWrappers
     , "Presentation\ModelWrappers\ITEMWrapper.cs"
-    , "Presentation\ModelWrappers\TYPEPhoneNumberWrapper.cs"  
-    , "Presentation\ModelWrappers\TYPEWrapper.cs"  
+    , "Presentation\ModelWrappers\TYPEPhoneNumberWrapper.cs"
+    , "Presentation\ModelWrappers\TYPEWrapper.cs"
     # Presentation\ViewModels
     , "Presentation\ViewModels\ITEMDetailViewModel.cs"
     , "Presentation\ViewModels\TYPEMainViewModel.cs"
@@ -260,8 +267,8 @@ $commonItemFiles = @(
     , "Presentation\ViewModels\TYPEDetailViewModel.cs"
     , "Presentation\ViewModels\TYPEMainMVViewModel.cs"
     , "Presentation\ViewModels\TYPENavigationMVViewModel.cs"
-    , "Presentation\ViewModels\TYPEDetailMVViewModel.cs"    
-    , "Presentation\ViewModels\TYPEViewModel.cs"                
+    , "Presentation\ViewModels\TYPEDetailMVViewModel.cs"
+    , "Presentation\ViewModels\TYPEViewModel.cs"
     # Presentation\Views
     , "Presentation\Views\ITEMDetail.xaml"
     , "Presentation\Views\ITEMDetail.xaml.cs"
@@ -278,8 +285,8 @@ $commonItemFiles = @(
     , "Presentation\Views\TYPENavigationMV.xaml"
     , "Presentation\Views\TYPENavigationMV.xaml.cs"
     , "Presentation\Views\TYPEDetailMV.xaml"
-    , "Presentation\Views\TYPEDetailMV.xaml.cs"    
-  
+    , "Presentation\Views\TYPEDetailMV.xaml.cs"
+
 )
 
 $commonCoreFiles = @(
@@ -316,7 +323,7 @@ $commonCoreFiles = @(
     , "Persistence\ReadMe.txt"
     # Persistence\Database
     , "Persistence\Database\IAPPLICATIONDbContext.cs"
-    , "Persistence\Database\ReadMe.txt"  
+    , "Persistence\Database\ReadMe.txt"
     # Presentation
     , "Presentation\ReadMe.txt"
     # Presentation\ViewModels
@@ -336,7 +343,7 @@ $commonCoreFiles = @(
     , "Presentation\ViewModels\ITYPENavigationViewModel.cs"
     , "Presentation\ViewModels\ITYPEDetailMVViewModel.cs"
     , "Presentation\ViewModels\ITYPEMainMVViewModel.cs"
-    , "Presentation\ViewModels\ITYPENavigationMVViewModel.cs"    
+    , "Presentation\ViewModels\ITYPENavigationMVViewModel.cs"
     , "Presentation\ViewModels\ITYPEViewModel.cs"
     , "Presentation\ViewModels\IUILaunchApproachesViewModel.cs"
     , "Presentation\ViewModels\IViewABCDViewModel.cs"
@@ -344,7 +351,7 @@ $commonCoreFiles = @(
     , "Presentation\ViewModels\IViewInjectionViewModel.cs"
     , "Presentation\ViewModels\ReadMe.txt"
     # Presentation\ViewModels\Shells
-    , "Presentation\ViewModels\Shells\ReadMe.txt"    
+    , "Presentation\ViewModels\Shells\ReadMe.txt"
     # Presentation\Views
     , "Presentation\Views\IAbout.cs"
     , "Presentation\Views\ICombinedMain.cs"
@@ -403,15 +410,15 @@ function CompareAndUpdateFile ([System.IO.FileInfo]$masterFile, [System.IO.FileI
             $newer = "Master"
             [System.ConsoleColor]$foreGroundColor = "Green"
         }
-        else 
+        else
         {
             $newer = "Target"
             [System.ConsoleColor]$foreGroundColor = "DarkYellow"
         }
-       
+
         # Write-Host -ForegroundColor Red "$($masterFile.Name) $($masterFile.LastWriteTime) $($masterFile.Length)"
         Write-Host -ForegroundColor Yellow " > $($targetFile.Name) $($targetFile.LastWriteTime) $($targetFile.Length)"
-        Write-Host "   in $($targetTemplateFolder)"        
+        Write-Host "   in $($targetTemplateFolder)"
         Write-Host -ForegroundColor $foreGroundColor.ToString() "    Last Write Time Different - $newer newer"
 
         if ($masterFile.LastWriteTime -gt $targetFile.LastWriteTime)
@@ -428,22 +435,22 @@ function CompareAndUpdateFile ([System.IO.FileInfo]$masterFile, [System.IO.FileI
                     Write-Host "Copying Master to Target"
                     Copy-Item -Path $masterFile -Destination $targetFile
                     $targetFile.LastWriteTime = $masterFile.LastWriteTime
-    
+
                     Write-Verbose "  master: $($masterFile.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))"
                     Write-Verbose "  target: $($targetFile.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))"
-    
+
                     # Read-Host "Enter to continue"
-                }   
+                }
                 else
                 {
                     "Skipping"
-                }  
+                }
             }
-            else 
+            else
             {
                 Write-Host "Copying Master to Target"
                 Copy-Item -Path $masterFile -Destination $targetFile
-            }                 
+            }
         }
         else
         {
@@ -459,18 +466,18 @@ function CompareAndUpdateFile ([System.IO.FileInfo]$masterFile, [System.IO.FileI
                     Write-Host "Copying Target to Master"
                     Copy-Item -Path $targetFile -Destination $masterFile
                     $masterFile.LastWriteTime = $targetFile.LastWriteTime
-    
+
                     Write-Verbose "  master: $($masterFile.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))"
                     Write-Verbose "  target: $($targetFile.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))"
 
                     # Read-Host "Enter to continue"
-                }    
+                }
                 else
                 {
                     "Skipping"
-                }   
+                }
             }
-            else 
+            else
             {
                 Write-Host "Copying Target to Master"
                 Copy-Item -Path $targetFile -Destination $masterFile
@@ -478,10 +485,10 @@ function CompareAndUpdateFile ([System.IO.FileInfo]$masterFile, [System.IO.FileI
 
             # This means masterFile may need to propagate to other places
 
-            $script:masterFileUpdated = $true         
+            $script:masterFileUpdated = $true
         }
     }
-    else 
+    else
     {
         Write-Verbose "LastWriteTime match"
 
@@ -492,7 +499,7 @@ function CompareAndUpdateFile ([System.IO.FileInfo]$masterFile, [System.IO.FileI
             Copy-Item -Path $masterFile -Destination $targetFile
             $targetFile.LastWriteTime = $masterFile.LastWriteTime
         }
-        else 
+        else
         {
             Write-Verbose "Length Match"
         }
@@ -551,7 +558,7 @@ function UpdateMatchingFiles([string] $masterFile)
                     {
                         Write-Verbose $targetFile
                         Write-Verbose " >  $($targetFile.Name) $($targetFile.LastWriteTime) $($targetFile.Length)  in  $projectTemplates\$targetTemplateFolder"
-                
+
                         CompareAndUpdateFile $masterFileInfo $targetFile "$($projectTemplates)\$($targetTemplateFolder)"
                     }
                 }
@@ -568,7 +575,7 @@ function UpdateMatchingFiles([string] $masterFile)
 
         Write-Verbose ""
     }
-    else 
+    else
     {
         Write-Error "$sourceMaster\$masterFile does not exist"
     }
@@ -626,7 +633,7 @@ function UpdateMatchingCoreFiles([string] $masterCoreFile)
                     {
                         Write-Verbose $targetFile
                         Write-Verbose " >  $($targetFile.Name) $($targetFile.LastWriteTime) $($targetFile.Length)  in  $projectTemplates\$targetTemplateFolder"
-                
+
                         CompareAndUpdateFile $masterCoreFileInfo $targetFile "$($projectTemplates)\$($targetTemplateFolder)"
                     }
                 }
@@ -643,7 +650,7 @@ function UpdateMatchingCoreFiles([string] $masterCoreFile)
 
         Write-Verbose ""
     }
-    else 
+    else
     {
         Write-Error "$sourceCoreMaster\$masterCoreFile does not exist"
     }
@@ -667,7 +674,7 @@ function ProcessProjectFiles()
     foreach ($masterFile in $commonItemFiles)
     {
         UpdateMatchingFiles $masterFile
-    }    
+    }
 }
 
 function ProcessItemFiles()
@@ -685,12 +692,12 @@ function ProcessItemFiles()
             Write-Host -ForegroundColor Blue ("{0,-60} - {1} {2}" -f $masterFile, $masterFileInfo.LastWriteTime, $masterFileInfo.Length)
 
             # Write-Verbose "$($masterFile) $($masterFileInfo.LastWriteTime) $($masterFileInfo.Length)"
-        
+
             foreach ($templateFolder in $targetItemTemplateFolders)
             {
                 Write-Verbose "Checking files in $itemTemplates\$templateFolder"
                 # Write-Host "Checking files in $itemTemplates\$templateFolder"
-        
+
                 # Need to strip all but the last part of the name
                 # as files go in the top level folder
 
@@ -702,7 +709,7 @@ function ProcessItemFiles()
                     $fileInfo = Get-ChildItem $itemTemplates\$templateFolder\$targetFile
                     Write-Verbose " >  $($fileInfo.Nam) $($fileInfo.LastWriteTime) $($fileInfo.Length)  in  $itemTemplates\$templateFolder"
 
-                    CompareAndUpdateFile $masterFileInfo $fileInfo "$($itemTemplates)\$($templateFolder)"          
+                    CompareAndUpdateFile $masterFileInfo $fileInfo "$($itemTemplates)\$($templateFolder)"
                 }
             }
 

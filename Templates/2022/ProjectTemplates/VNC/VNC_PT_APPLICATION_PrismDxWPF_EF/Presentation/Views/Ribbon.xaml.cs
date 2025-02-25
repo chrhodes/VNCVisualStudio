@@ -74,6 +74,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             ViewType = this.GetType().ToString().Split('.').Last();
 
             // Establish any additional DataContext(s), e.g. to things held in this View
+            
+            spDeveloperInfo.DataContext = this;
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -81,30 +83,37 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #endregion
 
         #region Enums (none)
+        
 
 
         #endregion
 
         #region Structures (none)
+        
 
 
         #endregion
 
         #region Fields and Properties (none)
+        
 
 
         #endregion
 
         #region Event Handlers (none)
+        
 
 
         #endregion
 
         #region Commands (none)
+        
+        
 
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -115,6 +124,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #endregion
 
         #region Private Methods (none)
+        
 
 
         #endregion

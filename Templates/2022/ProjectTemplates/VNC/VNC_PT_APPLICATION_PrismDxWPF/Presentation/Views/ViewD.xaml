@@ -7,6 +7,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d"
 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
+    xmlns:controls="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Controls"
+
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
@@ -24,6 +29,8 @@
 
     d:DesignWidth="200" d:DesignHeight="125"
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
+
+    SizeChanged="thisControl_SizeChanged"
 >
     <!--xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"-->
     <!-- <d:DesignerProperties.DesignStyle> -->
@@ -40,39 +47,8 @@
 
     <DockPanel>
 
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
-                    Visibility="{Binding DeveloperUIMode,
-                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
-            <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+        <controls:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
-            <!-- This is useful for debugging V VM constructor issues -->
-
-            <StackPanel Orientation="Horizontal">
-                
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0" >
-                    <Label Content="V:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
-                    <Label Content="VP:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
-                <Label Content=" VM:" />
-                <Label Content="{Binding InstanceCountVM}" />
-            </StackPanel>
-
-        </StackPanel>
-        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -86,9 +62,9 @@
                 <TextBlock Text="{Binding ViewMessage}" />
                 <TextBlock x:Name="tbViewMessage"  Text="{Binding ViewMessage}" />
             </StackPanel>
-            
+
         </Grid>
-    
+
     </DockPanel>
 
 </vncmvvm:ViewBase>

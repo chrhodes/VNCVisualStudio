@@ -31,9 +31,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         #region Enums (none)
 
 
+
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -41,9 +44,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         #region Fields and Properties (none)
 
 
+
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -68,11 +73,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
 
 
+
         #endregion
+
     }
 }

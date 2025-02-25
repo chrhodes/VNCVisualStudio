@@ -57,12 +57,12 @@
     <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
 
-    <!-- <!-- These are used by PAEF --> -->
+    <!-- <!-- These are used by $xxxAPPLICATIONxxx$ --> -->
 
     <!-- <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> -->
-    <!-- <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" />     -->
+    <!-- <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" /> -->
 
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$Background" Color="#00FF00" />     -->
+    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$Background" Color="#00FF00" /> -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MainBackground" Color="#10FF10" /> -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$NavigationBackground" Color="#90FF90" /> -->
     <!-- <SolidColorBrush x:Key="$xxxTYPExxx$DetailBackground" Color="#A0FFA0" /> -->

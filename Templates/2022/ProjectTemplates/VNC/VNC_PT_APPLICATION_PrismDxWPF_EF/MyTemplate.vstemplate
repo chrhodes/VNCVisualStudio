@@ -106,6 +106,12 @@
 
       <Folder Name="Presentation" TargetFolderName="Presentation">
 
+        <Folder Name="Controls" TargetFolderName="Controls">
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeveloperUIInfo.xaml">DeveloperUIInfo.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="DeveloperUIInfo.xaml.cs">DeveloperUIInfo.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        </Folder>
+        
         <Folder Name="Converters" TargetFolderName="Converters">
 
           <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>

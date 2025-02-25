@@ -11,7 +11,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
     public class Common : VNC.WPF.Presentation.Common
     {
         public const string APPLICATION_NAME = "$xxxAPPLICATIONxxx$";
-        public const string LOG_CATEGORY = "$xxxAPPLICATIONxxx$";
+        public new const string LOG_CATEGORY = "$xxxAPPLICATIONxxx$";
 
         public const string cCONFIG_FILE = @"C:\temp\$xxxAPPLICATIONxxx$_Config.xml";
 

@@ -45,7 +45,6 @@
 
             <!-- This is useful for debugging V VM constructor issues -->
 
-
             <StackPanel Orientation="Horizontal">
                 
                 <StackPanel Orientation="Horizontal" Margin="5,0,5,0">

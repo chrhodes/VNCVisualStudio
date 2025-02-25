@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-using PAEF1.Core;
+using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;
 
 using Prism.Commands;
 using Prism.Events;
@@ -93,24 +93,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public ICommand SayHelloCommand { get; private set; }
 
-        //public DelegateCommand InjectUIOneCommand { get; set; }
-        // If using CommandParameter, figure out TYPE here and above
-        // and remove above declaration
-        public DelegateCommand<string> InjectUIOneCommand { get; set; }
-        public DelegateCommand<string> InjectUITwoCommand { get; set; }
-        public DelegateCommand<string> InjectUIThreeCommand { get; set; }
-
-        public DelegateCommand<string> ModifyUIOneCommand { get; set; }
-        public DelegateCommand<string> ModifyUITwoCommand { get; set; }
-        public DelegateCommand<string> ModifyUIThreeCommand { get; set; }
-
-        public DelegateCommand<string> RemoveUIOneCommand { get; set; }
-        public DelegateCommand<string> RemoveUITwoCommand { get; set; }
-        public DelegateCommand<string> RemoveUIThreeCommand { get; set; }
 
         #endregion
 
@@ -127,6 +112,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands
 
         #region InjectUIOne Command
+
+        public DelegateCommand<string> InjectUIOneCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _InjectUIOneHost = null;
@@ -232,6 +219,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region InjectUITwo Command
 
+        public DelegateCommand<string> InjectUITwoCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _InjectUITwoHost = null;
 
@@ -334,6 +323,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region InjectUIThree Command
+
+        public DelegateCommand<string> InjectUIThreeCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _InjectUIThreeHost = null;
@@ -438,6 +429,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region ModifyUIOne Command
 
+        public DelegateCommand<string> ModifyUIOneCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _ModifyUIOneHost = null;
 
@@ -540,6 +533,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region ModifyUITwo Command
 
+        public DelegateCommand<string> ModifyUITwoCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _ModifyUITwoHost = null;
 
@@ -641,6 +636,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region ModifyUIThree Command
 
+        public DelegateCommand<string> ModifyUIThreeCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _ModifyUIThreeHost = null;
 
@@ -741,6 +738,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #endregion
 
         #region RemoveUIOne Command
+
+        public DelegateCommand<string> RemoveUIOneCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _RemoveUIOneHost = null;
@@ -844,6 +843,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region RemoveUITwo Command
 
+        public DelegateCommand<string> RemoveUITwoCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _RemoveUITwoHost = null;
 
@@ -945,6 +946,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region RemoveUIThree Command
 
+        public DelegateCommand<string> RemoveUIThreeCommand { get; set; }
+
         // If displaying UserControl
         // public static WindowHost _RemoveUIThreeHost = null;
 
@@ -1044,14 +1047,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #endregion
+        #region SayHello Command
 
-        #region Protected Methods (none)
-
-
-        #endregion
-
-        #region Private Methods
+        public ICommand SayHelloCommand { get; private set; }
 
         private bool SayHelloCanExecute()
         {
@@ -1067,6 +1065,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+        #endregion
+
+        #region Private Methods
 
         #endregion
 

@@ -20,7 +20,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+           if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -31,8 +31,6 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // NOTE(crhodes)
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
-
-            DeveloperUIMode = Common.DeveloperUIMode;
 
             InformationApplication = Common.InformationApplication;
             InformationVNCCore = Common.InformationVNCCore;
@@ -68,31 +66,31 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             }
         }
 
-        private Size _windowSize;
-        public Size WindowSize
-        {
-            get => _windowSize;
-            set
-            {
-                if (_windowSize == value)
-                    return;
-                _windowSize = value;
-                OnPropertyChanged();
-            }
-        }
+        // private Size _windowSize;
+        // public Size WindowSize
+        // {
+            // get => _windowSize;
+            // set
+            // {
+                // if (_windowSize == value)
+                    // return;
+                // _windowSize = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
-        private Visibility _developerUIMode = Visibility.Visible;
-        public Visibility DeveloperUIMode
-        {
-            get => _developerUIMode;
-            set
-            {
-                if (_developerUIMode == value)
-                    return;
-                _developerUIMode = value;
-                OnPropertyChanged();
-            }
-        }
+        // private Visibility _developerUIMode = Visibility.Visible;
+        // public Visibility DeveloperUIMode
+        // {
+            // get => _developerUIMode;
+            // set
+            // {
+                // if (_developerUIMode == value)
+                    // return;
+                // _developerUIMode = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
         public Information InformationApplication { get; set; }
         public Information InformationVNCCore { get; set; }

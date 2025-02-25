@@ -121,6 +121,19 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             }
         }
 
+        private Size _windowSize;
+        public Size WindowSize
+        {
+            get => _windowSize;
+            set
+            {
+                if (_windowSize == value)
+                    return;
+                _windowSize = value;
+                OnPropertyChanged();
+            }
+        }
+        
         private Visibility _developerUIMode = Visibility.Collapsed;
         public Visibility DeveloperUIMode
         {
@@ -142,7 +155,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
         {
             var newSize = e.NewSize;
             var previousSize = e.PreviousSize;
-            ViewModel.WindowSize = newSize;
+            WindowSize = newSize;
         }
 
         #endregion

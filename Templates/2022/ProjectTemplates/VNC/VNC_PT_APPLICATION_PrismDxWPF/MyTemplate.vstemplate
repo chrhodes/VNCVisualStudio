@@ -54,14 +54,18 @@
                 <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
             </Folder>
             <Folder Name="Persistence" TargetFolderName="Persistence">
-                <Folder Name="ServicesMock" TargetFolderName="ServicesMock">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
-                </Folder>
+                <!-- <Folder Name="ServicesMock" TargetFolderName="ServicesMock"> -->
+                    <!-- <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem> -->
+                <!-- </Folder> -->
                 <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
             </Folder>
 
             <Folder Name="Presentation" TargetFolderName="Presentation">
 
+                <Folder Name="Controls" TargetFolderName="Controls">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                </Folder>
+                
                 <Folder Name="Converters" TargetFolderName="Converters">
                     <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
                 </Folder>
@@ -238,14 +242,19 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+            
             <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="vncloggingconfig.json">vncloggingconfig.json</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="vnccoreloggingconfig.json">vnccoreloggingconfig.json</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="vncloggingconfig-Debug.json">vncloggingconfig-Debug.json</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="vnccoreloggingconfig-Debug.json">vnccoreloggingconfig-Debug.json</ProjectItem>
+            
+            <ProjectItem TargetFileName="vncloggingconfig.json">vncloggingconfig.json</ProjectItem>
+            <ProjectItem TargetFileName="vnccoreloggingconfig.json">vnccoreloggingconfig.json</ProjectItem>
+            <ProjectItem TargetFileName="vncloggingconfig-Debug.json">vncloggingconfig-Debug.json</ProjectItem>
+            <ProjectItem TargetFileName="vnccoreloggingconfig-Debug.json">vnccoreloggingconfig-Debug.json</ProjectItem>
+            
             <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
         </Project>
+        
     </TemplateContent>
+    
     <WizardExtension>
         <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
         <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>

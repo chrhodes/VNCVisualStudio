@@ -122,9 +122,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands (none)
+
 
 
         #endregion
@@ -132,14 +134,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

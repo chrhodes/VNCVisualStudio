@@ -40,6 +40,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
 
+            Title = "$xxxAPPLICATIONxxx$ - MainDxLayout";
+
             DeveloperModeCommand = new DelegateCommand(DeveloperMode, DeveloperModeCanExecute);
 
             // If using CommandParameter, figure out TYPE here and below
@@ -54,33 +56,32 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
 
         #region Fields and Properties
 
-        private string _title = "$xxxAPPLICATIONxxx$ - MainDxLayout";
+        // private string _title = "$xxxAPPLICATIONxxx$ - MainDxLayout";
 
-        public string Title
-        {
-            get => _title;
-            set
-            {
-                if (_title == value)
-                    return;
-                _title = value;
-                OnPropertyChanged();
-            }
-        }
+        // public string Title
+        // {
+            // get => _title;
+            // set
+            // {
+                // if (_title == value)
+                    // return;
+                // _title = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
-        public DelegateCommand DeveloperModeCommand { get; set; }
-        // If using CommandParameter, figure out TYPE here and above
-        // and remove above declaration
-        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }
+
 
         #endregion
 
@@ -91,88 +92,94 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Commands
 
-          #region DeveloperMode Command
+        #region DeveloperMode Command
 
-          //public TYPE DeveloperModeCommandParameter;
-          public string DeveloperModeContent { get; set; } = "DeveloperMode";
-          public string? DeveloperModeToolTip { get; set; } = "DeveloperMode ToolTip";
+        public DelegateCommand DeveloperModeCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE> DeveloperModeCommand { get; set; }
 
-          // Can get fancy and use Resources
-          //public string DeveloperModeContent { get; set; } = "ViewName_DeveloperModeContent";
-          //public string DeveloperModeToolTip { get; set; } = "ViewName_DeveloperModeContentToolTip";
+        //public TYPE DeveloperModeCommandParameter;
+        public string DeveloperModeContent { get; set; } = "DeveloperMode";
+        public string? DeveloperModeToolTip { get; set; } = "DeveloperMode ToolTip";
 
-          // Put these in Resource File
-          //    <system:String x:Key="ViewName_DeveloperModeContent">DeveloperMode</system:String>
-          //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>
+        // Can get fancy and use Resources
+        //public string DeveloperModeContent { get; set; } = "ViewName_DeveloperModeContent";
+        //public string DeveloperModeToolTip { get; set; } = "ViewName_DeveloperModeContentToolTip";
 
-          // If using CommandParameter, figure out TYPE and fix above
-          //public void DeveloperMode(TYPE value)
-          public void DeveloperMode()
-          {
-              Int64 startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
-              // TODO(crhodes)
-              // Do something amazing.
-              Message = "Cool, you called DeveloperMode";
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_DeveloperModeContent">DeveloperMode</system:String>
+        //    <system:String x:Key="ViewName_DeveloperModeContentToolTip">DeveloperMode ToolTip</system:String>
 
-              PublishStatusMessage(Message);
+        // If using CommandParameter, figure out TYPE and fix above
+        //public void DeveloperMode(TYPE value)
+        public void DeveloperMode()
+        {
+            Int64 startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+            Message = "Cool, you called DeveloperMode";
 
-              if (Common.DeveloperMode)
-              {
-                  if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
-                  if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
-              }
-              else
-              {
-                  if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
-                  if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
-              }
+            PublishStatusMessage(Message);
 
-              Common.DeveloperMode = !Common.DeveloperMode;
+            if (Common.DeveloperMode)
+            {
+                if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
+                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
+                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
+            }
 
-              PublishDeveloperMode(Common.DeveloperMode);
+            Common.DeveloperMode = !Common.DeveloperMode;
 
-              // Uncomment this if you are telling someone else to handle this
+            PublishDeveloperMode(Common.DeveloperMode);
 
-              // Common.EventAggregator.GetEvent<DeveloperModeEvent>().Publish();
+            // Uncomment this if you are telling someone else to handle this
 
-              // May want EventArgs
+            // Common.EventAggregator.GetEvent<DeveloperModeEvent>().Publish();
 
-              //  EventAggregator.GetEvent<DeveloperModeEvent>().Publish(
-              //      new DeveloperModeEventArgs()
-              //      {
-              //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
-              //            Process = _contextMainViewModel.Context.SelectedProcess
-              //      });
+            // May want EventArgs
 
-              // Start Cut Four - Put this in PrismEvents
+            //  EventAggregator.GetEvent<DeveloperModeEvent>().Publish(
+            //      new DeveloperModeEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
 
-              // public class DeveloperModeEvent : PubSubEvent { }
+            // Start Cut Four - Put this in PrismEvents
 
-              // End Cut Four
+            // public class DeveloperModeEvent : PubSubEvent { }
 
-              // Start Cut Five - Put this in places that listen for event
+            // End Cut Four
 
-              //Common.EventAggregator.GetEvent<DeveloperModeEvent>().Subscribe(DeveloperMode);
+            // Start Cut Five - Put this in places that listen for event
 
-              // End Cut Five
+            //Common.EventAggregator.GetEvent<DeveloperModeEvent>().Subscribe(DeveloperMode);
 
-              Log.EVENT("Exit", Common.LOG_CATEGORY, startTicks);
-          }
+            // End Cut Five
 
-          // If using CommandParameter, figure out TYPE and fix above
-          //public bool DeveloperModeCanExecute(TYPE value)
-          public bool DeveloperModeCanExecute()
-          {
-              // TODO(crhodes)
-              // Add any before button is enabled logic.
-              return true;
-          }
+            Log.EVENT("Exit", Common.LOG_CATEGORY, startTicks);
+        }
 
-          #endregion
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool DeveloperModeCanExecute(TYPE value)
+        public bool DeveloperModeCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
 
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -180,9 +187,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

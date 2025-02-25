@@ -33,6 +33,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
 
+            Title = "$xxxAPPLICATIONxxx$ - Main";
+
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -50,23 +52,24 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private string _title = "$xxxAPPLICATIONxxx$ - Main";
+        // private string _title = "$xxxAPPLICATIONxxx$ - Main";
 
-        public string Title
-        {
-            get => _title;
-            set
-            {
-                if (_title == value)
-                    return;
-                _title = value;
-                OnPropertyChanged();
-            }
-        }
+        // public string Title
+        // {
+            // get => _title;
+            // set
+            // {
+                // if (_title == value)
+                    // return;
+                // _title = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -74,9 +77,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands (none)
 
 
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -84,9 +89,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

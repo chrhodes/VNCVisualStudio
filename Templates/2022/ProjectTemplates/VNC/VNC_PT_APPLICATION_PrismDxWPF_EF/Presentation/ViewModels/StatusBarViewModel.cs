@@ -62,9 +62,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public DelegateCommand LoggingConfigurationCommand { get; set; }
+
 
         #endregion
 
@@ -85,6 +85,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands
 
         #region LoggingConfiguration Command
+
+        public DelegateCommand LoggingConfigurationCommand { get; set; }
 
         public static WindowHost _loggingConfigurationHost = null;
 

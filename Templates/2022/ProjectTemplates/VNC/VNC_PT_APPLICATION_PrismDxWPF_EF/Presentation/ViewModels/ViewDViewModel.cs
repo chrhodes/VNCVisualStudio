@@ -6,7 +6,7 @@ using Prism.Services.Dialogs;
 using VNC;
 using VNC.Core.Mvvm;
 
-namespace PAEF1.Presentation.ViewModels
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     public class ViewDViewModel : EventViewModelBase, IViewABCDViewModel, IInstanceCountVM
     {
@@ -77,14 +77,17 @@ namespace PAEF1.Presentation.ViewModels
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands (none)
 
 
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -95,6 +98,7 @@ namespace PAEF1.Presentation.ViewModels
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

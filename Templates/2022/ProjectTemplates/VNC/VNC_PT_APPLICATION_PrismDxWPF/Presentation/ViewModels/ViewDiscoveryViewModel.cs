@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-using PAEF1.Core;
+using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;
 
 using Prism.Commands;
 using Prism.Events;
@@ -68,25 +68,29 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
 
 
+
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public DelegateCommand DiscoverViewsCommand { get; set; }
+
 
         #endregion
 
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -95,6 +99,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
 
         #region DiscoverViews Command
+
+        public DelegateCommand DiscoverViewsCommand { get; set; }
 
         // If displaying UserControl
         // public static WindowHost _DiscoverViewsHost = null;

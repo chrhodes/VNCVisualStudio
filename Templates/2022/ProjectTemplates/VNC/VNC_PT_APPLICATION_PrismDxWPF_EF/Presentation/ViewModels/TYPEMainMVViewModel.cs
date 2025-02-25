@@ -87,9 +87,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -101,9 +103,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         private IDetailViewModel _selectedDetailViewModel;
 
-        public ICommand CreateNewDetailViewCommand { get; private set; }
-
-        public ICommand OpenSingleDetailViewCommand { get; private set; }
 
         // N.B. This is public so View.Xaml can bind to it.
         public I$xxxTYPExxx$NavigationMVViewModel NavigationViewModel { get; private set; }
@@ -133,45 +132,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Event Handlers
 
-        void OpenSingleDetailExecute(Type viewModelType)
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            OpenDetailView(
-                new OpenDetailViewEventArgs
-                {
-                    Id = -1,
-                    ViewModelName = viewModelType.Name
-                });
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        private void CreateNewDetailView(Type viewModelType)
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
-            OpenDetailView(
-                new OpenDetailViewEventArgs
-                {
-                    Id = _nextNewItemId--,  // Ids in DB > 0.  Can now create multiple new items
-                    ViewModelName = viewModelType.Name
-                });
-
-            //HACK(crhodes)
-            // Not sure when is best time to do this
-
-            //// Well not here nothing seems to happen
-            //var r = _regionManager.Regions;
-            //IRegion region = _regionManager.Regions["MultiStepProcessViewMV"];
-            //region.RequestNavigate("uicatdetaila");
-
-            //_regionManager.RequestNavigate("MultiStepProcessViewMV", "uicatdetaila");
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
 
         private async void OpenDetailView(OpenDetailViewEventArgs args)
         {
@@ -269,8 +231,59 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Commands (none)
+        #region Commands
 
+        #region CreateNewDetailView Command
+
+        public ICommand CreateNewDetailViewCommand { get; private set; }
+
+        private void CreateNewDetailView(Type viewModelType)
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            OpenDetailView(
+                new OpenDetailViewEventArgs
+                {
+                    Id = _nextNewItemId--,  // Ids in DB > 0.  Can now create multiple new items
+                    ViewModelName = viewModelType.Name
+                });
+
+            //HACK(crhodes)
+            // Not sure when is best time to do this
+
+            //// Well not here nothing seems to happen
+            //var r = _regionManager.Regions;
+            //IRegion region = _regionManager.Regions["MultiStepProcessViewMV"];
+            //region.RequestNavigate("uicatdetaila");
+
+            //_regionManager.RequestNavigate("MultiStepProcessViewMV", "uicatdetaila");
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region OpenSingleDetailView Command
+
+        public ICommand OpenSingleDetailViewCommand { get; private set; }
+
+        void OpenSingleDetailExecute(Type viewModelType)
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            OpenDetailView(
+                new OpenDetailViewEventArgs
+                {
+                    Id = -1,
+                    ViewModelName = viewModelType.Name
+                });
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
 
         #endregion
 

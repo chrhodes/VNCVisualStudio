@@ -56,6 +56,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
@@ -63,16 +64,14 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Fields and Properties
+        #region Fields and Properties (none)
 
-        public DelegateCommand AboutCommand { get; set; }
-        // If using CommandParameter, figure out TYPE here and above
-        // and remove above declaration
-        //public DelegateCommand<TYPE> About { get; set; }
+
 
         #endregion
 
         #region Event Handlers (none)
+
 
 
         #endregion
@@ -80,6 +79,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Commands
 
         #region About Command
+
+        public DelegateCommand AboutCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE> About { get; set; }
 
         public static WindowHost _aboutHost = null;
 
@@ -108,7 +112,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             Message = "Cool, you called About";
 
             if (_aboutHost is null) _aboutHost = new WindowHost(EventAggregator);
-            
+
             // NOTE(crhodes)
             // About has About() and About(ViewModel) constructors.
             // If No DI Registrations - About() is called - does not wire View to ViewModel
@@ -201,14 +205,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

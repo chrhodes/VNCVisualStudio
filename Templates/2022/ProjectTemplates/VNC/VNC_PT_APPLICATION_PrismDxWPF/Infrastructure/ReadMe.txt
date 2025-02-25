@@ -1,3 +1,3 @@
-﻿$xxxAPPLICATIONxx$$xxxNAMESPACExxx$\Infrastructure\
+﻿$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$\Infrastructure\
 
 Notes for using this template

@@ -76,9 +76,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Enums (none)
 
+
+
         #endregion
 
         #region Structures (none)
+
+
 
         #endregion
 
@@ -87,14 +91,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         private I$xxxTYPExxx$DataService _$xxxTYPExxx$DataService;
         private I$xxxITEMxxx$LookupDataService _$xxxITEMxxx$LookupDataService;
 
-        public ICommand AddPhoneNumberCommand { get; private set; }
-        public ICommand RemovePhoneNumberCommand { get; private set;}
-
         private $xxxTYPExxx$PhoneNumberWrapper _selectedPhoneNumber;
 
         public ObservableCollection<LookupItem> $xxxITEMxxx$s { get; private set;}
         public ObservableCollection<$xxxTYPExxx$PhoneNumberWrapper> PhoneNumbers { get; private set;}
-
 
         private $xxxTYPExxx$Wrapper _$xxxTYPExxx$;
 
@@ -148,43 +148,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region Commands (none)
+        #region Commands
 
-
-        #endregion
-
-        #region Public Methods
-
-        public override async Task LoadAsync(int id)
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$DetailViewModel) Enter Id:({id})", Common.LOG_CATEGORY);
-
-            var item = id > 0
-                ? await _$xxxTYPExxx$DataService.FindByIdAsync(id)
-                : CreateNew$xxxTYPExxx$();
-
-            Id = item.Id;
-
-            Initialize$xxxTYPExxx$(item);
-
-            Initialize$xxxTYPExxx$PhoneNumbers(item.PhoneNumbers);
-
-            await Load$xxxITEMxxx$sLookupAsync();
-
-            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        #endregion
-
-        #region Protected Methods
-
-        protected override bool DeleteCanExecute()
-        {
-            // TODO(crhodes)
-            // Why do we need this?
-            return true;
-        }
+        #region Delete Command
 
         protected override async void DeleteExecute()
         {
@@ -214,20 +180,16 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        protected override bool SaveCanExecute()
+        protected override bool DeleteCanExecute()
         {
             // TODO(crhodes)
-            // Check if $xxxTYPExxx$ is valid or has changes
-            // This enables and disables the button
-
-            var result =  $xxxTYPExxx$ != null
-                && !$xxxTYPExxx$.HasErrors
-                && HasChanges;
-
-            return result;
-
-            //return true;
+            // Why do we need this?
+            return true;
         }
+
+        #endregion
+
+        #region Save Command
 
         protected override async void SaveExecute()
         {
@@ -252,6 +214,27 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        protected override bool SaveCanExecute()
+        {
+            // TODO(crhodes)
+            // Check if $xxxTYPExxx$ is valid or has changes
+            // This enables and disables the button
+
+            var result =  $xxxTYPExxx$ != null
+                && !$xxxTYPExxx$.HasErrors
+                && HasChanges;
+
+            return result;
+
+            //return true;
+        }
+
+        #endregion
+
+        #region AddPhoneNumber Command
+
+        public ICommand AddPhoneNumberCommand { get; private set; }
+
         private void AddPhoneNumberExecute()
         {
             Int64 startTicks = 0;
@@ -265,6 +248,41 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #region RemovePhoneNumber Command
+
+        #endregion
+
+        #region Public Methods
+
+        public override async Task LoadAsync(int id)
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ViewModel) startTicks = Log.VIEWMODEL($"($xxxTYPExxx$DetailViewModel) Enter Id:({id})", Common.LOG_CATEGORY);
+
+            var item = id > 0
+                ? await _$xxxTYPExxx$DataService.FindByIdAsync(id)
+                : CreateNew$xxxTYPExxx$();
+
+            Id = item.Id;
+
+            Initialize$xxxTYPExxx$(item);
+
+            Initialize$xxxTYPExxx$PhoneNumbers(item.PhoneNumbers);
+
+            await Load$xxxITEMxxx$sLookupAsync();
+
+            if (Common.VNCLogging.ViewModel) Log.VIEWMODEL("($xxxTYPExxx$DetailViewModel) Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+        public ICommand RemovePhoneNumberCommand { get; private set;}
 
         private void RemovePhoneNumberExecute()
         {
@@ -285,6 +303,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         {
             return SelectedPhoneNumber != null;
         }
+
+        #endregion
 
         #endregion
 

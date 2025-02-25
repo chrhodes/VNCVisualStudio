@@ -44,7 +44,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()})", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
-            
+
             InitializeComponent();
 
             ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
@@ -65,10 +65,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // NOTE(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
 
             // Establish any additional DataContext(s), e.g. to things held in this View
+
+            spDeveloperInfo.DataContext = this;
 
             //tbViewMessage.DataContext = this;
 
@@ -82,9 +84,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -98,13 +102,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands (none)
 
+
+
         #endregion
 
         #region Public Methods (none)
+
 
 
         #endregion
@@ -112,9 +120,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion
@@ -138,6 +148,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
-
     }
 }

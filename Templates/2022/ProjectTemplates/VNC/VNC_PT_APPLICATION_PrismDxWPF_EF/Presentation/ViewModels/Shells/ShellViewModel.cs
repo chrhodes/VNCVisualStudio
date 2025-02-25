@@ -20,7 +20,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
@@ -32,7 +32,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
 
-            DeveloperUIMode = Common.DeveloperUIMode;
+            // DeveloperUIMode = Common.DeveloperUIMode;
 
             InformationApplication = Common.InformationApplication;
             InformationVNCCore = Common.InformationVNCCore;
@@ -45,9 +45,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -68,31 +70,31 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             }
         }
 
-        private System.Windows.Size _windowSize;
-        public System.Windows.Size WindowSize
-        {
-            get => _windowSize;
-            set
-            {
-                if (_windowSize == value)
-                    return;
-                _windowSize = value;
-                OnPropertyChanged();
-            }
-        }
+        // private System.Windows.Size _windowSize;
+        // public System.Windows.Size WindowSize
+        // {
+            // get => _windowSize;
+            // set
+            // {
+                // if (_windowSize == value)
+                    // return;
+                // _windowSize = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
-        private Visibility _developerUIMode = Visibility.Visible;
-        public Visibility DeveloperUIMode
-        {
-            get => _developerUIMode;
-            set
-            {
-                if (_developerUIMode == value)
-                    return;
-                _developerUIMode = value;
-                OnPropertyChanged();
-            }
-        }
+        // private Visibility _developerUIMode = Visibility.Visible;
+        // public Visibility DeveloperUIMode
+        // {
+            // get => _developerUIMode;
+            // set
+            // {
+                // if (_developerUIMode == value)
+                    // return;
+                // _developerUIMode = value;
+                // OnPropertyChanged();
+            // }
+        // }
 
         public Information InformationApplication { get; set; }
         public Information InformationVNCCore { get; set; }
@@ -102,9 +104,11 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Event Handlers (none)
 
 
+
         #endregion
 
         #region Commands (none)
+
 
 
         #endregion
@@ -112,14 +116,17 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
+
 
 
         #endregion

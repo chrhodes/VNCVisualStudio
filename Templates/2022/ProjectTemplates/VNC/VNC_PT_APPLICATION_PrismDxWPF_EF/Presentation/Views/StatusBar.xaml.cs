@@ -110,9 +110,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #region Enums (none)
 
 
+
         #endregion
 
         #region Structures (none)
+
 
 
         #endregion
@@ -142,8 +144,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #region Event Handlers
 
-       private void btnDeveloperMode_Click(object sender, System.Windows.RoutedEventArgs e)
-       {
+        private void btnDeveloperMode_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
            Int64 startTicks = 0;
            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
@@ -217,14 +219,18 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #region Commands (none)
 
+
+
         #endregion
 
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Protected Methods (none)
+
 
 
         #endregion
@@ -275,6 +281,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
-
     }
 }
