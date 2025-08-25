@@ -9,14 +9,18 @@
 
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
-    xmlns:vnccore="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
-    xmlns:vncwpf="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
-    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation;assembly=VNC.WPF.Presentation"
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
-    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
 
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="False"
@@ -28,6 +32,9 @@
     d:DesignStyle="{StaticResource vncDesignStyleW}"
     SizeChanged="thisControl_SizeChanged"
  >
+<!-- Switch to this if move to separate assembly for $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core -->
+<!-- xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core" -->
+<!-- xmlns:converters="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Converters"  -->
      <!-- <d:DesignerProperties.DesignStyle> -->
         <!-- <Style TargetType="Window"> -->
             <!-- <Setter Property="Background" Value="White" /> -->
@@ -38,51 +45,13 @@
 
     <DockPanel>
 
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" VerticalAlignment="Center"
-                Visibility="{Binding DeveloperUIMode,
-                            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" >
-            <!-- Use Visibility="{Binding DeveloperModeUI} to use ViewModel property -->
+        <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+        
+        <ContentControl DockPanel.Dock="Bottom" Grid.Row="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusBarRegion}" />
 
-            <!-- This is useful for debugging V VM constructor issues -->
+        <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}" />
 
-            <StackPanel Orientation="Horizontal">
-                
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                    <Label Content="{Binding ElementName=thisControl, Path=ViewType}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0" >
-                    <Label Content="V:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountV}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="5,0,5,0" >
-                    <Label Content="VP:" />
-                    <Label Content="{Binding ElementName=thisControl, Path=InstanceCountVP}" />
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
-                <Label Content="{Binding ElementName=thisControl, Path=ViewModelType}" />
-                <Label Content=" VM:" />
-                <Label Content="{Binding InstanceCountVM}" />
-            </StackPanel>
-
-        </StackPanel>
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}" />
-            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.MainRegion}" />
-            <ContentControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusBarRegion}" />
-
-        </Grid>
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MainRegion}" />
 
     </DockPanel>
 

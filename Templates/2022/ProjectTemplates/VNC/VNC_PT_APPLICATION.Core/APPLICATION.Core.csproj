@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0-windows</TargetFrameworks>
+        <TargetFrameworks>net8.0-windows;net481</TargetFrameworks>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>YYYY.MM.DDA</FileVersion>
+        <FileVersion>YYYY.MM.DD</FileVersion>
         <Description>describe assembly</Description>
+        <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
@@ -25,7 +26,7 @@
         <!-- <PackageIcon>VNC.png</PackageIcon> -->
         <!-- <Authors>Christopher Rhodes</Authors> -->
         <!-- <Company>VNC</Company> -->
-        <!-- <Copyright>Copyright © VNC 2024</Copyright> -->
+        <!-- <Copyright>Copyright © VNC 2025</Copyright> -->
         <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
         <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
     <!-- </PropertyGroup> -->
@@ -46,7 +47,7 @@
         <!-- <DefineConstants>TRACE;LOGGING;VNCTYPES;VNCEF</DefineConstants> -->
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
       <!-- Uncoment next line to switch to ProjectReference(s) -->
       <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
     </PropertyGroup>
@@ -59,9 +60,34 @@
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="3.0.0" />
+                <PackageReference Include="VNC.Core" Version="3.2.0" />
             </ItemGroup>
         </When>
     </Choose>
+    
+    <!--Keep a copy as Visual Studio will remove things when doing Release builds.-->
+    
+    <!-- <Choose> -->
+        <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+            <!-- <ItemGroup> -->
+                <!-- <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" /> -->
+            <!-- </ItemGroup> -->
+        <!-- </When> -->
+        <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+            <!-- <ItemGroup> -->
+                <!-- <PackageReference Include="VNC.Core" Version="3.2.0" /> -->
+            <!-- </ItemGroup> -->
+        <!-- </When> -->
+    <!-- </Choose> -->
+    
+    <!--This updates the file version to the current date.-->
+    
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>
+
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>-->
 
 </Project>

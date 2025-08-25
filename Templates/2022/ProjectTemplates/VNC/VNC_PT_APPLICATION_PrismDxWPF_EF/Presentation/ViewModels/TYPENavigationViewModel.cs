@@ -116,6 +116,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
                     DeleteNavigationItem($xxxTYPExxx$s, args);
                     break;
 
+                case nameof($xxxTYPExxx$DetailMVViewModel):
+                    DeleteNavigationItem($xxxTYPExxx$s, args);
+                    break;
+
                 // case nameof(XXXXDetailViewModel):
                 // AfterDetailDeleted(XXXXs, args);
                 // break;
@@ -213,7 +217,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

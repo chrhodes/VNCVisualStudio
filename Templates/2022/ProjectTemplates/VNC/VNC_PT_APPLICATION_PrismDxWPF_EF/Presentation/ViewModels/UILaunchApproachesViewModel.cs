@@ -692,19 +692,20 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            // NOTE(crhodes)
+            // FIX(crhodes)
             // Wire things up ourselves - ViewModel First - with a little help from DI.
+            // We don't have a Constructor that takes 3 arguments
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref vncMVVM_VAVM1st_Host,
-                "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
-                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-                ShowWindowMode.Modeless_Show,
-                new ViewAViewModel(
-                    new ViewA(),
-                    (IEventAggregator)Common.Container.Resolve(typeof(EventAggregator)),
-                    (DialogService)Common.Container.Resolve(typeof(DialogService))
-                )
-            );
+            // DxThemedWindowHost.DisplayUserControlInHost(ref vncMVVM_VAVM1st_Host,
+                // "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
+                // Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                // ShowWindowMode.Modeless_Show,
+                // new ViewAViewModel(
+                    // new ViewA(),
+                    // (IEventAggregator)Common.Container.Resolve(typeof(EventAggregator)),
+                    // (DialogService)Common.Container.Resolve(typeof(DialogService))
+                // )
+            // );
 
             // Uncomment this if you are telling someone else to handle this
 
@@ -1094,7 +1095,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

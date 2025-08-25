@@ -19,17 +19,16 @@
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
 
-    xmlns:controls="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Controls"
-
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
-
-    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="False"
@@ -78,68 +77,68 @@
 
     <DockPanel>
 
-        <controls:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+        <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
         <StackPanel DockPanel.Dock="Left">
             <Button Margin="5"
-                    Command="{Binding NavigateUIOneCommand}"
+                    Command="{Binding NavigateUI1Command}"
                     CommandParameter=""
-                    Content="{Binding NavigateUIOneContent, FallbackValue='NavigateUIOne' }"
-                    ToolTip="{Binding NavigateUIOneToolTip, FallbackValue='NavigateUIOne ToolTip' }" />
+                    Content="{Binding NavigateUI1Content, FallbackValue='NavigateUI1' }"
+                    ToolTip="{Binding NavigateUI1ToolTip, FallbackValue='NavigateUI1 ToolTip' }" />
 
             <Button Margin="15,0,15,10" Background="Yellow"
-                    Command="{Binding NavigateUIOneCommand}"
+                    Command="{Binding NavigateUI1Command}"
                     CommandParameter="beta"
-                    Content="{Binding NavigateUIOneBetaContent, FallbackValue='NavigateUIOne Beta' }"
-                    ToolTip="{Binding NavigateUIOneBetaToolTip, FallbackValue='NavigateUIOne Beta ToolTip' }" />
+                    Content="{Binding NavigateUI1BetaContent, FallbackValue='NavigateUI1 Beta' }"
+                    ToolTip="{Binding NavigateUI1BetaToolTip, FallbackValue='NavigateUI1 Beta ToolTip' }" />
 
             <Button Margin="5"
-                    Command="{Binding NavigateUITwoCommand}"
+                    Command="{Binding NavigateUI2Command}"
                     CommandParameter=""
-                    Content="{Binding NavigateUITwoContent, FallbackValue='NavigateUITwo' }"
-                    ToolTip="{Binding NavigateUITwoToolTip, FallbackValue='NavigateUITwo ToolTip' }" />
+                    Content="{Binding NavigateUI2Content, FallbackValue='NavigateUI2' }"
+                    ToolTip="{Binding NavigateUI2ToolTip, FallbackValue='NavigateUI2 ToolTip' }" />
 
             <Button Margin="15,0,15,10"  Background="Yellow"
-                    Command="{Binding NavigateUITwoCommand}"
+                    Command="{Binding NavigateUI2Command}"
                     CommandParameter="beta"
-                    Content="{Binding NavigateUITwoBetaContent, FallbackValue='NavigateUITwo Beta' }"
-                    ToolTip="{Binding NavigateUITwoBetaToolTip, FallbackValue='NavigateUITwo Beta ToolTip' }" />
+                    Content="{Binding NavigateUI2BetaContent, FallbackValue='NavigateUI2 Beta' }"
+                    ToolTip="{Binding NavigateUI2BetaToolTip, FallbackValue='NavigateUI2 Beta ToolTip' }" />
 
             <Button Margin="5"
-                    Command="{Binding NavigateUIThreeCommand}"
+                    Command="{Binding NavigateUI3Command}"
                     CommandParameter=""
-                    Content="{Binding NavigateUIThreeContent, FallbackValue='NavigateUIThree' }"
-                    ToolTip="{Binding NavigateUIThreeToolTip, FallbackValue='NavigateUIThree ToolTip' }" />
+                    Content="{Binding NavigateUI3Content, FallbackValue='NavigateUI3' }"
+                    ToolTip="{Binding NavigateUI3ToolTip, FallbackValue='NavigateUI3 ToolTip' }" />
 
             <Button Margin="15,0,15,10"  Background="Yellow"
-                    Command="{Binding NavigateUIThreeCommand}"
+                    Command="{Binding NavigateUI3Command}"
                     CommandParameter="beta"
-                    Content="{Binding NavigateUIThreeBetaContent, FallbackValue='NavigateUIThree Beta' }"
-                    ToolTip="{Binding NavigateUIThreeBetaToolTip, FallbackValue='NavigateUIThree Beta ToolTip' }" />
+                    Content="{Binding NavigateUI3BetaContent, FallbackValue='NavigateUI3 Beta' }"
+                    ToolTip="{Binding NavigateUI3BetaToolTip, FallbackValue='NavigateUI3 Beta ToolTip' }" />
 
             <Button Margin="5"
-                    Command="{Binding NavigateUIFourCommand}"
+                    Command="{Binding NavigateUI4Command}"
                     CommandParameter=""
-                    Content="{Binding NavigateUIFourContent, FallbackValue='NavigateUIFour' }"
-                    ToolTip="{Binding NavigateUIFourToolTip, FallbackValue='NavigateUIFour ToolTip' }" />
+                    Content="{Binding NavigateUI4Content, FallbackValue='NavigateUI4' }"
+                    ToolTip="{Binding NavigateUI4ToolTip, FallbackValue='NavigateUI4 ToolTip' }" />
 
             <Button Margin="15,0,15,10" Background="Yellow"
-                    Command="{Binding NavigateUIFourCommand}"
+                    Command="{Binding NavigateUI4Command}"
                     CommandParameter="beta"
-                    Content="{Binding NavigateUIFourBetaContent, FallbackValue='NavigateUIFour Beta' }"
-                    ToolTip="{Binding NavigateUIFourBetaToolTip, FallbackValue='NavigateUIFour Beta ToolTip' }" />
+                    Content="{Binding NavigateUI4BetaContent, FallbackValue='NavigateUI4 Beta' }"
+                    ToolTip="{Binding NavigateUI4BetaToolTip, FallbackValue='NavigateUI4 Beta ToolTip' }" />
 
             <Button Margin="5"
-                    Command="{Binding NavigateUIFiveCommand}"
+                    Command="{Binding NavigateUI5Command}"
                     CommandParameter=""
-                    Content="{Binding NavigateUIFiveContent, FallbackValue='NavigateUIFive' }"
-                    ToolTip="{Binding NavigateUIFiveToolTip, FallbackValue='NavigateUIFive ToolTip' }" />
+                    Content="{Binding NavigateUI5Content, FallbackValue='NavigateUI5' }"
+                    ToolTip="{Binding NavigateUI5ToolTip, FallbackValue='NavigateUI5 ToolTip' }" />
 
             <Button Margin="15,0,15,10" Background="Yellow"
-                    Command="{Binding NavigateUIFiveCommand}"
+                    Command="{Binding NavigateUI5Command}"
                     CommandParameter="beta"
-                    Content="{Binding NavigateUIFiveBetaContent, FallbackValue='NavigateUIFive Beta' }"
-                    ToolTip="{Binding NavigateUIFiveBetaToolTip, FallbackValue='NavigateUIFive Beta ToolTip' }" />
+                    Content="{Binding NavigateUI5BetaContent, FallbackValue='NavigateUI5 Beta' }"
+                    ToolTip="{Binding NavigateUI5BetaToolTip, FallbackValue='NavigateUI5 Beta ToolTip' }" />
 
         </StackPanel>
 

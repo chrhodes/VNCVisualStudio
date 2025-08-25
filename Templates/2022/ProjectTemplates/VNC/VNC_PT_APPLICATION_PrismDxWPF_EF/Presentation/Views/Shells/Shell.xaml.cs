@@ -11,11 +11,13 @@ using VNC.Core.Mvvm;
 
 namespace $xxxAPPLICATIONxxx$.Presentation.Views
 {
+    // FIX(crhodes)
+    // Do not know why this doesn't work
+    
+    //public partial class Shell : WindowBase
     public partial class Shell : Window, IInstanceCountV, INotifyPropertyChanged
     {
         #region Constructors, Intialization, and Load
-
-        public ShellViewModel ViewModel;
 
         public Shell()
         {
@@ -70,15 +72,24 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // NOTE(crhodes)
+            // Store information about the View, DataContext, and ViewModel 
+            // for the DeveloperInfo control. Useful for debugging binding issues
+            // Set the DataConext to us.
+            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
+            ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
+            spDeveloperInfo.DataContext = this;
+
+            // TODO(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
-
-            ViewType = this.GetType().ToString().Split('.').Last();
-            ViewModelType = ViewModel.GetType().ToString().Split('.').Last();
-
+            
             Common.CurrentShell = this;
             DeveloperUIMode = Common.DeveloperUIMode;
+            
+            // Establish any additional DataContext(s) to things held in this View  
+
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -104,6 +115,35 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             }
         }
 
+        private string _viewDataContextType;
+
+        public string ViewDataContextType
+        {
+            get => _viewDataContextType;
+            set
+            {
+                if (_viewDataContextType == value)
+                {
+                    return;
+                }
+
+                _viewDataContextType = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ShellViewModel viewModel;
+        public ShellViewModel ViewModel
+        {
+            get => viewModel; set
+            {
+                if (viewModel == value)
+                    return;
+                viewModel = value;
+                OnPropertyChanged();
+            }
+        }
+        
         private string _viewModelType;
 
         public string ViewModelType
@@ -121,19 +161,6 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
             }
         }
 
-        private Size _windowSize;
-        public Size WindowSize
-        {
-            get => _windowSize;
-            set
-            {
-                if (_windowSize == value)
-                    return;
-                _windowSize = value;
-                OnPropertyChanged();
-            }
-        }
-        
         private Visibility _developerUIMode = Visibility.Collapsed;
         public Visibility DeveloperUIMode
         {
@@ -146,15 +173,33 @@ namespace $xxxAPPLICATIONxxx$.Presentation.Views
                 OnPropertyChanged();
             }
         }
+        
+        private Size _windowSize;
+        public Size WindowSize
+        {
+            get => _windowSize;
+            set
+            {
+                if (_windowSize == value)
+                    return;
+                _windowSize = value;
+                OnPropertyChanged();
+            }
+        }        
 
         #endregion
 
         #region EventHandlers
 
-         private void thisControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void thisControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             var newSize = e.NewSize;
             var previousSize = e.PreviousSize;
+
+            // TODO(crhodes)
+            // Learn how to get runtime value
+
+            newSize.Height -= 55; // Adjust for DeveloperUIInfo control height
             WindowSize = newSize;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 using Prism.Events;
 using Prism.Services.Dialogs;
 
@@ -90,7 +91,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

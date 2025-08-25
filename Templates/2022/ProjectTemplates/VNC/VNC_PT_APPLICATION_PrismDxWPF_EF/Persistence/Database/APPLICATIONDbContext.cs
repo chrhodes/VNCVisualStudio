@@ -45,28 +45,28 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
 
             // TODO(crhodes)
             // Need to determine how EF Core handles this.  We used to do #2
-            // System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<PAEF1CoreDbContext, Configuration>());
+            // System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<$xxxAPPLICATIONxxx$DbContext, Configuration>());
 
             // There are four database initialization strategies
 
             // 1. CreateDatabaseIfNotExists (default)
 
-            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new CreateDatabaseIfNotExists<PAEF1CoreDbContext>());
+            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new CreateDatabaseIfNotExists<$xxxAPPLICATIONxxx$DbContext>());
 
             // 2. DropCreateDatabaseIfModelChanges
 
-            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new DropCreateDatabaseIfModelChanges<PAEF1CoreDbContext>());
+            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
 
-            //System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(
-            //    new DropCreateDatabaseIfModelChanges<PAEF1CoreDbContext>());
+            //System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(
+            //    new DropCreateDatabaseIfModelChanges<$xxxAPPLICATIONxxx$DbContext>());
 
             // 3. DropCreateDatabaseAlways
 
-            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new DropCreateDatabaseAlways<PAEF1CoreDbContext>());
+            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new DropCreateDatabaseAlways<$xxxAPPLICATIONxxx$DbContext>());
 
             // 4. Custom DB Initializer
 
-            // System.Data.Entity.Database.SetInitializer<PAEF1CoreDbContext>(new PAEF1CoreDbContextDatabaseInitializer());
+            // System.Data.Entity.Database.SetInitializer<$xxxAPPLICATIONxxx$DbContext>(new $xxxAPPLICATIONxxx$DbContextDatabaseInitializer());
 
             // Release builds and Dependency Injection use lambda's.  Use special handling.
 
@@ -81,8 +81,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             // Int64 startTicks = 0;
             // if (Common.VNCCoreLogging.PersistenceLow) startTicks = Log.PERSISTENCE_LOW("Enter", Common.LOG_CATEGORY);
 
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["PAEF1Core_DB"].ConnectionString);
-            //optionsBuilder.UseSqlServer("Data Source=.\\SQL2019; Initial Catalog=PAEF1Core; Integrated Security=True ; Encrypt=false");
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["$xxxAPPLICATIONxxx$_DB"].ConnectionString);
+            //optionsBuilder.UseSqlServer("Data Source=.\\SQL2019; Initial Catalog=$xxxAPPLICATIONxxx$; Integrated Security=True ; Encrypt=false");
 
             // if (Common.VNCCoreLogging.PersistenceLow) Log.PERSISTENCE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -350,12 +350,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             }
             catch (DbUpdateException ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
             catch (Exception ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
 
@@ -486,17 +486,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Persistence.Database
             }
             catch (DbUpdateException ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
             catch (OperationCanceledException ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
             catch (Exception ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
         }

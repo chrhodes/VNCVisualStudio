@@ -11,7 +11,8 @@
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>__VNCTemplateIcon.ico</Icon>
+    <Icon>VNCTemplate-16x16.ico</Icon>
+    <PreviewImage>VNCTemplate-16x16.png</PreviewImage>
     <LanguageTag>CSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <ProjectTypeTag>VNCPT</ProjectTypeTag>
@@ -19,27 +20,27 @@
 
   <TemplateContent>
 
-    <Project TargetFileName="APPLICATION.Domain.csproj" File="APPLICATION.Domain.TYPE.csproj" ReplaceParameters="true">
+    <Project File="APPLICATION.Domain.TYPE.csproj" ReplaceParameters="true">
 
       <Folder Name="Diagrams" TargetFolderName="Diagrams">
-        <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATION.Domain.cd">APPLICATION.Domain.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">APPLICATION.Domain.cd</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
       </Folder>
 
         <Folder Name="Lookups" TargetFolderName="Lookups">
-            <ProjectItem ReplaceParameters="true" TargetFileName="LookupTYPE.cs">LookupTYPE.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">LookupTYPE.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
         </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="TYPE.cs">TYPE.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEEmailAddress.cs">TYPEEmailAddress.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEPhoneNumber.cs">TYPEPhoneNumber.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">TYPE.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">TYPEEmailAddress.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">TYPEPhoneNumber.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ITEM.cs">ITEM.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ITEM.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
     </Project>
 

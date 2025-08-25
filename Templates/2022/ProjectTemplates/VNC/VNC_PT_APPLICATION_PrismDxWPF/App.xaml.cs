@@ -125,10 +125,10 @@ namespace $xxxAPPLICATIONxxx$
             // Add the new UI elements
 
             // NOTE(crhodes)
-            // Most of what would typically appear here is in PAEF1Module
+            // Most of what would typically appear here is in $xxxAPPLICATIONxxx$Module
             //
             // Maybe the Ribbon, Main, StatusBar should be move back here
-            // and the App Specific stuff left in PAEF1Module
+            // and the App Specific stuff left in $xxxAPPLICATIONxxx$Module
 
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -219,11 +219,7 @@ namespace $xxxAPPLICATIONxxx$
 
             Common.Container = Container;
 
-            // TODO(crhodes)
-            // Pick the shell to start with.
-
             Shell shell = Container.Resolve<Shell>();
-            //Shell shell = Container.Resolve<RibbonShell>();
 
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
 
@@ -321,6 +317,13 @@ namespace $xxxAPPLICATIONxxx$
             // Get Information about ourselves
 
             Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
+            
+            // TODO(crhodes)
+            // Add new VNC.Core.Information InformationXXX
+            // for other Assemblies that should provide Info 
+            // in $xxxAPPLICATIONxxx$.Common
+            // 
+            // Extend Views\AppVersionInfo.xaml as needed
 
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -399,7 +402,7 @@ namespace $xxxAPPLICATIONxxx$
         private void Application_DispatcherUnhandledException(object sender,
             System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.Error("Unexpected error occurred. Please inform the admin."
+            Log.ERROR("Unexpected error occurred. Please inform the admin."
               + Environment.NewLine + e.Exception.Message, Common.LOG_CATEGORY);
 
             MessageBox.Show("Unexpected error occurred. Please inform the admin."

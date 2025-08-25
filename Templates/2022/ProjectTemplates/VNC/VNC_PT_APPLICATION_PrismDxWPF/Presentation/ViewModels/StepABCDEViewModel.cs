@@ -426,14 +426,16 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods (none)
 
 
+
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

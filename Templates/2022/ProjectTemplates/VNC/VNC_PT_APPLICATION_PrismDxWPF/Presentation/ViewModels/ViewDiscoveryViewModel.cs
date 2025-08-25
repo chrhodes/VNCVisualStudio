@@ -15,7 +15,7 @@ using VNC.WPF.Presentation.Views;
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 {
     // NOTE(crhodes)
-    // This ViewModel has knowledge of concrete views, UIOne, UITwo, UIThree
+    // This ViewModel has knowledge of concrete views, UI1, UI2, UI3
     // which is generally a bad practice
     // Could put Commands/EventHandlers in ViewDiscovery.xaml.cs to avoid
     // Generally better to use Uri based Region Navigation in ViewModel
@@ -132,15 +132,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewOne, typeof(UIOne));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewTwo, typeof(UITwo));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewThree, typeof(UIThree));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFour, typeof(UIFour));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFive, typeof(UIFive));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewOne, typeof(UI1));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewTwo, typeof(UI2));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewThree, typeof(UI3));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFour, typeof(UI4));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFive, typeof(UI5));
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewThreeBeta, typeof(UIThree_Beta));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFourBeta, typeof(UIFour_Beta));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFiveBeta, typeof(UIFive_Beta));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewOneBeta, typeof(UI1_Beta));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewTwoBeta, typeof(UI2_Beta));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewThreeBeta, typeof(UI3_Beta));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFourBeta, typeof(UI4_Beta));
+            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscoveryViewFiveBeta, typeof(UI5_Beta));
 
             // If launching a UserControl
 
@@ -201,6 +203,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Protected Methods (none)
 
 
+
         #endregion
 
         #region Private Methods
@@ -222,7 +225,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

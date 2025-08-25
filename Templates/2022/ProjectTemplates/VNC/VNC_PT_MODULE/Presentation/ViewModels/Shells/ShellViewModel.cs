@@ -31,10 +31,17 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
             // NOTE(crhodes)
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
+            
+            Title = "$xxxAPPLICATIONxxx$ - Shell";
 
             // DeveloperUIMode = Common.DeveloperUIMode;
 
             InformationApplication = Common.InformationApplication;
+            InformationApplicationCore = Common.InformationApplicationCore;
+            
+            //TODO(crhodes)
+            // Add additional Information InformationXXX for other assemblies
+            
             InformationVNCCore = Common.InformationVNCCore;
 
             if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
@@ -56,48 +63,15 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
         #region Fields and Properties
 
-        private string _title = "$xxxAPPLICATIONxxx$ - Shell";
-
-        public string Title
-        {
-            get => _title;
-            set
-            {
-                if (_title == value)
-                    return;
-                _title = value;
-                OnPropertyChanged();
-            }
-        }
-
-        // private System.Windows.Size _windowSize;
-        // public System.Windows.Size WindowSize
-        // {
-            // get => _windowSize;
-            // set
-            // {
-                // if (_windowSize == value)
-                    // return;
-                // _windowSize = value;
-                // OnPropertyChanged();
-            // }
-        // }
-
-        // private Visibility _developerUIMode = Visibility.Visible;
-        // public Visibility DeveloperUIMode
-        // {
-            // get => _developerUIMode;
-            // set
-            // {
-                // if (_developerUIMode == value)
-                    // return;
-                // _developerUIMode = value;
-                // OnPropertyChanged();
-            // }
-        // }
-
         public Information InformationApplication { get; set; }
+        public Information InformationApplicationCore { get; set; }
+        
+        //TODO(crhodes)
+        // Add additional Information InformationXXX for other assemblies
+        
         public Information InformationVNCCore { get; set; }
+        
+
 
         #endregion
 
@@ -130,8 +104,8 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
 
         #endregion
-
-        #region IInstanceCount
+        
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

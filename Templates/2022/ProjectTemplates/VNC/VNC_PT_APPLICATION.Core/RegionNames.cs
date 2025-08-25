@@ -46,5 +46,10 @@ namespace $xxxAPPLICATIONxxx$.Core
 
         public static string RegionNavigation = "RegionNavigation";
         public static string RegionNavigationView = "RegionNavigationView";
+        
+        public static string MultiStepProcess = "MultiStepProcess";
+        public static string MultiStepProcessView = "MultiStepProcessView";
+
+        public static string MultiStepProcessViewMV = "MultiStepProcessViewMV";        
     }
 }

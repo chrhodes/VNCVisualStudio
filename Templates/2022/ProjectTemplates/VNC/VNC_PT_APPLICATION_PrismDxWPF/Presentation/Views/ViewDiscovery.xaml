@@ -18,17 +18,17 @@
 
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:controls="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Controls"
 
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
-
-    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="False"
@@ -77,40 +77,49 @@
 
     <DockPanel>
 
-        <controls:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+        <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
-        <StackPanel DockPanel.Dock="Top">
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5">
             <Button
                     Command="{Binding DiscoverViewsCommand}"
                     Content="{Binding DiscoverViewsContent, FallbackValue='DiscoverViewsCommand' }"
                     ToolTip="{Binding DiscoverViewsToolTip, FallbackValue='DiscoverViewsCommand ToolTip' }" />
+
         </StackPanel>
 
-        <ContentControl DockPanel.Dock="Left" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewOne}" />
-        <ContentControl DockPanel.Dock="Right" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewTwo}" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Label Content="Message:" />
+            <TextBox Text="{Binding Message}" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">           
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <!--<RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />-->
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewOne}" />
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewOneBeta}" />
+            </StackPanel>
 
-            <ContentControl Grid.Row="0" Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewThree}" />
-            <ContentControl Grid.Row="0" Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewThreeBeta}" />
-            <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFour}" />
-            <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFourBeta}" />
-            <ContentControl Grid.Row="2" Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFive}" />
-            <ContentControl Grid.Row="2" Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFiveBeta}" />
+            <StackPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewTwo}" />
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewTwoBeta}" />
+            </StackPanel>
 
-        </Grid>
+            <StackPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewThree}" />
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewThreeBeta}" />
+            </StackPanel>
+
+            <StackPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFour}" />
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFourBeta}" />
+            </StackPanel>
+
+            <StackPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFive}" />
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscoveryViewFiveBeta}" />
+            </StackPanel>
+            
+        </StackPanel>
 
     </DockPanel>
 

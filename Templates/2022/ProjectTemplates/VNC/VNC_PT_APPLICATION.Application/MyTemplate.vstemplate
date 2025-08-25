@@ -22,7 +22,7 @@
         
             <Folder Name="TYPEs" TargetFolderName="TYPEs">
                 <Folder Name="Commands" TargetFolderName="Commands">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
                 <Folder Name="Queries" TargetFolderName="Queries">
@@ -31,27 +31,27 @@
                         <ProjectItem ReplaceParameters="true" TargetFileName="GetTYPEsListQuery.cs">GetTYPEsListQuery.cs</ProjectItem>
                         <ProjectItem ReplaceParameters="true" TargetFileName="IGetTYPEsListQuery.cs">IGetTYPEsListQuery.cs</ProjectItem>
                         
-                        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
                     </Folder>
           
-                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
                 </Folder>
             </Folder>
             
             <Folder Name="Lookups" TargetFolderName="Lookups">
             
                 <Folder Name="Commands" TargetFolderName="Commands">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
                 <Folder Name="Queries" TargetFolderName="Queries">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
-                <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
             </Folder>
             
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
         </Project>
         
     </TemplateContent>

@@ -122,7 +122,7 @@ namespace $xxxAPPLICATIONxxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

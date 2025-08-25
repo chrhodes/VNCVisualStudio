@@ -57,20 +57,25 @@
     <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
 
-    <!-- <!-- These are used by $xxxAPPLICATIONxxx$ --> -->
+    <!-- <!-- These are used by $xxxAPPLICATIONxxx$ -->
+    <!-- And can be removed if not used. -->
 
-    <!-- <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> -->
-    <!-- <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" /> -->
+     <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> 
+     <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" /> 
 
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$Background" Color="#00FF00" /> -->
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MainBackground" Color="#10FF10" /> -->
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$NavigationBackground" Color="#90FF90" /> -->
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$DetailBackground" Color="#A0FFA0" /> -->
+    <!-- These are used by TYPE >$xxxTYPExxx$< -->
+    <!-- If there is no TYPE then they will clash with above and can be removed or commented out. -->
+    
+    <SolidColorBrush x:Key="$xxxTYPExxx$MainBackground" Color="#00FF00" />
+    <SolidColorBrush x:Key="$xxxTYPExxx$NavigationBackground" Color="#90FF90" />
+    <SolidColorBrush x:Key="$xxxTYPExxx$DetailBackground" Color="#A0FFA0" />
+    <SolidColorBrush x:Key="$xxxTYPExxx$MeetingDetailBackground" Color="#F0C040" />
 
-    <!-- <SolidColorBrush x:Key="$xxxITEMxxx$Background" Color="#F0E040" /> -->
-    <!-- <SolidColorBrush x:Key="$xxxITEMxxx$DetailBackground" Color="#F0E040" /> -->
-
-    <!-- <SolidColorBrush x:Key="$xxxTYPExxx$MeetingDetailBackground" Color="#F0C040" /> -->
+    <!-- These are used by ITEM >$xxxITEMxxx$< -->
+    <!-- If there is no ITEM then they will clash with above and can be removed or commented out. -->    
+    
+    <SolidColorBrush x:Key="$xxxITEMxxx$Background" Color="#F0E040" />
+    <SolidColorBrush x:Key="$xxxITEMxxx$DetailBackground" Color="#F0E040" />
 
     <Style x:Key="uiLoggingFilterCheckEdit" TargetType="dxe:CheckEdit">
         <Setter Property="FontWeight" Value="SemiBold" />

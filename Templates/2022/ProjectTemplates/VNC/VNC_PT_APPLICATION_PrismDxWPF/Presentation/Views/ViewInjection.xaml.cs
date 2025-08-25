@@ -30,7 +30,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // Can create directly
 
-            // ViewModel = ViewDiscoveryAndInjectionViewModel();
+            // ViewModel = ViewInjectionViewModel();
 
             // Can use ourselves for everything
 
@@ -47,9 +47,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             InstanceCountVP++;
 
-            InitializeComponent();
-
-            ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
+            InitializeComponent();ViewModel = viewModel;  // ViewBase sets the DataContext to ViewModel
 
             // For the rare case where the ViewModel needs to know about the View
             // ViewModel.View = this;
@@ -64,15 +62,21 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // NOTE(crhodes)
-            // Put things here that initialize the View
-            // Hook eventhandlers, etc.
+            // Store information about the View, DataContext, and ViewModel
+            // for the DeveloperInfo control. Useful for debugging binding issues
+            // Set the DataContext to us.
 
             ViewType = this.GetType().ToString().Split('.').Last();
-
-            // Establish any additional DataContext(s), e.g. to things held in this View
-
+            ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
+            ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
             spDeveloperInfo.DataContext = this;
+
+            // TODO(crhodes)
+            // Put things here that initialize the View
+            // Hook event handlers, etc.
+
+
+            // Establish any additional DataContext(s) to things held in this View
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -127,19 +131,20 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-        #region IInstanceCount
 
-        private static int _instanceCountV;
+        #region IInstanceCountV
 
-        public int InstanceCountV
+        private static Int32 _instanceCountV;
+
+        public Int32 InstanceCountV
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
         }
 
-        private static int _instanceCountVP;
+        private static Int32 _instanceCountVP;
 
-        public int InstanceCountVP
+        public Int32 InstanceCountVP
         {
             get => _instanceCountVP;
             set => _instanceCountVP = value;

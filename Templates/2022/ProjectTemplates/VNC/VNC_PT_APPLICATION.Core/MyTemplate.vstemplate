@@ -1,7 +1,7 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
     <Name>VNC_PT_APPLICATION.Core</Name>
-    <Description>Used to hold things common across loosely couple architectural components</Description>
+    <Description>Used to hold things common across loosely coupled architectural components</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
@@ -12,7 +12,7 @@
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
-    <Icon>__VNCTemplateIcon.ico</Icon>
+    <Icon>VNCTemplate-64x64.png</Icon>
     <LanguageTag>CSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <ProjectTypeTag>VNCPT</ProjectTypeTag>
@@ -24,31 +24,31 @@
 
       <Folder Name="Application" TargetFolderName="Application">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
       <Folder Name="ApplicationServices" TargetFolderName="ApplicationServices">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
       <Folder Name="DomainServices" TargetFolderName="DomainServices">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
       <Folder Name="Events" TargetFolderName="Events">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
       <Folder Name="Persistence" TargetFolderName="Persistence">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
@@ -71,11 +71,11 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjectionViewModel.cs">IViewInjectionViewModel.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCDViewModel.cs">IViewABCDViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
           <Folder Name="Shells" TargetFolderName="Shells">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
@@ -101,26 +101,26 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscovery.cs">IViewDiscovery.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjection.cs">IViewInjection.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
           <Folder Name="Shells" TargetFolderName="Shells">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
       </Folder>
 
       <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationCommands.cs">ApplicationCommands.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="GlobalCommands.cs">GlobalCommands.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="RegionNames.cs">RegionNames.cs</ProjectItem>
 
-      <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
 
     </Project>
 

@@ -70,15 +70,22 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // NOTE(crhodes)
-            // Put things here that initialize the View
-            // Hook eventhandlers, etc.
+            // Store information about the View, DataContext, and ViewModel 
+            // for the DeveloperInfo control. Useful for debugging binding issues
+            // Set the DataContext to us.
+            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
+            ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
+            spDeveloperInfo.DataContext = this;
 
+            // TODO(crhodes)
+            // Put things here that initialize the View
+            // Hook event handlers, etc.
+            
             eventAggregator = (IEventAggregator)Common.Container.Resolve(typeof(IEventAggregator));
             statusMessageEvent = eventAggregator.GetEvent<StatusMessageEvent>();
             developerModeEvent = eventAggregator.GetEvent<DeveloperModeEvent>();
-
-            ViewType = this.GetType().ToString().Split('.').Last();
 
 #if DEBUG
             // Xaml uses VNCDeveloperMotivation
@@ -158,7 +165,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
                DeveloperModeToolTip = "Turn on Developer Mode";
 
-               if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Collapsed;
 
                // NOTE(crhodes)
@@ -185,7 +191,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
                PublishStatusMessage("Cool, you turned on DeveloperMode.  Use your power for good!");
                DeveloperModeToolTip = "Turn off Developer Mode";
 
-               if (Common.CurrentRibbonShell is not null) Common.CurrentRibbonShell.DeveloperUIMode = System.Windows.Visibility.Visible;
                if (Common.CurrentShell is not null) Common.CurrentShell.DeveloperUIMode = System.Windows.Visibility.Visible;
 
                // NOTE(crhodes)
@@ -261,25 +266,26 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
+        
 
-        #region IInstanceCount
+        #region IInstanceCountV
 
-        private static int _instanceCountV;
+        private static Int32 _instanceCountV;
 
-        public int InstanceCountV
+        public Int32 InstanceCountV
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
         }
 
-        private static int _instanceCountVP;
+        private static Int32 _instanceCountVP;
 
-        public int InstanceCountVP
+        public Int32 InstanceCountVP
         {
             get => _instanceCountVP;
             set => _instanceCountVP = value;
         }
 
-        #endregion
+        #endregion        
     }
 }

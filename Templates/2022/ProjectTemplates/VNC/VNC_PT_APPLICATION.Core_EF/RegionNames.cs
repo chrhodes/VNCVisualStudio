@@ -18,14 +18,6 @@ namespace $xxxAPPLICATIONxxx$.Core
         public static string CombinedNavigationRegion = "CombinedNavigationRegion";
         public static string CombinedDetailRegion = "CombinedDetailRegion";
 
-        public static string $xxxTYPExxx$MainRegion = "$xxxTYPExxx$MainRegion";
-        public static string $xxxTYPExxx$NavigationRegion = "$xxxTYPExxx$NavigationRegion";
-        public static string $xxxTYPExxx$DetailRegion = "$xxxTYPExxx$DetailRegion";
-
-        public static string $xxxTYPExxx$MainRegionMV = "$xxxTYPExxx$MainRegionMV";
-        public static string $xxxTYPExxx$NavigationRegionMV = "$xxxTYPExxx$NavigationRegionMV";
-        public static string $xxxTYPExxx$DetailRegionMV = "$xxxTYPExxx$DetailRegionMV";
-
         public static string ViewARegion = "ViewARegion";
         public static string ViewBRegion = "ViewBRegion";
         public static string ViewCRegion = "ViewCRegion";
@@ -54,10 +46,21 @@ namespace $xxxAPPLICATIONxxx$.Core
 
         public static string RegionNavigation = "RegionNavigation";
         public static string RegionNavigationView = "RegionNavigationView";
-
+        
         public static string MultiStepProcess = "MultiStepProcess";
         public static string MultiStepProcessView = "MultiStepProcessView";
 
         public static string MultiStepProcessViewMV = "MultiStepProcessViewMV";
+        
+        // These are used by $xxxTYPExxx.  If TYPE is not provided, these will clash with above names.
+        // In that case just remove them or comment them out.
+        
+        public static string $xxxTYPExxx$MainRegion = "$xxxTYPExxx$MainRegion";
+        public static string $xxxTYPExxx$NavigationRegion = "$xxxTYPExxx$NavigationRegion";
+        public static string $xxxTYPExxx$DetailRegion = "$xxxTYPExxx$DetailRegion";
+
+        public static string $xxxTYPExxx$MainRegionMV = "$xxxTYPExxx$MainRegionMV";
+        public static string $xxxTYPExxx$NavigationRegionMV = "$xxxTYPExxx$NavigationRegionMV";
+        public static string $xxxTYPExxx$DetailRegionMV = "$xxxTYPExxx$DetailRegionMV";
     }
 }

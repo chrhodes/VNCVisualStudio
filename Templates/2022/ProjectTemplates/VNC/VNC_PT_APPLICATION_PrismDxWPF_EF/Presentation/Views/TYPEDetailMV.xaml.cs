@@ -26,11 +26,15 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // If View First with ViewModel in Xaml
 
-            // ViewModel = (I$xxxTYPExxx$DetailViewModel)DataContext;
+            // ViewModel = (I$xxxTYPExxx$DetailMVViewModel)DataContext;
 
             // Can create directly
 
             // ViewModel = new $xxxTYPExxx$DetailViewModel();
+            
+            // ViewModel = new $xxxTYPExxx$DetailMVViewModel(
+                // Common.EventAggregator,
+                // (DialogService)Common.Container.Resolve(typeof(DialogService)));            
 
             // Can use ourselves for everything
 
@@ -65,11 +69,21 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // NOTE(crhodes)
+            // Store information about the View, DataContext, and ViewModel 
+            // for the DeveloperInfo control. Useful for debugging binding issues
+            // Set the DataConext to us.
+            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
+            ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
+            spDeveloperInfo.DataContext = this;
+
+            // TODO(crhodes)
             // Put things here that initialize the View
             // Hook eventhandlers, etc.
+            
 
-            ViewType = this.GetType().ToString().Split('.').Last();
+            // Establish any additional DataContext(s) to things held in this View  
 
             // HACK(crhodes)
             // Not sure when is best time to do this
@@ -95,10 +109,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             //var ok = regions2.ContainsRegionWithName(RegionNames.MultiStepProcessViewMV);
 
-            // Establish any additional DataContext(s), e.g. to things held in this View
-
-            spDeveloperInfo.DataContext = this;
-
+ 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -165,25 +176,26 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
+        
 
-        #region IInstanceCount
+        #region IInstanceCountV
 
-        private static int _instanceCountV;
+        private static Int32 _instanceCountV;
 
-        public int InstanceCountV
+        public Int32 InstanceCountV
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
         }
 
-        private static int _instanceCountVP;
+        private static Int32 _instanceCountVP;
 
-        public int InstanceCountVP
+        public Int32 InstanceCountVP
         {
             get => _instanceCountVP;
             set => _instanceCountVP = value;
         }
 
-        #endregion
+        #endregion        
     }
 }

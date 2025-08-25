@@ -1,6 +1,6 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace PAEF1.Presentation.Views
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 {
     public interface IStepB : IView
     {

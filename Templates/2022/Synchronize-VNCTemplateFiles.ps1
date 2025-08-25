@@ -16,6 +16,9 @@ $AB = "A"
 
 $templateFolder = "V:\Dropbox\Visual Studio\2022\Templates"
 
+# templateMaster and templateCoreMaster are the most complete projects
+# with the complete set of files.
+
 $templateMaster = "VNC_PT_APPLICATION_PrismDxWPF_EF"
 
 $sourceMaster = "ProjectTemplates$($AB)\VNC\$($templateMaster)"
@@ -37,18 +40,23 @@ $confirmUpdate = $false
 $projectTemplates = "ProjectTemplates$AB\VNC"
 $itemTemplates = "ItemTemplates$AB\VNC"
 
-$targetCoreTemplateFolders = @(
-    "VNC_PT_APPLICATION.Core"
-)
+# targetProjectTemplateFolders contain projects 
+# with a subset of the files in templateMaster
 
 $targetProjectTemplateFolders = @(
     "VNC_PT_APPLICATION_PrismDxWPF"
+    , "VNC_PT_APPLICATION_PrismDxWPF_Simple"
     , "VNC_PT_APPLICATION.Domain"
     , "VNC_PT_APPLICATION.DomainServices"
     , "VNC_PT_MODULE"
-    # Big problem with all MODULE files $xxxMODULExxx$ vs $xxxAPPLICATIONxxx$
-    # Think through how to handle.  Maybe duplicate lines
-    # or does it really matter.  Do we need a MODULE parameter?
+    , "VNC_PT_MODULE_EF"
+)
+
+# targetCoreTemplateFolders contain projects 
+# with a subset of the files in templateCoreMaster
+
+$targetCoreTemplateFolders = @(
+    "VNC_PT_APPLICATION.Core"
 )
 
 $targetItemTemplateFolders = @(
@@ -73,54 +81,54 @@ $masterFileUpdated = $false
 
 $masterCoreFileUpdated = $false
 
+# Any file that is commented out varies by template.
+# It is left here to ensure we have thought about all files
+
 $commonProjectFiles = @(
     # Files
+    "_ReadMe.txt"
     # "App.Config.cs"
     , "App.Xaml"
     , "App.Xaml.cs"
     # , "APPLICATION.csproj"
-    # , "Common.cs"
+    # , "Common.cs" # MODULE is different
     , "vncloggingconfig.json"
     , "vncloggingconfig-debug.json"
     , "vnccoreloggingconfig.json"
     , "vnccoreloggingconfig-debug.json"
-    , "ReadMe.txt"
     # Application
-    , "Application\ReadMe.txt"
+    , "Application\_ReadMe.txt"
     # ApplicationServices
-    , "ApplicationServices\ReadMe.txt"
+    , "ApplicationServices\_ReadMe.txt"
     # Domain
-    , "Domain\ReadMe.txt"
+    , "Domain\_ReadMe.txt"
     # Domain\Lookups
-    , "Domain\Lookups\ReadMe.txt"
+    , "Domain\Lookups\_ReadMe.txt"
     # DomainServices
-    , "DomainServices\ReadMe.txt"
+    , "DomainServices\_ReadMe.txt"
     # DomainServices\ServicesMock
-   , "DomainServices\ServicesMock\ReadMe.txt"
+   , "DomainServices\ServicesMock\_ReadMe.txt"
     # Infrastructure
-    , "Infrastructure\ReadMe.txt"
+    , "Infrastructure\_ReadMe.txt"
     # Modules
+    , "Modules\_ReadMe.txt"    
     , "Modules\APPLICATIONModule.cs"
     , "Modules\APPLICATIONServicesModule.cs"
-    , "Modules\ReadMe.txt"
     # Persistence
-    , "Persistence\ReadMe.txt"
+    , "Persistence\_ReadMe.txt"
     # Persistence\Database
+    , "Persistence\Database\_ReadMe.txt"    
     , "Persistence\Database\APPLICATIONDbContext.cs"
-    , "Persistence\Database\ReadMe.txt"
     # Persistence\Database\Migrations
-    , "Persistence\Database\Migrations\ReadMe.txt"
+    , "Persistence\Database\Migrations\_ReadMe.txt"
     # Presentation
-    , "Presentation\ReadMe.txt"
-    # Presentation\Controls
-    , "Presentation\Controls\DeveloperUIInfo.xaml"
-    , "Presentation\Controls\DeveloperUIInfo.xaml.cs"
-    , "Presentation\Controls\ReadMe.txt"
+    , "Presentation\_ReadMe.txt"
     # Presentation\Converters
-    , "Presentation\Converters\ReadMe.txt"
+    , "Presentation\Converters\_ReadMe.txt"
     # Presentation\ModelWrappers
-    , "Presentation\ModelWrappers\ReadMe.txt"
+    , "Presentation\ModelWrappers\_ReadMe.txt"
     # Presentation\ViewModels
+    , "Presentation\ViewModels\_ReadMe.txt"    
     , "Presentation\ViewModels\AboutViewModel.cs"
     , "Presentation\ViewModels\CombinedMainViewModel.cs"
     , "Presentation\ViewModels\CombinedNavigationViewModel.cs"
@@ -129,8 +137,8 @@ $commonProjectFiles = @(
     , "Presentation\ViewModels\MainViewModel.cs"
     , "Presentation\ViewModels\MultiStepProcessViewModel.cs"
     , "Presentation\ViewModels\RegionNavigationViewModel.cs"
+    , "Presentation\ViewModels\RibbonSimpleViewModel.cs"    
     , "Presentation\ViewModels\RibbonViewModel.cs"
-    , "Presentation\ViewModels\ShellRibbonViewModel.cs"
     , "Presentation\ViewModels\StatusBarViewModel.cs"
     , "Presentation\ViewModels\StepABCDEViewModel.cs"
     , "Presentation\ViewModels\UILaunchApproachesViewModel.cs"
@@ -138,15 +146,15 @@ $commonProjectFiles = @(
     , "Presentation\ViewModels\ViewAViewModel.cs"
     , "Presentation\ViewModels\ViewBViewModel.cs"
     , "Presentation\ViewModels\ViewCViewModel.cs"
+    , "Presentation\ViewModels\ViewDiscoveryViewModel.cs"    
     , "Presentation\ViewModels\ViewDViewModel.cs"
-    , "Presentation\ViewModels\ViewDiscoveryViewModel.cs"
     , "Presentation\ViewModels\ViewInjectionViewModel.cs"
-    , "Presentation\ViewModels\ReadMe.txt"
     # Presentation\ViewModels\Shells
-    , "Presentation\ViewModels\Shells\RibbonShellViewModel.cs"
+    , "Presentation\ViewModels\Shells\_ReadMe.txt"    
+    # , "Presentation\ViewModels\Shells\RibbonShellViewModel.cs"
     , "Presentation\ViewModels\Shells\ShellViewModel.cs"
-    , "Presentation\ViewModels\Shells\ReadMe.txt"
     # Presentation\Views
+    , "Presentation\Views\_ReadMe.txt"    
     , "Presentation\Views\About.xaml"
     , "Presentation\Views\About.xaml.cs"
     , "Presentation\Views\AppVersionInfo.xaml"
@@ -167,8 +175,8 @@ $commonProjectFiles = @(
     , "Presentation\Views\RegionNavigation.xaml.cs"
     , "Presentation\Views\Ribbon.xaml"
     , "Presentation\Views\Ribbon.xaml.cs"
-    , "Presentation\Views\ShellRibbon.xaml"
-    , "Presentation\Views\ShellRibbon.xaml.cs"
+    , "Presentation\Views\RibbonSimple.xaml"
+    , "Presentation\Views\RibbonSimple.xaml.cs"
     , "Presentation\Views\StatusBar.xaml"
     , "Presentation\Views\StatusBar.xaml.cs"
     , "Presentation\Views\StepA.xaml"
@@ -197,16 +205,17 @@ $commonProjectFiles = @(
     , "Presentation\Views\ViewDiscovery.xaml.cs"
     , "Presentation\Views\ViewInjection.xaml"
     , "Presentation\Views\ViewInjection.xaml.cs"
-    , "Presentation\Views\ReadMe.txt"
     # Presentation\Views\Shells
-    , "Presentation\Views\Shells\RibbonShell.xaml"
-    , "Presentation\Views\Shells\RibbonShell.xaml.cs"
+    , "Presentation\Views\Shells\_ReadMe.txt"    
+    # , "Presentation\Views\Shells\RibbonShell.xaml"
     , "Presentation\Views\Shells\Shell.xaml"
     , "Presentation\Views\Shells\Shell.xaml.cs"
-    , "Presentation\Views\Shells\ReadMe.txt"
+    # Presentation\UserControls
+    , "Presentation\Views\UserControls\_ReadMe.txt"
     # Resources
-    , "Resources\ReadMe.txt"
+    , "Resources\_ReadMe.txt"
     # Resources\Icons
+    , "Resources\Icons\_ReadMe.txt"    
     , "Resources\Icons\ApplicationIcon.ico"
     , "Resources\Icons\ApplicationIcon-Left-Blue.ico"
     , "Resources\Icons\ApplicationIcon-Left-Blue.png"
@@ -214,25 +223,23 @@ $commonProjectFiles = @(
     , "Resources\Icons\ApplicationIcon-Right-Red.ico"
     , "Resources\Icons\ApplicationIcon-Right-Red.png"
     , "Resources\Icons\ApplicationIcon-Right-Red.psd"
-    , "Resources\Icons\ReadMe.txt"
     # Resources\Images
+   , "Resources\Images\_ReadMe.txt"    
     , "Resources\Images\FilterEditor.png"
     , "Resources\Images\ToolBox.png"
     , "Resources\Images\VNCDeveloperMotivation.png"
-    , "Resources\Images\WatchWindow.bmp"
-    , "Resources\Images\ReadMe.txt"
+    , "Resources\Images\WatchWindow.bmp" 
     # Resources\Xmal
+    , "Resources\Xaml\_ReadMe.txt"    
     , "Resources\Xaml\Application.xaml"
     , "Resources\Xaml\Display_StylesAndTemplates.xaml"
     , "Resources\Xaml\Layout_Styles.xaml"
-    , "Resources\Xaml\ReadMe.txt"
-
 )
 
 # NOTE(crhodes)
-# No need for ReadMe.txt files here
+# No need for _ReadMe.txt files here
 # commonProjectFiles should have already placed
-# appropriate ReadMe.txt files in folders
+# appropriate _ReadMe.txt files in folders
 
 $commonItemFiles = @(
     # Domain
@@ -251,23 +258,19 @@ $commonItemFiles = @(
     , "DomainServices\ServicesMock\TYPEDataServiceMock.cs"
     # Modules
     , "Modules\TYPEModule.cs"
-    # Presentation\Controls
-    , "Presentation\Controls\TYPE.xaml"
-    , "Presentation\Controls\TYPE.xaml.cs"
     # Presentation\Converters
-
     # Presentation\ModelWrappers
     , "Presentation\ModelWrappers\ITEMWrapper.cs"
     , "Presentation\ModelWrappers\TYPEPhoneNumberWrapper.cs"
     , "Presentation\ModelWrappers\TYPEWrapper.cs"
     # Presentation\ViewModels
     , "Presentation\ViewModels\ITEMDetailViewModel.cs"
+    , "Presentation\ViewModels\TYPEDetailMVViewModel.cs"    
+    , "Presentation\ViewModels\TYPEDetailViewModel.cs"  
+    , "Presentation\ViewModels\TYPEMainMVViewModel.cs"      
     , "Presentation\ViewModels\TYPEMainViewModel.cs"
+    , "Presentation\ViewModels\TYPENavigationMVViewModel.cs"    
     , "Presentation\ViewModels\TYPENavigationViewModel.cs"
-    , "Presentation\ViewModels\TYPEDetailViewModel.cs"
-    , "Presentation\ViewModels\TYPEMainMVViewModel.cs"
-    , "Presentation\ViewModels\TYPENavigationMVViewModel.cs"
-    , "Presentation\ViewModels\TYPEDetailMVViewModel.cs"
     , "Presentation\ViewModels\TYPEViewModel.cs"
     # Presentation\Views
     , "Presentation\Views\ITEMDetail.xaml"
@@ -286,47 +289,50 @@ $commonItemFiles = @(
     , "Presentation\Views\TYPENavigationMV.xaml.cs"
     , "Presentation\Views\TYPEDetailMV.xaml"
     , "Presentation\Views\TYPEDetailMV.xaml.cs"
-
+    # Presentation\Views\UserControls
+    # , "Presentation\Views\UserControls\TYPE.xaml"
+    # , "Presentation\Views\UserControls\TYPE.xaml.cs"
 )
 
 $commonCoreFiles = @(
     # Files
-    "ApplicationCommands.cs"
+    "_ReadMe.txt"    
+    , "ApplicationCommands.cs"
     , "GlobalCommands.cs"
     , "RegionNames.cs"
-    , "ReadMe.txt"
     # Application
+    , "Application\_ReadMe.txt"    
     , "Application\IDatabaseService.cs"
     , "Application\ILookupService.cs"
-    , "Application\ReadMe.txt"
     # Application\TYPEs
-    , "Application\TYPEs\ReadMe.txt"
+    , "Application\TYPEs\_ReadMe.txt"
     # Application\TYPEs\Commands
-    , "Application\TYPEs\Commands\ReadMe.txt"
+    , "Application\TYPEs\Commands\_ReadMe.txt"
     # Application\TYPEs\Queries
+    , "Application\TYPEs\Queries\_ReadMe.txt"    
     , "Application\TYPEs\Queries\IGetTYPEsListQuery.cs"
-    , "Application\TYPEs\Queries\ReadMe.txt"
     # ApplicationServices
-    , "ApplicationServices\ReadMe.txt"
+    , "ApplicationServices\_ReadMe.txt"
     # DomainServices
+    , "DomainServices\_ReadMe.txt"    
     , "DomainServices\IITEMDataService.cs"
     , "DomainServices\IITEMLookupDataService.cs"
     , "DomainServices\ITYPEDataService.cs"
     , "DomainServices\ITYPELookupDataService.cs"
-    , "DomainServices\ReadMe.txt"
     # Events
+    , "Events\_ReadMe.txt"    
     , "Events\AfterTYPESavedEvent.cs"
     , "Events\AfterTYPESavedEventArgs.cs"
     , "Events\OpenTYPEDetailViewEvent.cs"
-    , "Events\ReadMe.txt"
     # Persistence
-    , "Persistence\ReadMe.txt"
+    , "Persistence\_ReadMe.txt"
     # Persistence\Database
+    , "Persistence\Database\_ReadMe.txt"    
     , "Persistence\Database\IAPPLICATIONDbContext.cs"
-    , "Persistence\Database\ReadMe.txt"
     # Presentation
-    , "Presentation\ReadMe.txt"
+    , "Presentation\_ReadMe.txt"
     # Presentation\ViewModels
+    , "Presentation\ViewModels\_ReadMe.txt"    
     , "Presentation\ViewModels\IAboutViewModel.cs"
     , "Presentation\ViewModels\IAppVersionInfoViewModel.cs"
     , "Presentation\ViewModels\ICombinedMainViewModel.cs"
@@ -349,10 +355,10 @@ $commonCoreFiles = @(
     , "Presentation\ViewModels\IViewABCDViewModel.cs"
     , "Presentation\ViewModels\IViewDiscoveryViewModel.cs"
     , "Presentation\ViewModels\IViewInjectionViewModel.cs"
-    , "Presentation\ViewModels\ReadMe.txt"
     # Presentation\ViewModels\Shells
-    , "Presentation\ViewModels\Shells\ReadMe.txt"
+    , "Presentation\ViewModels\Shells\_ReadMe.txt"
     # Presentation\Views
+    , "Presentation\Views\_ReadMe.txt"    
     , "Presentation\Views\IAbout.cs"
     , "Presentation\Views\ICombinedMain.cs"
     , "Presentation\Views\ICombinedNavigation.cs"
@@ -376,10 +382,8 @@ $commonCoreFiles = @(
     , "Presentation\Views\IViewABCD.cs"
     , "Presentation\Views\IViewDiscovery.cs"
     , "Presentation\Views\IViewInjection.cs"
-    , "Presentation\Views\ReadMe.txt"
     # Presentation\Views\Shells
-    , "Presentation\Views\Shells\ReadMe.txt"
-
+    , "Presentation\Views\Shells\_ReadMe.txt"
 )
 
 #endregion
@@ -523,9 +527,9 @@ function UpdateMatchingFiles([string] $masterFile)
             # This needs to be smarter as files can exist at top level or in a sub folder
             # Usually there is only one matching file in a template
             #
-            # Special case for ReadMe.Txt
+            # Special case for _ReadMe.txt
 
-            if ($masterFile -match "ReadMe.Txt")
+            if ($masterFile -match "_ReadMe.txt")
             {
                 if (TEST-PATH "$($projectTemplates)\$($targetTemplateFolder)\$($masterFile)")
                 {
@@ -598,9 +602,9 @@ function UpdateMatchingCoreFiles([string] $masterCoreFile)
             # This needs to be smarter as files can exist at top level or in a sub folder
             # Usually there is only one matching file in a template
             #
-            # Special case for ReadMe.Txt
+            # Special case for _ReadMe.txt
 
-            if ($masterCoreFile -match "ReadMe.Txt")
+            if ($masterCoreFile -match "_ReadMe.txt")
             {
                 if (TEST-PATH "$($projectTemplates)\$($targetTemplateFolder)\$($masterCoreFile)")
                 {

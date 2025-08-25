@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
 
-using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;
-
 using Prism.Commands;
 using Prism.Events;
 using Prism.Regions;
@@ -49,11 +47,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             // Put things here that initialize the ViewModel
             // Initialize EventHandlers, Commands, etc.
 
-            NavigateUIOneCommand = new DelegateCommand<string>(NavigateUIOne, NavigateUIOneCanExecute);
-            NavigateUITwoCommand = new DelegateCommand<string>(NavigateUITwo, NavigateUITwoCanExecute);
-            NavigateUIThreeCommand = new DelegateCommand<string>(NavigateUIThree, NavigateUIThreeCanExecute);
-            NavigateUIFourCommand = new DelegateCommand<string>(NavigateUIFour, NavigateUIFourCanExecute);
-            NavigateUIFiveCommand = new DelegateCommand<string>(NavigateUIFive, NavigateUIFiveCanExecute);
+            NavigateUI1Command = new DelegateCommand<string>(NavigateUI1, NavigateUI1CanExecute);
+            NavigateUI2Command = new DelegateCommand<string>(NavigateUI2, NavigateUI2CanExecute);
+            NavigateUI3Command = new DelegateCommand<string>(NavigateUI3, NavigateUI3CanExecute);
+            NavigateUI4Command = new DelegateCommand<string>(NavigateUI4, NavigateUI4CanExecute);
+            NavigateUI5Command = new DelegateCommand<string>(NavigateUI5, NavigateUI5CanExecute);
 
             Message = "RegionNavigationViewModel says hello";
 
@@ -94,56 +92,56 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #region Commands
 
-        #region NavigateUIOne Command
+        #region NavigateUI1 Command
 
-        public DelegateCommand<string> NavigateUIOneCommand { get; set; }
+        public DelegateCommand<string> NavigateUI1Command { get; set; }
 
         // If displaying UserControl
-        // public static WindowHost _NavigateUIOneHost = null;
+        // public static WindowHost _NavigateUI1Host = null;
 
         // If using CommandParameter, figure out TYPE here
-        public string NavigateUIOneCommandParameter;
+        public string NavigateUI1CommandParameter;
 
-        public string NavigateUIOneContent { get; set; } = "NavigateUIOne";
-        public string NavigateUIOneToolTip { get; set; } = "NavigateUIOne Add ToolTip";
-        public string NavigateUIOneBetaContent { get; set; } = "NavigateUIOne Beta";
-        public string NavigateUIOneBetaToolTip { get; set; } = "NavigateUIOne Beta ToolTip";
+        public string NavigateUI1Content { get; set; } = "NavigateUI1";
+        public string NavigateUI1ToolTip { get; set; } = "NavigateUI1 Add ToolTip";
+        public string NavigateUI1BetaContent { get; set; } = "NavigateUI1 Beta";
+        public string NavigateUI1BetaToolTip { get; set; } = "NavigateUI1 Beta ToolTip";
 
         // Can get fancy and use Resources
-        //public string NavigateUIOneContent { get; set; } = "ViewName_NavigateUIOneContent";
-        //public string NavigateUIOneToolTip { get; set; } = "ViewName_NavigateUIOneContentToolTip";
+        //public string NavigateUI1Content { get; set; } = "ViewName_NavigateUI1Content";
+        //public string NavigateUI1ToolTip { get; set; } = "ViewName_NavigateUI1ContentToolTip";
 
         // Put these in Resource File
-        //    <system:String x:Key="ViewName_NavigateUIOneContent">NavigateUIOne</system:String>
-        //    <system:String x:Key="ViewName_NavigateUIOneContentToolTip">NavigateUIOne ToolTip</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI1Content">NavigateUI1</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI1ContentToolTip">NavigateUI1 ToolTip</system:String>
 
         // If using CommandParameter, figure out TYPE here
-        //public void NavigateUIOne(TYPE value)
-        public void NavigateUIOne(string action)
+        //public void NavigateUI1(TYPE value)
+        public void NavigateUI1(string action)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
-            Message = $"Cool, you called NavigateUIOne {action}";
+            Message = $"Cool, you called NavigateUI1 {action}";
 
             PublishStatusMessage(Message);
 
             switch (action)
             {
                 case "beta":
-                    _regionManager.RequestNavigate("RegionNavigationView", "uionebeta");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI1beta");
                     break;
 
                 default:
-                    _regionManager.RequestNavigate("RegionNavigationView", "uione");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI1");
 
                     // Or this way
 
                     //IRegion region = _regionManager.Regions["RegionNavigationView"];
 
-                    //region.RequestNavigate("uione");
+                    //region.RequestNavigate("UI1");
                     break;
             }
 
@@ -152,17 +150,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
             //switch (action)
             //{
             //    case "add":
-            //        uiOne = new UIOne();
-            //        region.Add(uiOne);
-            //        NavigateUIOneCommand.RaiseCanExecuteChanged();
-            //        ModifyUIOneCommand.RaiseCanExecuteChanged();
-            //        RemoveUIOneCommand.RaiseCanExecuteChanged();
+            //        UI1 = new UI1();
+            //        region.Add(UI1);
+            //        NavigateUI1Command.RaiseCanExecuteChanged();
+            //        ModifyUI1Command.RaiseCanExecuteChanged();
+            //        RemoveUI1Command.RaiseCanExecuteChanged();
             //        break;
             //}
 
             // If launching a UserControl
 
-            // if (_NavigateUIOneHost is null) _NavigateUIOnenHost = new WindowHost();
+            // if (_NavigateUI1Host is null) _NavigateUI1nHost = new WindowHost();
             // var userControl = new USERCONTROL();
 
             // _loggingConfigurationHost.DisplayUserControlInHost(
@@ -176,12 +174,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Uncomment this if you are telling someone else to handle this
 
-            // Common.EventAggregator.GetEvent<NavigateUIOneEvent>().Publish();
+            // Common.EventAggregator.GetEvent<NavigateUI1Event>().Publish();
 
             // May want EventArgs
 
-            //  EventAggregator.GetEvent<NavigateUIOneEvent>().Publish(
-            //      new NavigateUIOneEventArgs()
+            //  EventAggregator.GetEvent<NavigateUI1Event>().Publish(
+            //      new NavigateUI1EventArgs()
             //      {
             //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
             //            Process = _contextMainViewModel.Context.SelectedProcess
@@ -189,13 +187,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Start Cut Four - Put this in PrismEvents
 
-            // public class NavigateUIOneEvent : PubSubEvent { }
+            // public class NavigateUI1Event : PubSubEvent { }
 
             // End Cut Four
 
             // Start Cut Five - Put this in places that listen for event
 
-            //Common.EventAggregator.GetEvent<NavigateUIOneEvent>().Subscribe(NavigateUIOne);
+            //Common.EventAggregator.GetEvent<NavigateUI1Event>().Subscribe(NavigateUI1);
 
             // End Cut Five
 
@@ -203,8 +201,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         // If using CommandParameter, figure out TYPE and fix above
-        //public bool NavigateUIOneCanExecute(TYPE value)
-        public bool NavigateUIOneCanExecute(string action)
+        //public bool NavigateUI1CanExecute(TYPE value)
+        public bool NavigateUI1CanExecute(string action)
         {
             // TODO(crhodes)
             // Add any before button is enabled logic.
@@ -214,62 +212,62 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region NavigateUITwo Command
+        #region NavigateUI2 Command
 
-        public DelegateCommand<string> NavigateUITwoCommand { get; set; }
+        public DelegateCommand<string> NavigateUI2Command { get; set; }
 
         // If displaying UserControl
-        // public static WindowHost _NavigateUITwoHost = null;
+        // public static WindowHost _NavigateUI2Host = null;
 
         // If using CommandParameter, figure out TYPE here
-        public string NavigateUITwoCommandParameter;
+        public string NavigateUI2CommandParameter;
 
-        public string NavigateUITwoContent { get; set; } = "NavigateUITwo";
-        public string NavigateUITwoToolTip { get; set; } = "NavigateUITwo Add ToolTip";
-        public string NavigateUITwoBetaContent { get; set; } = "NavigateUITwo Beta";
-        public string NavigateUITwoBetaToolTip { get; set; } = "NavigateUITwo Beta ToolTip";
+        public string NavigateUI2Content { get; set; } = "NavigateUI2";
+        public string NavigateUI2ToolTip { get; set; } = "NavigateUI2 Add ToolTip";
+        public string NavigateUI2BetaContent { get; set; } = "NavigateUI2 Beta";
+        public string NavigateUI2BetaToolTip { get; set; } = "NavigateUI2 Beta ToolTip";
 
         // Can get fancy and use Resources
-        //public string NavigateUITwoContent { get; set; } = "ViewName_NavigateUITwoContent";
-        //public string NavigateUITwoToolTip { get; set; } = "ViewName_NavigateUITwoContentToolTip";
+        //public string NavigateUI2Content { get; set; } = "ViewName_NavigateUI2Content";
+        //public string NavigateUI2ToolTip { get; set; } = "ViewName_NavigateUI2ContentToolTip";
 
         // Put these in Resource File
-        //    <system:String x:Key="ViewName_NavigateUITwoContent">NavigateUITwo</system:String>
-        //    <system:String x:Key="ViewName_NavigateUITwoContentToolTip">NavigateUITwo ToolTip</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI2Content">NavigateUI2</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI2ContentToolTip">NavigateUI2 ToolTip</system:String>
 
         // If using CommandParameter, figure out TYPE here
-        //public void NavigateUITwo(TYPE value)
-        public void NavigateUITwo(string action)
+        //public void NavigateUI2(TYPE value)
+        public void NavigateUI2(string action)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
-            Message = $"Cool, you called NavigateUITwo {action}";
+            Message = $"Cool, you called NavigateUI2 {action}";
 
             PublishStatusMessage(Message);
 
             switch (action)
             {
                 case "beta":
-                    _regionManager.RequestNavigate("RegionNavigationView", "uitwobeta");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI2beta");
                     break;
 
                 default:
-                    //_regionManager.RequestNavigate("RegionNavigationView", "UITwo");
+                    //_regionManager.RequestNavigate("RegionNavigationView", "UI2");
 
                     // Or this way
 
                     IRegion region = _regionManager.Regions["RegionNavigationView"];
 
-                    region.RequestNavigate("uitwo");
+                    region.RequestNavigate("UI2");
                     break;
             }
 
             // If launching a UserControl
 
-            // if (_NavigateUITwoHost is null) _NavigateUITwonHost = new WindowHost();
+            // if (_NavigateUI2Host is null) _NavigateUI2nHost = new WindowHost();
             // var userControl = new USERCONTROL();
 
             // _loggingConfigurationHost.DisplayUserControlInHost(
@@ -283,12 +281,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Uncomment this if you are telling someTwo else to handle this
 
-            // Common.EventAggregator.GetEvent<NavigateUITwoEvent>().Publish();
+            // Common.EventAggregator.GetEvent<NavigateUI2Event>().Publish();
 
             // May want EventArgs
 
-            //  EventAggregator.GetEvent<NavigateUITwoEvent>().Publish(
-            //      new NavigateUITwoEventArgs()
+            //  EventAggregator.GetEvent<NavigateUI2Event>().Publish(
+            //      new NavigateUI2EventArgs()
             //      {
             //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
             //            Process = _contextMainViewModel.Context.SelectedProcess
@@ -296,13 +294,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Start Cut Four - Put this in PrismEvents
 
-            // public class NavigateUITwoEvent : PubSubEvent { }
+            // public class NavigateUI2Event : PubSubEvent { }
 
             // End Cut Four
 
             // Start Cut Five - Put this in places that listen for event
 
-            //Common.EventAggregator.GetEvent<NavigateUITwoEvent>().Subscribe(NavigateUITwo);
+            //Common.EventAggregator.GetEvent<NavigateUI2Event>().Subscribe(NavigateUI2);
 
             // End Cut Five
 
@@ -310,8 +308,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         // If using CommandParameter, figure out TYPE and fix above
-        //public bool NavigateUITwoCanExecute(TYPE value)
-        public bool NavigateUITwoCanExecute(string action)
+        //public bool NavigateUI2CanExecute(TYPE value)
+        public bool NavigateUI2CanExecute(string action)
         {
             // TODO(crhodes)
             // Add any before button is enabled logic.
@@ -320,62 +318,62 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region NavigateUIThree Command
+        #region NavigateUI3 Command
 
-        public DelegateCommand<string> NavigateUIThreeCommand { get; set; }
+        public DelegateCommand<string> NavigateUI3Command { get; set; }
 
         // If displaying UserControl
-        // public static WindowHost _NavigateUIThreeHost = null;
+        // public static WindowHost _NavigateUI3Host = null;
 
         // If using CommandParameter, figure out TYPE here
-        public string NavigateUIThreeCommandParameter;
+        public string NavigateUI3CommandParameter;
 
-        public string NavigateUIThreeContent { get; set; } = "NavigateUIThree";
-        public string NavigateUIThreeToolTip { get; set; } = "NavigateUIThree Add ToolTip";
-        public string NavigateUIThreeBetaContent { get; set; } = "NavigateUIThree Beta";
-        public string NavigateUIThreeBetaToolTip { get; set; } = "NavigateUIThree Beta ToolTip";
+        public string NavigateUI3Content { get; set; } = "NavigateUI3";
+        public string NavigateUI3ToolTip { get; set; } = "NavigateUI3 Add ToolTip";
+        public string NavigateUI3BetaContent { get; set; } = "NavigateUI3 Beta";
+        public string NavigateUI3BetaToolTip { get; set; } = "NavigateUI3 Beta ToolTip";
 
         // Can get fancy and use Resources
-        //public string NavigateUIThreeContent { get; set; } = "ViewName_NavigateUIThreeContent";
-        //public string NavigateUIThreeToolTip { get; set; } = "ViewName_NavigateUIThreeContentToolTip";
+        //public string NavigateUI3Content { get; set; } = "ViewName_NavigateUI3Content";
+        //public string NavigateUI3ToolTip { get; set; } = "ViewName_NavigateUI3ContentToolTip";
 
         // Put these in Resource File
-        //    <system:String x:Key="ViewName_NavigateUIThreeContent">NavigateUIThree</system:String>
-        //    <system:String x:Key="ViewName_NavigateUIThreeContentToolTip">NavigateUIThree ToolTip</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI3Content">NavigateUI3</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI3ContentToolTip">NavigateUI3 ToolTip</system:String>
 
         // If using CommandParameter, figure out TYPE here
-        //public void NavigateUIThree(TYPE value)
-        public void NavigateUIThree(string action)
+        //public void NavigateUI3(TYPE value)
+        public void NavigateUI3(string action)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
-            Message = $"Cool, you called NavigateUIThree {action}";
+            Message = $"Cool, you called NavigateUI3 {action}";
 
             PublishStatusMessage(Message);
 
             switch (action)
             {
                 case "beta":
-                    _regionManager.RequestNavigate("RegionNavigationView", "uithreebeta");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI3beta");
                     break;
 
                 default:
-                    _regionManager.RequestNavigate("RegionNavigationView", "uithree");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI3");
 
                     // Or this way
 
                     //IRegion region = _regionManager.Regions["RegionNavigationView"];
 
-                    //region.RequestNavigate("uiThree");
+                    //region.RequestNavigate("UI3");
                     break;
             }
 
             // If launching a UserControl
 
-            // if (_NavigateUIThreeHost is null) _NavigateUIThreenHost = new WindowHost();
+            // if (_NavigateUI3Host is null) _NavigateUI3nHost = new WindowHost();
             // var userControl = new USERCONTROL();
 
             // _loggingConfigurationHost.DisplayUserControlInHost(
@@ -389,12 +387,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Uncomment this if you are telling someThree else to handle this
 
-            // Common.EventAggregator.GetEvent<NavigateUIThreeEvent>().Publish();
+            // Common.EventAggregator.GetEvent<NavigateUI3Event>().Publish();
 
             // May want EventArgs
 
-            //  EventAggregator.GetEvent<NavigateUIThreeEvent>().Publish(
-            //      new NavigateUIThreeEventArgs()
+            //  EventAggregator.GetEvent<NavigateUI3Event>().Publish(
+            //      new NavigateUI3EventArgs()
             //      {
             //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
             //            Process = _contextMainViewModel.Context.SelectedProcess
@@ -402,13 +400,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Start Cut Three - Put this in PrismEvents
 
-            // public class NavigateUIThreeEvent : PubSubEvent { }
+            // public class NavigateUI3Event : PubSubEvent { }
 
             // End Cut Three
 
             // Start Cut Five - Put this in places that listen for event
 
-            //Common.EventAggregator.GetEvent<NavigateUIThreeEvent>().Subscribe(NavigateUIThree);
+            //Common.EventAggregator.GetEvent<NavigateUI3Event>().Subscribe(NavigateUI3);
 
             // End Cut Five
 
@@ -416,8 +414,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         // If using CommandParameter, figure out TYPE and fix above
-        //public bool NavigateUIThreeCanExecute(TYPE value)
-        public bool NavigateUIThreeCanExecute(string action)
+        //public bool NavigateUI3CanExecute(TYPE value)
+        public bool NavigateUI3CanExecute(string action)
         {
             // TODO(crhodes)
             // Add any before button is enabled logic.
@@ -426,62 +424,62 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region NavigateUIFour Command
+        #region NavigateUI4 Command
 
-        public DelegateCommand<string> NavigateUIFourCommand { get; set; }
+        public DelegateCommand<string> NavigateUI4Command { get; set; }
 
         // If displaying UserControl
-        // public static WindowHost _NavigateUIFourHost = null;
+        // public static WindowHost _NavigateUI4Host = null;
 
         // If using CommandParameter, figure out TYPE here
-        public string NavigateUIFourCommandParameter;
+        public string NavigateUI4CommandParameter;
 
-        public string NavigateUIFourContent { get; set; } = "NavigateUIFour";
-        public string NavigateUIFourToolTip { get; set; } = "NavigateUIFour Add ToolTip";
-        public string NavigateUIFourBetaContent { get; set; } = "NavigateUIFour Beta";
-        public string NavigateUIFourBetaToolTip { get; set; } = "NavigateUIFour Beta ToolTip";
+        public string NavigateUI4Content { get; set; } = "NavigateUI4";
+        public string NavigateUI4ToolTip { get; set; } = "NavigateUI4 Add ToolTip";
+        public string NavigateUI4BetaContent { get; set; } = "NavigateUI4 Beta";
+        public string NavigateUI4BetaToolTip { get; set; } = "NavigateUI4 Beta ToolTip";
 
         // Can get fancy and use Resources
-        //public string NavigateUIFourContent { get; set; } = "ViewName_NavigateUIFourContent";
-        //public string NavigateUIFourToolTip { get; set; } = "ViewName_NavigateUIFourContentToolTip";
+        //public string NavigateUI4Content { get; set; } = "ViewName_NavigateUI4Content";
+        //public string NavigateUI4ToolTip { get; set; } = "ViewName_NavigateUI4ContentToolTip";
 
         // Put these in Resource File
-        //    <system:String x:Key="ViewName_NavigateUIFourContent">NavigateUIFour</system:String>
-        //    <system:String x:Key="ViewName_NavigateUIFourContentToolTip">NavigateUIFour ToolTip</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI4Content">NavigateUI4</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI4ContentToolTip">NavigateUI4 ToolTip</system:String>
 
         // If using CommandParameter, figure out TYPE here
-        //public void NavigateUIFour(TYPE value)
-        public void NavigateUIFour(string action)
+        //public void NavigateUI4(TYPE value)
+        public void NavigateUI4(string action)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
-            Message = $"Cool, you called NavigateUIFour {action}";
+            Message = $"Cool, you called NavigateUI4 {action}";
 
             PublishStatusMessage(Message);
 
             switch (action)
             {
                 case "beta":
-                    _regionManager.RequestNavigate("RegionNavigationView", "uifourbeta");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI4beta");
                     break;
 
                 default:
-                    _regionManager.RequestNavigate("RegionNavigationView", "uifour");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI4");
 
                     // Or this way
 
                     //IRegion region = _regionManager.Regions["RegionNavigationView"];
 
-                    //region.RequestNavigate("uiFour");
+                    //region.RequestNavigate("UI4");
                     break;
             }
 
             // If launching a UserControl
 
-            // if (_NavigateUIFourHost is null) _NavigateUIFournHost = new WindowHost();
+            // if (_NavigateUI4Host is null) _NavigateUI4nHost = new WindowHost();
             // var userControl = new USERCONTROL();
 
             // _loggingConfigurationHost.DisplayUserControlInHost(
@@ -495,12 +493,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Uncomment this if you are telling someFour else to handle this
 
-            // Common.EventAggregator.GetEvent<NavigateUIFourEvent>().Publish();
+            // Common.EventAggregator.GetEvent<NavigateUI4Event>().Publish();
 
             // May want EventArgs
 
-            //  EventAggregator.GetEvent<NavigateUIFourEvent>().Publish(
-            //      new NavigateUIFourEventArgs()
+            //  EventAggregator.GetEvent<NavigateUI4Event>().Publish(
+            //      new NavigateUI4EventArgs()
             //      {
             //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
             //            Process = _contextMainViewModel.Context.SelectedProcess
@@ -508,13 +506,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Start Cut Four - Put this in PrismEvents
 
-            // public class NavigateUIFourEvent : PubSubEvent { }
+            // public class NavigateUI4Event : PubSubEvent { }
 
             // End Cut Four
 
             // Start Cut Five - Put this in places that listen for event
 
-            //Common.EventAggregator.GetEvent<NavigateUIFourEvent>().Subscribe(NavigateUIFour);
+            //Common.EventAggregator.GetEvent<NavigateUI4Event>().Subscribe(NavigateUI4);
 
             // End Cut Five
 
@@ -522,8 +520,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         // If using CommandParameter, figure out TYPE and fix above
-        //public bool NavigateUIFourCanExecute(TYPE value)
-        public bool NavigateUIFourCanExecute(string action)
+        //public bool NavigateUI4CanExecute(TYPE value)
+        public bool NavigateUI4CanExecute(string action)
         {
             // TODO(crhodes)
             // Add any before button is enabled logic.
@@ -532,62 +530,62 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region NavigateUIFive Command
+        #region NavigateUI5 Command
 
-        public DelegateCommand<string> NavigateUIFiveCommand { get; set; }
+        public DelegateCommand<string> NavigateUI5Command { get; set; }
 
         // If displaying UserControl
-        // public static WindowHost _NavigateUIFiveHost = null;
+        // public static WindowHost _NavigateUI5Host = null;
 
         // If using CommandParameter, figure out TYPE here
-        public string NavigateUIFiveCommandParameter;
+        public string NavigateUI5CommandParameter;
 
-        public string NavigateUIFiveContent { get; set; } = "NavigateUIFive";
-        public string NavigateUIFiveToolTip { get; set; } = "NavigateUIFive Add ToolTip";
-        public string NavigateUIFiveBetaContent { get; set; } = "NavigateUIFive Beta";
-        public string NavigateUIFiveBetaToolTip { get; set; } = "NavigateUIFive Beta ToolTip";
+        public string NavigateUI5Content { get; set; } = "NavigateUI5";
+        public string NavigateUI5ToolTip { get; set; } = "NavigateUI5 Add ToolTip";
+        public string NavigateUI5BetaContent { get; set; } = "NavigateUI5 Beta";
+        public string NavigateUI5BetaToolTip { get; set; } = "NavigateUI5 Beta ToolTip";
 
         // Can get fancy and use Resources
-        //public string NavigateUIFiveContent { get; set; } = "ViewName_NavigateUIFiveContent";
-        //public string NavigateUIFiveToolTip { get; set; } = "ViewName_NavigateUIFiveContentToolTip";
+        //public string NavigateUI5Content { get; set; } = "ViewName_NavigateUI5Content";
+        //public string NavigateUI5ToolTip { get; set; } = "ViewName_NavigateUI5ContentToolTip";
 
         // Put these in Resource File
-        //    <system:String x:Key="ViewName_NavigateUIFiveContent">NavigateUIFive</system:String>
-        //    <system:String x:Key="ViewName_NavigateUIFiveContentToolTip">NavigateUIFive ToolTip</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI5Content">NavigateUI5</system:String>
+        //    <system:String x:Key="ViewName_NavigateUI5ContentToolTip">NavigateUI5 ToolTip</system:String>
 
         // If using CommandParameter, figure out TYPE here
-        //public void NavigateUIFive(TYPE value)
-        public void NavigateUIFive(string action)
+        //public void NavigateUI5(TYPE value)
+        public void NavigateUI5(string action)
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
-            Message = $"Cool, you called NavigateUIFive {action}";
+            Message = $"Cool, you called NavigateUI5 {action}";
 
             PublishStatusMessage(Message);
 
             switch (action)
             {
                 case "beta":
-                    _regionManager.RequestNavigate("RegionNavigationView", "uifivebeta");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI5beta");
                     break;
 
                 default:
-                    _regionManager.RequestNavigate("RegionNavigationView", "uifive");
+                    _regionManager.RequestNavigate("RegionNavigationView", "UI5");
 
                     // Or this way
 
                     //IRegion region = _regionManager.Regions["RegionNavigationView"];
 
-                    //region.RequestNavigate("uiFive");
+                    //region.RequestNavigate("UI5");
                     break;
             }
 
             // If launching a UserControl
 
-            // if (_NavigateUIFiveHost is null) _NavigateUIFivenHost = new WindowHost();
+            // if (_NavigateUI5Host is null) _NavigateUI5nHost = new WindowHost();
             // var userControl = new USERCONTROL();
 
             // _loggingConfigurationHost.DisplayUserControlInHost(
@@ -601,12 +599,12 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Uncomment this if you are telling someFive else to handle this
 
-            // Common.EventAggregator.GetEvent<NavigateUIFiveEvent>().Publish();
+            // Common.EventAggregator.GetEvent<NavigateUI5Event>().Publish();
 
             // May want EventArgs
 
-            //  EventAggregator.GetEvent<NavigateUIFiveEvent>().Publish(
-            //      new NavigateUIFiveEventArgs()
+            //  EventAggregator.GetEvent<NavigateUI5Event>().Publish(
+            //      new NavigateUI5EventArgs()
             //      {
             //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
             //            Process = _contextMainViewModel.Context.SelectedProcess
@@ -614,13 +612,13 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
             // Start Cut Five - Put this in PrismEvents
 
-            // public class NavigateUIFiveEvent : PubSubEvent { }
+            // public class NavigateUI5Event : PubSubEvent { }
 
             // End Cut Five
 
             // Start Cut Five - Put this in places that listen for event
 
-            //Common.EventAggregator.GetEvent<NavigateUIFiveEvent>().Subscribe(NavigateUIFive);
+            //Common.EventAggregator.GetEvent<NavigateUI5Event>().Subscribe(NavigateUI5);
 
             // End Cut Five
 
@@ -628,8 +626,8 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         }
 
         // If using CommandParameter, figure out TYPE and fix above
-        //public bool NavigateUIFiveCanExecute(TYPE value)
-        public bool NavigateUIFiveCanExecute(string action)
+        //public bool NavigateUI5CanExecute(TYPE value)
+        public bool NavigateUI5CanExecute(string action)
         {
             // TODO(crhodes)
             // Add any before button is enabled logic.
@@ -652,7 +650,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
 
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

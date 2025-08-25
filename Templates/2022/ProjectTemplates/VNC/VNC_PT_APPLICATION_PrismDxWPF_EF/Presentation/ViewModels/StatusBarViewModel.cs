@@ -168,9 +168,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Public Methods (none)
 
 
+
         #endregion
 
         #region Protected Methods (none)
+
 
 
         #endregion
@@ -178,9 +180,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels
         #region Private Methods (none)
 
 
+
         #endregion
 
-        #region IInstanceCount
+        #region IInstanceCountVM
 
         private static int _instanceCountVM;
 

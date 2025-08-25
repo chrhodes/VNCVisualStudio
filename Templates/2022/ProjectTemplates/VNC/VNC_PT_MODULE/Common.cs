@@ -5,11 +5,11 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace $xxxMODULExxx$$xxxNAMESPACExxx$
+namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 {
     public class Common
     {
-        public const string PROJECT_NAME = "$xxxMODULExxx$";
-        public const string LOG_CATEGORY = "$xxxMODULExxx$";
+        public const string PROJECT_NAME = "$xxxAPPLICATIONxxx$Module";
+        public const string LOG_CATEGORY = "$xxxAPPLICATIONxxx$Module";
   }
 }

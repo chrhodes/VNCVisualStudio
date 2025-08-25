@@ -5,11 +5,7 @@ using Prism.Modularity;
 using Prism.Regions;
 
 using $xxxAPPLICATIONxxx$.Core;
-
-#if VNCEF
-using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.DomainServices;
-#endif
-
+using $xxxAPPLICATIONxxx$.DomainServices;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels;
 
@@ -45,26 +41,26 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             // TODO(crhodes)
-            // Maybe the Ribbon, Main, StatusBar should be move back to App.xaml.cs
+            // Maybe the Ribbon, Main, StatusBar should be moved back to App.xaml.cs
             // and the App Specific stuff left here
 
             // TODO(crhodes)
             // This is where you pick the style of what gets loaded in the Shell.
 
-            // If you are using the Ribbon Shell and the RibbonRegion
+            // Simple Ribbon
+
+            containerRegistry.RegisterSingleton<IRibbonViewModel, RibbonSimpleViewModel>();
+            containerRegistry.RegisterSingleton<IRibbon, RibbonSimple>();
+
+            // Full Ribbon
 
             //containerRegistry.RegisterSingleton<IRibbonViewModel, RibbonViewModel>();
             //containerRegistry.RegisterSingleton<IRibbon, Ribbon>();
 
-            // If you are using the Shell and the RibbonRegion
-
-            containerRegistry.RegisterSingleton<IRibbonViewModel, ShellRibbonViewModel>();
-            containerRegistry.RegisterSingleton<IRibbon, ShellRibbon>();
-
             // Pick one of these for the MainRegion
 
             // TODO(crhodes)
-            // Learn how to dynamically switch this while appli$xxxTYPExxx$ion running
+            // Learn how to dynamically switch this while application running
 
             //containerRegistry.Register<IMain, Main>();
             containerRegistry.Register<IMain, MainDxLayoutControl>();
@@ -80,7 +76,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
             containerRegistry.RegisterSingleton<IStatusBarViewModel, StatusBarViewModel>();
             containerRegistry.RegisterSingleton<StatusBar, StatusBar>();
-
+            
 #if VNCEF
             // NOTE(crhodes)
             // Registering CombinedNavigation as SingleTon solves the two copies problem
@@ -111,7 +107,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
             // NOTE(crhodes)
             // Can register a type against an Interface.
-            // See OnInitialized, supra
+            // See OnInitialized, infra
 
             containerRegistry.Register<IViewABCD, ViewABCD>();
 
@@ -208,28 +204,28 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
 
             // These are for RegionNavigation
 
-            containerRegistry.RegisterForNavigation(typeof(UIOne), "uione");
-            // containerRegistry.RegisterForNavigation<UITwo>();    // name defaults to UITwo
-            containerRegistry.RegisterForNavigation<UITwo>("uitwo");
-            containerRegistry.RegisterForNavigation<UIThree>("uithree");
+            containerRegistry.RegisterForNavigation(typeof(UI1), "UI1");
+            // containerRegistry.RegisterForNavigation<UI2>();    // name defaults to UI2
+            containerRegistry.RegisterForNavigation<UI2>("UI2");
+            containerRegistry.RegisterForNavigation<UI3>("UI3");
 
             // NOTE(crhodes)
             // Can also (optionally) register a ViewModel with View
 
-            containerRegistry.RegisterForNavigation<UIFour, UIFourViewModel>("uifour");
-            containerRegistry.RegisterForNavigation<UIFive, UIFiveViewModel>("uifive");
+            containerRegistry.RegisterForNavigation<UI4, UI4ViewModel>("UI4");
+            containerRegistry.RegisterForNavigation<UI5, UI5ViewModel>("UI5");
 
             // Since these do not have a ViewModel and only a parameterless constructor()
             // their datacontext is the parent control.  Probably don't want this
 
-            containerRegistry.RegisterForNavigation<UIOne_Beta>("uionebeta");
-            containerRegistry.RegisterForNavigation<UITwo_Beta>("uitwobeta");
-            containerRegistry.RegisterForNavigation<UIThree_Beta>("uithreebeta");
+            containerRegistry.RegisterForNavigation<UI1_Beta>("UI1beta");
+            containerRegistry.RegisterForNavigation<UI2_Beta>("UI2beta");
+            containerRegistry.RegisterForNavigation<UI3_Beta>("UI3beta");
 
             // Can specify ViewModel to use
 
-            containerRegistry.RegisterForNavigation<UIFour_Beta, UIFourViewModel>("uifourbeta");
-            containerRegistry.RegisterForNavigation<UIFive_Beta, UIFiveViewModel>("uifivebeta");
+            containerRegistry.RegisterForNavigation<UI4_Beta, UI4ViewModel>("UI4beta");
+            containerRegistry.RegisterForNavigation<UI5_Beta, UI5ViewModel>("UI5beta");
 
             containerRegistry.Register<IMultiStepProcessViewModel, MultiStepProcessViewModel>();
             containerRegistry.Register<IMultiStepProcess, MultiStepProcess>();
@@ -261,7 +257,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             containerRegistry.RegisterForNavigation<$xxxTYPExxx$DetailMVD, $xxxTYPExxx$DetailMVViewModel>("uicatdetaild");
             containerRegistry.RegisterForNavigation<$xxxTYPExxx$DetailMVE, $xxxTYPExxx$DetailMVViewModel>("uicatdetaile");
 
-            //containerRegistry.RegisterSingleton<ICatDetailMV, CatDetailMVA>();
+            //containerRegistry.RegisterSingleton<ICatDetailMV, CatDetailMVA>();            
 
             if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }

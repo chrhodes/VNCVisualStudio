@@ -19,17 +19,16 @@
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
 
-    xmlns:controls="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Controls"
-
     xmlns:views="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views"
     xmlns:viewModels="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels"
 
+    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
+
     xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
     xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
     xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
     xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
-
-    xmlns:core="clr-namespace:$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core;assembly=$xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Core"
 
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="False"
@@ -74,117 +73,147 @@
         <!-- <localvm:ViewDiscoveryAndInjectionViewModel /> -->
     <!-- </UserControl.DataContext> -->
 
-    <!-- Simple Layout using Grid -->
+   <DockPanel>
 
-    <DockPanel>
-
-        <controls:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
-
-        <StackPanel DockPanel.Dock="Left">
-            <!-- Second form uses CommandParameter -->
-            <!--<dxlc:LayoutItem>-->
-                <Button
-                    Command="{Binding InjectUIOneCommand}"
-                    CommandParameter="add"
-                    Content="{Binding InjectUIOneAddContent, FallbackValue='InjectUIOne' }"
-                    ToolTip="{Binding InjectUIOneToolTip, FallbackValue='InjectUIOne ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUIOneCommand}"
-                    CommandParameter="activate"
-                    Content="{Binding ModifyUIOneActivateContent, FallbackValue='ModifyUIOne' }"
-                    ToolTip="{Binding ModifyUIOneToolTip, FallbackValue='ModifyUIOne ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUIOneCommand}"
-                    CommandParameter="deactivate"
-                    Content="{Binding ModifyUIOneDeactivateContent, FallbackValue='ModifyUIOne' }"
-                    ToolTip="{Binding ModifyUIOneToolTip, FallbackValue='ModifyUIOne ToolTip' }" />
-
-            <Button
-                    Command="{Binding RemoveUIOneCommand}"
-                    CommandParameter="remove"
-                    Content="{Binding RemoveUIOneRemoveContent, FallbackValue='RemoveUIOne' }"
-                    ToolTip="{Binding RemoveUIOneToolTip, FallbackValue='RemoveUIOne ToolTip' }" />
-
-            <Button
-                    Command="{Binding InjectUITwoCommand}"
-                    CommandParameter="add"
-                    Content="{Binding InjectUITwoAddContent, FallbackValue='InjectUITwo' }"
-                    ToolTip="{Binding InjectUITwoToolTip, FallbackValue='InjectUITwo ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUITwoCommand}"
-                    CommandParameter="activate"
-                    Content="{Binding ModifyUITwoActivateContent, FallbackValue='ModifyUITwo' }"
-                    ToolTip="{Binding ModifyUITwoToolTip, FallbackValue='ModifyUITwo ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUITwoCommand}"
-                    CommandParameter="deactivate"
-                    Content="{Binding ModifyUITwoDeactivateContent, FallbackValue='ModifyUITwo' }"
-                    ToolTip="{Binding ModifyUITwoToolTip, FallbackValue='ModifyUITwo ToolTip' }" />
-
-            <Button
-                    Command="{Binding RemoveUITwoCommand}"
-                    CommandParameter="remove"
-                    Content="{Binding RemoveUITwoRemoveContent, FallbackValue='RemoveUITwo' }"
-                    ToolTip="{Binding RemoveUITwoToolTip, FallbackValue='RemoveUITwo ToolTip' }" />
-
-            <Button
-                    Command="{Binding InjectUIThreeCommand}"
-                    CommandParameter="add"
-                    Content="{Binding InjectUIThreeAddContent, FallbackValue='InjectUIThree' }"
-                    ToolTip="{Binding InjectUIThreeToolTip, FallbackValue='InjectUIThree ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUIThreeCommand}"
-                    CommandParameter="activate"
-                    Content="{Binding ModifyUIThreeActivateContent, FallbackValue='ModifyUIThree' }"
-                    ToolTip="{Binding ModifyUIThreeToolTip, FallbackValue='ModifyUIThree ToolTip' }" />
-
-            <Button
-                    Command="{Binding ModifyUIThreeCommand}"
-                    CommandParameter="deactivate"
-                    Content="{Binding ModifyUIThreeDeactivateContent, FallbackValue='ModifyUIThree' }"
-                    ToolTip="{Binding ModifyUIThreeToolTip, FallbackValue='ModifyUIThree ToolTip' }" />
-
-            <Button
-                    Command="{Binding RemoveUIThreeCommand}"
-                    CommandParameter="remove"
-                    Content="{Binding RemoveUIThreeRemoveContent, FallbackValue='RemoveUIThree' }"
-                    ToolTip="{Binding RemoveUIThreeToolTip, FallbackValue='RemoveUIThree ToolTip' }" />
-            <!--</dxlc:LayoutItem>-->
-            <!-- <dxlc:LayoutItem> -->
-                <!-- <Button -->
-                    <!-- Command="{Binding InjectUIOne}" -->
-                    <!-- CommandParameter="{Binding InjectUIOneCommandParameter}" -->
-                    <!-- Content="{Binding InjectUIOneContent, FallbackValue='InjectUIOne' }" -->
-                    <!-- ToolTip="{Binding InjectUIOneToolTip, FallbackValue='InjectUIOne ToolTip' }" /> -->
-                    <!-- <Button.Background> -->
-                        <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
-                    <!-- </Button.Background> -->
-            <!-- </dxlc:LayoutItem> -->
-
+       <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+       
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Label Content="Message:" />
+            <TextBox Text="{Binding Message}" VerticalAlignment="Center"/>
         </StackPanel>
 
-        <ContentControl DockPanel.Dock="Right" prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjectionView}" />
+       <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+           <dxlc:LayoutItem Label="Views">
+               <dxe:TextEdit x:Name="teViews"
+           		Text="{Binding Views.Count, Mode=OneWay}"
+               	ToolTip="tooltip"/>
+           </dxlc:LayoutItem>
 
-        <!--<Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+           <dxg:GridControl x:Name="grdViews" 
+                           ItemsSource="{Binding Views}">
+               <dxg:GridControl.Columns>
+                   <dxg:GridColumn Binding="{Binding Message}" Header="Message" ReadOnly="True" />
+                   <dxg:GridColumn Binding="{Binding Name}" Header="Name" ReadOnly="True" />
+                   <dxg:GridColumn Binding="{Binding ViewType}" Header="ViewType" ReadOnly="True"  />
+                   <dxg:GridColumn Binding="{Binding ViewModelType}" Header="ViewModelType" ReadOnly="True" />
+               </dxg:GridControl.Columns>
+               <dxg:GridControl.View>
+                   <dxg:TableView ShowGroupPanel="False" BestFitModeOnSourceChange="AllRows"/>
+               </dxg:GridControl.View>
+           </dxg:GridControl>
 
-            <StackPanel>
-                <TextBlock Text="ViewDiscoveryAndInjection" />
-                <TextBlock Text="{Binding Message}" />
-                <Button Content="Say Hello"
-                        Command="{Binding SayHelloCommand}" />
+           <dxlc:LayoutItem Label="ActiveViews">
+               <dxe:TextEdit x:Name="teActiveViews"
+           		Text="{Binding ActiveViews.Count, Mode=OneWay}"
+               	ToolTip="tooltip"/>
+           </dxlc:LayoutItem>
 
-            </StackPanel>
+           <dxg:GridControl x:Name="grdActiveViews" 
+                            ItemsSource="{Binding ActiveViews}"  >
+               <dxg:GridControl.Columns>
+                   <dxg:GridColumn Binding="{Binding Message}" Header="Message" ReadOnly="True" />
+                   <dxg:GridColumn Binding="{Binding Name}" Header="Name" ReadOnly="True" />
+                   <dxg:GridColumn Binding="{Binding ViewType}" Header="ViewType" ReadOnly="True" />
+                   <dxg:GridColumn Binding="{Binding ViewModelType}" Header="ViewModelType" ReadOnly="True" />
+               </dxg:GridControl.Columns>
+               <dxg:GridControl.View>
+                   <dxg:TableView ShowGroupPanel="False" BestFitModeOnSourceChange="AllRows"/>
+               </dxg:GridControl.View>
+           </dxg:GridControl>
 
-        </Grid>-->
+       </StackPanel>
 
-    </DockPanel>
+       <StackPanel DockPanel.Dock="Left">
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI1|add" 
+               Content="Inject (add) UI1" HorizontalContentAlignment="Left" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI1|activate" 
+               Content="activate UI1" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI1|deactivate" 
+               Content="deactivate UI1" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI1|remove" 
+               Content="remove UI1" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI2|add" 
+               Content="Inject (add) UI2" HorizontalContentAlignment="Left" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI2|activate" 
+               Content="activate UI2" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI2|deactivate" 
+               Content="deactivate UI2" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI2|remove" 
+               Content="remove UI2" HorizontalContentAlignment="Right" />            
+
+       </StackPanel>
+
+       <StackPanel DockPanel.Dock="Right">
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI1_Beta|add" 
+               Content="Inject (add) UI1_Beta" HorizontalContentAlignment="Left" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}" 
+               CommandParameter="VNC.WPF.Presentation|Views.UI1_Beta|activate" 
+               Content="activate UI1_Beta" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI1_Beta|deactivate" 
+               Content="deactivate UI1_Beta" HorizontalContentAlignment="Right" />
+
+           <Button
+               Command="{Binding PerformViewInjectionCommand}"
+               CommandParameter="VNC.WPF.Presentation|Views.UI1_Beta|remove" 
+               Content="remove UI1_Beta" HorizontalContentAlignment="Right" />
+
+
+            <Button
+                Command="{Binding PerformViewInjectionCommand}" 
+                CommandParameter="VNC.WPF.Presentation|Views.UI2_Beta|add|true" 
+                Content="Inject (add) UI2_Beta" HorizontalContentAlignment="Left" />
+
+            <Button
+                Command="{Binding PerformViewInjectionCommand}" 
+                CommandParameter="VNC.WPF.Presentation|Views.UI2_Beta|activate" 
+                Content="activate UI2_Beta" HorizontalContentAlignment="Right" />
+
+            <Button
+                Command="{Binding PerformViewInjectionCommand}"
+                CommandParameter="VNC.WPF.Presentation|Views.UI2_Beta|deactivate" 
+                Content="deactivate UI2_Beta" HorizontalContentAlignment="Right" />
+
+            <Button
+                Command="{Binding PerformViewInjectionCommand}"
+                CommandParameter="VNC.WPF.Presentation|Views.UI2_Beta|remove" 
+                Content="remove UI2_Beta" HorizontalContentAlignment="Right" />
+                
+       </StackPanel>
+       
+       <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjectionView}" />
+
+   </DockPanel>
 
 </vncmvvm:ViewBase>

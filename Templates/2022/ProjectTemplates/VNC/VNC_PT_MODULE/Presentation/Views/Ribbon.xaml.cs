@@ -46,7 +46,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         public Ribbon(ViewModels.IRibbonViewModel viewModel)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()})", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
 
@@ -67,15 +67,21 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // NOTE(crhodes)
-            // Put things here that initialize the View
-            // Hook eventhandlers, etc.
-            
-            ViewType = this.GetType().ToString().Split('.').Last();
+            // Store information about the View, DataContext, and ViewModel
+            // for the DeveloperInfo control. Useful for debugging binding issues
 
-            // Establish any additional DataContext(s), e.g. to things held in this View
-            
+            ViewType = this.GetType().ToString().Split('.').Last();
+            ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
+            ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
+
             spDeveloperInfo.DataContext = this;
+
+            // TODO(crhodes)
+            // Put things here that initialize the View
+            // Hook event handlers, etc.
+
+
+            // Establish any additional DataContext(s) to things held in this View
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -83,32 +89,32 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #endregion
 
         #region Enums (none)
-        
+
 
 
         #endregion
 
         #region Structures (none)
-        
+
 
 
         #endregion
 
         #region Fields and Properties (none)
-        
+
 
 
         #endregion
 
         #region Event Handlers (none)
-        
+
 
 
         #endregion
 
         #region Commands (none)
-        
-        
+
+
 
         #endregion
 
@@ -124,30 +130,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         #endregion
 
         #region Private Methods (none)
-        
 
 
-        #endregion
-
-        #region IInstanceCount
-
-        private static int _instanceCountV;
-
-        public int InstanceCountV
-        {
-            get => _instanceCountV;
-            set => _instanceCountV = value;
-        }
-
-        private static int _instanceCountVP;
-
-        public int InstanceCountVP
-        {
-            get => _instanceCountVP;
-            set => _instanceCountVP = value;
-        }
 
         #endregion
+
 
         #region Stuff from Code Behind.  Move to ViewModel
 
@@ -747,6 +734,27 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             //// Save it back to the config file.
 
             //Data.Config.DefaultUITheme = ApplicationThemeHelper.ApplicationThemeName;
+        }
+
+        #endregion
+        
+        
+        #region IInstanceCountV
+
+        private static Int32 _instanceCountV;
+
+        public Int32 InstanceCountV
+        {
+            get => _instanceCountV;
+            set => _instanceCountV = value;
+        }
+
+        private static Int32 _instanceCountVP;
+
+        public Int32 InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
         }
 
         #endregion

@@ -10,7 +10,8 @@
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-    <Icon>__VNCTemplateIcon.ico</Icon>
+    <Icon>VNCTemplate-16x16.ico</Icon>
+    <PreviewImage>VNCTemplate-16x16.png</PreviewImage>
     <LanguageTag>CSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <ProjectTypeTag>VNCPT</ProjectTypeTag>
