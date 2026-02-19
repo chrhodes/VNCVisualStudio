@@ -24,6 +24,8 @@ namespace $xxxAPPLICATIONxxx$.Core
         public static string ViewDRegion = "ViewDRegion";
 
         public static string ViewABCDRegion = "ViewABCDRegion";
+        
+        public static string Modules = "ModulesRegion";
 
         public static string UILaunchApproaches = "UILaunchApproaches";
 

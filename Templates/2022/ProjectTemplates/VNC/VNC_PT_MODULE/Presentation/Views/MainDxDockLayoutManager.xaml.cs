@@ -4,6 +4,7 @@ using System.Linq;
 using $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.ViewModels;
 
 using VNC;
+using VNC.Core.Events;
 using VNC.Core.Mvvm;
 
 namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
@@ -64,10 +65,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // Store information about the View, DataContext, and ViewModel 
+            // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
             // Set the DataContext to us.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
             ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
             ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
@@ -76,9 +77,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // TODO(crhodes)
             // Put things here that initialize the View
             // Hook event handlers, etc.
-            
 
-            // Establish any additional DataContext(s) to things held in this View  
+            Common.EventAggregator.GetEvent<ModuleLoadedEvent>().Subscribe(ModuleLoaded);
+
+            // Establish any additional DataContext(s) to things held in this View
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -103,9 +105,24 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-        #region Event Handlers (none)
+        #region Event Handlers
 
+        private void ModuleLoaded(string moduleName)
+        {
+            switch (moduleName)
+            {
+                case "UIApproachesModule":
+                    lgUILaunchApproaches.Visibility = System.Windows.Visibility.Visible;
+                    lgViewDiscovery.Visibility = System.Windows.Visibility.Visible;
+                    lgViewInjection.Visibility = System.Windows.Visibility.Visible;
+                    lgMultiStepProcess.Visibility = System.Windows.Visibility.Visible;
+                    lgRegionNavigation.Visibility = System.Windows.Visibility.Visible;
+                    break;
 
+                default:
+                    break;
+            }
+        }
 
         #endregion
 
@@ -132,7 +149,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
-        
 
         #region IInstanceCountV
 
@@ -152,6 +168,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             set => _instanceCountVP = value;
         }
 
-        #endregion        
+        #endregion
     }
 }

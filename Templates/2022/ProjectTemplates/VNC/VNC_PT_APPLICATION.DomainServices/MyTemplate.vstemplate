@@ -19,29 +19,29 @@
 
   <TemplateContent>
 
-    <Project TargetFileName="APPLICATION.DomainServices.csproj" File="APPLICATION.DomainServices.csproj" ReplaceParameters="true">
+    <Project File="APPLICATION.DomainServices.csproj" ReplaceParameters="true">
 
-        <Folder Name="Diagrams" TargetFolderName="Diagrams">
-            <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATION.DomainServices.cd">APPLICATION.DomainServices.cd</ProjectItem>
+        <Folder Name="Diagrams">
+            <ProjectItem ReplaceParameters="true">APPLICATION.DomainServices.cd</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ReadMe.txt</ProjectItem>
         </Folder>
 
-        <Folder Name="ServicesMock" TargetFolderName="ServicesMock">
-            <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataServiceMock.cs">TYPEDataServiceMock.cs</ProjectItem>
+        <Folder Name="ServicesMock">
+            <ProjectItem ReplaceParameters="true">TYPEDataServiceMock.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ReadMe.txt</ProjectItem>
         </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEDataService.cs">TYPEDataService.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="TYPELookupDataService.cs">TYPELookupDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">TYPEDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">TYPELookupDataService.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ITEMDataService.cs">ITEMDataService.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="ITEMLookupDataService.cs">ITEMLookupDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ITEMDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ITEMLookupDataService.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONServicesModule.cs">APPLICATIONServicesModule.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">APPLICATIONServicesModule.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ReadMe.txt</ProjectItem>
       
     </Project>
 

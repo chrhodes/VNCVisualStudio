@@ -15,19 +15,21 @@
 	<PlatformTag>Windows</PlatformTag>
 	<ProjectTypeTag>VNC</ProjectTypeTag>	
   </TemplateData>
+  
   <TemplateContent>
-    <Project TargetFileName="Explore_ObjectModel.csproj" File="Explore_ObjectModel.csproj" ReplaceParameters="true">
-      <Folder Name="Diagrams" TargetFolderName="Diagrams">
-        <ProjectItem ReplaceParameters="true" TargetFileName="Attributes Diagram.cd">Attributes Diagram.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Classes Diagram Expanded.cd">Classes Diagram Expanded.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Classes Digram Collapsed.cd">Classes Digram Collapsed.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Delegates Digram.cd">Delegates Digram.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Enums Diagramcd.cd">Enums Diagramcd.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Exceptions Diagram.cd">Exceptions Diagram.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Interfaces Diagram.cd">Interfaces Diagram.cd</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="Structures Diagram.cd">Structures Diagram.cd</ProjectItem>
+    <Project File="Explore_ObjectModel.csproj" ReplaceParameters="true">
+      <Folder Name="Diagrams">
+        <ProjectItem ReplaceParameters="true">Attributes Diagram.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Classes Diagram Expanded.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Classes Digram Collapsed.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Delegates Digram.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Enums Diagramcd.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Exceptions Diagram.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Interfaces Diagram.cd</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Structures Diagram.cd</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Program.cs</ProjectItem>
     </Project>
   </TemplateContent>
+  
 </VSTemplate>

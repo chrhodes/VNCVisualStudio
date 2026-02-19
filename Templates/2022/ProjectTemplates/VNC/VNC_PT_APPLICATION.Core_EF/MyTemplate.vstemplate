@@ -20,166 +20,152 @@
 
   <TemplateContent>
 
-    <Project TargetFileName="APPLICATION.Core.csproj" File="APPLICATION.Core.csproj" ReplaceParameters="true">
+    <Project File="APPLICATION.Core.csproj" ReplaceParameters="true">
 
-      <Folder Name="Application" TargetFolderName="Application">
-        <Folder Name="TYPEs" TargetFolderName="TYPEs">
-           <Folder Name="Commands" TargetFolderName="Commands">
+      <Folder Name="Application">
 
-             <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <Folder Name="TYPE" ReplaceParameters="true">
+           <Folder Name="Commands">
+
+             <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
            </Folder>
 
-           <Folder Name="Queries" TargetFolderName="Queries">
-              <ProjectItem ReplaceParameters="true" TargetFileName="IGetTYPEsListQuery.cs">IGetTYPEsListQuery.cs</ProjectItem>
+           <Folder Name="Queries">
+              <ProjectItem ReplaceParameters="true">IGetTYPEsListQuery.cs</ProjectItem>
 
-              <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+              <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
             </Folder>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
         </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="IDatabaseService.cs">IDatabaseService.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="ILookupService.cs">ILookupService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">IDatabaseService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ILookupService.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
-
-      </Folder>
-
-      <Folder Name="ApplicationServices" TargetFolderName="ApplicationServices">
-
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="Events" TargetFolderName="Events">
+      <Folder Name="ApplicationServices">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="AfterTYPESavedEvent.cs">AfterTYPESavedEvent.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="AfterTYPESavedEventArgs.cs">AfterTYPESavedEventArgs.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="OpenTYPEDetailViewEvent.cs">OpenTYPEDetailViewEvent.cs</ProjectItem>
-
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="DomainServices" TargetFolderName="DomainServices">
+      <Folder Name="Events">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDataService.cs">IITEMDataService.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="IITEMLookupDataService.cs">IITEMLookupDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">AfterTYPESavedEvent.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">AfterTYPESavedEventArgs.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">OpenTYPEDetailViewEvent.cs</ProjectItem>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDataService.cs">ITYPEDataService.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="ITYPELookupDataService.cs">ITYPELookupDataService.cs</ProjectItem>
-
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="Persistence" TargetFolderName="Persistence">
-          <Folder Name="Database" TargetFolderName="Database">
+      <Folder Name="DomainServices">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAPPLICATIONDbContext.cs">IAPPLICATIONDbContext.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">IITEMDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">IITEMLookupDataService.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ITYPEDataService.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">ITYPELookupDataService.cs</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+      </Folder>
+
+      <Folder Name="Persistence">
+
+          <Folder Name="Database">
+
+            <ProjectItem ReplaceParameters="true">IAPPLICATIONDbContext.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
       </Folder>
 
-      <Folder Name="Presentation" TargetFolderName="Presentation">
+      <Folder Name="Presentation">
 
-        <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <Folder Name="ViewModels">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAboutViewModel.cs">IAboutViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAppVersionInfoViewModel.cs">IAppVersionInfoViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IAboutViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IAppVersionInfoViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedMainViewModel.cs">ICombinedMainViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedNavigationViewModel.cs">ICombinedNavigationViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDetailViewModel.cs">IITEMDetailViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ICombinedMainViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ICombinedNavigationViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IITEMDetailViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMainViewModel.cs">IMainViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcessViewModel.cs">IMultiStepProcessViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigationViewModel.cs">IRegionNavigationViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbonViewModel.cs">IRibbonViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBarViewModel.cs">IStatusBarViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepABCDEViewModel.cs">IStepABCDEViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IMainViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IModulesViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetailViewModel.cs">ITYPEDetailViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMainViewModel.cs">ITYPEMainViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigationViewModel.cs">ITYPENavigationViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEViewModel.cs">ITYPEViewModel.cs</ProjectItem>
-            
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetailMVViewModel.cs">ITYPEDetailMVViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMainMVViewModel.cs">ITYPEMainMVViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigationMVViewModel.cs">ITYPENavigationMVViewModel.cs</ProjectItem>            
+            <ProjectItem ReplaceParameters="true">IRibbonViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IStatusBarViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproachesViewModel.cs">IUILaunchApproachesViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscoveryViewModel.cs">IViewDiscoveryViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjectionViewModel.cs">IViewInjectionViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCDViewModel.cs">IViewABCDViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEDetailViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEMainViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPENavigationViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEViewModel.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEDetailMVViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEMainMVViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPENavigationMVViewModel.cs</ProjectItem>
 
-          <Folder Name="Shells" TargetFolderName="Shells">
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+          <Folder Name="Shells">
+
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
         </Folder>
 
-        <Folder Name="Views" TargetFolderName="Views">
+        <Folder Name="Views">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAbout.cs">IAbout.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IAbout.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedMain.cs">ICombinedMain.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ICombinedNavigation.cs">ICombinedNavigation.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IITEMDetail.cs">IITEMDetail.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ICombinedMain.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ICombinedNavigation.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IITEMDetail.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMain.cs">IMain.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcess.cs">IMultiStepProcess.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigation.cs">IRegionNavigation.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbon.cs">IRibbon.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBar.cs">IStatusBar.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepA.cs">IStepA.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepB.cs">IStepB.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepC.cs">IStepC.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepD.cs">IStepD.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepE.cs">IStepE.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IMain.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IModules.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPE.cs">ITYPE.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetail.cs">ITYPEDetail.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMain.cs">ITYPEMain.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigation.cs">ITYPENavigation.cs</ProjectItem>
-            
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEDetailMV.cs">ITYPEDetailMV.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPEMainMV.cs">ITYPEMainMV.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ITYPENavigationMV.cs">ITYPENavigationMV.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IRibbon.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IStatusBar.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproaches.cs">IUILaunchApproaches.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCD.cs">IViewABCD.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscovery.cs">IViewDiscovery.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjection.cs">IViewInjection.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPE.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEDetail.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEMain.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPENavigation.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEDetailMV.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPEMainMV.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ITYPENavigationMV.cs</ProjectItem>
 
-          <Folder Name="Shells" TargetFolderName="Shells">
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+          <Folder Name="Shells">
+
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
       </Folder>
 
-      <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationCommands.cs">ApplicationCommands.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalCommands.cs">GlobalCommands.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="RegionNames.cs">RegionNames.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">ApplicationCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">GlobalCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">RegionNames.cs</ProjectItem>
 
-      <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+      <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
     </Project>
 

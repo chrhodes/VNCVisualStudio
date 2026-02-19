@@ -15,38 +15,39 @@
         <PlatformTag>Windows</PlatformTag>
         <ProjectTypeTag>VNCPT</ProjectTypeTag>
     </TemplateData>
+    
     <TemplateContent>
-        <Project TargetFileName="VNC_Console_Explore.csproj" File="VNC_Console_Explore.csproj" ReplaceParameters="true">
+        <Project File="VNC_Console_Explore.csproj" ReplaceParameters="true">
 
-            <Folder Name="MenuPages" TargetFolderName="MenuPages">
+            <Folder Name="MenuPages">
                 <ProjectItem ReplaceParameters="true" TargetFileName="Concept1Menu.cs">Concept1Menu.cs</ProjectItem>
                 <ProjectItem ReplaceParameters="true" TargetFileName="Concept2Menu.cs">Concept2Menu.cs</ProjectItem>
                 <ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.cs">MainMenu.cs</ProjectItem>
             </Folder>
             
-            <Folder Name="Pages" TargetFolderName="Pages">
-                <Folder Name="Concept1" TargetFolderName="Concept1">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1A.cs">Page1A.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1Ai.cs">Page1Ai.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1B.cs">Page1B.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1Bi.cs">Page1Bi.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1BiA.cs">Page1BiA.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1Bii.cs">Page1Bii.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page1Biii.cs">Page1Biii.cs</ProjectItem>
+            <Folder Name="Pages">
+                <Folder Name="Concept1">
+                    <ProjectItem ReplaceParameters="true">Page1A.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1Ai.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1B.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1Bi.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1BiA.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1Bii.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page1Biii.cs</ProjectItem>
                 </Folder>
                 
-                <Folder Name="Concept2" TargetFolderName="Concept2">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page2A.cs">Page2A.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page2Ai.cs">Page2Ai.cs</ProjectItem>
-                    <ProjectItem ReplaceParameters="true" TargetFileName="Page2B.cs">Page2B.cs</ProjectItem>
+                <Folder Name="Concept2">
+                    <ProjectItem ReplaceParameters="true">Page2A.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page2Ai.cs</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">Page2B.cs</ProjectItem>
                 </Folder>
                 
-                <ProjectItem ReplaceParameters="true" TargetFileName="InputPage.cs">InputPage.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true">InputPage.cs</ProjectItem>
             </Folder>
             
-            <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="MenuLoader.cs">MenuLoader.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="ProgramMenu.cs">ProgramMenu.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">App.config</ProjectItem>
+            <ProjectItem ReplaceParameters="true">MenuLoader.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">ProgramMenu.cs</ProjectItem>
         </Project>
     </TemplateContent>
 </VSTemplate>

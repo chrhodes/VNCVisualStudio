@@ -31,7 +31,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // Can create directly
 
             // ViewModel = $xxxTYPExxx$ViewModel();
-            
+
             // ViewModel = new $xxxTYPExxx$ViewModel(
                 // Common.EventAggregator,
                 // (DialogService)Common.Container.Resolve(typeof(DialogService)));
@@ -68,10 +68,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // Store information about the View, DataContext, and ViewModel 
+            // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
             // Set the DataConext to us.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
             ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
             ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
@@ -79,10 +79,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // TODO(crhodes)
             // Put things here that initialize the View
-            // Hook eventhandlers, etc.
-            
+            // Hook event handlers, etc.
 
-            // Establish any additional DataContext(s) to things held in this View  
+
+            // Establish any additional DataContext(s) to things held in this View
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -136,7 +136,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
-        
 
         #region IInstanceCountV
 
@@ -156,6 +155,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             set => _instanceCountVP = value;
         }
 
-        #endregion        
+        #endregion
     }
 }

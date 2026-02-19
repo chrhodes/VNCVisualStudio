@@ -22,13 +22,13 @@
 
     <Project File="APPLICATION.Domain.TYPE.csproj" ReplaceParameters="true">
 
-      <Folder Name="Diagrams" TargetFolderName="Diagrams">
+      <Folder Name="Diagrams">
         <ProjectItem ReplaceParameters="true">APPLICATION.Domain.cd</ProjectItem>
 
         <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
       </Folder>
 
-        <Folder Name="Lookups" TargetFolderName="Lookups">
+        <Folder Name="Lookups">
             <ProjectItem ReplaceParameters="true">LookupTYPE.cs</ProjectItem>
 
             <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>

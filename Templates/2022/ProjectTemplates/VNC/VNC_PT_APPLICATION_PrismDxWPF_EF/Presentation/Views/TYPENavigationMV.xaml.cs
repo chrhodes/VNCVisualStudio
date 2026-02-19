@@ -79,7 +79,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // TODO(crhodes)
             // Put things here that initialize the View
-            // Hook eventhandlers, etc.
+            // Hook event handlers, etc.
 
 
             // Establish any additional DataContext(s) to things held in this View
@@ -136,7 +136,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
-        
 
         #region IInstanceCountV
 
@@ -156,6 +155,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             set => _instanceCountVP = value;
         }
 
-        #endregion        
+        #endregion
     }
 }

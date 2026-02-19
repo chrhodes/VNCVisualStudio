@@ -18,40 +18,40 @@
     
     <TemplateContent>
 
-        <Project TargetFileName="APPLICATION.Application.csproj" File="APPLICATION.Application.csproj" ReplaceParameters="true">
+        <Project File="APPLICATION.Application.csproj" ReplaceParameters="true">
         
-            <Folder Name="TYPEs" TargetFolderName="TYPEs">
-                <Folder Name="Commands" TargetFolderName="Commands">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <Folder Name="TYPEs">
+                <Folder Name="Commands">
+                    <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
-                <Folder Name="Queries" TargetFolderName="Queries">
-                    <Folder Name="GetTYPEList" TargetFolderName="GetTYPEList">
-                        <ProjectItem ReplaceParameters="true" TargetFileName="TYPEModel.cs">TYPEModel.cs</ProjectItem>
-                        <ProjectItem ReplaceParameters="true" TargetFileName="GetTYPEsListQuery.cs">GetTYPEsListQuery.cs</ProjectItem>
-                        <ProjectItem ReplaceParameters="true" TargetFileName="IGetTYPEsListQuery.cs">IGetTYPEsListQuery.cs</ProjectItem>
+                <Folder Name="Queries">
+                    <Folder Name="GetTYPEList">
+                        <ProjectItem ReplaceParameters="true">TYPEModel.cs</ProjectItem>
+                        <ProjectItem ReplaceParameters="true">GetTYPEsListQuery.cs</ProjectItem>
+                        <ProjectItem ReplaceParameters="true">IGetTYPEsListQuery.cs</ProjectItem>
                         
-                        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+                        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
                     </Folder>
           
-                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+                    <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
                 </Folder>
             </Folder>
             
-            <Folder Name="Lookups" TargetFolderName="Lookups">
+            <Folder Name="Lookups">
             
-                <Folder Name="Commands" TargetFolderName="Commands">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+                <Folder Name="Commands">
+                    <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
-                <Folder Name="Queries" TargetFolderName="Queries">
-                    <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+                <Folder Name="Queries">
+                    <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
                 </Folder>
                 
-                <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+                <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
             </Folder>
             
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
         </Project>
         
     </TemplateContent>

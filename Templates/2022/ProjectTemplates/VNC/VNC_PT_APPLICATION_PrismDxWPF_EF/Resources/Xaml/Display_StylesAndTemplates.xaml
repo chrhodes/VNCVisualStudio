@@ -36,12 +36,7 @@
     <SolidColorBrush x:Key="FileInfoText" Color="Green" />
     <SolidColorBrush x:Key="AssemblyInfoText" Color="Blue" />
 
-    <SolidColorBrush x:Key="ViewABackground" Color="#FFC0C0" />
-    <SolidColorBrush x:Key="ViewBBackground" Color="#C0FFC0" />
-    <SolidColorBrush x:Key="ViewCBackground" Color="#C0C0FF" />
-    <SolidColorBrush x:Key="ViewDBackground" Color="#D0D0FF" />
-
-    <SolidColorBrush x:Key="ViewABCDBackground" Color="#C0C0C0" />
+    <SolidColorBrush x:Key="ModulesBackground" Color="#40B0F0" />
 
     <SolidColorBrush x:Key="UILaunchApproachesBackground" Color="#C0C0C0" />
 
@@ -57,7 +52,7 @@
     <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
 
-    <!-- <!-- These are used by $xxxAPPLICATIONxxx$ -->
+    <!-- These are used by $xxxAPPLICATIONxxx$ EF-->
     <!-- And can be removed if not used. -->
 
      <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> 
@@ -89,6 +84,18 @@
         <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
 
+    <Style x:Key="TrackBarEditStyle" TargetType="dxe:TrackBarEdit">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="ThumbStyle" TargetType="Thumb">
+        <Setter Property="Width" Value="18"/>
+        <Setter Property="Height" Value="18"/>
+        <!--<Setter Property="Foreground" Value="Red" />-->
+        <Setter Property="Background" Value="Red" />
+    </Style>
+    
     <Style TargetType="TextBox">
         <Setter Property="Validation.ErrorTemplate">
             <Setter.Value>

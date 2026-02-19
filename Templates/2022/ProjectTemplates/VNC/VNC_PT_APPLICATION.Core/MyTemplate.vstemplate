@@ -20,107 +20,88 @@
 
   <TemplateContent>
 
-    <Project TargetFileName="APPLICATION.Core.csproj" File="APPLICATION.Core.csproj" ReplaceParameters="true">
+    <Project File="APPLICATION.Core.csproj" ReplaceParameters="true">
 
-      <Folder Name="Application" TargetFolderName="Application">
+      <Folder Name="Application">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
-
-      </Folder>
-
-      <Folder Name="ApplicationServices" TargetFolderName="ApplicationServices">
-
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="DomainServices" TargetFolderName="DomainServices">
+      <Folder Name="ApplicationServices">
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
-
-      </Folder>
-
-      <Folder Name="Events" TargetFolderName="Events">
-
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="Persistence" TargetFolderName="Persistence">
+      <Folder Name="DomainServices">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-      <Folder Name="Presentation" TargetFolderName="Presentation">
+      <Folder Name="Events">
 
-        <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAboutViewModel.cs">IAboutViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAppVersionInfoViewModel.cs">IAppVersionInfoViewModel.cs</ProjectItem>
+      </Folder>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMainViewModel.cs">IMainViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcessViewModel.cs">IMultiStepProcessViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigationViewModel.cs">IRegionNavigationViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbonViewModel.cs">IRibbonViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBarViewModel.cs">IStatusBarViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepABCDEViewModel.cs">IStepABCDEViewModel.cs</ProjectItem>
+      <Folder Name="Persistence">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproachesViewModel.cs">IUILaunchApproachesViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscoveryViewModel.cs">IViewDiscoveryViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjectionViewModel.cs">IViewInjectionViewModel.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCDViewModel.cs">IViewABCDViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+      </Folder>
 
-          <Folder Name="Shells" TargetFolderName="Shells">
+      <Folder Name="Presentation">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <Folder Name="ViewModels">
+
+            <ProjectItem ReplaceParameters="true">IAboutViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IAppVersionInfoViewModel.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true">IMainViewModel.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true">IRibbonViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IStatusBarViewModel.cs</ProjectItem>
+
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+          <Folder Name="Shells">
+
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
         </Folder>
 
-        <Folder Name="Views" TargetFolderName="Views">
+        <Folder Name="Views">
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IAbout.cs">IAbout.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IAbout.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMain.cs">IMain.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IMultiStepProcess.cs">IMultiStepProcess.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRegionNavigation.cs">IRegionNavigation.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IRibbon.cs">IRibbon.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStatusBar.cs">IStatusBar.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepA.cs">IStepA.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepB.cs">IStepB.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepC.cs">IStepC.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepD.cs">IStepD.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IStepE.cs">IStepE.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IMain.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IRibbon.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">IStatusBar.cs</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="IUILaunchApproaches.cs">IUILaunchApproaches.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewABCD.cs">IViewABCD.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewDiscovery.cs">IViewDiscovery.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="IViewInjection.cs">IViewInjection.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+          <Folder Name="Shells">
 
-          <Folder Name="Shells" TargetFolderName="Shells">
-
-            <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
           </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
       </Folder>
 
-        <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
       </Folder>
 
-      <ProjectItem ReplaceParameters="true" TargetFileName="ApplicationCommands.cs">ApplicationCommands.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalCommands.cs">GlobalCommands.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="RegionNames.cs">RegionNames.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">ApplicationCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">GlobalCommands.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">RegionNames.cs</ProjectItem>
 
-      <ProjectItem ReplaceParameters="true" TargetFileName="_ReadMe.txt">_ReadMe.txt</ProjectItem>
+      <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
 
     </Project>
 

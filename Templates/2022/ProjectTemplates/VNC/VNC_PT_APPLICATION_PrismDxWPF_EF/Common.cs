@@ -16,17 +16,28 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
         public const string cCONFIG_FILE = @"C:\temp\$xxxAPPLICATIONxxx$_Config.xml";
         
         // NOTE(crhodes)
-        // Add new VNC.Core.Information InformationXXX
-        // for other Assemblies that should provide Info
-        // Initialize in App.xaml.cs GetAndSetInformation()
+        // Add new VNC.Core.Information? InformationXXX
+        // for other Assemblies that are used as part of the application.
+        //
+        // Initialize GetAndSetInformation() in AddInApplication.cs 
         //
         // Extend Views\AppVersionInfo.xaml as needed
+        //  Update InitializeViewModel()
+        
+        public static VNC.Core.Information? Information$xxxAPPLICATIONxxx$;
+        public static VNC.Core.Information? Information$xxxAPPLICATIONxxx$Core;
+        
+        public static VNC.Core.Information? Information$xxxAPPLICATIONxxx$Domain$xxxTYPExxx$;
 
-        // public static VNC.Core.Information? InformationXXX;
+        public static VNC.Core.Information? InformationVNCUIApproaches;
+
+        public static VNC.Core.Information? InformationVNCWpfPresentation;
+        public static VNC.Core.Information? InformationVNCWpfPresentationDx;        
 
         // HACK(crhodes)
         // Decide if want to keep this.
         // Put here to try to get in View and ViewModel can ask for in constructor
+        // These are set in App.xaml.cs
 
         public static IContainerProvider Container;
         public static IEventAggregator EventAggregator;
@@ -53,6 +64,5 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
                 }
             }
         }
-
     }
 }

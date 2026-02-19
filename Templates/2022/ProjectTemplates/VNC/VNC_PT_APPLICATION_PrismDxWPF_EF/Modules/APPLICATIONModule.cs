@@ -97,27 +97,27 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             containerRegistry.RegisterSingleton<I$xxxITEMxxx$LookupDataService, $xxxITEMxxx$LookupDataService>();
 #endif
 
-            // NOTE(crhodes)
-            // Can register a type
+            // // NOTE(crhodes)
+            // // Can register a type
 
-            containerRegistry.Register<ViewA>();
-            containerRegistry.Register<ViewB>();
-            containerRegistry.Register<ViewC>();
-            containerRegistry.Register<ViewD>();
+            // containerRegistry.Register<ViewA>();
+            // containerRegistry.Register<ViewB>();
+            // containerRegistry.Register<ViewC>();
+            // containerRegistry.Register<ViewD>();
 
-            // NOTE(crhodes)
-            // Can register a type against an Interface.
-            // See OnInitialized, infra
+            // // NOTE(crhodes)
+            // // Can register a type against an Interface.
+            // // See OnInitialized, infra
 
-            containerRegistry.Register<IViewABCD, ViewABCD>();
+            // containerRegistry.Register<IViewABCD, ViewABCD>();
 
-            // NOTE(crhodes)
-            // If do not register as Singleton, get a ViewABCDViewModel for each View above
-            containerRegistry.RegisterSingleton<IViewABCDViewModel, ViewABCDViewModel>();
-            //containerRegistry.Register<IViewABCDViewModel, ViewABCDViewModel>();
+            // // NOTE(crhodes)
+            // // If do not register as Singleton, get a ViewABCDViewModel for each View above
+            // containerRegistry.RegisterSingleton<IViewABCDViewModel, ViewABCDViewModel>();
+            // //containerRegistry.Register<IViewABCDViewModel, ViewABCDViewModel>();
 
-            containerRegistry.Register<IUILaunchApproachesViewModel, UILaunchApproachesViewModel>();
-            containerRegistry.Register<UILaunchApproaches>();
+            // containerRegistry.Register<IUILaunchApproachesViewModel, UILaunchApproachesViewModel>();
+            // containerRegistry.Register<UILaunchApproaches>();
 
             // NOTE(crhodes)
             // Observations on wiring Views and ViewModels
@@ -187,9 +187,9 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             // But, if register ViewDiscoveryAndInjectionViewModel
             // against an Interface
 
-            containerRegistry.Register<IViewDiscoveryViewModel, ViewDiscoveryViewModel>();
-            containerRegistry.Register<IViewInjectionViewModel, ViewInjectionViewModel>();
-            containerRegistry.Register<IRegionNavigationViewModel, RegionNavigationViewModel>();
+            // containerRegistry.Register<IViewDiscoveryViewModel, ViewDiscoveryViewModel>();
+            // containerRegistry.Register<IViewInjectionViewModel, ViewInjectionViewModel>();
+            // containerRegistry.Register<IRegionNavigationViewModel, RegionNavigationViewModel>();
 
             // ViewDiscoveryAndInjection(IViewDiscoveryAndInjectionViewModel viewModel) gets called
             // and View is wired to ViewModel
@@ -202,39 +202,42 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             //containerRegistry.Register<IProgrammingLanguageLookupDataService, LookupDataService>();
             //containerRegistry.Register<IMeetingLookupDataService, LookupDataService>();
 
-            // These are for RegionNavigation
+            // // These are for RegionNavigation
 
-            containerRegistry.RegisterForNavigation(typeof(UI1), "UI1");
-            // containerRegistry.RegisterForNavigation<UI2>();    // name defaults to UI2
-            containerRegistry.RegisterForNavigation<UI2>("UI2");
-            containerRegistry.RegisterForNavigation<UI3>("UI3");
+            // containerRegistry.RegisterForNavigation(typeof(UI1), "UI1");
+            // // containerRegistry.RegisterForNavigation<UI2>();    // name defaults to UI2
+            // containerRegistry.RegisterForNavigation<UI2>("UI2");
+            // containerRegistry.RegisterForNavigation<UI3>("UI3");
 
-            // NOTE(crhodes)
-            // Can also (optionally) register a ViewModel with View
+            // // NOTE(crhodes)
+            // // Can also (optionally) register a ViewModel with View
 
-            containerRegistry.RegisterForNavigation<UI4, UI4ViewModel>("UI4");
-            containerRegistry.RegisterForNavigation<UI5, UI5ViewModel>("UI5");
+            // containerRegistry.RegisterForNavigation<UI4, UI4ViewModel>("UI4");
+            // containerRegistry.RegisterForNavigation<UI5, UI5ViewModel>("UI5");
 
-            // Since these do not have a ViewModel and only a parameterless constructor()
-            // their datacontext is the parent control.  Probably don't want this
+            // // Since these do not have a ViewModel and only a parameterless constructor()
+            // // their DataContext is the parent control.  Probably don't want this
 
-            containerRegistry.RegisterForNavigation<UI1_Beta>("UI1beta");
-            containerRegistry.RegisterForNavigation<UI2_Beta>("UI2beta");
-            containerRegistry.RegisterForNavigation<UI3_Beta>("UI3beta");
+            // containerRegistry.RegisterForNavigation<UI1_Beta>("UI1beta");
+            // containerRegistry.RegisterForNavigation<UI2_Beta>("UI2beta");
+            // containerRegistry.RegisterForNavigation<UI3_Beta>("UI3beta");
 
-            // Can specify ViewModel to use
+            // // Can specify ViewModel to use
 
-            containerRegistry.RegisterForNavigation<UI4_Beta, UI4ViewModel>("UI4beta");
-            containerRegistry.RegisterForNavigation<UI5_Beta, UI5ViewModel>("UI5beta");
+            // containerRegistry.RegisterForNavigation<UI4_Beta, UI4ViewModel>("UI4beta");
+            // containerRegistry.RegisterForNavigation<UI5_Beta, UI5ViewModel>("UI5beta");
 
-            containerRegistry.Register<IMultiStepProcessViewModel, MultiStepProcessViewModel>();
-            containerRegistry.Register<IMultiStepProcess, MultiStepProcess>();
+            // containerRegistry.Register<IMultiStepProcessViewModel, MultiStepProcessViewModel>();
+            // containerRegistry.Register<IMultiStepProcess, MultiStepProcess>();
+            
+            containerRegistry.Register<IModulesViewModel, ModulesViewModel>();
+            containerRegistry.Register<IModules, Modules>();            
 
             // NOTE(crhodes)
             // If we don't register this, first step comes up but cannot navigate
             // Need to register against interface to get the parameterized constructor of StepX(viewModel) to be called
 
-            containerRegistry.RegisterSingleton<IStepABCDEViewModel, StepABCDEViewModel>();
+            // containerRegistry.RegisterSingleton<IStepABCDEViewModel, StepABCDEViewModel>();
             //containerRegistry.RegisterSingleton<StepABCDEViewModel>();
 
             ////containerRegistry.RegisterSingleton<ICatDetailMVViewModel, CatDetailMVViewModel>();
@@ -245,11 +248,11 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             // NOTE(crhodes)
             // Need to Register for Navigation so RequestNavigate works.
 
-            containerRegistry.RegisterForNavigation<StepA, StepABCDEViewModel>("uistepa");
-            containerRegistry.RegisterForNavigation<StepB, StepABCDEViewModel>("uistepb");
-            containerRegistry.RegisterForNavigation<StepC, StepABCDEViewModel>("uistepc");
-            containerRegistry.RegisterForNavigation<StepD, StepABCDEViewModel>("uistepd");
-            containerRegistry.RegisterForNavigation<StepE, StepABCDEViewModel>("uistepe");
+            // containerRegistry.RegisterForNavigation<StepA, StepABCDEViewModel>("uistepa");
+            // containerRegistry.RegisterForNavigation<StepB, StepABCDEViewModel>("uistepb");
+            // containerRegistry.RegisterForNavigation<StepC, StepABCDEViewModel>("uistepc");
+            // containerRegistry.RegisterForNavigation<StepD, StepABCDEViewModel>("uistepd");
+            // containerRegistry.RegisterForNavigation<StepE, StepABCDEViewModel>("uistepe");
 
             containerRegistry.RegisterForNavigation<$xxxTYPExxx$DetailMVA, $xxxTYPExxx$DetailMVViewModel>("uicatdetaila");
             containerRegistry.RegisterForNavigation<$xxxTYPExxx$DetailMVB, $xxxTYPExxx$DetailMVViewModel>("uicatdetailb");
@@ -272,7 +275,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             // NOTE(crhodes)
             // using typeof(TYPE) calls constructor
             // using typeof(ITYPE) resolves type (see RegisterTypes)
-            // but only wires viewmodel if IViewModel is used
+            // but only wires ViewModel if IViewModel is used
 
             // HACK(crhodes)
             // Save the current RegionManager so we can use it in other places that do not get passed it
@@ -300,29 +303,31 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$
             _regionManager.RegisterViewWithRegion(RegionNames.CombinedNavigationRegion, typeof(ICombinedNavigation));
 
 #endif
-            // This is for Main
+            // // This is for Main
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(ViewA));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, typeof(ViewA));
 
-            // Can register a type
+            // // Can register a type
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewARegion, typeof(ViewA));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewBRegion, typeof(ViewB));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewCRegion, typeof(ViewC));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDRegion, typeof(ViewD));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewARegion, typeof(ViewA));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewBRegion, typeof(ViewB));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewCRegion, typeof(ViewC));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewDRegion, typeof(ViewD));
 
-            // Can register an interface.  See registerTypes Infra
+            // // Can register an interface.  See registerTypes Infra
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewABCDRegion, typeof(IViewABCD));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewABCDRegion, typeof(IViewABCD));
+            
+            _regionManager.RegisterViewWithRegion(RegionNames.Modules, typeof(IModules));
 
-            _regionManager.RegisterViewWithRegion(RegionNames.UILaunchApproaches, typeof(UILaunchApproaches));
+            // _regionManager.RegisterViewWithRegion(RegionNames.UILaunchApproaches, typeof(UILaunchApproaches));
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewInjection, typeof(ViewInjection));
-            _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscovery, typeof(ViewDiscovery));
-            _regionManager.RegisterViewWithRegion(RegionNames.RegionNavigation, typeof(RegionNavigation));
-            _regionManager.RegisterViewWithRegion(RegionNames.MultiStepProcess, typeof(MultiStepProcess));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewInjection, typeof(ViewInjection));
+            // _regionManager.RegisterViewWithRegion(RegionNames.ViewDiscovery, typeof(ViewDiscovery));
+            // _regionManager.RegisterViewWithRegion(RegionNames.RegionNavigation, typeof(RegionNavigation));
+            // _regionManager.RegisterViewWithRegion(RegionNames.MultiStepProcess, typeof(MultiStepProcess));
 
-            //_regionManager.RegisterViewWithRegion(RegionNames.MultiStepProcessViewMV, typeof(CatDetailMVA));
+            // //_regionManager.RegisterViewWithRegion(RegionNames.MultiStepProcessViewMV, typeof(CatDetailMVA));
 
             //var ok = _regionManager.Regions.ContainsRegionWithName(RegionNames.MultiStepProcessViewMV);
 

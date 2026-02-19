@@ -131,7 +131,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-
         #region IInstanceCountV
 
         private static Int32 _instanceCountV;

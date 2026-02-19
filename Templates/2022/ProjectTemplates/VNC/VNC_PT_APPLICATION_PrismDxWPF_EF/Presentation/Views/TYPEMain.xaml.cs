@@ -29,10 +29,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             // Can create directly
 
             // ViewModel = new $xxxTYPExxx$MainViewModel();
-            
+
             // ViewModel = new $xxxTYPExxx$MainViewModel(
                 // Common.EventAggregator,
-                // (DialogService)Common.Container.Resolve(typeof(DialogService)));            
+                // (DialogService)Common.Container.Resolve(typeof(DialogService)));
 
             // Can use ourselves for everything
 
@@ -67,10 +67,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // Store information about the View, DataContext, and ViewModel 
+            // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
-            // Set the DataConext to us.
-            
+            // Set the DataContext to us.
+
             ViewType = this.GetType().ToString().Split('.').Last();
             ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
             ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
@@ -78,24 +78,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // TODO(crhodes)
             // Put things here that initialize the View
-            // Hook eventhandlers, etc.
-            
+            // Hook Event Handlers, etc.
 
-            // Establish any additional DataContext(s) to things held in this View  
-            
+            // HACK(crhodes)
+            // Shouldn't this be done in ViewModel?
+
             Loaded += UserControl_Loaded;
 
+            // Establish any additional DataContext(s) to things held in this View
+
+
               if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("($xxxTYPExxx$Main) Enter", Common.LOG_CATEGORY);
-
-            await ((ViewModels.I$xxxTYPExxx$MainViewModel)ViewModel).LoadAsync();
-
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$Main) Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -118,9 +111,17 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-        #region Event Handlers (none)
+        #region Event Handlers
 
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("($xxxTYPExxx$Main) Enter", Common.LOG_CATEGORY);
 
+            await ((ViewModels.I$xxxTYPExxx$MainViewModel)ViewModel).LoadAsync();
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("($xxxTYPExxx$Main) Exit", Common.LOG_CATEGORY, startTicks);
+        }
 
         #endregion
 
@@ -147,7 +148,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
-        
 
         #region IInstanceCountV
 
@@ -167,6 +167,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             set => _instanceCountVP = value;
         }
 
-        #endregion        
+        #endregion
     }
 }

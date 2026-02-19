@@ -76,43 +76,23 @@
 
                 <!-- Individual LayoutGroups go here (if you use tabs or groups)-->
 
-                <dxlc:LayoutGroup Header="ViewA">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewARegion}" />
-                </dxlc:LayoutGroup>
-
-                <dxlc:LayoutGroup Header="ViewB">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewBRegion}" />
-                </dxlc:LayoutGroup>
-
-                <dxlc:LayoutGroup Header="ViewC">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewCRegion}" />
-                </dxlc:LayoutGroup>
-
-                <dxlc:LayoutGroup Header="ViewD">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDRegion}" />
-                </dxlc:LayoutGroup>
-
-                <dxlc:LayoutGroup Header="ViewABCD">
-                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewABCDRegion}" />
-                </dxlc:LayoutGroup>
-
-                <dxlc:LayoutGroup Header="UILaunchApproaches">
+                <dxlc:LayoutGroup x:Name="lgUILaunchApproaches"  Header="UILaunchApproaches" Visibility="Hidden">
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
                 </dxlc:LayoutGroup>
 
-                <dxlc:LayoutGroup Header="View Discovery">
+                <dxlc:LayoutGroup x:Name="lgViewDiscovery" Header="View Discovery" Visibility="Hidden">
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscovery}" />
                 </dxlc:LayoutGroup>
 
-                <dxlc:LayoutGroup Header="View Injection">
+                <dxlc:LayoutGroup x:Name="lgViewInjection" Header="View Injection" Visibility="Hidden">
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjection}" />
                 </dxlc:LayoutGroup>
 
-                <dxlc:LayoutGroup Header="Region Navigation">
+                <dxlc:LayoutGroup x:Name="lgRegionNavigation" Header="Region Navigation" Visibility="Hidden">
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RegionNavigation}" />
                 </dxlc:LayoutGroup>
 
-                <dxlc:LayoutGroup Header="MultiStep Process">
+                <dxlc:LayoutGroup x:Name="lgMultiStepProcess" Header="MultiStep Process" Visibility="Hidden">
                     <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MultiStepProcess}" />
                 </dxlc:LayoutGroup>
 

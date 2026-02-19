@@ -16,18 +16,20 @@
 	<PlatformTag>Windows</PlatformTag>
 	<ProjectTypeTag>VNC</ProjectTypeTag>	
   </TemplateData>
+  
   <TemplateContent>
-    <Project TargetFileName="APPLICATION.Persistence.LookupData.csproj" File="APPLICATION.Persistence.LookupData.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
-      <Folder Name="Migrations" TargetFolderName="Migrations">
-        <ProjectItem ReplaceParameters="true" TargetFileName="Configuration.cs">Configuration.cs</ProjectItem>
+    <Project File="APPLICATION.Persistence.LookupData.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true">App.config</ProjectItem>
+      <Folder Name="Migrations">
+        <ProjectItem ReplaceParameters="true">Configuration.cs</ProjectItem>
       </Folder>
-      <Folder Name="Properties" TargetFolderName="Properties">
-        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <Folder Name="Properties">
+        <ProjectItem ReplaceParameters="true">AssemblyInfo.cs</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="APPLICATIONLookupsDbContext.cs">APPLICATIONLookupsDbContext.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">APPLICATIONLookupsDbContext.cs</ProjectItem>
     </Project>
   </TemplateContent>
+  
   <WizardExtension>
     <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
     <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>

@@ -135,9 +135,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
         #endregion
 
-
         #region Stuff from Code Behind.  Move to ViewModel
-
 
         #region Initialization
 
@@ -737,8 +735,7 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
         }
 
         #endregion
-        
-        
+
         #region IInstanceCountV
 
         private static Int32 _instanceCountV;

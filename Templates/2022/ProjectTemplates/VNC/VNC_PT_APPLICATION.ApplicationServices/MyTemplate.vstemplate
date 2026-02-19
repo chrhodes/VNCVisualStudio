@@ -16,10 +16,12 @@
     <PlatformTag>Windows</PlatformTag>
     <ProjectTypeTag>VNCPT</ProjectTypeTag>
   </TemplateData>
+  
   <TemplateContent>
-    <Project TargetFileName="APPLICATION.ApplicationServices.csproj" File="APPLICATION.ApplicationServices.csproj" ReplaceParameters="true">
+    <Project File="APPLICATION.ApplicationServices.csproj" ReplaceParameters="true">
     </Project>
   </TemplateContent>
+  
   <WizardExtension>
     <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
     <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>

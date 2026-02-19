@@ -91,10 +91,11 @@
 
             <dxlc:LayoutGroup Name="lg_Body" VerticalAlignment="Stretch">
                 <!-- Use this if you want a LayoutManager -->
-                <dxdo:DockLayoutManager
+                <dxdo:DockLayoutManager x:Name="dlmControl"
                     dx:StyleManager.ApplyApplicationTheme="True"
                     FontSize="12"
-                    Name="lg_Body_dlm">
+                    FloatingMode="Desktop"
+                    AutoHideExpandMode="MouseDown">
 
                     <dxdo:LayoutGroup Name="lg_Body_dlm_lg">
 
@@ -140,49 +141,33 @@
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.$xxxTYPExxx$MainRegionMV}" />
                                     </dxlc:LayoutGroup>
 
+                                    <dxlc:LayoutGroup Header="Modules">
+                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.Modules}" />
+                                    </dxlc:LayoutGroup>
+
                                     <!-- Add more groups here for each different TYPE in the navigation -->
 
                                     <!-- <dxlc:LayoutGroup Header="$xxxTYPExxx$" > -->
                                         <!-- <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.$xxxTYPExxx$MainRegion}" /> -->
                                     <!-- </dxlc:LayoutGroup> -->
 
-                                    <dxlc:LayoutGroup Header="ViewA">
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewARegion}" />
-                                    </dxlc:LayoutGroup>
-
-                                    <dxlc:LayoutGroup Header="ViewB">
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewBRegion}" />
-                                    </dxlc:LayoutGroup>
-
-                                    <dxlc:LayoutGroup Header="ViewC">
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewCRegion}" />
-                                    </dxlc:LayoutGroup>
-
-                                    <dxlc:LayoutGroup Header="ViewD">
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDRegion}" />
-                                    </dxlc:LayoutGroup>
-
-                                    <dxlc:LayoutGroup Header="ViewABCD">
-                                        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewABCDRegion}" />
-                                    </dxlc:LayoutGroup>
-
-                                    <dxlc:LayoutGroup Header="UILaunchApproaches">
+                                    <dxlc:LayoutGroup x:Name="lgUILaunchApproaches"  Header="UILaunchApproaches" Visibility="Hidden">
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.UILaunchApproaches}" />
                                     </dxlc:LayoutGroup>
 
-                                    <dxlc:LayoutGroup Header="View Discovery">
+                                    <dxlc:LayoutGroup x:Name="lgViewDiscovery" Header="View Discovery" Visibility="Hidden">
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewDiscovery}" />
                                     </dxlc:LayoutGroup>
 
-                                    <dxlc:LayoutGroup Header="View Injection">
+                                    <dxlc:LayoutGroup x:Name="lgViewInjection" Header="View Injection" Visibility="Hidden">
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ViewInjection}" />
                                     </dxlc:LayoutGroup>
 
-                                    <dxlc:LayoutGroup Header="Region Navigation">
+                                    <dxlc:LayoutGroup x:Name="lgRegionNavigation" Header="Region Navigation" Visibility="Hidden">
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.RegionNavigation}" />
                                     </dxlc:LayoutGroup>
 
-                                    <dxlc:LayoutGroup Header="MultiStep Process">
+                                    <dxlc:LayoutGroup x:Name="lgMultiStepProcess" Header="MultiStep Process" Visibility="Hidden">
                                         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MultiStepProcess}" />
                                     </dxlc:LayoutGroup>
 

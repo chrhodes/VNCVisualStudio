@@ -160,6 +160,10 @@ namespace $xxxAPPLICATIONxxx$
 #if VNCTYPES
             moduleCatalog.AddModule(typeof($xxxTYPExxx$Module));
 #endif
+            moduleCatalog.AddModule<VNC.UIApproaches.UIApproachesModule>(InitializationMode.OnDemand);
+
+            VNC.UIApproaches.Common.Container = Container;
+
             moduleCatalog.AddModule(typeof($xxxAPPLICATIONxxx$Module));
 
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
@@ -214,10 +218,12 @@ namespace $xxxAPPLICATIONxxx$
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             // TODO(crhodes)
-            // Figure out how early we can save Container
-            // Put it in Common so everyone from everywhere can access
+            // Figure out how early we can save Container and EventAggregator
+            // Put them in Common so everyone from everywhere can access
+            // Seems like this can go earlier
 
             Common.Container = Container;
+            Common.EventAggregator = Container.Resolve<Prism.Events.IEventAggregator>();
 
             Shell shell = Container.Resolve<Shell>();
 
@@ -312,18 +318,107 @@ namespace $xxxAPPLICATIONxxx$
 
             Common.SetVersionInfoVNCCore();
 
-            var appFileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
-
             // Get Information about ourselves
 
-            Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
-            
+            var $xxxAPPLICATIONxxx$Assembly = Assembly.GetExecutingAssembly();
+
+            if ($xxxAPPLICATIONxxx$Assembly != null)
+            {
+                var $xxxAPPLICATIONxxx$AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo($xxxAPPLICATIONxxx$Assembly.Location);
+
+                Common.Information$xxxAPPLICATIONxxx$ = Common.GetInformation(
+                    $xxxAPPLICATIONxxx$Assembly,
+                    $xxxAPPLICATIONxxx$AssemblyFileVersionInfo);
+            }
+
+            var $xxxAPPLICATIONxxx$CoreAssembly = Assembly.GetAssembly(typeof($xxxAPPLICATIONxxx$.Core.RegionNames));
+
+            if ($xxxAPPLICATIONxxx$CoreAssembly is not null)
+            {
+                var $xxxAPPLICATIONxxx$CoreAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo($xxxAPPLICATIONxxx$CoreAssembly.Location);
+
+                Common.Information$xxxAPPLICATIONxxx$Core = Common.GetInformation(
+                    $xxxAPPLICATIONxxx$CoreAssembly,
+                    $xxxAPPLICATIONxxx$CoreAssemblyFileVersionInfo);
+            }       
+
+            // Add Information about the other assemblies in our application
+
             // TODO(crhodes)
-            // Add new VNC.Core.Information InformationXXX
+            // Gather VNC.Core.Information InformationXXX
             // for other Assemblies that should provide Info 
-            // in $xxxAPPLICATIONxxx$.Common
+            // listed in $xxxAPPLICATIONxxx$Application.Common
+            //
+            // Use GAI
             // 
             // Extend Views\AppVersionInfo.xaml as needed
+            // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
+            
+            //
+            // PAEF6.Domain.Cat
+            //
+
+            var $xxxAPPLICATIONxxx$DomainCatAssembly = Assembly.GetAssembly(typeof($xxxAPPLICATIONxxx$.Domain.Cat));
+
+            if ($xxxAPPLICATIONxxx$DomainCatAssembly is not null)
+            {
+                var $xxxAPPLICATIONxxx$DomainCatAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo($xxxAPPLICATIONxxx$DomainCatAssembly.Location);
+
+                Common.Information$xxxAPPLICATIONxxx$DomainCat = Common.GetInformation(
+                    $xxxAPPLICATIONxxx$DomainCatAssembly,
+                    $xxxAPPLICATIONxxx$DomainCatAssemblyFileVersionInfo);
+            }
+            
+            //
+            // VNC.Wpf.Presentation
+            //
+            
+            var VNCWpfPresentationAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Common));
+
+            if (VNCWpfPresentationAssembly is not null)
+            {
+                var VNCWpfPresentationAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCWpfPresentationAssembly.Location);
+
+                Common.InformationVNCWpfPresentation = Common.GetInformation(
+                    VNCWpfPresentationAssembly,
+                    VNCWpfPresentationAssemblyFileVersionInfo);
+            }
+
+            //
+            // VNC.Wpf.Presentation.Dx
+            //
+            
+            var VNCWpfPresentationDxAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Dx.Common));
+
+            if (VNCWpfPresentationDxAssembly is not null)
+            {
+                var VNCWpfPresentationDxAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCWpfPresentationDxAssembly.Location);
+
+                Common.InformationVNCWpfPresentationDx = Common.GetInformation(
+                    VNCWpfPresentationDxAssembly,
+                    VNCWpfPresentationDxAssemblyFileVersionInfo);
+            }            
+            
+            //
+            // VNC.UIApproaches
+            //
+            
+            var VNCUIApproachesAssembly = Assembly.GetAssembly(typeof(VNC.UIApproaches.Common));
+
+            if (VNCUIApproachesAssembly is not null)
+            {
+                var VNCUIApproachesAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCUIApproachesAssembly.Location);
+
+                Common.InformationVNCUIApproaches = Common.GetInformation(
+                    VNCUIApproachesAssembly,
+                    VNCUIApproachesAssemblyFileVersionInfo);
+            }                  
 
             if (Common.VNCLogging.ApplicationInitialize)Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -414,16 +509,19 @@ namespace $xxxAPPLICATIONxxx$
         #endregion
 
         #region Public Methods (none)
+        
 
 
         #endregion
 
         #region Protected Methods (none)
+        
 
 
         #endregion
 
         #region Private Methods (none)
+        
 
 
         #endregion

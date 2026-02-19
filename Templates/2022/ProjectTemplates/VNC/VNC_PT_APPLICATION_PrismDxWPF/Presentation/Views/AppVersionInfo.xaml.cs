@@ -64,10 +64,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             Int64 startTicks = 0;
             if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
-            // Store information about the View, DataContext, and ViewModel 
+            // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
             // Set the DataConext to us.
-            
+
             ViewType = this.GetType().ToString().Split('.').Last();
             ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
             ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
@@ -75,10 +75,10 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // TODO(crhodes)
             // Put things here that initialize the View
-            // Hook eventhandlers, etc.
-            
+            // Hook event handlers, etc.
 
-            // Establish any additional DataContext(s) to things held in this View  
+
+            // Establish any additional DataContext(s) to things held in this View
 
             // This gives us access to the ViewModelBase
             // which contains the Assembly and Runtime Information we need
@@ -88,8 +88,26 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
             // TODO(crhodes)
             // Maybe give a name to the control that contains everything.
-            
+
             DataContext = Common.CurrentShell.ViewModel;
+
+            //TODO(crhodes)
+            // Add additional Information InformationXXX for other assemblies
+
+            lblRunTimeVersion.DataContext = Common.InformationApplication;
+
+            sp$xxxAPPLICATIONxxx$.DataContext = Common.Information$xxxAPPLICATIONxxx$;
+
+            sp$xxxAPPLICATIONxxx$Core.DataContext = Common.Information$xxxAPPLICATIONxxx$Core;
+
+            sp$xxxAPPLICATIONxxx$DomainCat.DataContext = Common.Information$xxxAPPLICATIONxxx$DomainCat;
+
+            spVNCUIApproaches.DataContext = Common.InformationVNCUIApproaches;
+
+            spVNCWpfPresentation.DataContext = Common.InformationVNCWpfPresentation;
+            spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
+
+            spVNCCore.DataContext = Common.InformationVNCCore;
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -143,7 +161,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
 
 
         #endregion
-        
 
         #region IInstanceCountV
 
@@ -163,6 +180,6 @@ namespace $xxxAPPLICATIONxxx$$xxxNAMESPACExxx$.Presentation.Views
             set => _instanceCountVP = value;
         }
 
-        #endregion        
+        #endregion
     }
 }
