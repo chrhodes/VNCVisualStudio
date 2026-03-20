@@ -14,7 +14,7 @@
 
 $AB = "A"
 
-$templateFolder = "V:\Dropbox\Visual Studio\2022\Templates"
+$templateFolder = "B:\Visual Studio\2022\Templates"
 
 # templateMaster and templateCoreMaster are the most complete projects
 # with the complete set of files.
@@ -50,6 +50,7 @@ $targetProjectTemplateFolders = @(
     , "VNC_PT_APPLICATION.DomainServices"
     , "VNC_PT_MODULE"
     , "VNC_PT_MODULE_EF"
+    , "VNC_PT_MODULE_BLANK"    
 )
 
 # targetCoreTemplateFolders contain projects 
@@ -57,6 +58,9 @@ $targetProjectTemplateFolders = @(
 
 $targetCoreTemplateFolders = @(
     "VNC_PT_APPLICATION.Core"
+    , "VNC_PT_APPLICATION_PrismDxWPF_Simple"    
+    , "VNC_PT_MODULE"
+    , "VNC_PT_MODULE_EF"
 )
 
 $targetItemTemplateFolders = @(
@@ -66,6 +70,13 @@ $targetItemTemplateFolders = @(
     , "VNC_IT_MODULE_MVVM_V_VM" # How is this different. Do we really need
     , "VNC_IT_EmbeddedWPFControl"
 )
+
+# These files need to be manually processed 
+#as they vary by VNC template.
+# This list should match the list of commented out files 
+# in the $commonProjectFiles infra
+
+# NB. Might be able to use PA, PAEF, PA_S to fix APPLICATION.csproj
 
 $manualProcesingRequired = @(
     #Files
@@ -83,11 +94,13 @@ $masterCoreFileUpdated = $false
 
 # Any file that is commented out varies by template.
 # It is left here to ensure we have thought about all files
+# The commented out files should match what is in
+# $manualProcessingRequired, supra
 
 $commonProjectFiles = @(
     # Files
     "_ReadMe.txt"
-    # "App.Config.cs"
+    # "App.Config"
     , "App.Xaml"
     , "App.Xaml.cs"
     # , "APPLICATION.csproj"
@@ -135,23 +148,12 @@ $commonProjectFiles = @(
     , "Presentation\ViewModels\MainDxDockLayoutManagerViewModel.cs"
     , "Presentation\ViewModels\MainDxLayoutControlViewModel.cs"
     , "Presentation\ViewModels\MainViewModel.cs"
-    , "Presentation\ViewModels\MultiStepProcessViewModel.cs"
-    , "Presentation\ViewModels\RegionNavigationViewModel.cs"
+    , "Presentation\ViewModels\ModulesViewModel.cs"
     , "Presentation\ViewModels\RibbonSimpleViewModel.cs"    
     , "Presentation\ViewModels\RibbonViewModel.cs"
     , "Presentation\ViewModels\StatusBarViewModel.cs"
-    , "Presentation\ViewModels\StepABCDEViewModel.cs"
-    , "Presentation\ViewModels\UILaunchApproachesViewModel.cs"
-    , "Presentation\ViewModels\ViewABCDViewModel.cs"
-    , "Presentation\ViewModels\ViewAViewModel.cs"
-    , "Presentation\ViewModels\ViewBViewModel.cs"
-    , "Presentation\ViewModels\ViewCViewModel.cs"
-    , "Presentation\ViewModels\ViewDiscoveryViewModel.cs"    
-    , "Presentation\ViewModels\ViewDViewModel.cs"
-    , "Presentation\ViewModels\ViewInjectionViewModel.cs"
     # Presentation\ViewModels\Shells
     , "Presentation\ViewModels\Shells\_ReadMe.txt"    
-    # , "Presentation\ViewModels\Shells\RibbonShellViewModel.cs"
     , "Presentation\ViewModels\Shells\ShellViewModel.cs"
     # Presentation\Views
     , "Presentation\Views\_ReadMe.txt"    
@@ -169,46 +171,17 @@ $commonProjectFiles = @(
     , "Presentation\Views\MainDxDockLayoutManager.xaml.cs"
     # , "Presentation\Views\MainDxLayoutControl.xaml"
     , "Presentation\Views\MainDxLayoutControl.xaml.cs"
-    , "Presentation\Views\MultiStepProcess.xaml"
-    , "Presentation\Views\MultiStepProcess.xaml.cs"
-    , "Presentation\Views\RegionNavigation.xaml"
-    , "Presentation\Views\RegionNavigation.xaml.cs"
+    , "Presentation\Views\Modules.xaml"
+    , "Presentation\Views\Modules.xaml.cs"    
     , "Presentation\Views\Ribbon.xaml"
     , "Presentation\Views\Ribbon.xaml.cs"
     , "Presentation\Views\RibbonSimple.xaml"
     , "Presentation\Views\RibbonSimple.xaml.cs"
     , "Presentation\Views\StatusBar.xaml"
     , "Presentation\Views\StatusBar.xaml.cs"
-    , "Presentation\Views\StepA.xaml"
-    , "Presentation\Views\StepA.xaml.cs"
-    , "Presentation\Views\StepB.xaml"
-    , "Presentation\Views\StepB.xaml.cs"
-    , "Presentation\Views\StepC.xaml"
-    , "Presentation\Views\StepC.xaml.cs"
-    , "Presentation\Views\StepD.xaml"
-    , "Presentation\Views\StepD.xaml.cs"
-    , "Presentation\Views\StepE.xaml"
-    , "Presentation\Views\StepE.xaml.cs"
-    , "Presentation\Views\UILaunchApproaches.xaml"
-    , "Presentation\Views\UILaunchApproaches.xaml.cs"
-    , "Presentation\Views\ViewA.xaml"
-    , "Presentation\Views\ViewA.xaml.cs"
-    , "Presentation\Views\ViewB.xaml"
-    , "Presentation\Views\ViewB.xaml.cs"
-    , "Presentation\Views\ViewC.xaml"
-    , "Presentation\Views\ViewC.xaml.cs"
-    , "Presentation\Views\ViewD.xaml"
-    , "Presentation\Views\ViewD.xaml.cs"
-    , "Presentation\Views\ViewABCD.xaml"
-    , "Presentation\Views\ViewABCD.xaml.cs"
-    , "Presentation\Views\ViewDiscovery.xaml"
-    , "Presentation\Views\ViewDiscovery.xaml.cs"
-    , "Presentation\Views\ViewInjection.xaml"
-    , "Presentation\Views\ViewInjection.xaml.cs"
     # Presentation\Views\Shells
     , "Presentation\Views\Shells\_ReadMe.txt"    
-    # , "Presentation\Views\Shells\RibbonShell.xaml"
-    , "Presentation\Views\Shells\Shell.xaml"
+      , "Presentation\Views\Shells\Shell.xaml"
     , "Presentation\Views\Shells\Shell.xaml.cs"
     # Presentation\UserControls
     , "Presentation\Views\UserControls\_ReadMe.txt"
@@ -305,12 +278,12 @@ $commonCoreFiles = @(
     , "Application\IDatabaseService.cs"
     , "Application\ILookupService.cs"
     # Application\TYPEs
-    , "Application\TYPEs\_ReadMe.txt"
+    , "Application\TYPE\_ReadMe.txt"
     # Application\TYPEs\Commands
-    , "Application\TYPEs\Commands\_ReadMe.txt"
+    , "Application\TYPE\Commands\_ReadMe.txt"
     # Application\TYPEs\Queries
-    , "Application\TYPEs\Queries\_ReadMe.txt"    
-    , "Application\TYPEs\Queries\IGetTYPEsListQuery.cs"
+    , "Application\TYPE\Queries\_ReadMe.txt"    
+    , "Application\TYPE\Queries\IGetTYPEsListQuery.cs"
     # ApplicationServices
     , "ApplicationServices\_ReadMe.txt"
     # DomainServices
@@ -339,11 +312,9 @@ $commonCoreFiles = @(
     , "Presentation\ViewModels\ICombinedNavigationViewModel.cs"
     , "Presentation\ViewModels\IITEMDetailViewModel.cs"
     , "Presentation\ViewModels\IMainViewModel.cs"
-    , "Presentation\ViewModels\IMultiStepProcessViewModel.cs"
-    , "Presentation\ViewModels\IRegionNavigationViewModel.cs"
+    , "Presentation\ViewModels\IModulesViewModel.cs"
     , "Presentation\ViewModels\IRibbonViewModel.cs"
     , "Presentation\ViewModels\IStatusBarViewModel.cs"
-    , "Presentation\ViewModels\IStepABCDEViewModel.cs"
     , "Presentation\ViewModels\ITYPEDetailViewModel.cs"
     , "Presentation\ViewModels\ITYPEMainViewModel.cs"
     , "Presentation\ViewModels\ITYPENavigationViewModel.cs"
@@ -351,11 +322,7 @@ $commonCoreFiles = @(
     , "Presentation\ViewModels\ITYPEMainMVViewModel.cs"
     , "Presentation\ViewModels\ITYPENavigationMVViewModel.cs"
     , "Presentation\ViewModels\ITYPEViewModel.cs"
-    , "Presentation\ViewModels\IUILaunchApproachesViewModel.cs"
-    , "Presentation\ViewModels\IViewABCDViewModel.cs"
-    , "Presentation\ViewModels\IViewDiscoveryViewModel.cs"
-    , "Presentation\ViewModels\IViewInjectionViewModel.cs"
-    # Presentation\ViewModels\Shells
+      # Presentation\ViewModels\Shells
     , "Presentation\ViewModels\Shells\_ReadMe.txt"
     # Presentation\Views
     , "Presentation\Views\_ReadMe.txt"    
@@ -364,24 +331,18 @@ $commonCoreFiles = @(
     , "Presentation\Views\ICombinedNavigation.cs"
     , "Presentation\Views\IITEMDetail.cs"
     , "Presentation\Views\IMain.cs"
-    , "Presentation\Views\IMultiStepProcess.cs"
-    , "Presentation\Views\IRegionNavigation.cs"
+    , "Presentation\Views\IModules.cs"
+    # , "Presentation\Views\IRegionNavigation.cs"
     , "Presentation\Views\IRibbon.cs"
     , "Presentation\Views\IStatusBar.cs"
-    , "Presentation\Views\IStepA.cs"
-    , "Presentation\Views\IStepB.cs"
-    , "Presentation\Views\IStepC.cs"
-    , "Presentation\Views\IStepD.cs"
-    , "Presentation\Views\IStepE.cs"
     , "Presentation\Views\IITEMDetail.cs"
     , "Presentation\Views\ITYPE.cs"
     , "Presentation\Views\ITYPEDetail.cs"
     , "Presentation\Views\ITYPEMain.cs"
     , "Presentation\Views\ITYPENavigation.cs"
-    , "Presentation\Views\IUILaunchApproaches.cs"
-    , "Presentation\Views\IViewABCD.cs"
-    , "Presentation\Views\IViewDiscovery.cs"
-    , "Presentation\Views\IViewInjection.cs"
+    # , "Presentation\Views\IUILaunchApproaches.cs"
+    # , "Presentation\Views\IViewDiscovery.cs"
+    # , "Presentation\Views\IViewInjection.cs"
     # Presentation\Views\Shells
     , "Presentation\Views\Shells\_ReadMe.txt"
 )
@@ -593,8 +554,9 @@ function UpdateMatchingCoreFiles([string] $masterCoreFile)
 
         Write-Host -ForegroundColor Blue ("{0,-60} - {1} {2}" -f $masterCoreFile, $masterCoreFileInfo.LastWriteTime, $masterCoreFileInfo.Length)
         # Write-Host -ForegroundColor Red "$($templateMaster)\$($masterCoreFile) $($masterCoreFileInfo.LastWriteTime) $($masterCoreFileInfo.Length)"
-
-        foreach ($targetTemplateFolder in $targetProjectTemplateFolders)
+        
+        #foreach ($targetTemplateFolder in $targetProjectTemplateFolders)
+        foreach ($targetTemplateFolder in $targetCoreTemplateFolders)
         {
             Write-Verbose "Checking files in $($projectTemplates)\$($targetTemplateFolder)"
 

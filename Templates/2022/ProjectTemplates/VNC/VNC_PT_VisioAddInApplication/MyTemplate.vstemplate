@@ -1,0 +1,56 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_VisioAddInApplication</Name>
+    <Description>Used to create a new Visio VSTO AddInApplication.  Use with VNC_PT_VisioAddIn</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <ProjectTypeTag>VNCPT</ProjectTypeTag>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VNC_PT_VisioAddInApplication</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+
+  <TemplateContent>
+    <Project File="VisioAddInApplication.csproj" ReplaceParameters="true">
+
+      <Folder Name="Actions">
+        <ProjectItem ReplaceParameters="true">Visio_Application.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Document.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Page.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Shape.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Events">
+        <ProjectItem ReplaceParameters="true">AddInApplicationEvents.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">VisioAppEvents.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Resources">
+
+        <Folder Name="Icons">
+          <ProjectItem ReplaceParameters="false">VisioAddin.ico</ProjectItem>
+          <ProjectItem ReplaceParameters="false">VNCDeveloperMotivation.ico</ProjectItem>
+        </Folder>
+
+        <Folder Name="Images">
+          <ProjectItem ReplaceParameters="false">DebugWindow.gif</ProjectItem>
+          <ProjectItem ReplaceParameters="false">WatchWindow.gif</ProjectItem>
+        </Folder>
+
+        <Folder Name="Xaml" />
+      </Folder>
+
+      <Folder Name="Visio">
+        <ProjectItem ReplaceParameters="true">AddInApplication.cs</ProjectItem>
+      </Folder>
+
+      <ProjectItem ReplaceParameters="true">Common.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

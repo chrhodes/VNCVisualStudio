@@ -1,0 +1,50 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_VisioAddIn</Name>
+    <Description>Used to create a new Visio VSTO AddIn.  Use with VNC_PT_VisioAddInApplication</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <ProjectTypeTag>VNCPT</ProjectTypeTag>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VNC_PT_VisioAddIn</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+  
+  <TemplateContent>
+    <Project File="VisioAddIn.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
+      <Folder Name="Properties">
+        <ProjectItem ReplaceParameters="true">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources">
+        <Folder Name="Icons">
+          <ProjectItem ReplaceParameters="false">VisioAddin.ico</ProjectItem>
+          <ProjectItem ReplaceParameters="false">VNCDeveloperMotivation.ico</ProjectItem>
+        </Folder>
+        <Folder Name="Images">
+          <ProjectItem ReplaceParameters="false">DebugWindow.gif</ProjectItem>
+          <ProjectItem ReplaceParameters="false">WatchWindow.gif</ProjectItem>
+        </Folder>
+        <Folder Name="Xaml" />
+      </Folder>
+      <ProjectItem ReplaceParameters="true">Ribbon.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Ribbon.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Ribbon.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Ribbon_VisioAddIn.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">ThisAddIn.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">ThisAddIn.Designer.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true">ThisAddIn.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false">VisioAddIn_TemporaryKey.pfx</ProjectItem>
+      <ProjectItem ReplaceParameters="true">App.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

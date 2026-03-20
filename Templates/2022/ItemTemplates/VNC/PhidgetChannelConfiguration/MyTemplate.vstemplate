@@ -1,0 +1,22 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>TYPE.cs</DefaultName>
+    <Name>PhidgetClassConfiguration</Name>
+    <Description>Creates Configuration Classes for Phidget Class;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="TYPE.cs" ReplaceParameters="true">TYPE.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="TYPEAction.cs" ReplaceParameters="true">TYPEAction.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="TYPESequence.cs" ReplaceParameters="true">TYPESequence.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="TYPESequenceConfig.cs" ReplaceParameters="true">TYPESequenceConfig.cs</ProjectItem>
+  </TemplateContent>
+  
+  <WizardExtension>
+    <Assembly>VNCVSProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=96d23393c1bd2d0a</Assembly>
+    <FullClassName>VNCVSProjectWizard.WizardImplementation</FullClassName>
+  </WizardExtension>  
+</VSTemplate>

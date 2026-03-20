@@ -1,0 +1,117 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>VNC_PT_VisioAddInPrismApplication</Name>
+    <Description>Used to create a new Visio VSTO AddIn PrismApplication.  Use with VNC_PT_VisioAddIn and VNC_PT_VisioAddInPrismApplication.Core</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <ProjectTypeTag>VNCPT</ProjectTypeTag>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>VisioAddInPrismApplication</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__VNCTemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="VisioPrismAddInApplication.csproj" ReplaceParameters="true">
+
+      <Folder Name="Actions">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">UILaunchApproach.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Application.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Document.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Page.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Shape.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_ShapeSheet.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">Visio_Stencil.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Domain">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+      </Folder>
+
+      <Folder Name="Events">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true">AddInApplicationEvents.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true">VisioAppEvents.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Modules"">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+        <ProjectItem ReplaceParameters="true">VisioPrismAddInApplication_Module.cs</ProjectItem>
+      </Folder>
+
+      <Folder Name="Presentation">
+
+        <Folder Name="Converters">
+          <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true">SelectedItemsToVisioCommandWrapperConverter.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true">XElementToStringConverter.cs</ProjectItem>
+        </Folder>
+
+        <Folder Name="ViewModels">
+          <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true">AboutViewModel.cs</ProjectItem>
+        </Folder>
+
+        <Folder Name="Views">
+          <Folder Name="UserControls">
+            <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+          </Folder>
+
+          <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+          <ProjectItem ReplaceParameters="true">About.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true">About.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true">AppVersionInfo.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true">AppVersionInfo.xaml.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true">PrismRegionTest.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true">PrismRegionTest.xaml.cs</ProjectItem>
+        </Folder>
+
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+      </Folder>
+
+      <Folder Name="Resources">
+
+        <Folder Name="Icons">
+          <ProjectItem ReplaceParameters="false">VisioAddin.ico</ProjectItem>
+          <ProjectItem ReplaceParameters="false">VNCDeveloperMotivation.ico</ProjectItem>
+        </Folder>
+
+        <Folder Name="Images">
+          <ProjectItem ReplaceParameters="false">DebugWindow.gif</ProjectItem>
+          <ProjectItem ReplaceParameters="false">WatchWindow.gif</ProjectItem>
+        </Folder>
+
+        <Folder Name="Xaml">
+          <ProjectItem ReplaceParameters="true">Application.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true">Display_StylesAndTemplates.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true">Layout_Styles.xaml</ProjectItem>
+        </Folder>
+
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+      </Folder>
+
+      <Folder Name="Visio">
+        <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+        <ProjectItem ReplaceParameters="true">AddInApplication.cs</ProjectItem>
+      </Folder>
+
+      <ProjectItem ReplaceParameters="true">_ReadMe.txt</ProjectItem>
+
+      <ProjectItem ReplaceParameters="true">Bootstrapper.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Common.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Execute-PostBuild.ps1</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Execute-PreBuild.ps1</ProjectItem>
+
+    </Project>
+  </TemplateContent>
+</VSTemplate>
